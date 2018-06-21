@@ -1,0 +1,24 @@
+Classes
+
+User 
+
+Card 
+
+AdminUser
+
+Route
+
+
+	Vehicle 
+	/     \
+Subway	  Bus
+
+	Station 
+   /      \
+ Bus     Subway
+
+
+TransitNetwork
+
+
+LogClass
