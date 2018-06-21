@@ -1,4 +1,6 @@
-Classes
+Thursday June 21st
+
+== Classes ==
 
 User 
 
@@ -9,10 +11,6 @@ AdminUser
 Route
 
 
-	Vehicle 
-	/     \
-Subway	  Bus
-
 	Station 
    /      \
  Bus     Subway
@@ -22,3 +20,67 @@ TransitNetwork
 
 
 LogClass
+
+OPTIONAL: 
+
+	Vehicle 
+	/     \
+Subway	  Bus
+
+
+
+== TransitNetwork == 
+
+--- Methods ---
+- int getFare()
+- deducting fares from users 
+- outputTime()
+- checkValidCard()
+- int calculateFare()
+
+--- Collaborating classes --- 
+- 
+
+
+== Card ==
+
+* cardID
+
+--- Methods --- 
+- constructor() * create new ID
+- null tap(station)
+- null deductFare()
+- null addValue()
+- string getID()
+
+
+--- Collaborating classes --- 
+- TransitNetwork 
+- User
+ 
+
+== User == 
+
+--- Methods ---
+- string getName()
+- string getEmail()
+- string setName()
+- null addCard()
+- null removeCard()
+- null modifyCardBalance(cardID)
+- String getRecentTrips()
+- String viewAverageTransitCost()
+
+
+--- Collaborating --- 
+- Card class
+
+
+== Station == 
+ 
+ * stationID
+ * name
+ --- Methods --- 
+ - String getType()
+ - String getName()
+ - 
