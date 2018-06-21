@@ -21,6 +21,8 @@ TransitNetwork
 
 LogClass
 
+TransitManagement
+
 OPTIONAL: 
 
 	Vehicle 
@@ -29,7 +31,9 @@ Subway	  Bus
 
 
 
+
 == TransitNetwork == 
+* THIS CLASS IS A LITTLE SUS
 
 --- Methods ---
 - int getFare()
@@ -76,11 +80,38 @@ Subway	  Bus
 - Card class
 
 
+== TransitSystem == 
+* ArrayList<Station>
+--- Methods --- 
+- int getStationsTravelled(station1, station2)
+- null addStations(station)
+- null removeStation(station)
+
+
 == Station == 
  
  * stationID
  * name
+ * location (x,y) coordinates
  --- Methods --- 
  - String getType()
  - String getName()
- - 
+ 
+
+== SubWayStation extends Station == 
+* fare
+
+--- methods --- 
+- int getFare()
+
+== BusStop extends Station == 
+* fare
+
+--- methods --- 
+- int getFare()
+
+
+
+
+
+
