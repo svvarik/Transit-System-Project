@@ -54,6 +54,10 @@ public class Card {
             System.out.println("Not a valid value. Cardholders can only add $10, $20, or $50 to their card balance.");
         }
 
+        if (this.balance > 0) {
+            this.suspended = false;
+        }
+
     }
 
     public void deductFare(int fare) {
@@ -61,6 +65,10 @@ public class Card {
         if (this.balance < 0) {
             this.suspended = true;
         }
+    }
+
+    public void reportStolen() {
+        this.suspended = true;
     }
 
 }
