@@ -6,7 +6,7 @@ public class TransitNetwork {
 
     private long startTimeNum;
     private String startTimeString;
-    private Date date;
+    public Date date;
 
     public TransitNetwork(){
         this.date = new Date();
