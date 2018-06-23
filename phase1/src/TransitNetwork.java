@@ -11,7 +11,7 @@ public class TransitNetwork {
     public TransitNetwork(){
         this.date = new Date();
         this.startTimeNum = date.getTime();
-        this.startTimeString date.toString();
+        this.startTimeString = date.toString();
     }
     /** setters for the TransitNetwork's fare values */
     public void setFlatFare(double fare){ this.flatFare = fare;}
