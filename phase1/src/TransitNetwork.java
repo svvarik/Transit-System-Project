@@ -21,12 +21,15 @@ public class TransitNetwork {
 
     /** getters for this TransitNetwork's fare values */
     public double getFlatFare(){ return this.flatFare;}
-    public double getTripFare(){return this.tripFare;}
+    public double getTripFare(){ return this.tripFare;}
 
     /**getter for the TransitNetwork start time in both numericals and String */
-    public long getStartTimeNum(){return this.startTimeNum;}
-    public String getStartTimeString(){return this.startTimeString;}
+    public long getStartTimeNum(){ return this.startTimeNum;}
+    public String getStartTimeString(){ return this.startTimeString;}
 
     /** getRunningTime returns the systems runingtime in ms */
-    public long getRunningTime(){return this.date.getTime() - this.startTimeNum;}
+    public long getRunningTime(){
+        Date d = new Date();
+        return d.getTime() - this.startTimeNum;
+    }
 }

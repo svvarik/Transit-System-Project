@@ -4,7 +4,7 @@ public class test {
         TransitNetwork network = new TransitNetwork();
         int i = 0;
         while (i < 1) {
-            System.out.println(network.date);
+            System.out.println(network.getRunningTime());
         }
     }
 }
