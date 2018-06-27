@@ -5,6 +5,8 @@ public class test {
         int i = 0;
         while (i < 1) {
             System.out.println(network.getRunningTime());
+            System.out.println(network.getStartTimeNum());
+
         }
     }
 }

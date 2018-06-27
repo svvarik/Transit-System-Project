@@ -16,7 +16,7 @@ public class Station {
         this.flatRate = flatRate;
     }
 
-    public Station(int id, int x, int y, boolean flatRate){
+    public Station(int x, int y, boolean flatRate){
         this.id =idCount;
         idCount++;
         this.x = x;

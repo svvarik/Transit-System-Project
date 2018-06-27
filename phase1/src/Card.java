@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Card {
 
@@ -8,7 +9,9 @@ public class Card {
 
     private int balance;
 
-    private ArrayList timer;
+    private ArrayList<Date> tapDates;
+
+    private Station lastTap;
 
     private boolean suspended;
 
@@ -23,7 +26,6 @@ public class Card {
         balance = 19;
         tapOn = false;
         cardId++;
-        timer = new ArrayList();
         suspended = false;
     }
 
@@ -37,8 +39,11 @@ public class Card {
 
     public void tap(Station station) {
         if (suspended == false) {
+            this.lastTap = station;
             tapOn = true;
-            timer.add(System.currentTimeMillis());
+            Date tempDate = new Date();
+            this.tapDates.add(tempDate);
+
         }
         else {
             System.out.println("Card is Suspended!");
@@ -65,6 +70,10 @@ public class Card {
         if (this.balance < 0) {
             this.suspended = true;
         }
+    }
+
+    public Date getLastTap(){
+        return this.tapDates.get(this.tapDates.size() - 1);
     }
 
     public void reportStolen() {

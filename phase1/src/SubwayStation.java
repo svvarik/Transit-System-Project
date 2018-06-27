@@ -4,8 +4,8 @@ public class SubwayStation extends Station {
         super(false);
     }
 
-    public SubwayStation(int id, int x, int y) {
-        super(id, x, y, false);
+    public SubwayStation(int x, int y) {
+        super(x, y, false);
     }
 
 }

@@ -4,7 +4,7 @@ public class BusStation extends Station {
         super(true);
     }
 
-    public BusStation(int id, int x, int y) {
-        super(id, x, y, true);
+    public BusStation(int x, int y) {
+        super(x, y, true);
     }
 }
