@@ -6,20 +6,22 @@ public class Station {
     private int x;
     private int y;
 
-    private boolean FlatRate = false;
+    private boolean flatRate;
 
     private int id;
 
-    public Station(){}{
+    public Station(boolean flatRate){}{
         this.id = idCount;
         idCount++;
+        this.flatRate = flatRate;
     }
 
-    public Station(int id, int x, int y){
+    public Station(int id, int x, int y, boolean flatRate){
         this.id =idCount;
         idCount++;
         this.x = x;
         this.y = y;
+        this.flatRate = flatRate;
     }
 
     public void setLocation(int x, int y){
@@ -34,6 +36,6 @@ public class Station {
     public int getY(){return this.y;}
 
     public boolean isFlatRate(){
-        return FlatRate;
+        return this.flatRate;
     };
 }

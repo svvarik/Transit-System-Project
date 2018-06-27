@@ -1,0 +1,22 @@
+this in Card class.
+
+when the customer tapOn:
+
+
+
+if(station.isFlatRate() == true){
+card.amount -= TransitNetwork.getFlatRate;
+}
+if(Station.isFlatRate() == false){
+tapOn = true;
+setTimeout(function(), 2hrs in miliseconds)
+}
+
+function(){
+if (tapOn== ture){
+deduct flat rate;
+}
+else{
+calculate the fare;
+}
+}

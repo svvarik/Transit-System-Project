@@ -9,6 +9,8 @@ public class AdminUser {
 
     private ArrayList cards;
 
+
+
     public AdminUser(String name, String email) {
         this.name = name;
         this.email = email;
