@@ -9,6 +9,11 @@ public class TransitSystem {
 
     }
 
+    public TransitSystem(ArrayList<Station> stations, ArrayList<CardHolder> transitCardHolders){
+        this.stations = stations;
+        this.transitCardHolders = transitCardHolders;
+    }
+
     public void addCardHolder(String name, String email){
         CardHolder tempCardholder = new CardHolder(name, email);
         this.transitCardHolders.add(tempCardholder);
