@@ -21,8 +21,6 @@ public class TransitSystem {
         return Math.abs(s1.getX() - s2.getX());
     }
 
-    public void nightCheck(){
-
-    }
+    public void nightCheck(){}
 
 }

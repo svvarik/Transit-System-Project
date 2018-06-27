@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class AdminUser {
+public class AdminUser{
 
     private String name;
 

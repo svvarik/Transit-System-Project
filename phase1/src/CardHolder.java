@@ -25,9 +25,7 @@ public class CardHolder {
         return name;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email;}
 
     public void removeCard(int cardID){
         for (int i = 0; i < this.cards.size(); i++){
@@ -37,9 +35,7 @@ public class CardHolder {
         }
     }
 
-    public void addCard(){
-        this.cards.add(new Card());
-    }
+    public void addCard(){this.cards.add(new Card());}
 
     public void addTotalCost(int fare){
         this.totalCost += fare;
