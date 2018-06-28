@@ -80,4 +80,11 @@ public class Card {
         this.suspended = true;
     }
 
+    public void setLastTap(Station lastTap) {
+        this.lastTap = lastTap;
+    }
+
+    public void setTapOn(boolean tapOn) {
+        this.tapOn = tapOn;
+    }
 }

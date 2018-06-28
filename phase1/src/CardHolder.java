@@ -13,6 +13,10 @@ public class CardHolder {
         this.totalCost = 0;
     }
 
+    public ArrayList <Card> getCards() {
+        return this.cards;
+    }
+
     public void addCard(Card card){
         this.cards.add(card);
     }
