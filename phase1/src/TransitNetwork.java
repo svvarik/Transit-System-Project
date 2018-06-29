@@ -32,4 +32,23 @@ public class TransitNetwork {
         Date d = new Date();
         return d.getTime() - this.startTimeNum;
     }
+
+    public void calcFare(Card card, Station station){
+        if(station.isFlatRate()) {card.deductFare(this.flatFare);}
+        else{
+            if(!card.isTapOn()) {card.setTapOn(true);}
+            else{
+                Date d = new Date();
+                if(d.getTime() - card.getLastTapDate().getTime() > 7200000){ //if it has been more than 2 hours since the past trip
+                    card.deductFare(this.flatFare);
+                    card.setTapOn(true);
+                }
+                else{
+                    double tripfare = Math.abs(station.getX() - card.getLastStation().getX()) * this.tripFare;
+                    card.deductFare(tripFare);
+                    card.setTapOn(false);
+                }
+            }
+        }
+    }
 }

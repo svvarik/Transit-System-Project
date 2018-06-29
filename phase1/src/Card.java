@@ -15,6 +15,8 @@ public class Card {
 
     private boolean suspended;
 
+    private TransitNetwork transitNetwork;
+
     //the card has an amount
     //boolean value tapOn
     //methods for setting and getting the amount
@@ -22,11 +24,12 @@ public class Card {
     //everytime the user wants to tap on, the timer checks to see if the card has been tapOn for an unusual time
     //if it, it charges a flat rate, then turns the tap on again with the timer reset to zero
     //otherwise it just behaves regulary.
-    public Card() {
+    public Card(TransitNetwork tn) {
         balance = 19;
         tapOn = false;
         cardId++;
         suspended = false;
+        this.transitNetwork = tn;
     }
 
     public int getId() {
@@ -39,18 +42,18 @@ public class Card {
 
     public void tap(Station station) {
         if (suspended == false) {
+ //           tapOn = true;
+            this.transitNetwork.calcFare(this, station);
             this.lastTap = station;
-            tapOn = true;
             Date tempDate = new Date();
             this.tapDates.add(tempDate);
-
         }
         else {
             System.out.println("Card is Suspended!");
         }
     }
 
-    public void addValue(int value) {
+    public void addValue(double value) {
         if (value == 10 | value == 20 | value == 50) {
             this.balance += value;
         }
@@ -65,16 +68,13 @@ public class Card {
 
     }
 
-    public void deductFare(int fare) {
+    public void deductFare(double fare) {
         this.balance -= fare;
         if (this.balance < 0) {
             this.suspended = true;
         }
     }
 
-    public Date getLastTap(){
-        return this.tapDates.get(this.tapDates.size() - 1);
-    }
 
     public void reportStolen() {
         this.suspended = true;
@@ -87,4 +87,11 @@ public class Card {
     public void setTapOn(boolean tapOn) {
         this.tapOn = tapOn;
     }
+
+    public boolean isTapOn() {return this.tapOn;}
+
+    public Station getLastStation(){return this.lastTap;}
+
+    public Date getLastTapDate(){return this.tapDates.get(this.tapDates.size() - 1);}
+
 }
