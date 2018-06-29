@@ -24,7 +24,7 @@ public class TransitSystem {
 
     public void addStation(Station station){this.stations.add(station);}
 
-    public int calDistance(Station s1, Station s2){
+    public static int calDistance(SubwayStation s1, SubwayStation s2){
         return Math.abs(s1.getX() - s2.getX());
     }
 
