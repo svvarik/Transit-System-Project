@@ -19,7 +19,7 @@ public class Card {
 
     private TransitNetwork transitNetwork;
 
-    private Date lastEffectiveTap;
+    private Date lastEffectiveTap = null;
 
     private CardHolder owner;
 
@@ -60,7 +60,9 @@ public class Card {
 
     public boolean isWithinTimeLimit(){
         Date d = new Date();
-        return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < transitNetwork.getTimeLimit());
+        if (this.lastEffectiveTap instanceof Date)
+            return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < transitNetwork.getTimeLimit());
+        return false;
     }
 
     public void addValue(double value) {
