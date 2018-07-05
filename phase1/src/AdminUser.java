@@ -1,15 +1,18 @@
 import java.util.ArrayList;
 
-/** This admin compares overall revenues to the operating costs
+/** This admin is used to analyze the buisness statistics
+ * For example it compares overall revenues to the operating costs
  *
- * This class is responsible for a daily report for the governement to analyze the TTC statistics */
+ * This class is also responsible for a daily report for the governement to analyze the TTC statistics */
 public class AdminUser{
 
-    int overallRevenue = 0;
-    int operatingCosts;
+    private int overallRevenue = 0;
+    private int operatingCosts;
+    private ArrayList<Trip> allTrips;
 
     public AdminUser (int costs) {
         operatingCosts = costs;
+        ArrayList<Trip> allTrips = new ArrayList<>();
     }
 
     public int dailyProfits () {
@@ -22,6 +25,11 @@ public class AdminUser{
 
     public void reset() {
         overallRevenue = 0;
+        ArrayList<Trip> allTrips = new ArrayList<>();
+    }
+
+    public void addTrip(Trip newtrip) {
+        allTrips.add(newtrip);
     }
 
 }

@@ -19,7 +19,7 @@ public class UserManager {
         user.setName(newname);
     }
 
-    public String[][] viewTrips(CardHolder user) {
+    public ArrayList<Trip> viewTrips(CardHolder user) {
         return user.getTrips();
     }
 
