@@ -9,7 +9,6 @@ public class Station {
     private int y;
 
     private boolean flatRate;
-    private boolean entrance;
 
     private int id;
 
