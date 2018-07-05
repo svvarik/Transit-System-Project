@@ -4,6 +4,7 @@ public class TransitNetwork {
     private double flatFare = 2;
     private double tripFare = 0.5;
     private double capFare = 6;
+    private double timeLimit = 7200000;
 
     private long startTimeNum;
     private String startTimeString;
@@ -18,6 +19,7 @@ public class TransitNetwork {
     public void setFlatFare(double fare){ this.flatFare = fare;}
     public void setTripFare(double fare){this.tripFare = fare;}
     public void setCapFare(double fare){this.capFare = fare;}
+    public void setTimeLimit(double limit) {this.timeLimit = limit;}
 
 
 
@@ -25,6 +27,7 @@ public class TransitNetwork {
     public double getFlatFare(){ return this.flatFare;}
     public double getTripFare(){ return this.tripFare;}
     public double getCapFare() {return this.capFare;}
+    public double getTimeLimit() {return this.timeLimit;}
 
     /**getter for the TransitNetwork start time in both numericals and String */
     public long getStartTimeNum(){ return this.startTimeNum;}
@@ -36,22 +39,24 @@ public class TransitNetwork {
         return d.getTime() - this.startTimeNum;
     }
 
-    public void calcFare(Card card, Station station){
-        if(station.isFlatRate()) { card.deductFare(this.flatFare);}
-        else{
-            if(!card.isTapOn()) {card.setTapOn(true);}
-            else{
-                Date d = new Date();
-                if(d.getTime() - card.getLastTapDate().getTime() > 7200000){ //if it has been more than 2 hours since the past trip
-                    card.deductFare(this.flatFare);
-                    card.setTapOn(true);
-                }
-                else{
-                    double tripfare = Math.min(Math.abs(station.getX() - card.getLastStation().getX()) * this.tripFare, this.capFare);
-                    card.deductFare(tripFare);
-                    card.setTapOn(false);
-                }
-            }
-        }
+    public void calcFare(Card card, CardMachine cardmachine){
+
     }
+//        if(station.isFlatRate()) { card.deductFare(this.flatFare);}
+//        else{
+//            if(!card.isTapOn()) {card.setTapOn(true);}
+//            else{
+//                Date d = new Date();
+//                if (d.getTime() - card.getLastTapDate().getTime() > 7200000) { // if it has been more than 2 hours since the past trip
+//                  card.deductFare(this.flatFare);
+//                  card.setTapOn();
+//                }
+//                else{
+//                    double tripfare = Math.min(Math.abs(station.getX() - card.getLastStation().getX()) * this.tripFare, this.capFare);
+//                    card.deductFare(tripFare);
+//                    card.setTapOff();
+//                }
+//            }
+//        }
+//    }
 }
