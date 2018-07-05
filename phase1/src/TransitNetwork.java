@@ -39,7 +39,49 @@ public class TransitNetwork {
         return d.getTime() - this.startTimeNum;
     }
 
-    public void calcFare(Card card, CardMachine cardmachine){
+    public double calcFare(Card card, CardMachine cardmachine){
+        if(card.isWithinTimeLimit()){
+            if (card.getAmountSinceLastEffectiveTap() < getCapFare()){
+                if (cardmachine.isEntrance()) {
+                    if (cardmachine.getStation().isFlatRate()) {
+                        return Math.min(getCapFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+                    } else {
+                    }
+                } else {
+                    if (cardmachine.getStation().isFlatRate()) {
+
+                    } else {
+                        double rate =
+                                Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
+                                        * this.tripFare;
+                        return Math.min(rate, getCapFare() - rate);
+                    }
+                }
+            }else{
+                return 0;
+            }
+        }
+
+        if(!card.isWithinTimeLimit()){
+            card.setAmountSinceLastEffectiveTap(0);
+            card.setLastEffectiveTap();
+            if (cardmachine.isEntrance()) {
+                if (cardmachine.getStation().isFlatRate()) {
+                    return getCapFare();
+                } else {
+                }
+            } else {
+                if (cardmachine.getStation().isFlatRate()) {
+
+                } else {
+                    double rate =
+                            Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
+                                    * this.tripFare;
+                    return rate;
+                }
+            }
+
+        }
 
     }
 //        if(station.isFlatRate()) { card.deductFare(this.flatFare);}
