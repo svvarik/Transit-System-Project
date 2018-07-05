@@ -38,7 +38,7 @@ public class TransitSystem {
             for (int i = 0; i <= this.transitCardHolders.size() - 1; i++){
                 for(int j = 0; j <= this.transitCardHolders.get(i).getCards().size()-1; j++){
                     this.transitCardHolders.get(i).getCards().get(j).setLastTap(null);
-                    this.transitCardHolders.get(i).getCards().get(j).setTapOn(false);
+                    this.transitCardHolders.get(i).getCards().get(j).setTapOff();
                 }
             }
         }
