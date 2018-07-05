@@ -19,8 +19,15 @@ public class UserManager {
         user.setName(newname);
     }
 
-    public String viewTrips(CardHolder user) {
+    public String[][] viewTrips(CardHolder user) {
+        return user.getTrips();
+    }
 
+    public void addCard(CardHolder user, Card newcard) {
+        user.addCard(newcard);
+    }
 
+    public void removeCard(CardHolder user, int deadcardid) {
+        user.removeCard(deadcardid);
     }
 }
