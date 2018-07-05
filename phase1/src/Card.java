@@ -9,7 +9,7 @@ public class Card {
 
     private double balance;
 
-    private double amountSinceLastTapOn;
+    private double amountSinceLastEffectiveTap;
 
     private ArrayList<Date> tapDates;
 
@@ -19,7 +19,7 @@ public class Card {
 
     private TransitNetwork transitNetwork;
 
-    private Date lastTapOn;
+    private Date lastEffectiveTap;
 
     //the card has an amount
     //boolean value tapOn
@@ -88,10 +88,13 @@ public class Card {
         this.lastTap = lastTap;
     }
 
-    public void setTapOn() {
-        this.amountSinceLastTapOn = 0;
+    public void setLastEffectiveTap(){
+        this.amountSinceLastEffectiveTap = 0;
         Date d = new Date();
-        this.lastTapOn = d;
+        this.lastEffectiveTap = d;
+    }
+
+    public void setTapOn() {
         this.tapOn = true;
     }
     public void setTapOff() {this.tapOn = false;}
@@ -100,7 +103,7 @@ public class Card {
 
     public Station getLastStation(){return this.lastTap;}
     public Date getLastTapDate(){return this.tapDates.get(this.tapDates.size() - 1);}
-    public Date getLastTapOn(){return this.lastTapOn;}
-    public double getAmountSinceLastTapOn(){return this.amountSinceLastTapOn;}
+    public Date getLastTapOn(){return this.lastEffectiveTap;}
+    public double getAmountSinceLastEffectiveTap(){return this.amountSinceLastEffectiveTap;}
 
 }
