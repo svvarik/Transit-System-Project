@@ -4,7 +4,7 @@ public class CardHolder {
     private String name;
     private String email;
     private ArrayList<Card> cards;
-    private String[][] trips = new String[2][2];
+    private ArrayList<Trip> trips;
     private int totalCost;
 
     public CardHolder(String name, String email){
@@ -12,6 +12,7 @@ public class CardHolder {
         this.email = email;
         this.cards = new ArrayList <Card>();
         this.totalCost = 0;
+        this.trips = new ArrayList <Trip>();
     }
 
     public ArrayList <Card> getCards() {
