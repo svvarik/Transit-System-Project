@@ -3,6 +3,7 @@ import java.util.Date;
 public class TransitNetwork {
     private double flatFare = 2;
     private double tripFare = 0.5;
+    private double capFare = 6;
 
     private long startTimeNum;
     private String startTimeString;
@@ -16,12 +17,14 @@ public class TransitNetwork {
     /** setters for the TransitNetwork's fare values */
     public void setFlatFare(double fare){ this.flatFare = fare;}
     public void setTripFare(double fare){this.tripFare = fare;}
+    public void setCapFare(double fare){this.capFare = fare;}
 
 
 
     /** getters for this TransitNetwork's fare values */
     public double getFlatFare(){ return this.flatFare;}
     public double getTripFare(){ return this.tripFare;}
+    public double getCapFare() {return this.capFare;}
 
     /**getter for the TransitNetwork start time in both numericals and String */
     public long getStartTimeNum(){ return this.startTimeNum;}
@@ -34,7 +37,7 @@ public class TransitNetwork {
     }
 
     public void calcFare(Card card, Station station){
-        if(station.isFlatRate()) {card.deductFare(this.flatFare);}
+        if(station.isFlatRate()) { card.deductFare(this.flatFare);}
         else{
             if(!card.isTapOn()) {card.setTapOn(true);}
             else{
@@ -44,7 +47,7 @@ public class TransitNetwork {
                     card.setTapOn(true);
                 }
                 else{
-                    double tripfare = Math.abs(station.getX() - card.getLastStation().getX()) * this.tripFare;
+                    double tripfare = Math.min(Math.abs(station.getX() - card.getLastStation().getX()) * this.tripFare, this.capFare);
                     card.deductFare(tripFare);
                     card.setTapOn(false);
                 }

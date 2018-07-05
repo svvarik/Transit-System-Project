@@ -7,7 +7,9 @@ public class Card {
 
     private static int cardId = 0;
 
-    private int balance;
+    private double balance;
+
+    private double amountSinceLastTapOn;
 
     private ArrayList<Date> tapDates;
 
@@ -16,6 +18,8 @@ public class Card {
     private boolean suspended;
 
     private TransitNetwork transitNetwork;
+
+    private Date lastTapOn;
 
     //the card has an amount
     //boolean value tapOn
@@ -36,7 +40,7 @@ public class Card {
         return cardId;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -84,14 +88,19 @@ public class Card {
         this.lastTap = lastTap;
     }
 
-    public void setTapOn(boolean tapOn) {
-        this.tapOn = tapOn;
+    public void setTapOn() {
+        this.amountSinceLastTapOn = 0;
+        Date d = new Date();
+        this.lastTapOn = d;
+        this.tapOn = true;
     }
+    public void setTapOff() {this.tapOn = false}
 
     public boolean isTapOn() {return this.tapOn;}
 
     public Station getLastStation(){return this.lastTap;}
-
     public Date getLastTapDate(){return this.tapDates.get(this.tapDates.size() - 1);}
+    public Date getLastTapOn(){return this.lastTapOn;}
+    public double getAmountSinceLastTapOn(){return this.amountSinceLastTapOn;}
 
 }
