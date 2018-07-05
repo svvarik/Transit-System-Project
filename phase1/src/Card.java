@@ -103,11 +103,10 @@ public class Card {
         this.lastEffectiveTap = d;
     }
 
-    public void setTapOn() {
-        this.tapOn = true;
-    }
+    public void setTapOn() { this.tapOn = true; }
     public void setTapOff() {this.tapOn = false;}
     public void setOwner(CardHolder owner) {this.owner = owner;}
+    public void setAmountSinceLastEffectiveTap(double amount){this.amountSinceLastEffectiveTap = amount;}
 
     public boolean isTapOn() {return this.tapOn;}
 
