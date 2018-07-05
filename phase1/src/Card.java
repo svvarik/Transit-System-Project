@@ -21,6 +21,8 @@ public class Card {
 
     private Date lastEffectiveTap;
 
+    private CardHolder owner;
+
     //the card has an amount
     //boolean value tapOn
     //methods for setting and getting the amount
@@ -103,6 +105,7 @@ public class Card {
         this.tapOn = true;
     }
     public void setTapOff() {this.tapOn = false;}
+    public void setOwner(CardHolder owner) {this.owner = owner;}
 
     public boolean isTapOn() {return this.tapOn;}
 
@@ -110,5 +113,6 @@ public class Card {
     public Date getLastTapDate(){return this.tapDates.get(this.tapDates.size() - 1);}
     public Date getLastTapOn(){return this.lastEffectiveTap;}
     public double getAmountSinceLastEffectiveTap(){return this.amountSinceLastEffectiveTap;}
+    public CardHolder getOwner(){return this.owner;}
 
 }
