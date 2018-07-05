@@ -60,7 +60,7 @@ public class Card {
 
     public boolean isWithinTimeLimit(){
         Date d = new Date();
-        if (this.lastEffectiveTap instanceof Date)
+        if (this.lastEffectiveTap != null)
             return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < transitNetwork.getTimeLimit());
         return false;
     }
