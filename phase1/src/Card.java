@@ -94,7 +94,7 @@ public class Card {
         this.lastTapOn = d;
         this.tapOn = true;
     }
-    public void setTapOff() {this.tapOn = false}
+    public void setTapOff() {this.tapOn = false;}
 
     public boolean isTapOn() {return this.tapOn;}
 
