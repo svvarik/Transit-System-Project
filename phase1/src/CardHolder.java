@@ -4,6 +4,7 @@ public class CardHolder {
     private String name;
     private String email;
     private ArrayList<Card> cards;
+    private ArrayList<Card> trips;
     private int totalCost;
 
     public CardHolder(String name, String email){
