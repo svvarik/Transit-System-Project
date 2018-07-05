@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Station {
 
     private static int idCount = 000001;
@@ -7,8 +9,13 @@ public class Station {
     private int y;
 
     private boolean flatRate;
+    private boolean entrance;
 
     private int id;
+
+    private int cardMachineCount;
+    private ArrayList<CardMachine> entrances;
+    private ArrayList<CardMachine> exits;
 
     public Station(boolean flatRate){}{
         this.id = idCount;
@@ -17,6 +24,7 @@ public class Station {
     }
 
     public Station(int x, int y, boolean flatRate){
+        this.cardMachineCount = 0;
         this.id =idCount;
         idCount++;
         this.x = x;
@@ -38,4 +46,14 @@ public class Station {
     public boolean isFlatRate(){
         return this.flatRate;
     };
+
+    public void addEntrace(){
+        this.entrances.add(new CardMachine(true, this, cardMachineCount));
+        this.cardMachineCount++;
+    }
+
+    public void addExist(){
+        this.exits.add(new CardMachine(false, this, cardMachineCount));
+        this.cardMachineCount++;
+    }
 }
