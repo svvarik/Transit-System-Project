@@ -74,6 +74,7 @@ public class Card {
 
     public void deductFare(double fare) {
         this.balance -= fare;
+        this.amountSinceLastEffectiveTap += fare;
         if (this.balance < 0) {
             this.suspended = true;
         }
