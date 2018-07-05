@@ -19,5 +19,10 @@ public class AdminUser{
     public void addRevenue(int fare) {
         overallRevenue += fare;
     }
+
+    public void reset() {
+        overallRevenue = 0;
+    }
+
 }
 
