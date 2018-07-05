@@ -14,4 +14,8 @@ public class UserManager {
     }
     return balance;
   }
+
+    public void changeName(CardHolder user, String newname) {
+        user.setName(newname);
+    }
 }
