@@ -33,7 +33,11 @@ public class CardHolder {
 
     public String getEmail() { return email;}
 
-    public String[][] getTrips() { return trips; }
+    public ArrayList<Trip> getTrips() { return trips; }
+
+    public void addTrip(Trip newtrip) {
+        trips.add(newtrip);
+    }
 
     public void removeCard(int cardID){
         for (int i = 0; i < this.cards.size(); i++){
