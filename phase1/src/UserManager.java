@@ -18,4 +18,9 @@ public class UserManager {
     public void changeName(CardHolder user, String newname) {
         user.setName(newname);
     }
+
+    public String viewTrips(CardHolder user) {
+
+
+    }
 }

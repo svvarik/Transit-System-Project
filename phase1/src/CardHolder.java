@@ -4,7 +4,7 @@ public class CardHolder {
     private String name;
     private String email;
     private ArrayList<Card> cards;
-    private ArrayList<Card> trips;
+    private String[][] trips = new String[2][2];
     private int totalCost;
 
     public CardHolder(String name, String email){
@@ -31,6 +31,8 @@ public class CardHolder {
     }
 
     public String getEmail() { return email;}
+
+    public String[][] getTrips() { return trips; }
 
     public void removeCard(int cardID){
         for (int i = 0; i < this.cards.size(); i++){
