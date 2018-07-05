@@ -44,17 +44,21 @@ public class Card {
         return balance;
     }
 
-    public void tap(Station station) {
+    public void tap(CardMachine cardmachine) {
         if (suspended == false) {
- //           tapOn = true;
-            this.transitNetwork.calcFare(this, station);
-            this.lastTap = station;
+            this.transitNetwork.calcFare(this, cardmachine);
+            this.lastTap = cardmachine.getStation();
             Date tempDate = new Date();
             this.tapDates.add(tempDate);
         }
         else {
             System.out.println("Card is Suspended!");
         }
+    }
+
+    public boolean isWithinTimeLimit(){
+        Date d = new Date();
+        return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < transitNetwork.getTimeLimit());
     }
 
     public void addValue(double value) {
