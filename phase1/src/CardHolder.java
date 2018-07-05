@@ -40,8 +40,6 @@ public class CardHolder {
         }
     }
 
-    public void addCard(){this.cards.add(new Card());}
-
     public void addTotalCost(int fare){
         this.totalCost += fare;
     }
