@@ -65,7 +65,8 @@ public class TransitNetwork {
   }
 
   public double calcFare(Card card, CardMachine cardmachine) {
-    if (card.isWithinTimeLimit()) {
+    if (card.isWithinTimeLimit() && (cardmachine.getStation().getX() == card.getLastStation().getX())
+                                 && (cardmachine.getStation().getY() == card.getLastStation().getY())){
       if (card.getAmountSinceLastEffectiveTap() < getCapFare()) {
         if (cardmachine.isEntrance()) {
           if (cardmachine.getStation().isFlatRate()) {
@@ -87,7 +88,8 @@ public class TransitNetwork {
       }
     }
 
-    if (!card.isWithinTimeLimit()) {
+    if (!card.isWithinTimeLimit() || ((cardmachine.getStation().getX() == card.getLastStation().getX())
+            && (cardmachine.getStation().getY() == card.getLastStation().getY()))) {
       card.setAmountSinceLastEffectiveTap(0);
       card.setLastEffectiveTap();
       if (cardmachine.isEntrance()) {
