@@ -64,50 +64,75 @@ public class TransitNetwork {
     return d.getTime() - this.startTimeNum;
   }
 
-  public double calcFare(Card card, CardMachine cardmachine) {
-    if (card.isWithinTimeLimit() && (cardmachine.getStation().getX() == card.getLastStation().getX())
-                                 && (cardmachine.getStation().getY() == card.getLastStation().getY())){
-      if (card.getAmountSinceLastEffectiveTap() < getCapFare()) {
-        if (cardmachine.isEntrance()) {
-          if (cardmachine.getStation().isFlatRate()) {
-            return Math.min(getCapFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
-          } else {
-          }
-        } else {
-          if (cardmachine.getStation().isFlatRate()) {
-
-          } else {
-            double rate =
-                Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
-                    * getTripFare();
-            return Math.min(rate, getCapFare() - rate);
-          }
-        }
-      } else {
-        return 0;
-      }
-    }
-
-    if (!card.isWithinTimeLimit() || ((cardmachine.getStation().getX() == card.getLastStation().getX())
-            && (cardmachine.getStation().getY() == card.getLastStation().getY()))) {
-      card.setAmountSinceLastEffectiveTap(0);
+  public double calcBusFare(Card card, CardMachine cm){
+    if(card.isWithinTimeLimit() && !isDisjoint(card, cm)){
+      return Math.min(getFlatFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+    } else {
       card.setLastEffectiveTap();
-      if (cardmachine.isEntrance()) {
-        if (cardmachine.getStation().isFlatRate()) {
-          return getFlatFare();
-        } else {
-        }
-      } else {
-        if (cardmachine.getStation().isFlatRate()) {
-
-        } else {
-          double rate =
-              Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
-                  * this.tripFare;
-          return rate;
-        }
-      }
+      return getFlatFare();
     }
-    return 0;
   }
+
+  public double calcSubwayFare(Card card, CardMachine cm){
+    double fare = Math.abs(cm.getStation().getX() - card.getLastStation().getX()) * getTripFare();
+    if(card.isWithinTimeLimit()){
+      return Math.min(fare, getCapFare() - card.getAmountSinceLastEffectiveTap());
+    } else {
+      card.setLastEffectiveTap();
+      return fare;
+    }
+  }
+
+  public boolean isDisjoint(Card card, CardMachine cm){
+    return (cm.getStation().getX() == card.getLastStation().getX())
+            && (cm.getStation().getY() == card.getLastStation().getY());
+  }
+
+//  public double calcFare(Card card, CardMachine cardmachine) {
+//    if (card.isWithinTimeLimit() && (cardmachine.getStation().getX() == card.getLastStation().getX())
+//                                 && (cardmachine.getStation().getY() == card.getLastStation().getY())){
+//      if (card.getAmountSinceLastEffectiveTap() < getCapFare()) {
+//        if (cardmachine.isEntrance()) {
+//          if (cardmachine.getStation().isFlatRate()) {
+//            return Math.min(getCapFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+//          } else {
+//          }
+//        } else {
+//          if (cardmachine.getStation().isFlatRate()) {
+//
+//          } else {
+//            double rate =
+//                Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
+//                    * getTripFare();
+//            return Math.min(rate, getCapFare() - rate);
+//          }
+//        }
+//      } else {
+//        return 0;
+//      }
+//    }
+//
+//    if (!card.isWithinTimeLimit() || ((cardmachine.getStation().getX() == card.getLastStation().getX())
+//            && (cardmachine.getStation().getY() == card.getLastStation().getY()))) {
+//      card.setAmountSinceLastEffectiveTap(0);
+//      card.setLastEffectiveTap();
+//      if (cardmachine.isEntrance()) {
+//        if (cardmachine.getStation().isFlatRate()) {
+//          return getFlatFare();
+//        } else {
+//        }
+//      } else {
+//        if (cardmachine.getStation().isFlatRate()) {
+//
+//        } else {
+//          double rate =
+//              Math.abs(cardmachine.getStation().getX() - card.getLastStation().getX())
+//                  * this.tripFare;
+//          return rate;
+//        }
+//      }
+//    }
+//    return 0;
+//  }
+
 }
