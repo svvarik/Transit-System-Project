@@ -32,5 +32,7 @@ public class AdminUser{
         allTrips.add(newtrip);
     }
 
+    public void calculateOperatingCosts(){}
+
 }
 

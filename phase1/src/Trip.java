@@ -22,6 +22,10 @@ public class Trip {
         this.endDate = d;
     }
 
+    public void endTrip(){
+        // pass
+    }
+
     public CardMachine getEnd() { return end; }
     public CardMachine getStart() { return start; }
 

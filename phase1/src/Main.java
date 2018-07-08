@@ -9,6 +9,8 @@ public class Main {
 
     //Instantiates everything
     public void start(){
+
+
         SubwayStation ss1 = new SubwayStation(0, 2);
         SubwayStation ss2 = new SubwayStation(1, 2);
         SubwayStation ss3 = new SubwayStation(2, 2);

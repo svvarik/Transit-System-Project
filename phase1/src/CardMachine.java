@@ -13,7 +13,15 @@ public class CardMachine {
         this.station = station;
     }
 
-    public Station getStation(){return this.station;}
-    public int getId(){return this.id;}
-    public boolean isEntrance(){return this.entrance;}
+    public Station getStation(){
+        return this.station;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public boolean isEntrance(){
+        return this.entrance;
+    }
 }

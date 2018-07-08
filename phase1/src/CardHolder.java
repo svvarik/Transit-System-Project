@@ -41,7 +41,7 @@ public class CardHolder {
 
     public void removeCard(int cardID){
         for (int i = 0; i < this.cards.size(); i++){
-            if(cardID == this.cards.get(i).getId()){
+            if(cardID == this.cards.get(i).getCardID()){
                 this.cards.remove(i);
             }
         }
@@ -53,7 +53,7 @@ public class CardHolder {
 
     public void modifyCardBalance(int cardID, int value){
         for (int i = 0; i < this.cards.size(); i++){
-            if(cardID == this.cards.get(i).getId()){
+            if(cardID == this.cards.get(i).getCardID()){
                 this.cards.get(i).addValue(value);
             }
         }
