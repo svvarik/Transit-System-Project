@@ -10,6 +10,8 @@ public class Card {
     private ArrayList<Trip> allTrips = new ArrayList<>();
     private CardHolder owner;
     private boolean suspended;
+    private Date lastEffectiveTap;
+    private double amountSinceLastEffectiveTap;
 
 
     public Card(CardHolder owner) {
@@ -18,6 +20,31 @@ public class Card {
         this.owner = owner;
         this.cardId = idAssigner;
         Card.idAssigner += 1;
+        this.amountSinceLastEffectiveTap = 0;
+        this.lastEffectiveTap = null;
+    }
+
+    public Date getLastEffectiveTap() {
+        return lastEffectiveTap;
+    }
+
+    public void setLastEffectiveTap(Date lastEffectiveTap) {
+        this.lastEffectiveTap = lastEffectiveTap;
+    }
+
+    public double getAmountSinceLastEffectiveTap() {
+        return amountSinceLastEffectiveTap;
+    }
+
+    public void setAmountSinceLastEffectiveTap(double amountSinceLastEffectiveTap) {
+        this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap;
+    }
+
+    public boolean isWithinTimeLimit(){
+        Date d = new Date();
+        if (this.lastEffectiveTap != null)
+            return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < 7200000);
+        return false;
     }
 
     public int getCardID() {
