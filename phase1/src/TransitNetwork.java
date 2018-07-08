@@ -66,19 +66,22 @@ public class TransitNetwork {
 
   public double calcBusFare(Card card, CardMachine cm){
     if(card.isWithinTimeLimit() && !isDisjoint(card, cm)){
-      return Math.min(getFlatFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+      double fare =  Math.min(getFlatFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+      card.addAmountSinceLastEffectiveTap(fare);
     } else {
-      card.setLastEffectiveTap();
+      card.resetLastEffective();
       return getFlatFare();
     }
+    return 0;
   }
 
   public double calcSubwayFare(Card card, CardMachine cm){
     double fare = Math.abs(cm.getStation().getX() - card.getLastStation().getX()) * getTripFare();
     if(card.isWithinTimeLimit()){
-      return Math.min(fare, getCapFare() - card.getAmountSinceLastEffectiveTap());
+      card.addAmountSinceLastEffectiveTap(fare);
+      return fare;
     } else {
-      card.setLastEffectiveTap();
+      card.resetLastEffective();
       return fare;
     }
   }

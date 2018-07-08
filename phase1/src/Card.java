@@ -40,11 +40,24 @@ public class Card {
         this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap;
     }
 
+    public void addAmountSinceLastEffectiveTap(double amountToAdd) {
+        this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap + amountToAdd;
+    }
+
     public boolean isWithinTimeLimit(){
         Date d = new Date();
         if (this.lastEffectiveTap != null)
             return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < 7200000);
         return false;
+    }
+
+    public Station getLastStation(){
+        return this.allTrips.get(this.allTrips.size()-1).getEnd().getStation();
+    }
+
+    public void resetLastEffective(){
+        setLastEffectiveTap(new Date());
+        setAmountSinceLastEffectiveTap(0);
     }
 
     public int getCardID() {
