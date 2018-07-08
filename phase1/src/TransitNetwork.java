@@ -64,9 +64,8 @@ public class TransitNetwork {
     return d.getTime() - this.startTimeNum;
   }
 
-  //TODO: check for same location
   public double calcBusFare(Card card, CardMachine cm){
-    if(card.isWithinTimeLimit()){
+    if(card.isWithinTimeLimit() && !isDisjoint(card, cm)){
       return Math.min(getFlatFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
     } else {
       card.setLastEffectiveTap();
@@ -82,6 +81,11 @@ public class TransitNetwork {
       card.setLastEffectiveTap();
       return fare;
     }
+  }
+
+  public boolean isDisjoint(Card card, CardMachine cm){
+    return (cm.getStation().getX() == card.getLastStation().getX())
+            && (cm.getStation().getY() == card.getLastStation().getY());
   }
 
 //  public double calcFare(Card card, CardMachine cardmachine) {
