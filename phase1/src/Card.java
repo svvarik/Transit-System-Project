@@ -36,17 +36,21 @@ public class Card {
         return this.owner;
     }
 
-    public int addValue(double value) {
+    /**
+     * Adds one of three dollar amounts - 10, 20, 50 - to the card's
+     * balance.
+     *
+     * @param value the value proposed to be added
+     *
+     */
+    public void addValue(double value) {
         if (this.suspended) {
-            // Return some other exception
-            return 1;
+            // Throw some exception
         } else {
             if (value == 10 | value == 20 | value == 50) {
                 this.balance += value;
-                return 0;
             } else {
-                // Return some null exception or error
-                return 1;
+                // Didn't work, throw exception
             }
         }
     }
