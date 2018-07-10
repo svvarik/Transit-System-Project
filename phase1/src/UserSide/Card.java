@@ -53,7 +53,7 @@ public class Card {
     }
 
     public void addAmountSinceLastEffectiveTap(double amountToAdd) {
-        this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap + amountToAdd;
+        this.amountSinceLastEffectiveTap = this.amountSinceLastEffectiveTap + amountToAdd;
     }
 
     public boolean isWithinTimeLimit(){
