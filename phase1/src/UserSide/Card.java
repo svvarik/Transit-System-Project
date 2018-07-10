@@ -129,16 +129,16 @@ public class Card {
       if (cm.getStation() instanceof BusStation) { // if bus:
         if (cm.isEntrance()) { // if entrance:
           if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
-            deductValue(5);
+            deductValue(ts.getTransitManager().getCapFare());
             this.allTrips.get(this.allTrips.size()-1).endTrip();
           }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
-          // Calculate fare
-          // Deduct fare from this card
+          double fare = ts.getTransitManager().calcBusFare(this, cm);// Calculate fare
+          deductValue(fare);// Deduct fare from this card
         } else { // is exit so we end trip
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-            deductValue(5);
+            deductValue(ts.getTransitManager().getCapFare());
           } else {
             this.allTrips.get(allTrips.size() - 1).endTrip();
           }
@@ -146,19 +146,19 @@ public class Card {
       } else if (cm.getStation() instanceof SubwayStation) {
         if (cm.isEntrance()) {
           if(getLastCardMachineTapped().isEntrance()){
-            deductValue(5);
+            deductValue(ts.getTransitManager().getCapFare());
             this.allTrips.get(this.allTrips.size()-1).endTrip();
           }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
         } else { // is exist so we end trip and calc fare
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-              deductValue(5);
+              deductValue(ts.getTransitManager().getCapFare());
           } else {
               this.allTrips.get(allTrips.size() - 1).endTrip();
           }
-          // Calculate fare
-          // Deduct fare from this card
+          double fare = ts.getTransitManager().calcSubwayFare(this, cm);// Calculate fare
+          deductValue(fare);// Deduct fare from this card
         }
       } else {
         // TransitSide.CardMachine either has not been initialized properly or is an invalid cardmachine
