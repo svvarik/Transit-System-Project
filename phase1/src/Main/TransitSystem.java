@@ -15,7 +15,8 @@ public class TransitSystem {
     private int openHour = 5;
 
     public TransitSystem(){
-
+        this.transitCardHolders = new ArrayList<>();
+        this.stations = new ArrayList<>();
     }
 
     public TransitSystem(ArrayList<Station> stations, ArrayList<CardHolder> transitCardHolders){

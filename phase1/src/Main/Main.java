@@ -1,22 +1,21 @@
 package Main;
 
 import TransitSide.BusStation;
-import TransitSide.Station;
 import TransitSide.SubwayStation;
-import TransitSide.TransitNetwork;
-import UserSide.CardHolder;
+import TransitSide.TransitManager;
 
 import java.util.ArrayList;
 
 public class Main {
-    private ArrayList<Station> stations;
-    private ArrayList<CardHolder> cardHolders;
     private TransitSystem ts;
-    private TransitNetwork tn;
+    private TransitManager tn;
+
     //main loop would be here somewhere
 
     //Instantiates everything
     public void start(){
+        ts = new TransitSystem();
+        tn = new TransitManager();
 
 
         SubwayStation ss1 = new SubwayStation(0, 2);
@@ -37,30 +36,26 @@ public class Main {
         BusStation bs7 = new BusStation(5,2);
         BusStation bs8 = new BusStation(5,4);
 
-        stations = new ArrayList <>();
 
-        stations.add(ss1);
-        stations.add(ss2);
-        stations.add(ss3);
-        stations.add(ss4);
-        stations.add(ss5);
-        stations.add(ss6);
-        stations.add(ss7);
-        stations.add(ss8);
 
-        stations.add(bs1);
-        stations.add(bs2);
-        stations.add(bs3);
-        stations.add(bs4);
-        stations.add(bs5);
-        stations.add(bs6);
-        stations.add(bs7);
-        stations.add(bs8);
+        ts.addStation(ss1);
+        ts.addStation(ss2);
+        ts.addStation(ss3);
+        ts.addStation(ss4);
+        ts.addStation(ss5);
+        ts.addStation(ss6);
+        ts.addStation(ss7);
+        ts.addStation(ss8);
 
-        cardHolders = new ArrayList <>();
+        ts.addStation(bs1);
+        ts.addStation(bs2);
+        ts.addStation(bs3);
+        ts.addStation(bs4);
+        ts.addStation(bs5);
+        ts.addStation(bs6);
+        ts.addStation(bs7);
+        ts.addStation(bs8);
 
-        ts = new TransitSystem(stations,cardHolders);
-        tn = new TransitNetwork();
     }
 
     //Methods that need to be called every tick are put in here

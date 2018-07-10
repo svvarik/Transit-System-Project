@@ -4,7 +4,7 @@ import UserSide.Card;
 
 import java.util.Date;
 
-public class TransitNetwork {
+public class TransitManager {
   private double flatFare = 2;
   private double tripFare = 0.5;
   private double capFare = 6;
@@ -14,12 +14,12 @@ public class TransitNetwork {
   private String startTimeString;
   private Date date;
 
-  public TransitNetwork() {
+  public TransitManager() {
     this.date = new Date();
     this.startTimeNum = date.getTime();
     this.startTimeString = date.toString();
   }
-  /** setters for the TransitSide.TransitNetwork's fare values */
+  /** setters for the TransitSide.TransitManager's fare values */
   public void setFlatFare(double fare) {
     this.flatFare = fare;
   }
@@ -36,7 +36,7 @@ public class TransitNetwork {
     this.timeLimit = limit;
   }
 
-  /** getters for this TransitSide.TransitNetwork's fare values */
+  /** getters for this TransitSide.TransitManager's fare values */
   public double getFlatFare() {
     return this.flatFare;
   }
@@ -53,7 +53,7 @@ public class TransitNetwork {
     return this.timeLimit;
   }
 
-  /** getter for the TransitSide.TransitNetwork start time in both numericals and String */
+  /** getter for the TransitSide.TransitManager start time in both numericals and String */
   public long getStartTimeNum() {
     return this.startTimeNum;
   }
