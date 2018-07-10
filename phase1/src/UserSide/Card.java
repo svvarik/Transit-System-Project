@@ -168,4 +168,8 @@ public class Card {
         System.out.println("UserSide.Card is Suspended");
     }
   }
+
+  public String toString(){
+      return "Card ID: " + this.cardId + ", Owner: " + owner.getName() + ", Balance: " + this.balance;
+  }
 }
