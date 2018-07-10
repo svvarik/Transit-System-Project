@@ -42,6 +42,8 @@ public class Station {
 
     public int getId(){ return this.id;}
 
+    public String getName() {return this.name;}
+
     public int getX(){return this.x;}
 
     public int getY(){return this.y;}
