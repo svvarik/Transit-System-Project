@@ -8,14 +8,12 @@ import java.util.ArrayList;
 
 public class Main {
     private TransitSystem ts;
-    private TransitManager tn;
 
     //main loop would be here somewhere
 
     //Instantiates everything
     public void start(){
         ts = new TransitSystem();
-        tn = new TransitManager();
 
 
         SubwayStation ss1 = new SubwayStation(0, 2);

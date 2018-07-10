@@ -7,11 +7,13 @@ import TransitSide.CardMachine;
 import TransitSide.Station;
 import TransitSide.SubwayStation;
 import TransitSide.BusStation;
+import Main.TransitSystem;
 
 public class Card {
 
     private static int idAssigner = 0;
 
+    private TransitSystem ts;
     private int cardId;
     private double balance;
     private ArrayList<Trip> allTrips = new ArrayList<>();
@@ -21,14 +23,15 @@ public class Card {
     private double amountSinceLastEffectiveTap;
 
 
-    public Card(CardHolder owner) {
+    public Card(CardHolder owner, TransitSystem ts) {
         this.balance = 19;
         this.suspended = false;
         this.owner = owner;
         this.cardId = idAssigner;
-        Card.idAssigner += 1;
         this.amountSinceLastEffectiveTap = 0;
         this.lastEffectiveTap = null;
+        this.ts = ts;
+        Card.idAssigner += 1;
     }
 
     public ArrayList<Trip> getTrips() { return allTrips; }
@@ -119,8 +122,8 @@ public class Card {
    *
    * @param cm the cardmachine this card is tapped on
    */
-  // TODO: Figure out proper return type
-  // If card is suspended, what should we return?
+  // TODO: RETURN BOOL DEPENDING ON SUCCESS
+  // TODO: Deduct fare from card when required
   public void tapCard(CardMachine cm) {
     if (!suspended) {
       if (cm.getStation() instanceof BusStation) { // if bus:

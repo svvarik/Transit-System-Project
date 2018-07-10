@@ -1,5 +1,6 @@
 package UserSide;
 
+import Main.TransitSystem;
 import UserSide.Card;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ public class CardHolder {
   private String email;
   private ArrayList<Card> cards;
   private int totalCost;
+  private TransitSystem ts;
+
 
   public CardHolder(String name, String email) {
     this.name = name;
