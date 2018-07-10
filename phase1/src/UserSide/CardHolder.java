@@ -76,4 +76,8 @@ public class CardHolder {
    
     return lastThreeTrips;
   }
+
+  public String toString(){
+    return this.name + " has " + this.cards.size() + " cards." + "\n" + this.email;
+  }
 }
