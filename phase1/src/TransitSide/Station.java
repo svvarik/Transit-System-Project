@@ -1,3 +1,5 @@
+package TransitSide;
+
 import java.util.ArrayList;
 
 public class Station {

@@ -1,6 +1,9 @@
+package UserSide;
+
+import UserSide.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class CardHolder {
   private String name;

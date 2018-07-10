@@ -1,3 +1,5 @@
+package UserSide;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -151,11 +153,11 @@ public class Card {
           // Deduct fare from this card
         }
       } else {
-        // CardMachine either has not been initialized properly or is an invalid cardmachine
+        // TransitSide.CardMachine either has not been initialized properly or is an invalid cardmachine
         System.out.println("Error");
       }
     }else{
-        System.out.println("Card is Suspended");
+        System.out.println("UserSide.Card is Suspended");
     }
   }
 }

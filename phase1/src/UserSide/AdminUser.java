@@ -1,3 +1,5 @@
+package UserSide;
+
 import java.util.ArrayList;
 
 /** This admin is used to analyze the buisness statistics

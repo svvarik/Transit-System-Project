@@ -1,3 +1,7 @@
+package Data;
+
+import UserSide.Trip;
+
 import java.util.ArrayList;
 
 public class TransitData {

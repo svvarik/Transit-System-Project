@@ -1,3 +1,5 @@
+package TransitSide;
+
 public class CardMachine {
 
     private boolean entrance;

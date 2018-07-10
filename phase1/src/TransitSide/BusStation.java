@@ -1,3 +1,5 @@
+package TransitSide;
+
 public class BusStation extends Station {
 
     public BusStation(){

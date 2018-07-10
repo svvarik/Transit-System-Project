@@ -1,3 +1,7 @@
+package TransitSide;
+
+import UserSide.Card;
+
 import java.util.Date;
 
 public class TransitNetwork {
@@ -15,7 +19,7 @@ public class TransitNetwork {
     this.startTimeNum = date.getTime();
     this.startTimeString = date.toString();
   }
-  /** setters for the TransitNetwork's fare values */
+  /** setters for the TransitSide.TransitNetwork's fare values */
   public void setFlatFare(double fare) {
     this.flatFare = fare;
   }
@@ -32,7 +36,7 @@ public class TransitNetwork {
     this.timeLimit = limit;
   }
 
-  /** getters for this TransitNetwork's fare values */
+  /** getters for this TransitSide.TransitNetwork's fare values */
   public double getFlatFare() {
     return this.flatFare;
   }
@@ -49,7 +53,7 @@ public class TransitNetwork {
     return this.timeLimit;
   }
 
-  /** getter for the TransitNetwork start time in both numericals and String */
+  /** getter for the TransitSide.TransitNetwork start time in both numericals and String */
   public long getStartTimeNum() {
     return this.startTimeNum;
   }
@@ -91,7 +95,7 @@ public class TransitNetwork {
             && (cm.getStation().getY() == card.getLastStation().getY());
   }
 
-//  public double calcFare(Card card, CardMachine cardmachine) {
+//  public double calcFare(UserSide.Card card, TransitSide.CardMachine cardmachine) {
 //    if (card.isWithinTimeLimit() && (cardmachine.getStation().getX() == card.getLastStation().getX())
 //                                 && (cardmachine.getStation().getY() == card.getLastStation().getY())){
 //      if (card.getAmountSinceLastEffectiveTap() < getCapFare()) {
