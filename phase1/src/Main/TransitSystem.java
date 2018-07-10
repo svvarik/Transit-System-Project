@@ -35,9 +35,15 @@ public class TransitSystem {
         return this.tm;
     }
 
-    public void addCardHolder(String name, String email){
+    public boolean  addCardHolder(String name, String email){
+        for (CardHolder ch: this.transitCardHolders){
+            if (ch.getEmail().equals(email)){
+                return false;
+            }
+        }
         CardHolder tempCardholder = new CardHolder(name, email);
         this.transitCardHolders.add(tempCardholder);
+        return true;
     }
 
     public void addStation(Station station) {
