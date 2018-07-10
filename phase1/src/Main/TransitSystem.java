@@ -2,21 +2,28 @@ package Main;
 
 import TransitSide.Station;
 import TransitSide.SubwayStation;
+import TransitSide.TransitManager;
 import UserSide.CardHolder;
+import UserSide.Trip;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class TransitSystem {
 
+    private TransitManager tm = new TransitManager();
+
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
-    private int closeHour = 22;
-    private int openHour = 5;
+    private Date opened;
+    private Date closed;
+    private ArrayList<Trip> allTrips;
+
 
     public TransitSystem(){
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
+        this.opened = new Date();
     }
 
     public TransitSystem(ArrayList<Station> stations, ArrayList<CardHolder> transitCardHolders){
@@ -24,30 +31,26 @@ public class TransitSystem {
         this.transitCardHolders = transitCardHolders;
     }
 
+    public TransitManager getTransitManager(){
+        return this.tm;
+    }
+
     public void addCardHolder(String name, String email){
         CardHolder tempCardholder = new CardHolder(name, email);
         this.transitCardHolders.add(tempCardholder);
     }
 
-    public void addStation(Station station){this.stations.add(station);}
-
-    public static int calDistance(SubwayStation s1, SubwayStation s2){
-        return Math.abs(s1.getX() - s2.getX());
+    public void addStation(Station station) {
+        this.stations.add(station);
     }
 
-    public void nightCheck(){
-        Date date = new Date();
-        String currentHourString = String.format("%tk", date );
+    public void addTrip(Trip t){
+        this.allTrips.add(t);
+    }
 
-        int currentHour = Integer.parseInt(currentHourString);
 
-        if((currentHour >= this.closeHour) && (currentHour <= this.openHour)){
-            for (int i = 0; i <= this.transitCardHolders.size() - 1; i++){
-                for(int j = 0; j <= this.transitCardHolders.get(i).getCards().size()-1; j++){
-                    //this.transitCardHolders.get(i).getCards().get(j).setLastTap(null);
-                    //this.transitCardHolders.get(i).getCards().get(j).setTapOff();
-                }
-            }
-        }
+    public void exitSystem(){
+        this.closed = new Date();
+        // Write to events.txt
     }
 }
