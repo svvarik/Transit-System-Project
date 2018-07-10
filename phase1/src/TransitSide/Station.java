@@ -17,6 +17,7 @@ public class Station {
     private int cardMachineCount;
     private ArrayList<CardMachine> entrances;
     private ArrayList<CardMachine> exits;
+    private String name;
 
     public Station(boolean flatRate){}{
         this.id = idCount;
@@ -24,13 +25,14 @@ public class Station {
         this.flatRate = flatRate;
     }
 
-    public Station(int x, int y, boolean flatRate){
+    public Station(int x, int y, boolean flatRate, String name){
         this.cardMachineCount = 0;
         this.id =idCount;
         idCount++;
         this.x = x;
         this.y = y;
         this.flatRate = flatRate;
+        this.name = name;
     }
 
     public void setLocation(int x, int y){
@@ -56,5 +58,10 @@ public class Station {
     public void addExist(){
         this.exits.add(new CardMachine(false, this, cardMachineCount));
         this.cardMachineCount++;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
