@@ -5,16 +5,29 @@ import TransitSide.SubwayStation;
 import TransitSide.TransitManager;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
-    private TransitSystem ts;
+
+
+
+    public static void main(String[] args) {
+
+        TransitSystem ts = Main.start();
+        Scanner scan = new Scanner(System.in);
+
+        while (!(scan.next().equals("exit"))){
+            // Run Program
+        }
+        // Save everything
+        System.exit(0);
+    }
 
     //main loop would be here somewhere
 
     //Instantiates everything
-    public void start(){
-        ts = new TransitSystem();
-
+    private static TransitSystem start(){
+        TransitSystem ts = new TransitSystem();
 
         SubwayStation ss1 = new SubwayStation(0, 2);
         SubwayStation ss2 = new SubwayStation(1, 2);
@@ -34,8 +47,6 @@ public class Main {
         BusStation bs7 = new BusStation(5,2);
         BusStation bs8 = new BusStation(5,4);
 
-
-
         ts.addStation(ss1);
         ts.addStation(ss2);
         ts.addStation(ss3);
@@ -54,9 +65,6 @@ public class Main {
         ts.addStation(bs7);
         ts.addStation(bs8);
 
-    }
-
-    //Methods that need to be called every tick are put in here
-    public void run(){
+        return ts;
     }
 }
