@@ -6,7 +6,7 @@ public class BusStation extends Station {
         super(true);
     }
 
-    public BusStation(int x, int y) {
-        super(x, y, true);
+    public BusStation(int x, int y, String name) {
+        super(x, y, true, name);
     }
 }

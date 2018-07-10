@@ -6,8 +6,8 @@ public class SubwayStation extends Station {
         super(false);
     }
 
-    public SubwayStation(int x, int y) {
-        super(x, y, false);
+    public SubwayStation(int x, int y, String name) {
+        super(x, y, false, name);
     }
 
 }
