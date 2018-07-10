@@ -78,6 +78,8 @@ public class Card {
         return this.owner;
     }
 
+    public CardMachine getLastCardMachineTapped(){return this.allTrips.get(this.allTrips.size()-1).getEnd();}
+
     /**
      * Adds one of three dollar amounts - 10, 20, 50 - to the card's
      * balance.
@@ -110,30 +112,41 @@ public class Card {
    *
    * @param cm the cardmachine this card is tapped on
    */
-  // TODO: HANDLE EXCEPTIONS
-  // Exception where last trip has not ended, but we are tapping on a cm.entrance
-  // Exception where first trip never started but we are tapping on a cm.exit
-  // Deal with two hour transfers
   // TODO: Figure out proper return type
   // If card is suspended, what should we return?
   public void tapCard(CardMachine cm) {
     if (!suspended) {
-        // if bus:
-      if (cm.getStation() instanceof BusStation) {
-        if (cm.isEntrance()) {
+      if (cm.getStation() instanceof BusStation) { // if bus:
+        if (cm.isEntrance()) { // if entrance:
+          if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
+            deductValue(5);
+            this.allTrips.get(this.allTrips.size()-1).endTrip();
+          }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
           // Calculate fare
           // Deduct fare from this card
         } else { // is exit so we end trip
-          this.allTrips.get(allTrips.size() - 1).endTrip();
+          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
+            deductValue(5);
+          } else {
+            this.allTrips.get(allTrips.size() - 1).endTrip();
+          }
         }
       } else if (cm.getStation() instanceof SubwayStation) {
         if (cm.isEntrance()) {
+          if(getLastCardMachineTapped().isEntrance()){
+            deductValue(5);
+            this.allTrips.get(this.allTrips.size()-1).endTrip();
+          }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
         } else { // is exist so we end trip and calc fare
-          this.allTrips.get(allTrips.size() - 1).endTrip();
+          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
+              deductValue(5);
+          } else {
+              this.allTrips.get(allTrips.size() - 1).endTrip();
+          }
           // Calculate fare
           // Deduct fare from this card
         }
