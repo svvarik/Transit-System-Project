@@ -2,6 +2,7 @@ package UserSide;
 
 import java.util.Comparator;
 import java.util.Date;
+import TransitSide.CardMachine;
 
 public class Trip implements Comparator<Trip>, Comparable<Trip> {
 

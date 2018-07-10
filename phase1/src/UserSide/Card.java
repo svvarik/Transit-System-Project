@@ -3,6 +3,11 @@ package UserSide;
 import java.util.ArrayList;
 import java.util.Date;
 
+import TransitSide.CardMachine;
+import TransitSide.Station;
+import TransitSide.SubwayStation;
+import TransitSide.BusStation;
+
 public class Card {
 
     private static int idAssigner = 0;
