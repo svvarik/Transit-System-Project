@@ -15,6 +15,13 @@ public class CardMachine {
         this.station = station;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringRep = new StringBuilder();
+        stringRep.append("ID: " + Integer.toString(this.id) + " @ " +  this.station.toString());
+        return stringRep.toString();
+    }
+
     public Station getStation(){
         return this.station;
     }

@@ -14,6 +14,14 @@ public class Trip implements Comparator<Trip>, Comparable<Trip> {
 
     public Trip(){}
 
+    @Override
+    public String toString() {
+        String stringRep;
+        stringRep = "Start: " + this.start.toString() + " on " + this.starDate +
+                "\n" + "End: " + this.end.toString() + " on " + this.endDate +  "\n";
+        return stringRep;
+    }
+
     public void setStart(CardMachine cardMachine){
         this.start = cardMachine;
         Date d = new Date();
