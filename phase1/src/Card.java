@@ -24,6 +24,8 @@ public class Card {
         this.lastEffectiveTap = null;
     }
 
+    public ArrayList<Trip> getTrips() { return allTrips; }
+
     public Date getLastEffectiveTap() {
         return lastEffectiveTap;
     }

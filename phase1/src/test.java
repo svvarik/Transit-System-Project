@@ -1,12 +1,13 @@
+import java.util.Date;
+
 public class test {
 
     public static void main (String[] args) {
-        TransitNetwork network = new TransitNetwork();
-        int i = 0;
-        while (i < 1) {
-            System.out.println(network.getRunningTime());
-            System.out.println(network.getStartTimeNum());
-
-        }
+        CardHolder aleashea = new CardHolder("Aleashea", "aleashea.valentine@mail.utoronto.ca");
+        Card card1 = new Card(aleashea);
+        Card card2 = new Card(aleashea);
+        Card card3 = new Card(aleashea);
+        aleashea.addCard(card1);
     }
+
 }
