@@ -29,23 +29,23 @@ public class Main {
     private static TransitSystem start(){
         TransitSystem ts = new TransitSystem();
 
-        SubwayStation ss1 = new SubwayStation(0, 2);
-        SubwayStation ss2 = new SubwayStation(1, 2);
-        SubwayStation ss3 = new SubwayStation(2, 2);
-        SubwayStation ss4 = new SubwayStation(3, 2);
-        SubwayStation ss5 = new SubwayStation(4, 2);
-        SubwayStation ss6 = new SubwayStation(5, 2);
-        SubwayStation ss7 = new SubwayStation(6, 2);
-        SubwayStation ss8 = new SubwayStation(7, 2);
+        SubwayStation ss1 = new SubwayStation(0, 2, "ossington");
+        SubwayStation ss2 = new SubwayStation(1, 2, "christie");
+        SubwayStation ss3 = new SubwayStation(2, 2, "bathurst");
+        SubwayStation ss4 = new SubwayStation(3, 2, "spadina");
+        SubwayStation ss5 = new SubwayStation(4, 2, "st. George");
+        SubwayStation ss6 = new SubwayStation(5, 2, "Bay");
+        SubwayStation ss7 = new SubwayStation(6, 2, "Yonge");
+        SubwayStation ss8 = new SubwayStation(7, 2, "Sherbourne");
 
-        BusStation bs1 = new BusStation(2,0);
-        BusStation bs2 = new BusStation(2,2);
-        BusStation bs3 = new BusStation(2,3);
-        BusStation bs4 = new BusStation(2,4);
-        BusStation bs5 = new BusStation(5,0);
-        BusStation bs6 = new BusStation(5,1);
-        BusStation bs7 = new BusStation(5,2);
-        BusStation bs8 = new BusStation(5,4);
+        BusStation bs1 = new BusStation(2,0, "a");
+        BusStation bs2 = new BusStation(2,2, "b");
+        BusStation bs3 = new BusStation(2,3, "c");
+        BusStation bs4 = new BusStation(2,4, "d");
+        BusStation bs5 = new BusStation(5,0, "e");
+        BusStation bs6 = new BusStation(5,1, "f");
+        BusStation bs7 = new BusStation(5,2, "g");
+        BusStation bs8 = new BusStation(5,4, "h");
 
         ts.addStation(ss1);
         ts.addStation(ss2);
