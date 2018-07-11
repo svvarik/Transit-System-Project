@@ -13,6 +13,8 @@ public class CardHolder {
   private int totalCost;
   private TransitSystem ts;
 
+  private ArrayList<Trip> trips;
+
   /**
    * constructs a new CardHolder
    * @param name this CardHolder's name
@@ -100,23 +102,22 @@ public class CardHolder {
   }
 
   /**
-   * returns this CardHolder's recent trips
-   * @return this CardHolder's recent trips
+   * returns this CardHolder's 3 recent trips
+   * @return this CardHolder's 3 recent trips
    */
   public ArrayList<Trip> viewRecentTrips() {
-      ArrayList<Trip> Usertrips = new ArrayList<Trip>();
-    for (int i = 0; i < cards.size(); i++) {
-        ArrayList<Trip> cardTrips = this.cards.get(i).getTrips();
-        for (int y = 0; y < cardTrips.size(); y++) {
-            Usertrips.add(cardTrips.get(i));
-        }
+    ArrayList<Trip> recentTrips = new ArrayList<Trip>();
+
+    if(this.trips.size() > 0){
+      recentTrips.add(this.trips.get(this.trips.size() - 1));
     }
-    Collections.sort(Usertrips);
-    ArrayList<Trip> lastThreeTrips = new ArrayList<Trip>();
-   for (int i = 0; i < 3; i++)
-       lastThreeTrips.add(Usertrips.get(i));
-   
-    return lastThreeTrips;
+    if(this.trips.size() > 1){
+      recentTrips.add(this.trips.get(this.trips.size() - 2));
+    }
+    if(this.trips.size() > 2){
+      recentTrips.add(this.trips.get(this.trips.size() - 3));
+    }
+    return recentTrips;
   }
 
   /**
@@ -125,5 +126,14 @@ public class CardHolder {
    */
   public String toString(){
     return this.name + " has " + this.cards.size() + " cards." + "\n" + this.email;
+  }
+
+  /**
+   * adds a trip to this Cardholder's Trips, calls this Cardholder's TransitSystem's addTrip to add the Trip also in there
+   * @param t the trip to be added
+   */
+  public void addTrip(Trip t){
+    this.trips.add(t);
+    this.ts.addTrip(t);
   }
 }

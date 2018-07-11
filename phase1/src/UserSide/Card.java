@@ -197,7 +197,7 @@ public class Card {
           }
           Trip newTrip = new Trip();
           newTrip.setStart(cm);
-          this.allTrips.add(newTrip);
+          this.addTrip(newTrip);
           double fare = ts.getTransitManager().calcBusFare(this, cm);// Calculate fare
           deductValue(fare);// Deduct fare from this card
         } else { // is exit so we end trip
@@ -215,7 +215,7 @@ public class Card {
           }
           Trip newTrip = new Trip();
           newTrip.setStart(cm);
-          this.allTrips.add(newTrip);
+          this.addTrip(newTrip);
         } else { // is exist so we end trip and calc fare
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
               deductValue(ts.getTransitManager().getCapFare());
@@ -240,5 +240,14 @@ public class Card {
      */
   public String toString(){
       return "Card ID: " + this.cardId + ", Owner: " + owner.getName() + ", Balance: " + this.balance;
+  }
+
+    /**
+     * adds a Trip to this Card's allTrips and calls the Card's owner's addTrip to add the Trip to their allTrips
+     * @param t the trip to be added
+     */
+  public void addTrip(Trip t){
+      this.allTrips.add(t);
+      this.owner.addTrip(t);
   }
 }
