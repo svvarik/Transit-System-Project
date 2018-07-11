@@ -14,17 +14,33 @@ public class Station {
 
     private int id;
 
+    /**
+     * lists of this Station's entrance and eixts
+     */
     private int cardMachineCount;
     private ArrayList<CardMachine> entrances;
     private ArrayList<CardMachine> exits;
+
     private String name;
 
+
+    /**
+     * constructs an instance of Station
+     * @param flatRate whether this Station has a flatRate or not
+     */
     public Station(boolean flatRate){}{
         this.id = idCount;
         idCount++;
         this.flatRate = flatRate;
     }
 
+    /**
+     * onstructs an instance of Station
+     * @param x this Station's first coordinate
+     * @param y this Station's second coordinate
+     * @param flatRate if this station has a flatRate
+     * @param name the name of this Station
+     */
     public Station(int x, int y, boolean flatRate, String name){
         this.cardMachineCount = 0;
         this.id =idCount;
@@ -35,34 +51,68 @@ public class Station {
         this.name = name;
     }
 
+    /**
+     * sets the location for this station
+     * @param x first coordinate
+     * @param y second coordinate
+     */
     public void setLocation(int x, int y){
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * retursn this Station's id
+     * @return this station's id
+     */
     public int getId(){ return this.id;}
 
+    /**
+     * retursn the name of this Station
+     * @return String name of the Station,
+     */
     public String getName() {return this.name;}
 
+    /**
+     * returns this Station first coordinate
+     * @return this station's first coordinate
+     */
     public int getX(){return this.x;}
 
+    /**
+     * returns this Station second coordinate
+     * @return this station's second coordinate
+     */
     public int getY(){return this.y;}
 
+    /**
+     * returns true if this Station is flatrated
+     * @return true if this Station is flatrated
+     */
     public boolean isFlatRate(){
         return this.flatRate;
     };
 
+    /**
+     * adds a new entrance CardMachine to the station
+     */
     public void addEntrace(){
         this.entrances.add(new CardMachine(true, this, cardMachineCount));
         this.cardMachineCount++;
     }
 
+    /**
+     * adds a new exit CardMachine to this Station
+     */
     public void addExist(){
         this.exits.add(new CardMachine(false, this, cardMachineCount));
         this.cardMachineCount++;
     }
 
-    @Override
+    /**
+     * the String representation of this Station
+     * @return the String representation of this Station
+     */
     public String toString() {
         return this.name;
     }
