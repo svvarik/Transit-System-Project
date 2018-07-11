@@ -10,15 +10,26 @@ public class TransitData {
     
     private ArrayList<Double> allFaresCollected;
 
+    /**
+     * Constructs a new TransitData Object
+     */
     public TransitData(){
         allCompletedTrips = new ArrayList<>();
         allFaresCollected = new ArrayList<>();
     }
 
+    /**
+     * This method adds a completed trip to the arrayList of allCompletedTrips
+     * @param t first parameter, a trip object
+     */
     public void addCompletedTrip(Trip t){
         allCompletedTrips.add(t);
     }
 
+    /**
+     * adds a trip's fare to the total collected fare of this TransitDate object
+     * @param fare first parameter, a double value
+     */
     public void addFareCollected(double fare){
         allFaresCollected.add(fare);
     }
@@ -29,9 +40,7 @@ public class TransitData {
      *
      * @return the total number of stations
      */
-    // TODO: figure out proper stations reached number, currently only calculates based on num of trips
-    // TODO: Figure out how to do this based on dates
-    // Does a station reached mean a station tapped on, or only a station where a trip is completed?
+
     public int numStationsReached(){
         return allCompletedTrips.size();
     }
