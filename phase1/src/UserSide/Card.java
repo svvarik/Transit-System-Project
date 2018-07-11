@@ -130,7 +130,7 @@ public class Card {
         if (cm.isEntrance()) { // if entrance:
           if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
             deductValue(ts.getTransitManager().getCapFare());
-            this.allTrips.get(this.allTrips.size()-1).endTrip();
+            this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
@@ -140,14 +140,14 @@ public class Card {
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
             deductValue(ts.getTransitManager().getCapFare());
           } else {
-            this.allTrips.get(allTrips.size() - 1).endTrip();
+            this.allTrips.get(allTrips.size() - 1).setEnd(cm);
           }
         }
       } else if (cm.getStation() instanceof SubwayStation) {
         if (cm.isEntrance()) {
           if(getLastCardMachineTapped().isEntrance()){
             deductValue(ts.getTransitManager().getCapFare());
-            this.allTrips.get(this.allTrips.size()-1).endTrip();
+            this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
           this.allTrips.add(newTrip);
@@ -155,7 +155,7 @@ public class Card {
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
               deductValue(ts.getTransitManager().getCapFare());
           } else {
-              this.allTrips.get(allTrips.size() - 1).endTrip();
+              this.allTrips.get(allTrips.size() - 1).setEnd(cm);
           }
           double fare = ts.getTransitManager().calcSubwayFare(this, cm);// Calculate fare
           deductValue(fare);// Deduct fare from this card
