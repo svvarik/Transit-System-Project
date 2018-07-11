@@ -15,7 +15,7 @@ public class SubwayStation extends Station {
      * @param y this SubwayStation's second coordinate
      * @param name this SubwayStation's name
      */
-    public SubwayStation(int x, int y, String name) {
+    public SubwayStation(int x, int y, boolean flatrate, String name) {
         super(x, y, false, name);
     }
 
