@@ -189,17 +189,17 @@ public class Card {
       if (cm.getStation() instanceof BusStation) { // if bus:
         if (cm.isEntrance()) { // if entrance:
           if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
-            deductValue(ts.getTransitManager().getCapFare());
+            deductValue(ts.getFareManager().getCapFare());
             this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
           newTrip.setStart(cm);
           this.addTrip(newTrip);
-          double fare = ts.getTransitManager().calcBusFare(this, cm);// Calculate fare
+          double fare = ts.getFareManager().calcBusFare(this, cm);// Calculate fare
           deductValue(fare);// Deduct fare from this card
         } else { // is exit so we end trip
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-            deductValue(ts.getTransitManager().getCapFare());
+            deductValue(ts.getFareManager().getCapFare());
           } else {
             this.allTrips.get(allTrips.size() - 1).setEnd(cm);
           }
@@ -207,7 +207,7 @@ public class Card {
       } else if (cm.getStation() instanceof SubwayStation) {
         if (cm.isEntrance()) {
           if(getLastCardMachineTapped().isEntrance()){
-            deductValue(ts.getTransitManager().getCapFare());
+            deductValue(ts.getFareManager().getCapFare());
             this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
@@ -215,11 +215,11 @@ public class Card {
           this.addTrip(newTrip);
         } else { // is exist so we end trip and calc fare
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-              deductValue(ts.getTransitManager().getCapFare());
+              deductValue(ts.getFareManager().getCapFare());
           } else {
               this.allTrips.get(allTrips.size() - 1).setEnd(cm);
           }
-          double fare = ts.getTransitManager().calcSubwayFare(this, cm);// Calculate fare
+          double fare = ts.getFareManager().calcSubwayFare(this, cm);// Calculate fare
           deductValue(fare);// Deduct fare from this card
         }
       } else {
