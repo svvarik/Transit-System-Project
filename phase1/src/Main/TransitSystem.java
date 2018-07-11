@@ -33,8 +33,8 @@ public class TransitSystem {
 
     /**
      * Constructs a TransitSystem with an ArrayList of the TransitSystem's stations, cardholders
-     * @param stations ArrayList<Station>
-     * @param transitCardHolders ArrayList<CardHolder>
+     * @param stations the ArrayList of this TransitSystem's stations
+     * @param transitCardHolders the ArrayList of this TransitSystem's cardholders
      */
     public TransitSystem(ArrayList<Station> stations, ArrayList<CardHolder> transitCardHolders){
         this.stations = stations;
@@ -52,9 +52,9 @@ public class TransitSystem {
 
     /**
      * This parameter creats a new CardHolder and adds it to this TransitSystem's cardholders and returns true if everything goes right
-     * @param name name
-     * @param email
-     * @return
+     * @param name name of a new cardholder
+     * @param email email of the new cardholder
+     * @return returns true if everything goes right
      */
     public boolean  addCardHolder(String name, String email){
         for (CardHolder ch: this.transitCardHolders){
