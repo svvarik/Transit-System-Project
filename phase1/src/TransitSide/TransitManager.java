@@ -102,7 +102,7 @@ public class TransitManager {
 
     /**
      * returns the String representation of this TransitManager's start date
-     * @return
+     * @return the String representation of this TransitManager's start date
      */
   public String getStartTimeString() {
     return this.startTimeString;

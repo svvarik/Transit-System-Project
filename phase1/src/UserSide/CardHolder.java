@@ -27,7 +27,7 @@ public class CardHolder {
 
   /**
    * return this CardHolder's cards
-   * @return the ArrayList<Card> of this CardHolder
+   * @return the Cards of this CardHolder
    */
   public ArrayList<Card> getCards() {
     return this.cards;
