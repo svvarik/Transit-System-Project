@@ -4,6 +4,10 @@ import UserSide.Trip;
 
 import java.util.ArrayList;
 
+/**
+ * TransitData class keeps track of the trips taken within a TransitSystem. It also saves the total fare collected
+ */
+
 public class TransitData {
 
     private ArrayList<Trip> allCompletedTrips;
