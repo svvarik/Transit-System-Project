@@ -174,9 +174,6 @@ public class Card {
      */
     public void deductValue(double fare){
         this.balance -= fare;
-        if(this.balance < 0){
-            this.suspendCard();
-        }
     }
 
   /**
