@@ -133,6 +133,7 @@ public class Card {
             this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
+          newTrip.setStart(cm);
           this.allTrips.add(newTrip);
           double fare = ts.getTransitManager().calcBusFare(this, cm);// Calculate fare
           deductValue(fare);// Deduct fare from this card
@@ -150,6 +151,7 @@ public class Card {
             this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
           }
           Trip newTrip = new Trip();
+          newTrip.setStart(cm);
           this.allTrips.add(newTrip);
         } else { // is exist so we end trip and calc fare
           if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
