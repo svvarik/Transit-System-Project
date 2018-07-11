@@ -1,8 +1,7 @@
 package Main;
 
+import TransitSide.FareManager;
 import TransitSide.Station;
-import TransitSide.SubwayStation;
-import TransitSide.TransitManager;
 import UserSide.CardHolder;
 import UserSide.Trip;
 
@@ -12,9 +11,9 @@ import java.util.Date;
 public class TransitSystem {
 
     /**
-     * a TransitManager Specific to this TransitSystem
+     * a FareManager Specific to this TransitSystem
      */
-    private TransitManager tm = new TransitManager();
+    private FareManager tm = new FareManager();
 
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
@@ -42,11 +41,11 @@ public class TransitSystem {
     }
 
     /**
-     * this method returns this TransitSystem's TransitManager
-     * @return this TransitSystem's TransitManager
+     * this method returns this TransitSystem's FareManager
+     * @return this TransitSystem's FareManager
      */
 
-    public TransitManager getTransitManager(){
+    public FareManager getTransitManager(){
         return this.tm;
     }
 

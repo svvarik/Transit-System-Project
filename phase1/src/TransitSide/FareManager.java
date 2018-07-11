@@ -4,7 +4,7 @@ import UserSide.Card;
 
 import java.util.Date;
 
-public class TransitManager {
+public class FareManager {
   private double flatFare = 2;
   private double tripFare = 0.5;
   private double capFare = 6;
@@ -15,17 +15,17 @@ public class TransitManager {
   private Date date;
 
     /**
-     * constructs a new instance of TransitManager
+     * constructs a new instance of FareManager
      */
-  public TransitManager() {
+  public FareManager() {
     this.date = new Date();
     this.startTimeNum = date.getTime();
     this.startTimeString = date.toString();
   }
-  /** setters for the TransitSide.TransitManager's fare values */
+  /** setters for the TransitSide.FareManager's fare values */
 
     /**
-     * sets flatFare for this TransitManager
+     * sets flatFare for this FareManager
      * @param fare amount of flatFare
      */
   public void setFlatFare(double fare) {
@@ -33,7 +33,7 @@ public class TransitManager {
   }
 
     /**
-     * sets tripFare for this TransitManager
+     * sets tripFare for this FareManager
      * @param fare amount of tripFare
      */
   public void setTripFare(double fare) {
@@ -41,7 +41,7 @@ public class TransitManager {
   }
 
     /**
-     * sets capFare for this TransitManager
+     * sets capFare for this FareManager
      * @param fare amount of capFare
      */
   public void setCapFare(double fare) {
@@ -49,48 +49,48 @@ public class TransitManager {
   }
 
     /**
-     * sets timeLimit for this TransitManager
+     * sets timeLimit for this FareManager
      * @param limit amount of timeLimit
      */
   public void setTimeLimit(double limit) {
     this.timeLimit = limit;
   }
 
-  /** getters for this TransitSide.TransitManager's fare values */
+  /** getters for this TransitSide.FareManager's fare values */
 
     /**
-     * returns this TransitManager's flatFare
-     * @return this TransitManager's flatFare
+     * returns this FareManager's flatFare
+     * @return this FareManager's flatFare
      */
   public double getFlatFare() {
     return this.flatFare;
   }
 
     /**
-     * returns this TransitManager's tripFare
-     * @return this TransitManager's tripFare
+     * returns this FareManager's tripFare
+     * @return this FareManager's tripFare
      */
   public double getTripFare() {
     return this.tripFare;
   }
 
     /**
-     * returns this TransitManager's capFare
-     * @return this TransitManager's capFare
+     * returns this FareManager's capFare
+     * @return this FareManager's capFare
      */
   public double getCapFare() {
     return this.capFare;
   }
 
     /**
-     * returns this TransitManager's timeLimit
-     * @return this TransitManager's timeLimit
+     * returns this FareManager's timeLimit
+     * @return this FareManager's timeLimit
      */
   public double getTimeLimit() {
     return this.timeLimit;
   }
 
-  /** getter for the TransitSide.TransitManager start time in both numericals and String */
+  /** getter for the TransitSide.FareManager start time in both numericals and String */
 
     /**
      * returns this TransitManger starTime in numbers
@@ -101,16 +101,16 @@ public class TransitManager {
   }
 
     /**
-     * returns the String representation of this TransitManager's start date
-     * @return the String representation of this TransitManager's start date
+     * returns the String representation of this FareManager's start date
+     * @return the String representation of this FareManager's start date
      */
   public String getStartTimeString() {
     return this.startTimeString;
   }
 
     /**
-     * returns this TransitManager's running time in numbers
-     * @return this TransitManager's running time in numbers
+     * returns this FareManager's running time in numbers
+     * @return this FareManager's running time in numbers
      */
   public long getRunningTime() {
     Date d = new Date();

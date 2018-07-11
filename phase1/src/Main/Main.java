@@ -2,9 +2,7 @@ package Main;
 
 import TransitSide.BusStation;
 import TransitSide.SubwayStation;
-import TransitSide.TransitManager;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
