@@ -15,7 +15,7 @@ public class Station {
     private int id;
 
     /**
-     * lists of this Station's entrance and eixts
+     * lists of this Station's entrance and exits
      */
     private int cardMachineCount;
     private ArrayList<CardMachine> entrances;
