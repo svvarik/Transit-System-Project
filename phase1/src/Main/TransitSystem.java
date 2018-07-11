@@ -1,7 +1,9 @@
 package Main;
 
+import TransitSide.CardMachine;
 import TransitSide.FareManager;
 import TransitSide.Station;
+import UserSide.Card;
 import UserSide.CardHolder;
 import UserSide.Trip;
 
@@ -80,6 +82,48 @@ public class TransitSystem {
      */
     public void addTrip(Trip t){
         this.allTrips.add(t);
+    }
+
+    public CardHolder findCardHolder(String chEmail){
+        for (CardHolder ch: this.transitCardHolders) {
+            if (ch.getEmail().equals(chEmail)){
+                return ch;
+            }
+        }
+        return null;
+    }
+
+    public Card findCard(int cID){
+        for(CardHolder ch: this.transitCardHolders){
+            for(Card card: ch.getCards()){
+                if (card.getCardID() == cID){
+                    return card;
+                }
+            }
+        }
+        return null;
+    }
+
+    public CardMachine findEntrance(int cmID){
+        for(Station s: this.stations){
+            for(CardMachine cm: s.getEntrances()){
+                if (cm.getId() == cmID){
+                    return cm;
+                }
+            }
+        }
+        return null;
+    }
+
+    public CardMachine findExit(int cmID){
+        for(Station s: this.stations){
+            for(CardMachine cm: s.getExits()){
+                if (cm.getId() == cmID){
+                    return cm;
+                }
+            }
+        }
+        return null;
     }
 
     /**
