@@ -45,7 +45,7 @@ public class TransitSystem {
      * @return this TransitSystem's FareManager
      */
 
-    public FareManager getTransitManager(){
+    public FareManager getFareManager(){
         return this.tm;
     }
 
