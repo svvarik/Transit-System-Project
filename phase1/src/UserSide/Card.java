@@ -22,7 +22,11 @@ public class Card {
     private Date lastEffectiveTap;
     private double amountSinceLastEffectiveTap;
 
-
+    /**
+     * constructs a new Card
+     * @param owner this Card's cardHolder
+     * @param ts the TransitSystem that this Card belongs to
+     */
     public Card(CardHolder owner, TransitSystem ts) {
         this.balance = 19;
         this.suspended = false;
@@ -34,28 +38,57 @@ public class Card {
         Card.idAssigner += 1;
     }
 
+    /**
+     * returns all the Trips taken by this Card
+     * @return all the Trips taken by this Card
+     */
     public ArrayList<Trip> getTrips() { return allTrips; }
 
+    /**
+     * returns the lasttime the Card was effectively tapped
+     * @return the lasttime the Card was effectively tapped
+     */
     public Date getLastEffectiveTap() {
         return lastEffectiveTap;
     }
 
+    /**
+     * sets a new lastEffectiveTap
+     * @param lastEffectiveTap the Date of the lastEffectiveTap
+     */
     public void setLastEffectiveTap(Date lastEffectiveTap) {
         this.lastEffectiveTap = lastEffectiveTap;
     }
 
+    /**
+     * returns the amount of fare calculated since the lastEffectiveTap
+     * @return the amount of fare calculated since the lastEffectiveTap
+     */
     public double getAmountSinceLastEffectiveTap() {
         return amountSinceLastEffectiveTap;
     }
 
+    /**
+     * sets the amount to the amountSinceLastEffectiveTap
+     * @param amountSinceLastEffectiveTap the amount to be set
+     */
     public void setAmountSinceLastEffectiveTap(double amountSinceLastEffectiveTap) {
         this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap;
     }
 
+
+    /**
+     * adds the amount to the amountSinceLastEffectiveTap
+     * @param amountToAdd the amount to be added
+     */
     public void addAmountSinceLastEffectiveTap(double amountToAdd) {
         this.amountSinceLastEffectiveTap = this.amountSinceLastEffectiveTap + amountToAdd;
     }
 
+    /**
+     * returns true if the tap is within the two hours time period since the lastEffectiveTape
+     * @return true if the tap is within the two hours time period since the lastEffectiveTape
+     */
     public boolean isWithinTimeLimit(){
         Date d = new Date();
         if (this.lastEffectiveTap != null)
@@ -63,31 +96,57 @@ public class Card {
         return false;
     }
 
+    /**
+     * returns the last Station the card was tapped at
+     * @return the last Station the card was tapped at
+     */
     public Station getLastStation(){
         return this.allTrips.get(this.allTrips.size()-1).getEnd().getStation();
     }
 
+    /**
+     * resets the lastEffectiveTap
+     */
     public void resetLastEffective(){
         setLastEffectiveTap(new Date());
         setAmountSinceLastEffectiveTap(0);
     }
 
+    /**
+     * return this Card's id
+     * @return this Card's id
+     */
     public int getCardID() {
         return cardId;
     }
 
+    /**
+     * returns this Card's balance
+     * @return this Card's balance
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * supspends the Card
+     */
     public void suspendCard() {
         this.suspended = true;
     }
 
+    /**
+     * returns this Card's owner
+     * @return this Card's CardHolder
+     */
     public CardHolder getOwner(){
         return this.owner;
     }
 
+    /**
+     * returns the last CardMachine this Card tapped
+     * @return the last CardMachine this Card tapped
+     */
     public CardMachine getLastCardMachineTapped(){return this.allTrips.get(this.allTrips.size()-1).getEnd();}
 
     /**
@@ -109,9 +168,15 @@ public class Card {
         }
     }
 
-    // TODO: Handle exceptions - not enough balance left etc.
+    /**
+     * deducts the fare from the Card's balance and suspends the Card if the balance goes negative
+     * @param fare the amount to be deducted
+     */
     public void deductValue(double fare){
         this.balance -= fare;
+        if(this.balance < 0){
+            this.suspendCard();
+        }
     }
 
   /**
@@ -122,8 +187,6 @@ public class Card {
    *
    * @param cm the cardmachine this card is tapped on
    */
-  // TODO: RETURN BOOL DEPENDING ON SUCCESS
-  // TODO: Deduct fare from card when required
   public void tapCard(CardMachine cm) {
     if (!suspended) {
       if (cm.getStation() instanceof BusStation) { // if bus:
@@ -171,6 +234,10 @@ public class Card {
     }
   }
 
+    /**
+     * returns a String representation of this Card
+     * @return String representation of this Card
+     */
   public String toString(){
       return "Card ID: " + this.cardId + ", Owner: " + owner.getName() + ", Balance: " + this.balance;
   }
