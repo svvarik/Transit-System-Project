@@ -21,6 +21,7 @@ public class Card {
     private boolean suspended;
     private Date lastEffectiveTap;
     private double amountSinceLastEffectiveTap;
+    private boolean firstTap;
 
     /**
      * constructs a new Card
@@ -36,6 +37,7 @@ public class Card {
         this.lastEffectiveTap = null;
         this.ts = ts;
         Card.idAssigner += 1;
+        this.firstTap = true;
     }
 
     /**
@@ -82,7 +84,11 @@ public class Card {
      * @param amountToAdd the amount to be added
      */
     public void addAmountSinceLastEffectiveTap(double amountToAdd) {
-        this.amountSinceLastEffectiveTap = this.amountSinceLastEffectiveTap + amountToAdd;
+        if(this.amountSinceLastEffectiveTap + amountToAdd >=6){
+            this.amountSinceLastEffectiveTap = 6;
+        }else{
+            this.amountSinceLastEffectiveTap = this.amountSinceLastEffectiveTap + amountToAdd;
+        }
     }
 
     /**
@@ -147,7 +153,21 @@ public class Card {
      * returns the last CardMachine this Card tapped
      * @return the last CardMachine this Card tapped
      */
-    public CardMachine getLastCardMachineTapped(){return this.allTrips.get(this.allTrips.size()-1).getEnd();}
+    public CardMachine getLastCardMachineTapped(){
+        ArrayList<CardMachine> tempCMArray = new ArrayList <>();
+        if (!this.allTrips.isEmpty()) {
+          for (int i = 0; i <= this.allTrips.size() - 1; i++) {
+            if (this.allTrips.get(i).getStart() != null) {
+              tempCMArray.add(this.allTrips.get(i).getStart());
+            }
+            if (this.allTrips.get(i).getEnd() != null) {
+              tempCMArray.add(this.allTrips.get(i).getEnd());
+            }
+          }
+          return tempCMArray.get(tempCMArray.size() - 1);
+        }
+        return null;
+    }
 
     /**
      * Adds one of three dollar amounts - 10, 20, 50 - to the card's
@@ -187,41 +207,26 @@ public class Card {
   public void tapCard(CardMachine cm) {
     if (!suspended) {
       if (cm.getStation() instanceof BusStation) { // if bus:
-        if (cm.isEntrance()) { // if entrance:
-          if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
-            deductValue(ts.getFareManager().getCapFare());
-            this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
+          if(firstTap){
+              resetLastEffective();
+              Trip newTrip = new Trip();
+              newTrip.setStart(cm);
+              this.addTrip(newTrip);
+              deductValue(ts.getFareManager().getFlatFare());
+              addAmountSinceLastEffectiveTap(ts.getFareManager().getFlatFare());
+              firstTap = false;
+          }else{
+              tapBusStation(cm);
           }
-          Trip newTrip = new Trip();
-          newTrip.setStart(cm);
-          this.addTrip(newTrip);
-          double fare = ts.getFareManager().calcBusFare(this, cm);// Calculate fare
-          deductValue(fare);// Deduct fare from this card
-        } else { // is exit so we end trip
-          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-            deductValue(ts.getFareManager().getCapFare());
-          } else {
-            this.allTrips.get(allTrips.size() - 1).setEnd(cm);
-          }
-        }
       } else if (cm.getStation() instanceof SubwayStation) {
-        if (cm.isEntrance()) {
-          if(getLastCardMachineTapped().isEntrance()){
-            deductValue(ts.getFareManager().getCapFare());
-            this.allTrips.get(this.allTrips.size()-1).setEnd(cm);
+          if(firstTap){
+              Trip newTrip = new Trip();
+              newTrip.setStart(cm);
+              this.addTrip(newTrip);
+              firstTap = false;
+          }else{
+              tapSubwayStation(cm);
           }
-          Trip newTrip = new Trip();
-          newTrip.setStart(cm);
-          this.addTrip(newTrip);
-        } else { // is exist so we end trip and calc fare
-          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
-              deductValue(ts.getFareManager().getCapFare());
-          } else {
-              this.allTrips.get(allTrips.size() - 1).setEnd(cm);
-          }
-          double fare = ts.getFareManager().calcSubwayFare(this, cm);// Calculate fare
-          deductValue(fare);// Deduct fare from this card
-        }
       } else {
         // TransitSide.CardMachine either has not been initialized properly or is an invalid cardmachine
         System.out.println("Error");
@@ -229,6 +234,49 @@ public class Card {
     }else{
         System.out.println("UserSide.Card is Suspended");
     }
+  }
+
+  private void tapBusStation(CardMachine cm){
+      if (cm.isEntrance()) { // if entrance:
+          double fare = ts.getFareManager().calcBusFare(this, cm);// Calculate fare
+          if(getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an entrance
+              deductValue(ts.getFareManager().getCapFare());
+              this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
+          }
+          Trip newTrip = new Trip();
+          newTrip.setStart(cm);
+          this.addTrip(newTrip);
+          deductValue(fare);// Deduct fare from this card
+      } else { // is exit so we end trip
+          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
+              deductValue(ts.getFareManager().getCapFare());
+          } else {
+              this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
+          }
+      }
+  }
+
+  private void tapSubwayStation(CardMachine cm){
+      if (cm.isEntrance()) {
+          if(this.ts.getFareManager().isDisjoint(this, cm)){
+              resetLastEffective();
+          }
+          if(getLastCardMachineTapped().isEntrance()){
+              deductValue(ts.getFareManager().getCapFare());
+              this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
+          }
+          Trip newTrip = new Trip();
+          newTrip.setStart(cm);
+          this.addTrip(newTrip);
+      } else { // is exist so we end trip and calc fare
+          double fare = ts.getFareManager().calcSubwayFare(this, cm);// Calculate fare
+          if(!getLastCardMachineTapped().isEntrance()){ //checks if the card was tapped last at an exit
+              deductValue(ts.getFareManager().getCapFare());
+          } else {
+              this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
+          }
+          deductValue(fare);// Deduct fare from this card
+      }
   }
 
     /**
