@@ -44,7 +44,7 @@ public class Main {
         SubwayStation ss4 = new SubwayStation(3, 2, "spadina");
         ss4.addEntrace();
         ss4.addExits();
-        SubwayStation ss5 = new SubwayStation(4, 2, "st. George");
+        SubwayStation ss5 = new SubwayStation(4, 2, "st. george");
         ss5.addEntrace();
         ss5.addExits();
 
