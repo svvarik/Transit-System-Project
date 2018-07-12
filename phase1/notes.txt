@@ -1,7 +1,0 @@
-######
-Author: Aleashea
-
-Date: June 22, 2018
-
-Changes: Implemented the code for Card.java from Thursday's meeting (June 21). 
-######
