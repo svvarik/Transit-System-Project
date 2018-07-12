@@ -35,7 +35,7 @@ public class TransitSystemIO {
 
     public void readFile(String filename) {
         try {
-            FileReader fileReader1 = new FileReader(".programData.txt");
+            FileReader fileReader1 = new FileReader(filename);
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 
