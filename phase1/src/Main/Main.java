@@ -28,7 +28,7 @@ public class Main {
         ts.findCardHolder("HAL@mail.com").addCard(new Card(ts.findCardHolder("HAL@mail.com")));
         ts.findCardHolder("Dave@mail.com").addCard(new Card(ts.findCardHolder("Dave@mail.com")));
 
-
+        ts.addAdminUser("Sai", "sai@sai.com");
 
         SubwayStation ss1 = new SubwayStation(0, 2, "ossington");
         ss1.addEntrace();
