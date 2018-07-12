@@ -47,7 +47,7 @@ public class TransitSystemIO {
     public void readFile(String filename) {
         try {
             File file = new File(filename);
-            FileReader fileReader1 = new FileReader(file);
+            FileReader fileReader1 = new FileReader(file.getAbsolutePath());
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 

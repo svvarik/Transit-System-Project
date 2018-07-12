@@ -68,7 +68,7 @@ public class TransitSystem {
      * @param email email of the new cardholder
      * @return returns true if everything goes right
      */
-    public boolean  addCardHolder(String name, String email){
+    public boolean addCardHolder(String name, String email){
         for (CardHolder ch: this.transitCardHolders){
             if (ch.getEmail().equals(email)){
                 return false;
