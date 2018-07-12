@@ -4,8 +4,6 @@ import TransitSide.BusStation;
 import TransitSide.SubwayStation;
 import UserSide.*;
 
-import java.util.Scanner;
-
 public class Main {
 
 
@@ -14,7 +12,7 @@ public class Main {
 
         TransitSystem ts = Main.start();
         TransitSystemIO tsIO = new TransitSystemIO(ts);
-        tsIO.readFile("/Users/yatharthkhattar/Documents/javaWorkSpace/group_0156/phase1/src/events.txt");
+        tsIO.readFile("events.txt");
         System.exit(0);
     }
 
