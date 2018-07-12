@@ -162,7 +162,7 @@ public class TransitSystemIO {
     public void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
-            thisCH.addCard(new Card(thisCH, ts));
+            thisCH.addCard(new Card(thisCH));
         }
     }
 
