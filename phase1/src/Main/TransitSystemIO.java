@@ -122,10 +122,16 @@ public class TransitSystemIO {
         int entrance = Integer.parseInt(cmID);
         Card thisCard = ts.findCard(cardID);
         CardMachine thisCM = ts.findEntrance(entrance);
-        if(thisCard != null && thisCM != null){
-            thisCard.tapCard(thisCM);
+        if (thisCard == null){
+            System.out.println("This card is invalid.");
+        } else if (thisCM == null){
+            System.out.println("This card machine is invalid.");
         } else {
-            System.out.println("Invalid Card or Card Machine");
+            if(thisCard.tapCard(thisCM)){
+                System.out.println(thisCard.toString() + "enters" + thisCM.toString());
+            } else {
+                System.out.println("Tap was not successful.");
+            }
         }
     }
 
@@ -151,7 +157,9 @@ public class TransitSystemIO {
             System.out.println("This card machine is invalid.");
         } else {
             if(thisCard.tapCard(thisCM)){
-                System.out.println(thisCard.toString() + "enters" + thisCM.toString());
+                System.out.println(thisCard.toString() + "exits" + thisCM.toString());
+            } else {
+                System.out.println("Tap was not successful.");
             }
         }
     }
