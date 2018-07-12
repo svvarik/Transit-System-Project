@@ -53,6 +53,14 @@ public class TransitSystem {
     }
 
     /**
+     * this method returns this TransitSystem's TransitData
+     * @return this TransitSystem's TransitData
+     */
+    public TransitData getTransitData() {
+        return transitData;
+    }
+
+    /**
      * This parameter creats a new CardHolder and adds it to this TransitSystem's cardholders
      * and returns true if everything goes right
      *
