@@ -176,14 +176,16 @@ public class Card {
      * @param value the value proposed to be added
      *
      */
-    public void addValue(double value) {
+    public boolean addValue(double value) {
         if (this.suspended) {
-            // Throw some exception
+            System.out.println("This card is suspended");
+            return false;
         } else {
             if (value == 10 | value == 20 | value == 50) {
                 this.balance += value;
+                return true;
             } else {
-                // Didn't work, throw exception
+                return false;
             }
         }
     }
@@ -204,7 +206,7 @@ public class Card {
    *
    * @param cm the cardmachine this card is tapped on
    */
-  public void tapCard(CardMachine cm) {
+  public boolean tapCard(CardMachine cm) {
     if (!suspended) {
       if (cm.getStation() instanceof BusStation) { // if bus:
           if(firstTap){
@@ -215,8 +217,10 @@ public class Card {
               deductValue(ts.getFareManager().getFlatFare());
               addAmountSinceLastEffectiveTap(ts.getFareManager().getFlatFare());
               firstTap = false;
+              return true;
           }else{
               tapBusStation(cm);
+              return true;
           }
       } else if (cm.getStation() instanceof SubwayStation) {
           if(firstTap){
@@ -224,15 +228,19 @@ public class Card {
               newTrip.setStart(cm);
               this.addTrip(newTrip);
               firstTap = false;
+              return true;
           }else{
               tapSubwayStation(cm);
+              return true;
           }
       } else {
         // TransitSide.CardMachine either has not been initialized properly or is an invalid cardmachine
-        System.out.println("Error");
+        System.out.println("There is an error with the Card Machine");
+        return false;
       }
     }else{
-        System.out.println("UserSide.Card is Suspended");
+        System.out.println("This card is suspended");
+        return false;
     }
   }
 
