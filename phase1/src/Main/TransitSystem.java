@@ -1,5 +1,6 @@
 package Main;
 
+import Data.TransitData;
 import TransitSide.CardMachine;
 import TransitSide.FareManager;
 import TransitSide.Station;
@@ -20,6 +21,7 @@ public class TransitSystem {
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
     private ArrayList<Trip> allTrips;
+    private TransitData transitData;
 
     /**
      * Constructs a new TransitSystem
@@ -28,6 +30,7 @@ public class TransitSystem {
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
         this.allTrips = new ArrayList <>();
+        this.transitData = new TransitData();
     }
 
     /**
