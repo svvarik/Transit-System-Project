@@ -47,7 +47,7 @@ public class TransitSystemIO {
     public void readFile(String filename) {
         try {
             File file = new File(filename);
-            FileReader fileReader1 = new FileReader(file.getAbsolutePath());
+            FileReader fileReader1 = new FileReader(file);
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 
@@ -60,7 +60,6 @@ public class TransitSystemIO {
                 String[] parameters = Arrays.copyOfRange(arguments, 1, arguments.length);
                 for(int i = 0; i < parameters.length; i += 1){
                     parameters[i] = parameters[i].replaceAll("\\s", "");
-                    System.out.println(parameters[i]);
                 }
 
                 this.processEvent(event, parameters);
@@ -128,7 +127,7 @@ public class TransitSystemIO {
             System.out.println("This card machine is invalid.");
         } else {
             if(thisCard.tapCard(thisCM)){
-                System.out.println(thisCard.toString() + "enters" + thisCM.toString());
+                System.out.println(thisCard.toString() + " enters " + thisCM.toString());
             } else {
                 System.out.println("Tap was not successful.");
             }
@@ -157,7 +156,7 @@ public class TransitSystemIO {
             System.out.println("This card machine is invalid.");
         } else {
             if(thisCard.tapCard(thisCM)){
-                System.out.println(thisCard.toString() + "exits" + thisCM.toString());
+                System.out.println(thisCard.toString() + " exits " + thisCM.toString());
             } else {
                 System.out.println("Tap was not successful.");
             }
