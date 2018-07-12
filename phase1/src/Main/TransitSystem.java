@@ -71,6 +71,7 @@ public class TransitSystem {
     public boolean addCardHolder(String name, String email){
         for (CardHolder ch: this.transitCardHolders){
             if (ch.getEmail().equals(email)){
+                System.out.println("User email is already in system!");
                 return false;
             }
         }

@@ -16,6 +16,8 @@ Enter station - enter; card id; cardmachine id
 
 Exit station - exit; card id; cardmachine id
 
+Add User - addUser; userName; userEmail
+
 User add card - addNewCard; userEmail
 
 User remove card - removeCard; cardID; userEmail
@@ -85,6 +87,9 @@ public class TransitSystemIO {
             case "exit":
                 exitStation(args[0], args[1]);
                 break;
+            case "addUser":
+                addUser(args[0], args[1]);
+                break;
             case "addNewCard":
                 addNewCard(args[0]);
                 break;
@@ -100,6 +105,8 @@ public class TransitSystemIO {
             case "viewRecentTrips":
                 viewRecentTrips(args[0]);
                 break;
+            case "exitProgram":
+                System.exit(0);
             default:
                 System.out.println("Incorrect argument");
         }
@@ -162,6 +169,25 @@ public class TransitSystemIO {
             }
         }
     }
+
+    /**
+     * Creates and adds a new Card to a specified User, based on their email.
+     *
+     * This function attempts to search for the User in the TransitSystem
+     * using a find method. If the User does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param name the CardHolder's name
+     * @param email the CardHolder's email
+     */
+    private void addUser(String name, String email){
+        if(ts.addCardHolder(name, email)){
+            System.out.println("User added successfully");
+        } else {
+            System.out.println("User could not be added.");
+        }
+    }
+
 
     /**
      * Creates and adds a new Card to a specified User, based on their email.
