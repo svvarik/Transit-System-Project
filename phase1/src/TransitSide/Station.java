@@ -18,8 +18,8 @@ public class Station {
      * lists of this Station's entrance and exits
      */
     private int cardMachineCount;
-    private ArrayList<CardMachine> entrances;
-    private ArrayList<CardMachine> exits;
+    public ArrayList<CardMachine> entrances;
+    public ArrayList<CardMachine> exits;
 
     private String name;
 
@@ -49,6 +49,8 @@ public class Station {
         this.y = y;
         this.flatRate = flatRate;
         this.name = name;
+        this.entrances = new ArrayList <>();
+        this.exits = new ArrayList <>();
     }
 
     public ArrayList<CardMachine> getEntrances(){

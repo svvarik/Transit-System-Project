@@ -30,6 +30,7 @@ public class TransitSystem {
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
         this.opened = new Date();
+        this.allTrips = new ArrayList <>();
     }
 
     /**
@@ -63,7 +64,7 @@ public class TransitSystem {
                 return false;
             }
         }
-        CardHolder tempCardholder = new CardHolder(name, email);
+        CardHolder tempCardholder = new CardHolder(name, email, this);
         this.transitCardHolders.add(tempCardholder);
         return true;
     }
@@ -84,6 +85,11 @@ public class TransitSystem {
         this.allTrips.add(t);
     }
 
+    /**
+     * Returns the CardHolder with the given email
+     * @param chEmail email of the CardHolder
+     * @return returns a the CardHolder that has the email passed to the method
+     */
     public CardHolder findCardHolder(String chEmail){
         for (CardHolder ch: this.transitCardHolders) {
             if (ch.getEmail().equals(chEmail)){
@@ -93,6 +99,11 @@ public class TransitSystem {
         return null;
     }
 
+    /**
+     * Returns the Card with the given ID
+     * @param cID ID of the Card
+     * @return returns the Card with the ID that was passed to the method
+     */
     public Card findCard(int cID){
         for(CardHolder ch: this.transitCardHolders){
             for(Card card: ch.getCards()){
@@ -104,6 +115,11 @@ public class TransitSystem {
         return null;
     }
 
+    /**
+     * Returns the entrance CardMachine with the given ID
+     * @param cmID ID of the CardMachine
+     * @return returns the entrance CardMachine with the ID that was passed to the method
+     */
     public CardMachine findEntrance(int cmID){
         for(Station s: this.stations){
             for(CardMachine cm: s.getEntrances()){
@@ -115,6 +131,11 @@ public class TransitSystem {
         return null;
     }
 
+    /**
+     * Returns the exit CardMachine with the given ID
+     * @param cmID ID if the CarMachine
+     * @return returns the exit CardMachine with the ID that was passed to the method
+     */
     public CardMachine findExit(int cmID){
         for(Station s: this.stations){
             for(CardMachine cm: s.getExits()){
