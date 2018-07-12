@@ -10,7 +10,6 @@ public class CardHolder {
   private String name;
   private String email;
   private ArrayList<Card> cards;
-  private int totalCost;
   private TransitSystem ts;
 
   private ArrayList<Trip> trips;
@@ -20,11 +19,12 @@ public class CardHolder {
    * @param name this CardHolder's name
    * @param email this CardHolder's email
    */
-  public CardHolder(String name, String email) {
+  public CardHolder(String name, String email, TransitSystem ts) {
     this.name = name;
     this.email = email;
     this.cards = new ArrayList<Card>();
-    this.totalCost = 0;
+    this.trips = new ArrayList <>();
+    this.ts = ts;
   }
 
   /**
@@ -78,14 +78,6 @@ public class CardHolder {
         this.cards.remove(i);
       }
     }
-  }
-
-  /**
-   * adds to this CardHolder's total cost
-   * @param fare the amount to be added
-   */
-  public void addTotalCost(int fare) {
-    this.totalCost += fare;
   }
 
   /**
