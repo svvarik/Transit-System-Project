@@ -15,7 +15,7 @@ public class TransitSystem {
     /**
      * a FareManager Specific to this TransitSystem
      */
-    private FareManager tm = new FareManager();
+    private FareManager tm = new FareManager(2, 0.5, 6, 7200000);
 
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
