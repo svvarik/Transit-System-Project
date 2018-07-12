@@ -23,7 +23,7 @@ User change name - changeName; userEmail; newName
 
 User view recent trips - viewRecentTrips; userEmail;
 
- */
+*/
 
 public class TransitSystemIO {
 
@@ -33,6 +33,14 @@ public class TransitSystemIO {
         this.ts = ts;
     }
 
+    /**
+     * Reads events to be processed by the Transit System, from a specified text file.
+     *
+     * Events must be formatted as specified in program ReadMe in order for
+     * function to properly parse events.
+     *
+     * @param filename the file name to be read from
+     */
     public void readFile(String filename) {
         try {
             FileReader fileReader1 = new FileReader(filename);
@@ -59,6 +67,13 @@ public class TransitSystemIO {
         }
     }
 
+    /**
+     * Processes a string event and its arguments, formatted as specified in
+     * the Readme.
+     *
+     * @param event the event that is occurring
+     * @param args the required arguments of the event
+     */
     public void processEvent(String event, String[] args){
         switch(event){
             case "enter":
@@ -88,6 +103,16 @@ public class TransitSystemIO {
 
     }
 
+    /**
+     * Attempts to tap a Card onto an entry CardMachine.
+     *
+     * This function attempts to search for the Card and CardMachine
+     * in the TransitSystem using find methods. If the Card or the CardMachine
+     * cannot be found, a statement is outputted to the screen.
+     *
+     * @param cID the Card ID being tapped
+     * @param cmID the CardMachine ID that the Card is tapping on
+     */
     public void enterStation(String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int entrance = Integer.parseInt(cmID);
@@ -100,6 +125,17 @@ public class TransitSystemIO {
         }
     }
 
+
+    /**
+     * Attempts to tap a Card onto an exit CardMachine.
+     *
+     * This function attempts to search for the Card and CardMachine
+     * in the TransitSystem using find methods. If the Card or the CardMachine
+     * cannot be found, a statement is outputted to the screen.
+     *
+     * @param cID the Card ID being tapped
+     * @param cmID the CardMachine ID that the Card is tapping on
+     */
     public void exitStation(String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int exit = Integer.parseInt(cmID);
@@ -112,6 +148,15 @@ public class TransitSystemIO {
         }
     }
 
+    /**
+     * Creates and adds a new Card to a specified User, based on their email.
+     *
+     * This function attempts to search for the User in the TransitSystem
+     * using a find method. If the User does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param ch the CardHolder
+     */
     public void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
@@ -119,6 +164,16 @@ public class TransitSystemIO {
         }
     }
 
+    /**
+     * Removes a Card from a specified User, based on their email.
+     *
+     * This function attempts to search for the User in the TransitSystem
+     * using a find method. If the User does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param ch the CardHolder
+     * @param cID the CardID being removed
+     */
     public void removeCard(String ch, String cID){
         int cardID = Integer.parseInt(cID);
         CardHolder cardHolder = ts.findCardHolder(ch);
@@ -130,6 +185,16 @@ public class TransitSystemIO {
         }
     }
 
+    /**
+     * Adds a specified amount to a specified Card, based on the CardID.
+     *
+     * This function attempts to search for the Card in the TransitSystem
+     * using a find method. If the Card does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param cID the CardID
+     * @param amount the amount being added
+     */
     public void addToBalance(String cID, String amount){
         int cardID = Integer.parseInt(cID);
         int addedAmount = Integer.parseInt(amount);
@@ -141,6 +206,16 @@ public class TransitSystemIO {
         }
     }
 
+    /**
+     * Modifies a CardHolder's name, changing it to an inputted name.
+     *
+     * This function attempts to search for the CardHolder in the TransitSystem
+     * using a find method. If the User does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param ch the CardHolder
+     * @param newName the name requested for change
+     */
     public void changeName(String ch, String newName){
         CardHolder cardHolder = ts.findCardHolder(ch);
         if(cardHolder != null){
@@ -151,6 +226,15 @@ public class TransitSystemIO {
 
     }
 
+    /**
+     * Outputs to screen the last three trips this CardHolder took.
+     *
+     * This function attempts to search for the CardHolder in the TransitSystem
+     * using a find method. If the CardHolder does not exist, a statement is outputted
+     * to screen.
+     *
+     * @param ch the CardHolder
+     */
     public void viewRecentTrips(String ch){
         CardHolder cardHolder = ts.findCardHolder(ch);
         if(cardHolder != null){
