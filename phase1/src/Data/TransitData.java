@@ -39,17 +39,6 @@ public class TransitData {
     }
 
     /**
-     * Returns the number of stations reached in the entire transit system.
-     * The number of stations reached is currently just one per trip.
-     *
-     * @return the total number of stations
-     */
-
-    public int numStationsReached(){
-        return allCompletedTrips.size();
-    }
-
-    /**
      * Returns the summation of all fares collected.
      *
      * @return the sum of all fares
