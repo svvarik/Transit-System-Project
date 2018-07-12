@@ -30,6 +30,7 @@ public class TransitSystem {
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
         this.opened = new Date();
+        this.allTrips = new ArrayList <>();
     }
 
     /**
@@ -63,7 +64,7 @@ public class TransitSystem {
                 return false;
             }
         }
-        CardHolder tempCardholder = new CardHolder(name, email);
+        CardHolder tempCardholder = new CardHolder(name, email, this);
         this.transitCardHolders.add(tempCardholder);
         return true;
     }
