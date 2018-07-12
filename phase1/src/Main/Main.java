@@ -16,7 +16,7 @@ public class Main {
         tsIO.readFile("events.txt");
         System.exit(0);
     }
-    
+
 
     //Instantiates everything
     private static TransitSystem start(){
