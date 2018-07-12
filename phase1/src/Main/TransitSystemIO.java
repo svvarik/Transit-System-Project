@@ -5,6 +5,7 @@ import UserSide.Card;
 import UserSide.CardHolder;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
 
@@ -43,7 +44,8 @@ public class TransitSystemIO {
      */
     public void readFile(String filename) {
         try {
-            FileReader fileReader1 = new FileReader(filename);
+            File file = new File(filename);
+            FileReader fileReader1 = new FileReader(file);
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 
