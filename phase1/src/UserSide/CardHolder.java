@@ -149,7 +149,7 @@ public class CardHolder {
    * @return  a String representation of this CardHolder
    */
   public String toString(){
-    return this.name + " has " + this.cards.size() + " cards." + "\n" + this.email;
+    return this.name + ", " + this.email;
   }
 
   /**

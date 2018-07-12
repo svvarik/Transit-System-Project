@@ -97,7 +97,7 @@ public class Station {
      * adds a new entrance CardMachine to the station
      */
     public void addEntrace(){
-        this.entrances.add(new CardMachine(true, this, cardMachineCount));
+        this.entrances.add(new CardMachine(true, this));
         this.cardMachineCount++;
     }
 
@@ -105,7 +105,7 @@ public class Station {
      * adds a new exit CardMachine to this Station
      */
     public void addExits(){
-        this.exits.add(new CardMachine(false, this, cardMachineCount));
+        this.exits.add(new CardMachine(false, this));
         this.cardMachineCount++;
     }
 

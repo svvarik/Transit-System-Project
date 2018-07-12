@@ -8,14 +8,16 @@ public class CardMachine {
 
     private int id;
 
+    static int cardMachineID = 1000;
+
     /**
      * constructs a new CardMachine
      * @param entrance determines if this cardMachine is an entrance or an exit
      * @param station determines what Stations this CardMachine belongs to
-     * @param id this CardMachine's id
      */
-    public CardMachine(boolean entrance, Station station, int id){
-        this.id = id;
+    public CardMachine(boolean entrance, Station station){
+        this.id = cardMachineID;
+        CardMachine.cardMachineID +=1;
         this.entrance = entrance;
         this.station = station;
     }

@@ -3,10 +3,12 @@ package Main;
 import TransitSide.CardMachine;
 import UserSide.Card;
 import UserSide.CardHolder;
+import UserSide.Trip;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /*
@@ -45,7 +47,7 @@ public class TransitSystemIO {
     public void readFile(String filename) {
         try {
             File file = new File(filename);
-            FileReader fileReader1 = new FileReader(file);
+            FileReader fileReader1 = new FileReader(file.getAbsolutePath());
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 
@@ -120,10 +122,16 @@ public class TransitSystemIO {
         int entrance = Integer.parseInt(cmID);
         Card thisCard = ts.findCard(cardID);
         CardMachine thisCM = ts.findEntrance(entrance);
-        if(thisCard != null && thisCM != null){
-            thisCard.tapCard(thisCM);
+        if (thisCard == null){
+            System.out.println("This card is invalid.");
+        } else if (thisCM == null){
+            System.out.println("This card machine is invalid.");
         } else {
-            System.out.println("Invalid Card or Card Machine");
+            if(thisCard.tapCard(thisCM)){
+                System.out.println(thisCard.toString() + "enters" + thisCM.toString());
+            } else {
+                System.out.println("Tap was not successful.");
+            }
         }
     }
 
@@ -138,15 +146,21 @@ public class TransitSystemIO {
      * @param cID the Card ID being tapped
      * @param cmID the CardMachine ID that the Card is tapping on
      */
-    public void exitStation(String cID, String cmID) {
+    private void exitStation(String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int exit = Integer.parseInt(cmID);
         Card thisCard = ts.findCard(cardID);
         CardMachine thisCM = ts.findExit(exit);
-        if(thisCard != null && thisCM != null){
-            thisCard.tapCard(thisCM);
+        if (thisCard == null){
+            System.out.println("This card is invalid.");
+        } else if (thisCM == null){
+            System.out.println("This card machine is invalid.");
         } else {
-            System.out.println("Invalid Card or Card Machine");
+            if(thisCard.tapCard(thisCM)){
+                System.out.println(thisCard.toString() + "exits" + thisCM.toString());
+            } else {
+                System.out.println("Tap was not successful.");
+            }
         }
     }
 
@@ -159,10 +173,13 @@ public class TransitSystemIO {
      *
      * @param ch the CardHolder
      */
-    public void addNewCard(String ch){
+    private void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
             thisCH.addCard(new Card(thisCH));
+            System.out.println("Card added to " + thisCH.toString());
+        } else {
+            System.out.println("Could not find Card Holder.");
         }
     }
 
@@ -176,14 +193,17 @@ public class TransitSystemIO {
      * @param ch the CardHolder
      * @param cID the CardID being removed
      */
-    public void removeCard(String ch, String cID){
+    private void removeCard(String ch, String cID){
         int cardID = Integer.parseInt(cID);
         CardHolder cardHolder = ts.findCardHolder(ch);
         Card card = ts.findCard(cardID);
-        if (cardHolder != null && card != null){
-            cardHolder.removeCard(cardID);
+        if (cardHolder == null) {
+            System.out.println("Could not find this Card Holder.");
+        } else if (card == null){
+            System.out.println("This card is invalid");
         } else {
-            System.out.println("Invalid card or card holder");
+            cardHolder.removeCard(cardID);
+            System.out.println(card.toString() + "was removed succesfully from " +  cardHolder.toString());
         }
     }
 
@@ -197,12 +217,16 @@ public class TransitSystemIO {
      * @param cID the CardID
      * @param amount the amount being added
      */
-    public void addToBalance(String cID, String amount){
+    private void addToBalance(String cID, String amount){
         int cardID = Integer.parseInt(cID);
         int addedAmount = Integer.parseInt(amount);
         Card card = ts.findCard(cardID);
         if (card != null){
-            card.addValue(addedAmount);
+            if (card.addValue(addedAmount)) {
+                System.out.println("Amount added successfully.");
+            } else {
+                System.out.println("Please add $10, $20, or $50 at a time.");
+            }
         } else {
             System.out.println("Could not find card");
         }
@@ -222,6 +246,7 @@ public class TransitSystemIO {
         CardHolder cardHolder = ts.findCardHolder(ch);
         if(cardHolder != null){
             cardHolder.setName(newName);
+            System.out.println("Name for user " + cardHolder.toString() + "changed successfully");
         } else {
             System.out.println("Card holder could not be found in system.");
         }
@@ -240,7 +265,10 @@ public class TransitSystemIO {
     public void viewRecentTrips(String ch){
         CardHolder cardHolder = ts.findCardHolder(ch);
         if(cardHolder != null){
-            cardHolder.viewRecentTrips();
+            ArrayList<Trip> trips = cardHolder.viewRecentTrips();
+            for (Trip t: trips ) {
+                System.out.println(t.toString());
+            }
         } else {
             System.out.println("Card holder could not be found in system.");
         }
