@@ -58,13 +58,16 @@ public class TransitSystemIO {
                 String[] arguments = newLine.split(";");
                 String event = arguments[0].replaceAll("\\s", "");
 
-                // Get a separate array of the required arguments for each event
+            // Get a separate array of the required arguments for each event
+            if (arguments.length > 1) {
                 String[] parameters = Arrays.copyOfRange(arguments, 1, arguments.length);
-                for(int i = 0; i < parameters.length; i += 1){
-                    parameters[i] = parameters[i].replaceAll("\\s", "");
+                for (int i = 0; i < parameters.length; i += 1) {
+                parameters[i] = parameters[i].replaceAll("\\s", "");
                 }
-
                 this.processEvent(event, parameters);
+            } else { // No parameters arg needed
+                this.processEvent(event, new String[1]);
+                }
             }
             fileReader.close();
         } catch (Exception e) {
@@ -201,8 +204,10 @@ public class TransitSystemIO {
     private void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
-            thisCH.addCard(new Card(thisCH));
-            System.out.println("Card added to " + thisCH.toString());
+            Card newCard = new Card(thisCH);
+            thisCH.addCard(newCard);
+            System.out.println("New card added to " + thisCH.toString());
+            System.out.println("Card " + newCard.toString());
         } else {
             System.out.println("Could not find Card Holder.");
         }

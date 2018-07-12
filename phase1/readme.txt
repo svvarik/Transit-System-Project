@@ -92,7 +92,7 @@ User change name - changeName; userEmail; newName
 
 User view recent trips - viewRecentTrips; userEmail;
 
----
+Exit program - exitProgram;
 
 
 == Lines in Events.txt ==
