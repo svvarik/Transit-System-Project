@@ -206,35 +206,40 @@ public class Card {
    */
   public boolean tapCard(CardMachine cm) {
     if (!suspended) {
-      if (cm.getStation() instanceof BusStation) { // if bus:
-          if(firstTap){
-              resetLastEffective();
-              Trip newTrip = new Trip();
-              newTrip.setStart(cm);
-              this.addTrip(newTrip);
-              deductValue(owner.getTs().getFareManager().getFlatFare());
-              addAmountSinceLastEffectiveTap(owner.getTs().getFareManager().getFlatFare());
-              firstTap = false;
-              return true;
-          }else{
-              tapBusStation(cm);
-              return true;
-          }
-      } else if (cm.getStation() instanceof SubwayStation) {
-          if(firstTap){
-              Trip newTrip = new Trip();
-              newTrip.setStart(cm);
-              this.addTrip(newTrip);
-              firstTap = false;
-              return true;
-          }else{
-              tapSubwayStation(cm);
-              return true;
-          }
-      } else {
-        // TransitSide.CardMachine either has not been initialized properly or is an invalid cardmachine
-        System.out.println("There is an error with the Card Machine");
+      if (cm.isEntrance() && this.balance <= 0) {
         return false;
+      }else{
+        if (cm.getStation() instanceof BusStation) { // if bus:
+          if (firstTap) {
+            resetLastEffective();
+            Trip newTrip = new Trip();
+            newTrip.setStart(cm);
+            this.addTrip(newTrip);
+            deductValue(owner.getTs().getFareManager().getFlatFare());
+            addAmountSinceLastEffectiveTap(owner.getTs().getFareManager().getFlatFare());
+            firstTap = false;
+            return true;
+          } else {
+            tapBusStation(cm);
+            return true;
+          }
+        } else if (cm.getStation() instanceof SubwayStation) {
+          if (firstTap) {
+            Trip newTrip = new Trip();
+            newTrip.setStart(cm);
+            this.addTrip(newTrip);
+            firstTap = false;
+            return true;
+          } else {
+            tapSubwayStation(cm);
+            return true;
+          }
+        } else {
+          // TransitSide.CardMachine either has not been initialized properly or is an invalid
+          // cardmachine
+          System.out.println("There is an error with the Card Machine");
+          return false;
+        }
       }
     }else{
         System.out.println("This card is suspended");
