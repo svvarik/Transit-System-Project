@@ -5,13 +5,14 @@ import UserSide.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class CardHolder {
   private String name;
   private String email;
   private ArrayList<Card> cards;
   private TransitSystem ts;
-
+  private Double[] monthlyFareData = new Double[11];
   private ArrayList<Trip> trips;
 
   /**
@@ -35,7 +36,43 @@ public class CardHolder {
     return this.cards;
   }
 
-    /**
+  /**
+   * return this CardHolder's monthlyFareData
+   * @return the CardHolder's monthlyFareData
+   */
+  public Double[] getMonthlyFareData() {
+    return monthlyFareData;
+  }
+
+  /**
+   * adds a Fare to this CardHolder's Monthly Fare Data
+   * @param fare the fare to be added
+   */
+  public void addMonthlyFareData(double fare) {
+    Date currentDate = new Date();
+    int currentmonth = currentDate.getMonth();
+    this.monthlyFareData[currentmonth] += fare;
+  }
+
+  public double getAverageMonthlyFare() {
+    Date currentDate = new Date();
+    int currentmonth = currentDate.getMonth();
+    int counter = 0;
+    for (int i = 0; i < this.trips.size(); i++) {
+      int tripMonth = this.trips.get(i).getEndDate().getMonth();
+      int tripYear = this.trips.get(i).getEndDate().getYear();
+      if (tripMonth == currentDate.getMonth() & tripYear == currentDate.getYear()) {
+        counter += 1;
+      }
+    }
+    if (counter == 0) {
+      return (this.monthlyFareData[currentmonth]);}
+    else {
+      return (this.monthlyFareData[currentmonth]) / (counter);
+    }
+  }
+
+  /**
      * Returns TransitSystem
      * @return returns TransitSystem
      */
