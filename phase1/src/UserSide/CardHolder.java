@@ -35,7 +35,15 @@ public class CardHolder {
     return this.cards;
   }
 
-  /**
+    /**
+     * Returns TransitSystem
+     * @return returns TransitSystem
+     */
+    public TransitSystem getTs() {
+        return ts;
+    }
+
+    /**
    * adds a Card this CardHolder's cards
    * @param card the Card to be added
    */
