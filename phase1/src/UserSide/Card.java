@@ -192,6 +192,7 @@ public class Card {
     public void deductValue(double fare){
         this.balance -= fare;
         this.owner.getTs().getTransitData().addFareCollected(fare);
+        this.owner.addMonthlyFareData(fare);
     }
 
   /**
