@@ -1,5 +1,6 @@
 package Data;
 
+import Main.TransitSystem;
 import UserSide.Trip;
 
 import java.util.ArrayList;
@@ -9,25 +10,16 @@ import java.util.ArrayList;
  */
 
 public class TransitData {
-
-    private ArrayList<Trip> allCompletedTrips;
     
     private ArrayList<Double> allFaresCollected;
+    private TransitSystem ts;
 
     /**
      * Constructs a new TransitData Object
      */
-    public TransitData(){
-        allCompletedTrips = new ArrayList<>();
+    public TransitData(TransitSystem ts){
         allFaresCollected = new ArrayList<>();
-    }
-
-    /**
-     * This method adds a completed trip to the arrayList of allCompletedTrips
-     * @param t first parameter, a trip object
-     */
-    public void addCompletedTrip(Trip t){
-        allCompletedTrips.add(t);
+        this.ts = ts;
     }
 
     /**
@@ -49,5 +41,18 @@ public class TransitData {
             totalFare += d;
         }
         return totalFare;
+    }
+
+    /**
+     * Return the number of stations reached.
+     *
+     */
+    public int stationsReached(){
+        return this.ts.getAllTrips().size() * 2;
+    }
+
+    public void dailyReport(){
+        System.out.println("Total fare collected: " + this.totalFareAmount());
+        System.out.println("Total stations reached: " + this.stationsReached());
     }
 }

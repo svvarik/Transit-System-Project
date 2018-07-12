@@ -1,6 +1,7 @@
 package Main;
 
 import TransitSide.CardMachine;
+import UserSide.AdminUser;
 import UserSide.Card;
 import UserSide.CardHolder;
 import UserSide.Trip;
@@ -16,6 +17,8 @@ Enter station - enter; card id; cardmachine id
 
 Exit station - exit; card id; cardmachine id
 
+Add User - addUser; userName; userEmail
+
 User add card - addNewCard; userEmail
 
 User remove card - removeCard; cardID; userEmail
@@ -24,7 +27,9 @@ User add balance to card - addBalance; cardID; amount
 
 User change name - changeName; userEmail; newName
 
-User view recent trips - viewRecentTrips; userEmail;
+User view recent trips - viewRecentTrips; userEmail
+
+Admin User's daily report - adminView; email;
 
 */
 
@@ -47,7 +52,7 @@ public class TransitSystemIO {
     public void readFile(String filename) {
         try {
             File file = new File(filename);
-            FileReader fileReader1 = new FileReader(file.getAbsolutePath());
+            FileReader fileReader1 = new FileReader(file);
             BufferedReader fileReader = new BufferedReader(fileReader1);
             String newLine;
 
@@ -56,14 +61,16 @@ public class TransitSystemIO {
                 String[] arguments = newLine.split(";");
                 String event = arguments[0].replaceAll("\\s", "");
 
-                // Get a separate array of the required arguments for each event
+            // Get a separate array of the required arguments for each event
+            if (arguments.length > 1) {
                 String[] parameters = Arrays.copyOfRange(arguments, 1, arguments.length);
-                for(int i = 0; i < parameters.length; i += 1){
-                    parameters[i] = parameters[i].replaceAll("\\s", "");
-                    System.out.println(parameters[i]);
+                for (int i = 0; i < parameters.length; i += 1) {
+                parameters[i] = parameters[i].replaceAll("\\s", "");
                 }
-
                 this.processEvent(event, parameters);
+            } else { // No parameters arg needed
+                this.processEvent(event, new String[1]);
+                }
             }
             fileReader.close();
         } catch (Exception e) {
@@ -86,6 +93,9 @@ public class TransitSystemIO {
             case "exit":
                 exitStation(args[0], args[1]);
                 break;
+            case "addUser":
+                addUser(args[0], args[1]);
+                break;
             case "addNewCard":
                 addNewCard(args[0]);
                 break;
@@ -101,6 +111,12 @@ public class TransitSystemIO {
             case "viewRecentTrips":
                 viewRecentTrips(args[0]);
                 break;
+            case "adminView":
+                adminView(args[0]);
+                break;
+            case "exitProgram":
+                this.ts.getTransitData().dailyReport();
+                System.exit(0);
             default:
                 System.out.println("Incorrect argument");
         }
@@ -171,13 +187,34 @@ public class TransitSystemIO {
      * using a find method. If the User does not exist, a statement is outputted
      * to screen.
      *
+     * @param name the CardHolder's name
+     * @param email the CardHolder's email
+     */
+    private void addUser(String name, String email){
+        if(ts.addCardHolder(name, email)){
+            System.out.println("User added successfully");
+        } else {
+            System.out.println("User could not be added.");
+        }
+    }
+
+
+    /**
+     * Creates and adds a new Card to a specified User, based on their email.
+     *
+     * This function attempts to search for the User in the TransitSystem
+     * using a find method. If the User does not exist, a statement is outputted
+     * to screen.
+     *
      * @param ch the CardHolder
      */
     private void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
-            thisCH.addCard(new Card(thisCH));
-            System.out.println("Card added to " + thisCH.toString());
+            Card newCard = new Card(thisCH);
+            thisCH.addCard(newCard);
+            System.out.println("New card added to " + thisCH.toString());
+            System.out.println("Card " + newCard.toString());
         } else {
             System.out.println("Could not find Card Holder.");
         }
@@ -272,6 +309,16 @@ public class TransitSystemIO {
         } else {
             System.out.println("Card holder could not be found in system.");
         }
+    }
+
+    public void adminView(String email){
+        AdminUser au = ts.findAdminUser(email);
+        if (au!= null){
+            ts.getTransitData().dailyReport();
+        } else {
+            System.out.println("This admin user does not exist in the system. Who are you hacker???");
+        }
+
     }
 
 }

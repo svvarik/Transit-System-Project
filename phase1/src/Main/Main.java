@@ -4,8 +4,6 @@ import TransitSide.BusStation;
 import TransitSide.SubwayStation;
 import UserSide.*;
 
-import java.util.Scanner;
-
 public class Main {
 
 
@@ -14,7 +12,7 @@ public class Main {
 
         TransitSystem ts = Main.start();
         TransitSystemIO tsIO = new TransitSystemIO(ts);
-        tsIO.readFile("/Users/yatharthkhattar/Documents/javaWorkSpace/group_0156/phase1/src/events.txt");
+        tsIO.readFile("events.txt");
         System.exit(0);
     }
 
@@ -30,7 +28,7 @@ public class Main {
         ts.findCardHolder("HAL@mail.com").addCard(new Card(ts.findCardHolder("HAL@mail.com")));
         ts.findCardHolder("Dave@mail.com").addCard(new Card(ts.findCardHolder("Dave@mail.com")));
 
-
+        ts.addAdminUser("Sai", "sai@sai.com");
 
         SubwayStation ss1 = new SubwayStation(0, 2, "ossington");
         ss1.addEntrace();
@@ -44,7 +42,7 @@ public class Main {
         SubwayStation ss4 = new SubwayStation(3, 2, "spadina");
         ss4.addEntrace();
         ss4.addExits();
-        SubwayStation ss5 = new SubwayStation(4, 2, "st. George");
+        SubwayStation ss5 = new SubwayStation(4, 2, "st. george");
         ss5.addEntrace();
         ss5.addExits();
 
