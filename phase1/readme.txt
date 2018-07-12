@@ -70,6 +70,10 @@ Users
 - dave: Dave, Dave@mail.com
 	- card ID: 1
 
+Admin Users
+
+- name: Sai, email: sai@sai.com
+
 ================================
 
 Events must be inputted into the text file in a specific format, as follows.
@@ -90,7 +94,9 @@ User add balance to card - addBalance; cardID; amount
 
 User change name - changeName; userEmail; newName
 
-User view recent trips - viewRecentTrips; userEmail;
+User view recent trips - viewRecentTrips; userEmail
+
+Admin user views report - adminView; adminEmail;
 
 Exit program - exitProgram;
 
@@ -101,14 +107,21 @@ For e.g, if HAL was to enter christie, you would have the following line in even
 
 enter; 0; 1000
 
-This may seem slightly cumbersome but the way the system is currently set up, the user's card would tap onto a card machine at christie station.
+This may seem slightly cumbersome but the way the system is currently set up, the user's card would tap onto a
+card machine at christie station.
 
 
 == Handling Errors ==
 
-If a user double enters, or double exits, the user is charged $6. For e.g., if a user enters Christie, forgets to tap off, and taps on, on a bus, they would be charged $6.
+If a user double enters, or double exits, the user is charged $6. For e.g., if a user enters Christie,
+forgets to tap off, and taps on, on a bus, they would be charged $6.
 
-This is similar to current transit systems. In a case of malfunctioning machines, users can always contact customer support for refunds!
+This is similar to current transit systems. In a case of malfunctioning machines, users can always contact
+customer support for refunds!
 
 
+=== End of Day ==
+
+The program must be manually exited at the end of the day with the exit command. Upon exiting, a daily report of the
+number of stations reached, and total fare collected is printed to screen.
 
