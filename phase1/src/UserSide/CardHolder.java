@@ -54,6 +54,24 @@ public class CardHolder {
     this.monthlyFareData[currentmonth] += fare;
   }
 
+  public double getAverageMonthlyFare() {
+    Date currentDate = new Date();
+    int currentmonth = currentDate.getMonth();
+    int counter = 0;
+    for (int i = 0; i < this.trips.size(); i++) {
+      int tripMonth = this.trips.get(i).getEndDate().getMonth();
+      int tripYear = this.trips.get(i).getEndDate().getYear();
+      if (tripMonth == currentDate.getMonth() & tripYear == currentDate.getYear()) {
+        counter += 1;
+      }
+    }
+    if (counter == 0) {
+      return (this.monthlyFareData[currentmonth]);}
+    else {
+      return (this.monthlyFareData[currentmonth]) / (counter);
+    }
+  }
+
   /**
      * Returns TransitSystem
      * @return returns TransitSystem
