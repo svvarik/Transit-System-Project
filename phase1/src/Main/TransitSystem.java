@@ -4,12 +4,12 @@ import Data.TransitData;
 import TransitSide.CardMachine;
 import TransitSide.FareManager;
 import TransitSide.Station;
+import UserSide.AdminUser;
 import UserSide.Card;
 import UserSide.CardHolder;
 import UserSide.Trip;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class TransitSystem {
 
@@ -18,6 +18,7 @@ public class TransitSystem {
      */
     private FareManager tm = new FareManager(2, 0.5, 6, 7200000);
 
+    private ArrayList<AdminUser> adminUsers;
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
     private ArrayList<Trip> allTrips;
@@ -30,7 +31,8 @@ public class TransitSystem {
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
         this.allTrips = new ArrayList <>();
-        this.transitData = new TransitData();
+        this.transitData = new TransitData(this);
+        this.adminUsers = new ArrayList <>();
     }
 
     /**
@@ -78,6 +80,37 @@ public class TransitSystem {
         CardHolder tempCardholder = new CardHolder(name, email, this);
         this.transitCardHolders.add(tempCardholder);
         return true;
+    }
+
+    /**
+     * Add admin user to list of admin users
+     * @param name
+     * @param email
+     * @return true if successful, false if fails
+     */
+    public boolean addAdminUser(String name, String email){
+        for (AdminUser au: this.adminUsers){
+            if (au.getEmail().equals(email)){
+                System.out.println("User email is already in system!");
+                return false;
+            }
+        }
+        this.adminUsers.add(new AdminUser(name, email));
+        return true;
+    }
+
+    /**
+     * Returns admin user with given email
+     * @param email
+     * @return admin user with given email
+     */
+    public AdminUser findAdminUser(String email){
+        for (AdminUser au: this.adminUsers) {
+            if (au.getEmail().equals(email)){
+                return au;
+            }
+        }
+        return null;
     }
 
     /**
@@ -159,4 +192,7 @@ public class TransitSystem {
         return null;
     }
 
+    public ArrayList <Trip> getAllTrips() {
+        return allTrips;
+    }
 }

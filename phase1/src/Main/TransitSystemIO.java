@@ -1,6 +1,7 @@
 package Main;
 
 import TransitSide.CardMachine;
+import UserSide.AdminUser;
 import UserSide.Card;
 import UserSide.CardHolder;
 import UserSide.Trip;
@@ -26,7 +27,9 @@ User add balance to card - addBalance; cardID; amount
 
 User change name - changeName; userEmail; newName
 
-User view recent trips - viewRecentTrips; userEmail;
+User view recent trips - viewRecentTrips; userEmail
+
+Admin User's daily report - adminView; email;
 
 */
 
@@ -108,7 +111,11 @@ public class TransitSystemIO {
             case "viewRecentTrips":
                 viewRecentTrips(args[0]);
                 break;
+            case "adminView":
+                adminView(args[0]);
+                break;
             case "exitProgram":
+                this.ts.getTransitData().dailyReport();
                 System.exit(0);
             default:
                 System.out.println("Incorrect argument");
@@ -302,6 +309,16 @@ public class TransitSystemIO {
         } else {
             System.out.println("Card holder could not be found in system.");
         }
+    }
+
+    public void adminView(String email){
+        AdminUser au = ts.findAdminUser(email);
+        if (au!= null){
+            ts.getTransitData().dailyReport();
+        } else {
+            System.out.println("This admin user does not exist in the system. Who are you hacker???");
+        }
+
     }
 
 }
