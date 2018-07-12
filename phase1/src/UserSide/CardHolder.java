@@ -81,19 +81,6 @@ public class CardHolder {
   }
 
   /**
-   * modfies a card's balance
-   * @param cardID the card's id
-   * @param value the amount to be added to the card
-   */
-  public void modifyCardBalance(int cardID, int value) {
-    for (int i = 0; i < this.cards.size(); i++) {
-      if (cardID == this.cards.get(i).getCardID()) {
-        this.cards.get(i).addValue(value);
-      }
-    }
-  }
-
-  /**
    * returns this CardHolder's 3 recent trips
    * @return this CardHolder's 3 recent trips
    */

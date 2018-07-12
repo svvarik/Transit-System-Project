@@ -3,13 +3,6 @@ package TransitSide;
 public class SubwayStation extends Station {
 
     /**
-     * creates a new SubwayStation , not flatRated
-     */
-    public SubwayStation(){
-        super(false);
-    }
-
-    /**
      * creates a new SubwayStation, not flatRated
      * @param x this SubwayStation's first coordinate
      * @param y this SubwayStation's second coordinate

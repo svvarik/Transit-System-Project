@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Date;
 import TransitSide.CardMachine;
 
-public class Trip implements Comparator<Trip>, Comparable<Trip> {
+public class Trip {
 
     private CardMachine start = null;
     private CardMachine end = null;
@@ -49,13 +49,6 @@ public class Trip implements Comparator<Trip>, Comparable<Trip> {
     }
 
     /**
-     * ends a trip
-     */
-    public void endTrip(){
-        // pass
-    }
-
-    /**
      * returns this trip CardMachine exit
      * @return this trip CardMachine exit
      */
@@ -78,14 +71,4 @@ public class Trip implements Comparator<Trip>, Comparable<Trip> {
      * @return this trip Start Date
      */
     public Date getStarDate() { return starDate; }
-
-    // Overriding the compareTo method
-    public int compareTo(Trip t) {
-        return (this.endDate).compareTo(t.endDate);
-    }
-
-    // Overriding the compare method to sort the age
-    public int compare(Trip t1, Trip t2) {
-        return (int)(t1.endDate.getTime() / 10000) - (int)(t2.endDate.getTime() / 10000);
-    }
 }

@@ -19,8 +19,6 @@ public class TransitSystem {
 
     private ArrayList<CardHolder> transitCardHolders;
     private ArrayList<Station> stations;
-    private Date opened;
-    private Date closed;
     private ArrayList<Trip> allTrips;
 
     /**
@@ -29,7 +27,6 @@ public class TransitSystem {
     public TransitSystem(){
         this.transitCardHolders = new ArrayList<>();
         this.stations = new ArrayList<>();
-        this.opened = new Date();
         this.allTrips = new ArrayList <>();
     }
 
@@ -53,7 +50,9 @@ public class TransitSystem {
     }
 
     /**
-     * This parameter creats a new CardHolder and adds it to this TransitSystem's cardholders and returns true if everything goes right
+     * This parameter creats a new CardHolder and adds it to this TransitSystem's cardholders
+     * and returns true if everything goes right
+     *
      * @param name name of a new cardholder
      * @param email email of the new cardholder
      * @return returns true if everything goes right
@@ -70,7 +69,8 @@ public class TransitSystem {
     }
 
     /**
-     * adds a station to this TransitSystem's stations
+     * Adds a station to this TransitSystem's stations
+     *
      * @param station Station to be added to this objects stations
      */
     public void addStation(Station station) {
@@ -78,7 +78,7 @@ public class TransitSystem {
     }
 
     /**
-     * adds a Trip to this TransitSystem's trips
+     * Adds a Trip to this TransitSystem's trips
      * @param t  to be added to this objects trips
      */
     public void addTrip(Trip t){
@@ -147,12 +147,4 @@ public class TransitSystem {
         return null;
     }
 
-    /**
-     * exits the system
-     */
-
-    public void exitSystem(){
-        this.closed = new Date();
-        // Write to events.txt
-    }
 }

@@ -2,58 +2,25 @@ package TransitSide;
 
 import UserSide.Card;
 
-import java.util.Date;
-
 public class FareManager {
-  private double flatFare = 2;
-  private double tripFare = 0.5;
-  private double capFare = 6;
-  private double timeLimit = 7200000;
-
-  private long startTimeNum;
-  private String startTimeString;
-  private Date date;
+  private double flatFare;
+  private double tripFare;
+  private double capFare;
+  private double timeLimit; // 2 hours
 
     /**
-     * constructs a new instance of FareManager
+     * Constructs a new FareManager object with specific fares inputted as required.
+     *
+     * @param flatFare the fee for vehicles that charge a flat fee
+     * @param tripFare the fee for vehicles that have a flexible fee
+     * @param capFare the maximum fee one can pay in two hours on a continuous trip
+     * @param timeLimit in milliseconds, the time one spend on a continuous trip
      */
-  public FareManager() {
-    this.date = new Date();
-    this.startTimeNum = date.getTime();
-    this.startTimeString = date.toString();
-  }
-  /** setters for the TransitSide.FareManager's fare values */
-
-    /**
-     * sets flatFare for this FareManager
-     * @param fare amount of flatFare
-     */
-  public void setFlatFare(double fare) {
-    this.flatFare = fare;
-  }
-
-    /**
-     * sets tripFare for this FareManager
-     * @param fare amount of tripFare
-     */
-  public void setTripFare(double fare) {
-    this.tripFare = fare;
-  }
-
-    /**
-     * sets capFare for this FareManager
-     * @param fare amount of capFare
-     */
-  public void setCapFare(double fare) {
-    this.capFare = fare;
-  }
-
-    /**
-     * sets timeLimit for this FareManager
-     * @param limit amount of timeLimit
-     */
-  public void setTimeLimit(double limit) {
-    this.timeLimit = limit;
+  public FareManager(double flatFare, double tripFare, double capFare, double timeLimit) {
+      this.flatFare = flatFare;
+      this.tripFare = tripFare;
+      this.capFare = capFare;
+      this.timeLimit = timeLimit;
   }
 
   /** getters for this TransitSide.FareManager's fare values */
@@ -80,41 +47,6 @@ public class FareManager {
      */
   public double getCapFare() {
     return this.capFare;
-  }
-
-    /**
-     * returns this FareManager's timeLimit
-     * @return this FareManager's timeLimit
-     */
-  public double getTimeLimit() {
-    return this.timeLimit;
-  }
-
-  /** getter for the TransitSide.FareManager start time in both numericals and String */
-
-    /**
-     * returns this TransitManger starTime in numbers
-     * @return this TransitManger starTime in numbers
-     */
-  public long getStartTimeNum() {
-    return this.startTimeNum;
-  }
-
-    /**
-     * returns the String representation of this FareManager's start date
-     * @return the String representation of this FareManager's start date
-     */
-  public String getStartTimeString() {
-    return this.startTimeString;
-  }
-
-    /**
-     * returns this FareManager's running time in numbers
-     * @return this FareManager's running time in numbers
-     */
-  public long getRunningTime() {
-    Date d = new Date();
-    return d.getTime() - this.startTimeNum;
   }
 
     /**

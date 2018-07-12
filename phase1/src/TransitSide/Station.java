@@ -61,17 +61,6 @@ public class Station {
         return this.exits;
     }
 
-
-    /**
-     * sets the location for this station
-     * @param x first coordinate
-     * @param y second coordinate
-     */
-    public void setLocation(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-
     /**
      * retursn this Station's id
      * @return this station's id
@@ -115,7 +104,7 @@ public class Station {
     /**
      * adds a new exit CardMachine to this Station
      */
-    public void addExist(){
+    public void addExits(){
         this.exits.add(new CardMachine(false, this, cardMachineCount));
         this.cardMachineCount++;
     }
