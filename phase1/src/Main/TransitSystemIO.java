@@ -168,7 +168,7 @@ public class TransitSystemIO {
     private void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
-            thisCH.addCard(new Card(thisCH, ts));
+            thisCH.addCard(new Card(thisCH));
             System.out.println("Card added to " + thisCH.toString());
         } else {
             System.out.println("Could not find Card Holder.");
