@@ -12,19 +12,15 @@ public class Main {
     public static void main(String[] args) {
 
         TransitSystem ts = Main.start();
-        Scanner scan = new Scanner(System.in);
-
-        while (!(scan.next().equals("exit"))){
-            // Run Program
-        }
-        // Save everything
+        TransitSystemIO tsIO = new TransitSystemIO(ts);
+        tsIO.readFile("events.txt");
         System.exit(0);
     }
-
-    //main loop would be here somewhere
+    
 
     //Instantiates everything
     private static TransitSystem start(){
+        // INSTANTIATE EVERYTHING ELSE, CARDHOLDERS, CARDMACHINES, ETC ETC ETC
         TransitSystem ts = new TransitSystem();
 
         SubwayStation ss1 = new SubwayStation(0, 2, "ossington");

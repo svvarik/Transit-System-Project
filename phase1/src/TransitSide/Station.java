@@ -51,6 +51,15 @@ public class Station {
         this.name = name;
     }
 
+    public ArrayList<CardMachine> getEntrances(){
+        return this.entrances;
+    }
+
+    public ArrayList<CardMachine> getExits(){
+        return this.exits;
+    }
+
+
     /**
      * sets the location for this station
      * @param x first coordinate
