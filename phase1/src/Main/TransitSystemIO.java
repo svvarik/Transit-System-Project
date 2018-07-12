@@ -202,7 +202,7 @@ public class TransitSystemIO {
             System.out.println("This card is invalid");
         } else {
             cardHolder.removeCard(cardID);
-            System.out.println(card.toString() + "was removed succesfully from " +  cardHolder.toString());
+            System.out.println(card.toString() + " was removed succesfully from " +  cardHolder.toString());
         }
     }
 
@@ -245,7 +245,7 @@ public class TransitSystemIO {
         CardHolder cardHolder = ts.findCardHolder(ch);
         if(cardHolder != null){
             cardHolder.setName(newName);
-            System.out.println("Name for user " + cardHolder.toString() + "changed successfully");
+            System.out.println("Name for user " + cardHolder.toString() + " changed successfully");
         } else {
             System.out.println("Card holder could not be found in system.");
         }
