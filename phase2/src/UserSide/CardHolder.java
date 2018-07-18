@@ -26,6 +26,9 @@ public class CardHolder {
     this.cards = new ArrayList<Card>();
     this.trips = new ArrayList <>();
     this.ts = ts;
+    for(int i=0; i<11; i++){
+      monthlyFareData[i] = 0.0;
+    }
   }
 
   /**
