@@ -14,6 +14,10 @@ public class TapManager {
     private double amountSinceLastEffectiveTap;
     private boolean firstTap;
 
+    /**
+     * Constructs a new Tap Manager
+     * @param c Card connected to this TapManager
+     */
     public TapManager(Card c){
         this.c = c;
         this.suspended = false;
@@ -22,8 +26,13 @@ public class TapManager {
         this.firstTap = true;
     }
 
+    /**
+     * Checks any errors when the card taps
+     * @param cm card machine that was tapped by the card
+     * @return returns whether or not to continue to calculate fare
+     */
     public Boolean toContinue(CardMachine cm) {
-        if(firstTap) {
+        if(firstTap) {//checks whether this is the card's first tap
             if(cm.getStation() instanceof BusStation){
                 resetLastEffective();
                 Trip newTrip = new Trip();
@@ -41,18 +50,18 @@ public class TapManager {
             }
             return false;
         }
-        if(suspended){
+        if(suspended){//checks if the card is suspended
             return false;
         }
-        if(c.getBalance() < 0){
+        if(c.getBalance() < 0){//checks if the card's balance is less than 0
             return false;
         }
-        if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){
+        if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){//checks if the card has a double entrance
             c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
             c.getTrips().get(Math.max(c.getTrips().size()-1, 0)).setEnd(cm);
             return true;
         }
-        if(!c.getLastCardMachineTapped().isEntrance() && !cm.isEntrance()){
+        if(!c.getLastCardMachineTapped().isEntrance() && !cm.isEntrance()){//checks if the card has a double exit
             if(cm.getStation() instanceof SubwayStation){
                 c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
                 return true;
@@ -136,6 +145,10 @@ public class TapManager {
         this.suspended = true;
     }
 
+    /**
+     * Checks if the card is suspended
+     * @return if the card is suspended
+     */
     public boolean isSuspended() {
         return suspended;
     }
