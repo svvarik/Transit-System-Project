@@ -9,7 +9,7 @@ import java.util.Date;
 public class TapManager {
 
     private Card c;
-    public boolean suspended;
+    private boolean suspended;
     private Date lastEffectiveTap;
     private double amountSinceLastEffectiveTap;
     private boolean firstTap;
