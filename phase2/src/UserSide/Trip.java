@@ -12,6 +12,7 @@ public class Trip {
     private Date starDate = null;
     private Date endDate = null;
 
+
     /**
      * constructs a new Trip
      */
@@ -22,10 +23,16 @@ public class Trip {
      * @return a String representation of this Trip
      */
     public String toString() {
-        String stringRep;
-        stringRep = "Start: " + this.start.toString() + " on " + this.starDate +
-                "\n" + "End: " + this.end.toString() + " on " + this.endDate +  "\n";
-        return stringRep;
+        if(this.end == null){//checks if start is null
+            return "Start: " + this.start.toString() + " on " + this.starDate +
+                    "\n" + "End: trip did not end ";
+        }
+        if(this.start == null) {//checks if end is null
+           return "Start: Trip did not start " +
+                    "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n";
+        }
+        return "Start: " + this.start.toString() + " on " + this.starDate +
+                "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n";
     }
 
     /**
