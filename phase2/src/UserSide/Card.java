@@ -162,6 +162,7 @@ public class Card {
             this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
             System.out.println(fare);
             deductValue(fare);// Deduct fare from this card
+            this.owner.addTrip(this.allTrips.get(Math.max(this.allTrips.size()-1, 0)));
         }
     }
 
@@ -181,6 +182,7 @@ public class Card {
             deductValue(fare);// Deduct fare from this card
         }else{ // is exit so we end trip
             this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
+            this.owner.addTrip(this.allTrips.get(Math.max(this.allTrips.size()-1, 0)));
         }
     }
 
