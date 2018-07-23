@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class SubwayStation extends Station implements Serializable {
 
+
+    private static final long serialVersionUID = 234734;
     /**
      * creates a new SubwayStation, not flatRated
      * @param x this SubwayStation's first coordinate

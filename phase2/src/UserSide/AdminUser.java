@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * This class is also responsible for a daily report for the governement to analyze the TTC statistics */
 public class AdminUser implements Serializable {
 
+    private static final long serialVersionUID = 364732;
     private String name;
     private String email;
 

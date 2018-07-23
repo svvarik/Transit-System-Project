@@ -9,6 +9,7 @@ public class FareManager implements Serializable {
   private double tripFare;
   private double capFare;
   private double timeLimit; // 2 hours
+  private static final long serialVersionUID = 234234;
 
   /**
    * Constructs a new FareManager object with specific fares inputted as required.

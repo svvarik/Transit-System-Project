@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class CardMachine implements Serializable {
 
+
+    private static final long serialVersionUID = 128763;
+
     private boolean entrance;
 
     private Station station;

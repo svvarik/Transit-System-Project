@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class Main {
 
+    private static final long serialVersionUID = 546374;
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         String filepath = "./serializedTransitSystem.ser";

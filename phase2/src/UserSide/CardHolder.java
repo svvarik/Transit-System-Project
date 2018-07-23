@@ -15,6 +15,7 @@ public class CardHolder implements Serializable {
   private TransitSystem ts;
   private Double[] monthlyFareData = new Double[11];
   private ArrayList<Trip> trips;
+  private static final long serialVersionUID = 291745;
 
   /**
    * constructs a new CardHolder

@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 
 public class TransitSystem implements Serializable{
 
+
+    private static final long serialVersionUID = 646745;
     /**
      * a FareManager Specific to this TransitSystem
      */

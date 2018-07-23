@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class BusStation extends Station implements Serializable {
 
+    private static final long serialVersionUID = 912324;
     /**
      * Constructs a new BusStation with location and name.
      *

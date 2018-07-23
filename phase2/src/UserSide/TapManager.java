@@ -9,6 +9,7 @@ import java.util.Date;
 
 public class TapManager implements Serializable {
 
+    private static final long serialVersionUID = 257103;
     public TapManager(){}
 
     /**
