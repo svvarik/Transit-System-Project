@@ -2,12 +2,13 @@ package UserSide;
 
 import Data.TransitData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /** This admin is used to analyze the buisness statistics
  *
  * This class is also responsible for a daily report for the governement to analyze the TTC statistics */
-public class AdminUser{
+public class AdminUser implements Serializable {
 
     private String name;
     private String email;

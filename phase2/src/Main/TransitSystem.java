@@ -9,9 +9,14 @@ import UserSide.Card;
 import UserSide.CardHolder;
 import UserSide.Trip;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class TransitSystem {
+public class TransitSystem implements Serializable{
 
     /**
      * a FareManager Specific to this TransitSystem
@@ -195,4 +200,6 @@ public class TransitSystem {
     public ArrayList <Trip> getAllTrips() {
         return allTrips;
     }
+
+
 }

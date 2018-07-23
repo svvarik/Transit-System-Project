@@ -9,6 +9,7 @@ import UserSide.Trip;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 

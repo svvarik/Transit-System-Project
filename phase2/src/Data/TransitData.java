@@ -3,13 +3,14 @@ package Data;
 import Main.TransitSystem;
 import UserSide.Trip;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * TransitData class keeps track of the trips taken within a TransitSystem. It also saves the total fare collected
  */
 
-public class TransitData {
+public class TransitData implements Serializable {
     
     private ArrayList<Double> allFaresCollected;
     private TransitSystem ts;

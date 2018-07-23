@@ -1,6 +1,8 @@
 package TransitSide;
 
-public class SubwayStation extends Station {
+import java.io.Serializable;
+
+public class SubwayStation extends Station implements Serializable {
 
     /**
      * creates a new SubwayStation, not flatRated

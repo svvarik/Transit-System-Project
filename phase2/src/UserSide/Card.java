@@ -1,5 +1,6 @@
 package UserSide;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import TransitSide.SubwayStation;
 import TransitSide.BusStation;
 import Main.TransitSystem;
 
-public class Card {
+public class Card implements Serializable {
 
     private static int idAssigner = 0;
 

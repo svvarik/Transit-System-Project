@@ -3,11 +3,12 @@ package UserSide;
 import Main.TransitSystem;
 import UserSide.Card;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-public class CardHolder {
+public class CardHolder implements Serializable {
   private String name;
   private String email;
   private ArrayList<Card> cards;
