@@ -4,10 +4,7 @@ import Data.TransitData;
 import TransitSide.CardMachine;
 import TransitSide.FareManager;
 import TransitSide.Station;
-import UserSide.AdminUser;
-import UserSide.Card;
-import UserSide.CardHolder;
-import UserSide.Trip;
+import UserSide.*;
 
 import java.util.ArrayList;
 
@@ -17,6 +14,7 @@ public class TransitSystem {
      * a FareManager Specific to this TransitSystem
      */
     private FareManager tm = new FareManager(2, 0.5, 6, 7200000);
+    private TapManager tapManager = new TapManager();
 
     private ArrayList<AdminUser> adminUsers;
     private ArrayList<CardHolder> transitCardHolders;
@@ -194,5 +192,9 @@ public class TransitSystem {
 
     public ArrayList <Trip> getAllTrips() {
         return allTrips;
+    }
+
+    public TapManager getTapManager(){
+        return this.tapManager;
     }
 }

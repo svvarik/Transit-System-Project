@@ -211,7 +211,7 @@ public class TransitSystemIO {
     private void addNewCard(String ch){
         CardHolder thisCH = ts.findCardHolder(ch);
         if(thisCH != null){
-            Card newCard = new Card(thisCH);
+            Card newCard = new Card(thisCH, ts.getTapManager());
             thisCH.addCard(newCard);
             System.out.println("New card added to " + thisCH.toString());
             System.out.println("Card " + newCard.toString());

@@ -8,49 +8,33 @@ import java.util.Date;
 
 public class TapManager {
 
-    private Card c;
-    private boolean suspended;
-    private Date lastEffectiveTap;
-    private double amountSinceLastEffectiveTap;
-    private boolean firstTap;
-
-    /**
-     * Constructs a new Tap Manager
-     * @param c Card connected to this TapManager
-     */
-    public TapManager(Card c){
-        this.c = c;
-        this.suspended = false;
-        this.amountSinceLastEffectiveTap = 0;
-        this.lastEffectiveTap = null;
-        this.firstTap = true;
-    }
+    public TapManager(){}
 
     /**
      * Checks any errors when the card taps
      * @param cm card machine that was tapped by the card
      * @return returns whether or not to continue to calculate fare
      */
-    public Boolean toContinue(CardMachine cm) {
-        if(firstTap) {//checks whether this is the card's first tap
-            if(cm.getStation() instanceof BusStation){
-                resetLastEffective();
+    public Boolean toContinue(Card c, CardMachine cm) {
+        if(c.isFirstTap()) {//checks whether this is the card's first tap
+            if(cm.getStation().isFlatRate()){
+                c.resetLastEffective();
                 Trip newTrip = new Trip();
                 newTrip.setStart(cm);
-                this.c.getTrips().add(newTrip);
-                this.c.deductValue(c.getOwner().getTs().getFareManager().getFlatFare());
-                addAmountSinceLastEffectiveTap(c.getOwner().getTs().getFareManager().getFlatFare());
-                this.firstTap = false;
+                c.addTrip(newTrip);
+                c.deductValue(c.getOwner().getTs().getFareManager().getFlatFare());
+                c.addAmountSinceLastEffectiveTap(c.getOwner().getTs().getFareManager().getFlatFare());
+                c.setFirstTap(false);
             }
-            if(cm.getStation() instanceof SubwayStation){
+            if(!cm.getStation().isFlatRate()){
                 Trip newTrip = new Trip();
                 newTrip.setStart(cm);
-                c.getTrips().add(newTrip);
-                this.firstTap = false;
+                c.addTrip(newTrip);
+                c.setFirstTap(false);
             }
             return false;
         }
-        if(suspended){//checks if the card is suspended
+        if(c.isSuspended()){//checks if the card is suspended
             return false;
         }
         if(c.getBalance() < 0){//checks if the card's balance is less than 0
@@ -58,15 +42,15 @@ public class TapManager {
         }
         if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){//checks if the card has a double entrance
             c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
-            c.getTrips().get(Math.max(c.getTrips().size()-1, 0)).setEnd(cm);
+            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
             return true;
         }
         if(!c.getLastCardMachineTapped().isEntrance() && !cm.isEntrance()){//checks if the card has a double exit
-            if(cm.getStation() instanceof SubwayStation){
+            if(!cm.getStation().isFlatRate()){
                 c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
                 return true;
             }
-            if(cm.getStation() instanceof BusStation){
+            if(cm.getStation().isFlatRate()){
                 c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
                 return false;
             }
@@ -75,81 +59,66 @@ public class TapManager {
     }
 
     /**
-     * returns the lasttime the Card was effectively tapped
-     * @return the lasttime the Card was effectively tapped
+     * Initializes or ends a trip depending on user location, and deducts fare if required.
+     *
+     * <p>This method will handle exceptions such as incomplete previous trips or current trips as
+     * specified by incomplete trip handlers.
+     *
+     * @param cm the cardmachine this card is tapped on
      */
-    public Date getLastEffectiveTap() {
-        return lastEffectiveTap;
-    }
-
-    /**
-     * sets a new lastEffectiveTap
-     * @param lastEffectiveTap the Date of the lastEffectiveTap
-     */
-    public void setLastEffectiveTap(Date lastEffectiveTap) {
-        this.lastEffectiveTap = lastEffectiveTap;
-    }
-
-    /**
-     * returns the amount of fare calculated since the lastEffectiveTap
-     * @return the amount of fare calculated since the lastEffectiveTap
-     */
-    public double getAmountSinceLastEffectiveTap() {
-        return amountSinceLastEffectiveTap;
-    }
-
-    /**
-     * sets the amount to the amountSinceLastEffectiveTap
-     * @param amountSinceLastEffectiveTap the amount to be set
-     */
-    public void setAmountSinceLastEffectiveTap(double amountSinceLastEffectiveTap) {
-        this.amountSinceLastEffectiveTap = amountSinceLastEffectiveTap;
-    }
-
-
-    /**
-     * adds the amount to the amountSinceLastEffectiveTap
-     * @param amountToAdd the amount to be added
-     */
-    public void addAmountSinceLastEffectiveTap(double amountToAdd) {
-        if(this.amountSinceLastEffectiveTap + amountToAdd >=6){
-            this.amountSinceLastEffectiveTap = 6;
+    public boolean tapCard(Card c, CardMachine cm){
+        Boolean contd = toContinue(c, cm);
+        if(contd){
+            if(!cm.getStation().isFlatRate()){
+                tapDaynamicStation(c, cm);
+            }
+            if(cm.getStation().isFlatRate()){
+                tapFlatStation(c, cm);
+            }
         }else{
-            this.amountSinceLastEffectiveTap = this.amountSinceLastEffectiveTap + amountToAdd;
+            return true;
+        }
+        return true;
+    }
+
+    /**
+     * Deducts fare when tapped at a SubwayStation
+     * @param cm CardMachine that was tapped at
+     */
+    private void tapDaynamicStation(Card c, CardMachine cm){
+        if (cm.isEntrance()) {
+            if(c.getOwner().getTs().getFareManager().isDisjoint(c, cm)){
+                c.resetLastEffective();
+            }
+            Trip newTrip = new Trip();
+            newTrip.setStart(cm);
+            c.addTrip(newTrip);
+        }else{ // is exist so we end trip and calc fare
+            double fare = c.getOwner().getTs().getFareManager().calcDynamicFare(c, cm);// Calculate fare
+            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
+            c.deductValue(fare);// Deduct fare from this card
+            c.getOwner().addTrip(c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)));
         }
     }
 
     /**
-     * returns true if the tap is within the two hours time period since the lastEffectiveTape
-     * @return true if the tap is within the two hours time period since the lastEffectiveTape
+     * Deducts fare when tapped at a SubwayStation
+     * @param cm CardMachine that was tapped at
      */
-    public boolean isWithinTimeLimit(){
-        Date d = new Date();
-        if (this.lastEffectiveTap != null)
-            return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < 7200000);
-        return false;
+    private void tapFlatStation(Card c, CardMachine cm){
+        if (cm.isEntrance()) { // if entrance:
+            if(c.getOwner().getTs().getFareManager().isDisjoint(c, cm)){
+                c.resetLastEffective();
+            }
+            double fare = c.getOwner().getTs().getFareManager().calcFlatFare(c, cm);// Calculate fare
+            Trip newTrip = new Trip();
+            newTrip.setStart(cm);
+            c.addTrip(newTrip);
+            c.deductValue(fare);// Deduct fare from this card
+        }else{ // is exit so we end trip
+            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
+            c.getOwner().addTrip(c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)));
+        }
     }
 
-    /**
-     * resets the lastEffectiveTap
-     */
-    public void resetLastEffective(){
-        setLastEffectiveTap(new Date());
-        setAmountSinceLastEffectiveTap(0);
-    }
-
-    /**
-     * supspends the Card
-     */
-    public void suspendCard() {
-        this.suspended = true;
-    }
-
-    /**
-     * Checks if the card is suspended
-     * @return if the card is suspended
-     */
-    public boolean isSuspended() {
-        return suspended;
-    }
 }

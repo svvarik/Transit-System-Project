@@ -55,13 +55,13 @@ public class FareManager {
    * @param cm the CardMachine on which the card was tapped
    * @return the amount of fare
    */
-  public double calcBusFare(Card card, CardMachine cm){
-    if(card.getTm().isWithinTimeLimit() && !isDisjoint(card, cm)){
-      double fare =  Math.min(getFlatFare(), getCapFare() - card.getTm().getAmountSinceLastEffectiveTap());
-      card.getTm().addAmountSinceLastEffectiveTap(fare);
+  public double calcFlatFare(Card card, CardMachine cm){
+    if(card.isWithinTimeLimit() && !isDisjoint(card, cm)){
+      double fare =  Math.min(getFlatFare(), getCapFare() - card.getAmountSinceLastEffectiveTap());
+      card.addAmountSinceLastEffectiveTap(fare);
       return fare;
     } else {
-      card.getTm().resetLastEffective();
+      card.resetLastEffective();
       return getFlatFare();
     }
   }
@@ -72,13 +72,13 @@ public class FareManager {
    * @param cm the CardMachine on which the card was tapped
    * @return the amount of fare
    */
-  public double calcSubwayFare(Card card, CardMachine cm){
+  public double calcDynamicFare(Card card, CardMachine cm){
     double fare = Math.abs(cm.getStation().getX() - card.getLastCardMachineTapped().getStation().getX()) * getTripFare();
-    if(card.getTm().isWithinTimeLimit()){
-      card.getTm().addAmountSinceLastEffectiveTap(fare);
-      return Math.min(fare, getCapFare() - card.getTm().getAmountSinceLastEffectiveTap());
+    if(card.isWithinTimeLimit()){
+      card.addAmountSinceLastEffectiveTap(fare);
+      return Math.min(fare, getCapFare() - card.getAmountSinceLastEffectiveTap());
     } else {
-      card.getTm().resetLastEffective();
+      card.resetLastEffective();
       return fare;
     }
   }

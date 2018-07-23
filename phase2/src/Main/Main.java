@@ -25,8 +25,8 @@ public class Main {
         ts.addCardHolder("HAL", "HAL@mail.com");
         ts.addCardHolder("Dave", "Dave@mail.com");
 
-        ts.findCardHolder("HAL@mail.com").addCard(new Card(ts.findCardHolder("HAL@mail.com")));
-        ts.findCardHolder("Dave@mail.com").addCard(new Card(ts.findCardHolder("Dave@mail.com")));
+        ts.findCardHolder("HAL@mail.com").addCard(new Card(ts.findCardHolder("HAL@mail.com"), ts.getTapManager()));
+        ts.findCardHolder("Dave@mail.com").addCard(new Card(ts.findCardHolder("Dave@mail.com"), ts.getTapManager()));
 
         ts.addAdminUser("Sai", "sai@sai.com");
 
