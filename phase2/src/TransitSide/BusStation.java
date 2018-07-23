@@ -1,6 +1,8 @@
 package TransitSide;
 
-public class BusStation extends Station {
+import java.io.Serializable;
+
+public class BusStation extends Station implements Serializable {
 
     /**
      * Constructs a new BusStation with location and name.

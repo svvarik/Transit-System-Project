@@ -2,7 +2,9 @@ package TransitSide;
 
 import UserSide.Card;
 
-public class FareManager {
+import java.io.Serializable;
+
+public class FareManager implements Serializable {
   private double flatFare;
   private double tripFare;
   private double capFare;

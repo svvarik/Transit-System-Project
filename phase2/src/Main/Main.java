@@ -1,33 +1,46 @@
 package Main;
 
+import Data.TransitSystemLog;
 import TransitSide.BusStation;
 import TransitSide.SubwayStation;
 import UserSide.*;
+import org.omg.CORBA.TRANSACTION_MODE;
+
+import java.io.IOException;
 
 public class Main {
 
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
+        String filepath = "./serializedTransitSystem.ser";
+        TransitSystemLog tsLog = new TransitSystemLog(filepath);
+        tsLog.readFromFile(filepath);
+        // TransitSystemLog ts = Main.start();
 
-    public static void main(String[] args) {
-
-        TransitSystem ts = Main.start();
-        TransitSystemIO tsIO = new TransitSystemIO(ts);
+        //Allow start to modify the Transit System in the Transit Log
+        tsLog.setTransitSystem(Main.start(tsLog));
+        tsLog.saveToFile(filepath);
+        // Handling Events (To be Replaced by GUI)
+        TransitSystemIO tsIO = new TransitSystemIO(tsLog.getTransitSystem());
         tsIO.readFile("events.txt");
+
+        // Save the log to file
+
         System.exit(0);
+
     }
 
-
     //Instantiates everything
-    private static TransitSystem start(){
+    private static TransitSystem start(TransitSystemLog tsLog) throws IOException, ClassNotFoundException {
         // INSTANTIATE EVERYTHING ELSE, CARDHOLDERS, CARDMACHINES, ETC ETC ETC
-        TransitSystem ts = new TransitSystem();
 
-        ts.addCardHolder("HAL", "HAL@mail.com");
-        ts.addCardHolder("Dave", "Dave@mail.com");
-
+        tsLog.addCardHolder("HAL", "HAL@mail.com");
+        tsLog.addCardHolder("Dave", "Dave@mail.com");
+        TransitSystem ts = tsLog.getTransitSystem();
         ts.findCardHolder("HAL@mail.com").addCard(new Card(ts.findCardHolder("HAL@mail.com"), ts.getTapManager()));
         ts.findCardHolder("Dave@mail.com").addCard(new Card(ts.findCardHolder("Dave@mail.com"), ts.getTapManager()));
-
+        ts.addCardHolder("HAL", "HAL@mail.com");
+        ts.addCardHolder("Dave", "Dave@mail.com");
         ts.addAdminUser("Sai", "sai@sai.com");
 
         SubwayStation ss1 = new SubwayStation(0, 2, "ossington");

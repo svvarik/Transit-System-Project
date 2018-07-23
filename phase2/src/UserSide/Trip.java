@@ -1,10 +1,11 @@
 package UserSide;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 import TransitSide.CardMachine;
 
-public class Trip {
+public class Trip implements Serializable {
 
     private CardMachine start = null;
     private CardMachine end = null;

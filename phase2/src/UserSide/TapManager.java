@@ -4,9 +4,10 @@ import TransitSide.BusStation;
 import TransitSide.CardMachine;
 import TransitSide.SubwayStation;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TapManager {
+public class TapManager implements Serializable {
 
     public TapManager(){}
 

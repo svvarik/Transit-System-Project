@@ -1,0 +1,15 @@
+enter; 0; 1000
+
+exit; 0; 1005
+
+enter; 0; 1000
+
+exit; 0; 1005
+
+enter; 0; 1000
+
+exit; 0; 1005
+
+enter; 0; 1000
+
+viewRecentTrips; HAL@mail.com

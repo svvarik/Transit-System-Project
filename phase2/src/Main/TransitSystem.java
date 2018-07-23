@@ -6,9 +6,14 @@ import TransitSide.FareManager;
 import TransitSide.Station;
 import UserSide.*;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class TransitSystem {
+public class TransitSystem implements Serializable{
 
     /**
      * a FareManager Specific to this TransitSystem

@@ -1,8 +1,9 @@
 package TransitSide;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Station {
+public class Station implements Serializable {
 
     private static int idCount = 000001;
     /** location for this station */

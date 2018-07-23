@@ -1,6 +1,8 @@
 package TransitSide;
 
-public class CardMachine {
+import java.io.Serializable;
+
+public class CardMachine implements Serializable {
 
     private boolean entrance;
 
