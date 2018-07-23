@@ -98,7 +98,6 @@ public class TapManager implements Serializable {
             double fare = c.getOwner().getTs().getFareManager().calcDynamicFare(c, cm);// Calculate fare
             c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
             c.deductValue(fare);// Deduct fare from this card
-            c.getOwner().addTrip(c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)));
         }
     }
 
@@ -118,7 +117,6 @@ public class TapManager implements Serializable {
             c.deductValue(fare);// Deduct fare from this card
         }else{ // is exit so we end trip
             c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
-            c.getOwner().addTrip(c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)));
         }
     }
 
