@@ -28,6 +28,8 @@ public class TransitSystem implements Serializable{
     private ArrayList<Station> stations;
     private ArrayList<Trip> allTrips;
     private TransitData transitData;
+    private CardIDCounter cardIDCounter;
+
 
     /**
      * Constructs a new TransitSystem
@@ -38,6 +40,7 @@ public class TransitSystem implements Serializable{
         this.allTrips = new ArrayList <>();
         this.transitData = new TransitData(this);
         this.adminUsers = new ArrayList <>();
+        this.cardIDCounter = new CardIDCounter();
     }
 
     /**
@@ -203,5 +206,9 @@ public class TransitSystem implements Serializable{
 
     public TapManager getTapManager(){
         return this.tapManager;
+    }
+
+    public CardIDCounter getCardIDCounter(){
+        return this.cardIDCounter;
     }
 }
