@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Station implements Serializable {
 
     private static int idCount = 000001;
+    private static final long serialVersionUID = 875687;
     /** location for this station */
 
     private int x;

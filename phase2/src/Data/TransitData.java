@@ -11,7 +11,9 @@ import java.util.ArrayList;
  */
 
 public class TransitData implements Serializable {
-    
+
+    private static final long serialVersionUID = 473658;
+
     private ArrayList<Double> allFaresCollected;
     private TransitSystem ts;
 

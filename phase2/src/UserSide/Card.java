@@ -12,6 +12,8 @@ import Main.TransitSystem;
 
 public class Card implements Serializable {
 
+
+    private static final long serialVersionUID = 264026;
     private static int idAssigner = 0;
 
     private int cardId;
@@ -31,8 +33,8 @@ public class Card implements Serializable {
     public Card(CardHolder owner, TapManager tm) {
         this.balance = 19;
         this.owner = owner;
-        this.cardId = idAssigner;
-        Card.idAssigner += 1;
+        this.cardId = this.owner.getTs().getCardIDCounter().getIdCounter();
+        this.owner.getTs().getCardIDCounter().updateCounter();
         this.suspended = false;
         this.amountSinceLastEffectiveTap = 0;
         this.lastEffectiveTap = null;

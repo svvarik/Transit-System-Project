@@ -7,6 +7,7 @@ import TransitSide.CardMachine;
 
 public class Trip implements Serializable {
 
+    private static final long serialVersionUID = 295624;
     private CardMachine start = null;
     private CardMachine end = null;
 
