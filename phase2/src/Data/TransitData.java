@@ -1,7 +1,7 @@
 package Data;
 
 import Main.TransitSystem;
-import UserSide.Trip;
+import TransitUsers.Trip;
 
 import java.io.Serializable;
 import java.util.ArrayList;

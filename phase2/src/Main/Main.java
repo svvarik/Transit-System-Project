@@ -1,9 +1,11 @@
 package Main;
 
 import Data.TransitSystemSerializer;
-import TransitSide.BusStation;
-import TransitSide.SubwayStation;
-import UserSide.*;
+import FareSystem.Card;
+import Stations.BusStation;
+import Stations.SubwayStation;
+import TransitUsers.CardHolder;
+
 
 import java.io.File;
 import java.io.IOException;

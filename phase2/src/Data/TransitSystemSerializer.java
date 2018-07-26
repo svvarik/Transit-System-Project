@@ -2,7 +2,6 @@ package Data;
 
 
 import Main.TransitSystem;
-import UserSide.CardHolder;
 
 import java.io.*;
 import java.util.Map;

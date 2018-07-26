@@ -1,10 +1,10 @@
 package Main;
 
-import TransitSide.CardMachine;
-import UserSide.AdminUser;
-import UserSide.Card;
-import UserSide.CardHolder;
-import UserSide.Trip;
+import AdminUsers.AdminUser;
+import FareSystem.Card;
+import FareSystem.CardMachine;
+import TransitUsers.CardHolder;
+import TransitUsers.Trip;
 
 import java.io.BufferedReader;
 import java.io.File;
