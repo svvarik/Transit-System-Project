@@ -2,10 +2,8 @@ package Data;
 
 
 import Main.TransitSystem;
-import UserSide.CardHolder;
 
 import java.io.*;
-import java.util.Map;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;

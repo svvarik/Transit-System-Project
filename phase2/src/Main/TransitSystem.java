@@ -2,11 +2,12 @@ package Main;
 
 import Data.CardIDCounter;
 import Data.TransitData;
-import TransitSide.FareManager;
-import UserSide.*;
-import UserSide.Containers.AdminUserList;
-import UserSide.Containers.CardHolderList;
-import TransitSide.Container.StationList;
+import FareSystem.FareManager;
+import FareSystem.TapManager;
+import TransitUsers.*;
+import AdminUsers.AdminUserList;
+import TransitUsers.CardHolderList;
+import Stations.StationList;
 
 import java.io.*;
 
