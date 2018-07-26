@@ -14,6 +14,9 @@ public class TransitData implements Serializable {
 
     private static final long serialVersionUID = 473658;
 
+    private ArrayList<Trip> allTrips;
+    private CardIDCounter cardIDCounter;
+
     private ArrayList<Double> allFaresCollected;
     private TransitSystem ts;
 
@@ -21,8 +24,18 @@ public class TransitData implements Serializable {
      * Constructs a new TransitData Object
      */
     public TransitData(TransitSystem ts){
-        allFaresCollected = new ArrayList<>();
+        this.allFaresCollected = new ArrayList<>();
+        this.allTrips = new ArrayList<>();
+        this.cardIDCounter = new CardIDCounter();
         this.ts = ts;
+    }
+
+    public CardIDCounter getCardIDCounter(){
+        return this.cardIDCounter;
+    }
+
+    public ArrayList<Trip> getAllTrips(){
+        return this.allTrips;
     }
 
     /**
@@ -51,7 +64,7 @@ public class TransitData implements Serializable {
      *
      */
     public int stationsReached(){
-        return this.ts.getAllTrips().size() * 2;
+        return this.allTrips.size() * 2;
     }
 
     public void dailyReport(){

@@ -37,15 +37,17 @@ public class Main {
 
             TransitSystem newTS = new TransitSystem();
 
-          newTS.addCardHolder("HAL", "HAL@mail.com");
-          newTS.addCardHolder("Dave", "Dave@mail.com");
-          newTS
-              .findCardHolder("HAL@mail.com")
-              .addCard(new Card(newTS.findCardHolder("HAL@mail.com"), newTS.getTapManager()));
-          newTS
-              .findCardHolder("Dave@mail.com")
-              .addCard(new Card(newTS.findCardHolder("Dave@mail.com"), newTS.getTapManager()));
-          newTS.addAdminUser("Sai", "sai@sai.com");
+          newTS.getCardHolders().addCardHolder("HAL", "HAL@mail.com", newTS);
+          newTS.getCardHolders().addCardHolder("Dave", "Dave@mail.com", newTS);
+          newTS.getAdminUsers().addAdminUser("Sai", "Sai@gmail.com");
+
+          CardHolder hal = newTS.getCardHolders().findCardHolder("HAL@mail.com");
+          Card newCard = new Card(hal, newTS.getTapManager());
+          hal.addCard(newCard);
+
+          CardHolder dave = newTS.getCardHolders().findCardHolder("Dave@mail.com");
+          Card newCard1 = new Card(dave, newTS.getTapManager());
+          dave.addCard(newCard1);
 
           SubwayStation ss1 = new SubwayStation(0, 2, "ossington");
           ss1.addEntrace();
@@ -76,16 +78,16 @@ public class Main {
           bs4.addEntrace();
           bs4.addExits();
 
-          newTS.addStation(ss1);
-          newTS.addStation(ss2);
-          newTS.addStation(ss3);
-          newTS.addStation(ss4);
-          newTS.addStation(ss5);
+          newTS.getStations().addStation(ss1);
+          newTS.getStations().addStation(ss2);
+          newTS.getStations().addStation(ss3);
+          newTS.getStations().addStation(ss4);
+          newTS.getStations().addStation(ss5);
 
-          newTS.addStation(bs1);
-          newTS.addStation(bs2);
-          newTS.addStation(bs3);
-          newTS.addStation(bs4);
+          newTS.getStations().addStation(bs1);
+          newTS.getStations().addStation(bs2);
+          newTS.getStations().addStation(bs3);
+          newTS.getStations().addStation(bs4);
           return newTS;
           } else {
             TransitSystemSerializer tsLog = new TransitSystemSerializer();

@@ -137,8 +137,8 @@ public class TransitSystemIO {
     public void enterStation(String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int entrance = Integer.parseInt(cmID);
-        Card thisCard = ts.findCard(cardID);
-        CardMachine thisCM = ts.findEntrance(entrance);
+        Card thisCard = ts.getCardHolders().findCard(cardID);
+        CardMachine thisCM = ts.getStations().findEntrance(entrance);
         if (thisCard == null){
             System.out.println("This card is invalid.");
         } else if (thisCM == null){
@@ -166,8 +166,8 @@ public class TransitSystemIO {
     private void exitStation(String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int exit = Integer.parseInt(cmID);
-        Card thisCard = ts.findCard(cardID);
-        CardMachine thisCM = ts.findExit(exit);
+        Card thisCard = ts.getCardHolders().findCard(cardID);
+        CardMachine thisCM = ts.getStations().findExit(exit);
         if (thisCard == null){
             System.out.println("This card is invalid.");
         } else if (thisCM == null){
@@ -192,7 +192,7 @@ public class TransitSystemIO {
      * @param email the CardHolder's email
      */
     private void addUser(String name, String email){
-        if(ts.addCardHolder(name, email)){
+        if(ts.getCardHolders().addCardHolder(name, email, ts)){
             System.out.println("User added successfully");
         } else {
             System.out.println("User could not be added.");
@@ -210,7 +210,7 @@ public class TransitSystemIO {
      * @param ch the CardHolder
      */
     private void addNewCard(String ch){
-        CardHolder thisCH = ts.findCardHolder(ch);
+        CardHolder thisCH = ts.getCardHolders().findCardHolder(ch);
         if(thisCH != null){
             Card newCard = new Card(thisCH, ts.getTapManager());
             thisCH.addCard(newCard);
@@ -233,8 +233,8 @@ public class TransitSystemIO {
      */
     private void removeCard(String ch, String cID){
         int cardID = Integer.parseInt(cID);
-        CardHolder cardHolder = ts.findCardHolder(ch);
-        Card card = ts.findCard(cardID);
+        CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
+        Card card = ts.getCardHolders().findCard(cardID);
         if (cardHolder == null) {
             System.out.println("Could not find this Card Holder.");
         } else if (card == null){
@@ -258,7 +258,7 @@ public class TransitSystemIO {
     private void addToBalance(String cID, String amount){
         int cardID = Integer.parseInt(cID);
         int addedAmount = Integer.parseInt(amount);
-        Card card = ts.findCard(cardID);
+        Card card = ts.getCardHolders().findCard(cardID);
         if (card != null){
             if (card.addValue(addedAmount)) {
                 System.out.println("Amount added successfully.");
@@ -281,7 +281,7 @@ public class TransitSystemIO {
      * @param newName the name requested for change
      */
     public void changeName(String ch, String newName){
-        CardHolder cardHolder = ts.findCardHolder(ch);
+        CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         if(cardHolder != null){
             cardHolder.setName(newName);
             System.out.println("Name for user " + cardHolder.toString() + " changed successfully");
@@ -301,7 +301,7 @@ public class TransitSystemIO {
      * @param ch the CardHolder
      */
     public void viewRecentTrips(String ch){
-        CardHolder cardHolder = ts.findCardHolder(ch);
+        CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         if(cardHolder != null){
             ArrayList<Trip> trips = cardHolder.viewRecentTrips();
             for (Trip t: trips ) {
@@ -313,7 +313,7 @@ public class TransitSystemIO {
     }
 
     public void adminView(String email){
-        AdminUser au = ts.findAdminUser(email);
+        AdminUser au = ts.getAdminUsers().findAdminUser(email);
         if (au!= null){
             ts.getTransitData().dailyReport();
         } else {

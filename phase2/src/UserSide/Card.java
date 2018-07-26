@@ -14,7 +14,6 @@ public class Card implements Serializable {
 
 
     private static final long serialVersionUID = 264026;
-    private static int idAssigner = 0;
 
     private int cardId;
     private double balance;

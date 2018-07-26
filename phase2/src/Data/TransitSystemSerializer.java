@@ -32,7 +32,6 @@ public class TransitSystemSerializer {
             ObjectInput input = new ObjectInputStream(buffer);
 
             //deserialize the Map
-            System.out.println("Does this work?");
             TransitSystem ts = (TransitSystem) input.readObject();
             input.close();
             return ts;
