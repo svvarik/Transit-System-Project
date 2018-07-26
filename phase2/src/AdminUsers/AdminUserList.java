@@ -1,6 +1,6 @@
-package UserSide.Containers;
+package AdminUsers;
 
-import UserSide.AdminUser;
+import AdminUsers.AdminUser;
 
 import java.io.Serializable;
 import java.util.ArrayList;

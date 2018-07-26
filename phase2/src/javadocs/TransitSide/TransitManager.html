@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../TransitSide/SubwayStation.html" title="class in TransitSide"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../Stations/SubwayStation.html" title="class in Stations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
-<li><a href="../index.html?TransitSide/TransitManager.html" target="_top">Frames</a></li>
+<li><a href="../index.html?Stations/TransitManager.html" target="_top">Frames</a></li>
 <li><a href="TransitManager.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">TransitSide</div>
+<div class="subTitle">Stations</div>
 <h2 title="Class TransitManager" class="title">Class TransitManager</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>TransitSide.FareManager</li>
+<li>FareSystem.FareManager</li>
 </ul>
 </li>
 </ul>
@@ -128,7 +128,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#TransitManager--">TransitManager</a></span>()</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#TransitManager--">TransitManager</a></span>()</code>
 <div class="block">constructs a new instance of TransitManager</div>
 </td>
 </tr>
@@ -149,88 +149,88 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#calcBusFare-UserSide.Card-TransitSide.CardMachine-">calcBusFare</a></span>(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-           <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#calcBusFare-FareSystem.Card-FareSystem.CardMachine-">calcBusFare</a></span>(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+           <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</code>
 <div class="block">calculates the bus fare for a trip</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#calcSubwayFare-UserSide.Card-TransitSide.CardMachine-">calcSubwayFare</a></span>(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-              <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#calcSubwayFare-FareSystem.Card-FareSystem.CardMachine-">calcSubwayFare</a></span>(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+              <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</code>
 <div class="block">calculates the subway fare for a trip</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getCapFare--">getCapFare</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getCapFare--">getCapFare</a></span>()</code>
 <div class="block">returns this TransitManager's capFare</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getFlatFare--">getFlatFare</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getFlatFare--">getFlatFare</a></span>()</code>
 <div class="block">returns this TransitManager's flatFare</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getRunningTime--">getRunningTime</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getRunningTime--">getRunningTime</a></span>()</code>
 <div class="block">returns this TransitManager's running time in numbers</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getStartTimeNum--">getStartTimeNum</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getStartTimeNum--">getStartTimeNum</a></span>()</code>
 <div class="block">returns this TransitManger starTime in numbers</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getStartTimeString--">getStartTimeString</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getStartTimeString--">getStartTimeString</a></span>()</code>
 <div class="block">returns the String representation of this TransitManager's start date</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getTimeLimit--">getTimeLimit</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getTimeLimit--">getTimeLimit</a></span>()</code>
 <div class="block">returns this TransitManager's timeLimit</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#getTripFare--">getTripFare</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#getTripFare--">getTripFare</a></span>()</code>
 <div class="block">returns this TransitManager's tripFare</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#isDisjoint-UserSide.Card-TransitSide.CardMachine-">isDisjoint</a></span>(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-          <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#isDisjoint-FareSystem.Card-FareSystem.CardMachine-">isDisjoint</a></span>(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+          <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</code>
 <div class="block">returns true if a trip has been Disjoint</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#setCapFare-double-">setCapFare</a></span>(double&nbsp;fare)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#setCapFare-double-">setCapFare</a></span>(double&nbsp;fare)</code>
 <div class="block">sets capFare for this TransitManager</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#setFlatFare-double-">setFlatFare</a></span>(double&nbsp;fare)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#setFlatFare-double-">setFlatFare</a></span>(double&nbsp;fare)</code>
 <div class="block">sets flatFare for this TransitManager</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#setTimeLimit-double-">setTimeLimit</a></span>(double&nbsp;limit)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#setTimeLimit-double-">setTimeLimit</a></span>(double&nbsp;limit)</code>
 <div class="block">sets timeLimit for this TransitManager</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../TransitSide/TransitManager.html#setTripFare-double-">setTripFare</a></span>(double&nbsp;fare)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Stations/TransitManager.html#setTripFare-double-">setTripFare</a></span>(double&nbsp;fare)</code>
 <div class="block">sets tripFare for this TransitManager</div>
 </td>
 </tr>
@@ -428,14 +428,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="calcBusFare-UserSide.Card-TransitSide.CardMachine-">
+<a name="calcBusFare-TransitUsers.Card-Stations.CardMachine-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>calcBusFare</h4>
-<pre>public&nbsp;double&nbsp;calcBusFare(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-                          <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</pre>
+<pre>public&nbsp;double&nbsp;calcBusFare(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+                          <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</pre>
 <div class="block">calculates the bus fare for a trip</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -446,14 +446,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="calcSubwayFare-UserSide.Card-TransitSide.CardMachine-">
+<a name="calcSubwayFare-TransitUsers.Card-Stations.CardMachine-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>calcSubwayFare</h4>
-<pre>public&nbsp;double&nbsp;calcSubwayFare(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-                             <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</pre>
+<pre>public&nbsp;double&nbsp;calcSubwayFare(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+                             <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</pre>
 <div class="block">calculates the subway fare for a trip</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -464,14 +464,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="isDisjoint-UserSide.Card-TransitSide.CardMachine-">
+<a name="isDisjoint-TransitUsers.Card-Stations.CardMachine-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>isDisjoint</h4>
-<pre>public&nbsp;boolean&nbsp;isDisjoint(<a href="../UserSide/Card.html" title="class in UserSide">Card</a>&nbsp;card,
-                          <a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</pre>
+<pre>public&nbsp;boolean&nbsp;isDisjoint(<a href="../TransitUsers/Card.html" title="class in TransitUsers">Card</a>&nbsp;card,
+                          <a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</pre>
 <div class="block">returns true if a trip has been Disjoint</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -509,11 +509,11 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../TransitSide/SubwayStation.html" title="class in TransitSide"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../Stations/SubwayStation.html" title="class in Stations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
-<li><a href="../index.html?TransitSide/TransitManager.html" target="_top">Frames</a></li>
+<li><a href="../index.html?Stations/TransitManager.html" target="_top">Frames</a></li>
 <li><a href="TransitManager.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

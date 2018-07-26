@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../UserSide/AdminUser.html" title="class in UserSide"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../UserSide/CardHolder.html" title="class in UserSide"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../TransitUsers/AdminUser.html" title="class in TransitUsers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../TransitUsers/CardHolder.html" title="class in TransitUsers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../index.html?UserSide/Card.html" target="_top">Frames</a></li>
+<li><a href="../index.html?TransitUsers/Card.html" target="_top">Frames</a></li>
 <li><a href="Card.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">UserSide</div>
+<div class="subTitle">TransitUsers</div>
 <h2 title="Class Card" class="title">Class Card</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>UserSide.Card</li>
+<li>FareSystem.Card</li>
 </ul>
 </li>
 </ul>
@@ -128,7 +128,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../UserSide/Card.html#Card-UserSide.CardHolder-Main.TransitSystem-">Card</a></span>(<a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a>&nbsp;owner,
+<td class="colOne"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#Card-TransitUsers.CardHolder-Main.TransitSystem-">Card</a></span>(<a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a>&nbsp;owner,
     <a href="../Main/TransitSystem.html" title="class in Main">TransitSystem</a>&nbsp;ts)</code>
 <div class="block">constructs a new Card</div>
 </td>
@@ -150,116 +150,116 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#addAmountSinceLastEffectiveTap-double-">addAmountSinceLastEffectiveTap</a></span>(double&nbsp;amountToAdd)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#addAmountSinceLastEffectiveTap-double-">addAmountSinceLastEffectiveTap</a></span>(double&nbsp;amountToAdd)</code>
 <div class="block">adds the amount to the amountSinceLastEffectiveTap</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#addTrip-UserSide.Trip-">addTrip</a></span>(<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&nbsp;t)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#addTrip-TransitUsers.Trip-">addTrip</a></span>(<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&nbsp;t)</code>
 <div class="block">adds a Trip to this Card's allTrips and calls the Card's owner's addTrip to add the Trip to their allTrips</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#addValue-double-">addValue</a></span>(double&nbsp;value)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#addValue-double-">addValue</a></span>(double&nbsp;value)</code>
 <div class="block">Adds one of three dollar amounts - 10, 20, 50 - to the card's
  balance.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#deductValue-double-">deductValue</a></span>(double&nbsp;fare)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#deductValue-double-">deductValue</a></span>(double&nbsp;fare)</code>
 <div class="block">deducts the fare from the Card's balance and suspends the Card if the balance goes negative</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getAmountSinceLastEffectiveTap--">getAmountSinceLastEffectiveTap</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getAmountSinceLastEffectiveTap--">getAmountSinceLastEffectiveTap</a></span>()</code>
 <div class="block">returns the amount of fare calculated since the lastEffectiveTap</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getBalance--">getBalance</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getBalance--">getBalance</a></span>()</code>
 <div class="block">returns this Card's balance</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getCardID--">getCardID</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getCardID--">getCardID</a></span>()</code>
 <div class="block">return this Card's id</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getLastCardMachineTapped--">getLastCardMachineTapped</a></span>()</code>
+<td class="colFirst"><code><a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getLastCardMachineTapped--">getLastCardMachineTapped</a></span>()</code>
 <div class="block">returns the last CardMachine this Card tapped</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Date</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getLastEffectiveTap--">getLastEffectiveTap</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getLastEffectiveTap--">getLastEffectiveTap</a></span>()</code>
 <div class="block">returns the lasttime the Card was effectively tapped</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../TransitSide/Station.html" title="class in TransitSide">Station</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getLastStation--">getLastStation</a></span>()</code>
+<td class="colFirst"><code><a href="../Stations/Station.html" title="class in Stations">Station</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getLastStation--">getLastStation</a></span>()</code>
 <div class="block">returns the last Station the card was tapped at</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getOwner--">getOwner</a></span>()</code>
+<td class="colFirst"><code><a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getOwner--">getOwner</a></span>()</code>
 <div class="block">returns this Card's owner</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#getTrips--">getTrips</a></span>()</code>
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#getTrips--">getTrips</a></span>()</code>
 <div class="block">returns all the Trips taken by this Card</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#isWithinTimeLimit--">isWithinTimeLimit</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#isWithinTimeLimit--">isWithinTimeLimit</a></span>()</code>
 <div class="block">returns true if the tap is within the two hours time period since the lastEffectiveTape</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#resetLastEffective--">resetLastEffective</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#resetLastEffective--">resetLastEffective</a></span>()</code>
 <div class="block">resets the lastEffectiveTap</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#setAmountSinceLastEffectiveTap-double-">setAmountSinceLastEffectiveTap</a></span>(double&nbsp;amountSinceLastEffectiveTap)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#setAmountSinceLastEffectiveTap-double-">setAmountSinceLastEffectiveTap</a></span>(double&nbsp;amountSinceLastEffectiveTap)</code>
 <div class="block">sets the amount to the amountSinceLastEffectiveTap</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#setLastEffectiveTap-java.util.Date-">setLastEffectiveTap</a></span>(java.util.Date&nbsp;lastEffectiveTap)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#setLastEffectiveTap-java.util.Date-">setLastEffectiveTap</a></span>(java.util.Date&nbsp;lastEffectiveTap)</code>
 <div class="block">sets a new lastEffectiveTap</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#suspendCard--">suspendCard</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#suspendCard--">suspendCard</a></span>()</code>
 <div class="block">supspends the Card</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#tapCard-TransitSide.CardMachine-">tapCard</a></span>(<a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#tapCard-FareSystem.CardMachine-">tapCard</a></span>(<a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</code>
 <div class="block">Initializes or ends a trip depending on user location, and deducts fare if required.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../UserSide/Card.html#toString--">toString</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../TransitUsers/Card.html#toString--">toString</a></span>()</code>
 <div class="block">returns a String representation of this Card</div>
 </td>
 </tr>
@@ -285,13 +285,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Card-UserSide.CardHolder-Main.TransitSystem-">
+<a name="Card-TransitUsers.CardHolder-Main.TransitSystem-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Card</h4>
-<pre>public&nbsp;Card(<a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a>&nbsp;owner,
+<pre>public&nbsp;Card(<a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a>&nbsp;owner,
             <a href="../Main/TransitSystem.html" title="class in Main">TransitSystem</a>&nbsp;ts)</pre>
 <div class="block">constructs a new Card</div>
 <dl>
@@ -315,7 +315,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTrips</h4>
-<pre>public&nbsp;java.util.ArrayList&lt;<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&gt;&nbsp;getTrips()</pre>
+<pre>public&nbsp;java.util.ArrayList&lt;<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&gt;&nbsp;getTrips()</pre>
 <div class="block">returns all the Trips taken by this Card</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -413,7 +413,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLastStation</h4>
-<pre>public&nbsp;<a href="../TransitSide/Station.html" title="class in TransitSide">Station</a>&nbsp;getLastStation()</pre>
+<pre>public&nbsp;<a href="../Stations/Station.html" title="class in Stations">Station</a>&nbsp;getLastStation()</pre>
 <div class="block">returns the last Station the card was tapped at</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -475,7 +475,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getOwner</h4>
-<pre>public&nbsp;<a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a>&nbsp;getOwner()</pre>
+<pre>public&nbsp;<a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a>&nbsp;getOwner()</pre>
 <div class="block">returns this Card's owner</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -489,7 +489,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLastCardMachineTapped</h4>
-<pre>public&nbsp;<a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;getLastCardMachineTapped()</pre>
+<pre>public&nbsp;<a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;getLastCardMachineTapped()</pre>
 <div class="block">returns the last CardMachine this Card tapped</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -526,13 +526,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="tapCard-TransitSide.CardMachine-">
+<a name="tapCard-Stations.CardMachine-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>tapCard</h4>
-<pre>public&nbsp;void&nbsp;tapCard(<a href="../TransitSide/CardMachine.html" title="class in TransitSide">CardMachine</a>&nbsp;cm)</pre>
+<pre>public&nbsp;void&nbsp;tapCard(<a href="../Stations/CardMachine.html" title="class in Stations">CardMachine</a>&nbsp;cm)</pre>
 <div class="block">Initializes or ends a trip depending on user location, and deducts fare if required.
 
  <p>This method will handle exceptions such as incomplete previous trips or current trips as
@@ -559,13 +559,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="addTrip-UserSide.Trip-">
+<a name="addTrip-TransitUsers.Trip-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addTrip</h4>
-<pre>public&nbsp;void&nbsp;addTrip(<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&nbsp;t)</pre>
+<pre>public&nbsp;void&nbsp;addTrip(<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&nbsp;t)</pre>
 <div class="block">adds a Trip to this Card's allTrips and calls the Card's owner's addTrip to add the Trip to their allTrips</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -600,11 +600,11 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../UserSide/AdminUser.html" title="class in UserSide"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../UserSide/CardHolder.html" title="class in UserSide"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../TransitUsers/AdminUser.html" title="class in TransitUsers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../TransitUsers/CardHolder.html" title="class in TransitUsers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../index.html?UserSide/Card.html" target="_top">Frames</a></li>
+<li><a href="../index.html?TransitUsers/Card.html" target="_top">Frames</a></li>
 <li><a href="Card.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

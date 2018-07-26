@@ -1,9 +1,8 @@
-package UserSide;
+package TransitUsers;
 
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.Date;
-import TransitSide.CardMachine;
+import FareSystem.CardMachine;
 
 public class Trip implements Serializable {
 

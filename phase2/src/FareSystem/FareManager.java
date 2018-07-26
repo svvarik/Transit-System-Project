@@ -1,6 +1,4 @@
-package TransitSide;
-
-import UserSide.Card;
+package FareSystem;
 
 import java.io.Serializable;
 
@@ -26,7 +24,7 @@ public class FareManager implements Serializable {
     this.timeLimit = timeLimit;
   }
 
-  /** getters for this TransitSide.FareManager's fare values */
+  /** getters for this FareSystem.FareManager's fare values */
 
   /**
    * returns this FareManager's flatFare

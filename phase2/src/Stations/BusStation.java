@@ -1,4 +1,4 @@
-package TransitSide;
+package Stations;
 
 import java.io.Serializable;
 

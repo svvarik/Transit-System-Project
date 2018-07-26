@@ -1,8 +1,8 @@
-package UserSide.Containers;
+package TransitUsers;
 
 import Main.TransitSystem;
-import UserSide.Card;
-import UserSide.CardHolder;
+import FareSystem.Card;
+import TransitUsers.CardHolder;
 
 import java.io.Serializable;
 import java.util.ArrayList;

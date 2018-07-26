@@ -1,11 +1,10 @@
-package UserSide;
+package TransitUsers;
 
 import Main.TransitSystem;
-import UserSide.Card;
+import FareSystem.Card;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 
 public class CardHolder implements Serializable {

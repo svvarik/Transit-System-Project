@@ -1,14 +1,11 @@
-package UserSide;
+package FareSystem;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-import TransitSide.CardMachine;
-import TransitSide.Station;
-import TransitSide.SubwayStation;
-import TransitSide.BusStation;
-import Main.TransitSystem;
+import TransitUsers.CardHolder;
+import TransitUsers.Trip;
 
 public class Card implements Serializable {
 

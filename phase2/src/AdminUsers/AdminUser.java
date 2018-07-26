@@ -1,9 +1,8 @@
-package UserSide;
+package AdminUsers;
 
 import Data.TransitData;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /** This admin is used to analyze the buisness statistics
  *

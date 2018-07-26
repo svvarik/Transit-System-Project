@@ -133,8 +133,8 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#TransitSystem-java.util.ArrayList-java.util.ArrayList-">TransitSystem</a></span>(java.util.ArrayList&lt;<a href="../TransitSide/Station.html" title="class in TransitSide">Station</a>&gt;&nbsp;stations,
-             java.util.ArrayList&lt;<a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a>&gt;&nbsp;transitCardHolders)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#TransitSystem-java.util.ArrayList-java.util.ArrayList-">TransitSystem</a></span>(java.util.ArrayList&lt;<a href="../Stations/Station.html" title="class in Stations">Station</a>&gt;&nbsp;stations,
+             java.util.ArrayList&lt;<a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a>&gt;&nbsp;transitCardHolders)</code>
 <div class="block">Constructs a TransitSystem with an ArrayList of the TransitSystem's stations, cardholders</div>
 </td>
 </tr>
@@ -162,13 +162,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#addStation-TransitSide.Station-">addStation</a></span>(<a href="../TransitSide/Station.html" title="class in TransitSide">Station</a>&nbsp;station)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#addStation-Stations.Station-">addStation</a></span>(<a href="../Stations/Station.html" title="class in Stations">Station</a>&nbsp;station)</code>
 <div class="block">adds a station to this TransitSystem's stations</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#addTrip-UserSide.Trip-">addTrip</a></span>(<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&nbsp;t)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#addTrip-TransitUsers.Trip-">addTrip</a></span>(<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&nbsp;t)</code>
 <div class="block">adds a Trip to this TransitSystem's trips</div>
 </td>
 </tr>
@@ -179,7 +179,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../TransitSide/TransitManager.html" title="class in TransitSide">TransitManager</a></code></td>
+<td class="colFirst"><code><a href="../Stations/TransitManager.html" title="class in Stations">TransitManager</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../Main/TransitSystem.html#getTransitManager--">getTransitManager</a></span>()</code>
 <div class="block">this method returns this TransitSystem's TransitManager</div>
 </td>
@@ -222,8 +222,8 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>TransitSystem</h4>
-<pre>public&nbsp;TransitSystem(java.util.ArrayList&lt;<a href="../TransitSide/Station.html" title="class in TransitSide">Station</a>&gt;&nbsp;stations,
-                     java.util.ArrayList&lt;<a href="../UserSide/CardHolder.html" title="class in UserSide">CardHolder</a>&gt;&nbsp;transitCardHolders)</pre>
+<pre>public&nbsp;TransitSystem(java.util.ArrayList&lt;<a href="../Stations/Station.html" title="class in Stations">Station</a>&gt;&nbsp;stations,
+                     java.util.ArrayList&lt;<a href="../TransitUsers/CardHolder.html" title="class in TransitUsers">CardHolder</a>&gt;&nbsp;transitCardHolders)</pre>
 <div class="block">Constructs a TransitSystem with an ArrayList of the TransitSystem's stations, cardholders</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -246,7 +246,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTransitManager</h4>
-<pre>public&nbsp;<a href="../TransitSide/TransitManager.html" title="class in TransitSide">TransitManager</a>&nbsp;getTransitManager()</pre>
+<pre>public&nbsp;<a href="../Stations/TransitManager.html" title="class in Stations">TransitManager</a>&nbsp;getTransitManager()</pre>
 <div class="block">this method returns this TransitSystem's TransitManager</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -272,13 +272,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="addStation-TransitSide.Station-">
+<a name="addStation-Stations.Station-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addStation</h4>
-<pre>public&nbsp;void&nbsp;addStation(<a href="../TransitSide/Station.html" title="class in TransitSide">Station</a>&nbsp;station)</pre>
+<pre>public&nbsp;void&nbsp;addStation(<a href="../Stations/Station.html" title="class in Stations">Station</a>&nbsp;station)</pre>
 <div class="block">adds a station to this TransitSystem's stations</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -286,13 +286,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="addTrip-UserSide.Trip-">
+<a name="addTrip-TransitUsers.Trip-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addTrip</h4>
-<pre>public&nbsp;void&nbsp;addTrip(<a href="../UserSide/Trip.html" title="class in UserSide">Trip</a>&nbsp;t)</pre>
+<pre>public&nbsp;void&nbsp;addTrip(<a href="../TransitUsers/Trip.html" title="class in TransitUsers">Trip</a>&nbsp;t)</pre>
 <div class="block">adds a Trip to this TransitSystem's trips</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

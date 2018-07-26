@@ -1,10 +1,6 @@
-package TransitSide.Container;
+package Stations;
 
-import Main.TransitSystem;
-import TransitSide.BusStation;
-import TransitSide.CardMachine;
-import TransitSide.Station;
-import TransitSide.SubwayStation;
+import FareSystem.CardMachine;
 
 import java.io.Serializable;
 import java.util.ArrayList;

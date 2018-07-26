@@ -1,11 +1,8 @@
-package UserSide;
+package FareSystem;
 
-import TransitSide.BusStation;
-import TransitSide.CardMachine;
-import TransitSide.SubwayStation;
+import TransitUsers.Trip;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class TapManager implements Serializable {
 

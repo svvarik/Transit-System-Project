@@ -1,4 +1,6 @@
-package TransitSide;
+package Stations;
+
+import FareSystem.CardMachine;
 
 import java.io.Serializable;
 import java.util.ArrayList;
