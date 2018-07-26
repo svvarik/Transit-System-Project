@@ -4,7 +4,8 @@ import Data.TransitSystemSerializer;
 import FareSystem.Card;
 import Stations.BusStation;
 import Stations.SubwayStation;
-import TransitUsers.*;
+import TransitUsers.CardHolder;
+
 
 import java.io.File;
 import java.io.IOException;

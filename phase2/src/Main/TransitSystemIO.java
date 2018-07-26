@@ -1,8 +1,8 @@
 package Main;
 
-import FareSystem.CardMachine;
 import AdminUsers.AdminUser;
 import FareSystem.Card;
+import FareSystem.CardMachine;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
 
