@@ -29,7 +29,7 @@ public class ViewTripHistorySceneController {
     @FXML
     TableColumn fareColumn;
 
-    public void initialize(){
+    public void initalize(){
         backButton.setOnAction(this::handleBackButton);
     }
 

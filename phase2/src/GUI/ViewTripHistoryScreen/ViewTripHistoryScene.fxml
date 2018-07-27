@@ -5,17 +5,16 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ViewTripHistoryScreen.ViewTripHistorySceneController">
    <children>
-      <Button layoutX="29.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-      <TableView layoutX="48.0" layoutY="50.0" prefHeight="301.0" prefWidth="505.0">
+      <Button fx:id="backButton" layoutX="29.0" layoutY="14.0" mnemonicParsing="false" onAction="#initalize" text="Back" />
+      <TableView fx:id="table" layoutX="48.0" layoutY="50.0" prefHeight="301.0" prefWidth="505.0">
         <columns>
-          <TableColumn prefWidth="101.0" text="Start Date" />
-          <TableColumn prefWidth="101.0" text="Start Location" />
-            <TableColumn prefWidth="101.0" text="End Date" />
-            <TableColumn prefWidth="101.0" text="End Location" />
-            <TableColumn prefWidth="101.0" text="Fare" />
+          <TableColumn fx:id="startDateColumn" prefWidth="101.0" text="Start Date" />
+          <TableColumn fx:id="startLocationColumn" prefWidth="101.0" text="Start Location" />
+            <TableColumn fx:id="endDateColumn" prefWidth="101.0" text="End Date" />
+            <TableColumn fx:id="endLocationColumn" prefWidth="101.0" text="End Location" />
+            <TableColumn fx:id="fareColumn" prefWidth="101.0" text="Fare" />
         </columns>
       </TableView>
    </children>
