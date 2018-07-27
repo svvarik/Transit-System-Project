@@ -1,3 +1,0 @@
-S: Logging
-Y: main loop and instantiation
-F: fare deduction
