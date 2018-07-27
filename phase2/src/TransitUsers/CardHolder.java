@@ -164,4 +164,8 @@ public class CardHolder implements Serializable {
     this.trips.add(t);
     this.ts.addTrip(t);
   }
+
+  public ArrayList<Trip> getTrips() {
+    return trips;
+  }
 }
