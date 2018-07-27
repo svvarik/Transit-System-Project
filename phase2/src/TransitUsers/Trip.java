@@ -13,11 +13,15 @@ public class Trip implements Serializable {
     private Date starDate = null;
     private Date endDate = null;
 
+    private double fare;
+
 
     /**
      * constructs a new Trip
      */
-    public Trip(){}
+    public Trip(){
+        this.fare = 0;
+    }
 
     /**
      * returns a String representation of this Trip
@@ -79,4 +83,12 @@ public class Trip implements Serializable {
      * @return this trip Start Date
      */
     public Date getStarDate() { return starDate; }
+
+    public void addFare(Double fare){
+        this.fare += fare;
+    }
+
+    public double getFare() {
+        return fare;
+    }
 }
