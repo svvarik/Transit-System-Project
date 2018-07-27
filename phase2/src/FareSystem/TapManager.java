@@ -17,12 +17,13 @@ public class TapManager implements Serializable {
     public Boolean toContinue(Card c, CardMachine cm) {
         if(c.isFirstTap()) {//checks whether this is the card's first tap
             if(cm.getStation().isFlatRate()){
+                Double fare = c.getOwner().getTs().getFareManager().getFlatFare();
                 c.resetLastEffective();
                 Trip newTrip = new Trip();
-                newTrip.setStart(cm);
+                newTrip.setStart(cm, fare);
                 c.addTrip(newTrip);
-                c.deductValue(c.getOwner().getTs().getFareManager().getFlatFare());
-                c.addAmountSinceLastEffectiveTap(c.getOwner().getTs().getFareManager().getFlatFare());
+                c.deductValue(fare);
+                c.addAmountSinceLastEffectiveTap(fare);
                 c.setFirstTap(false);
             }
             if(!cm.getStation().isFlatRate()){
@@ -37,17 +38,22 @@ public class TapManager implements Serializable {
             return false;
         }
         if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){//checks if the card has a double entrance
-            c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
-            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
+            Double fare = c.getOwner().getTs().getFareManager().getCapFare();
+            c.deductValue(fare);
+            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm, fare);
             return true;
         }
         if(!c.getLastCardMachineTapped().isEntrance() && !cm.isEntrance()){//checks if the card has a double exit
             if(!cm.getStation().isFlatRate()){
-                c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
+                Double fare = c.getOwner().getTs().getFareManager().getCapFare();
+                c.deductValue(fare);
+                c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).addFare(fare);
                 return true;
             }
             if(cm.getStation().isFlatRate()){
-                c.deductValue(c.getOwner().getTs().getFareManager().getCapFare());
+                Double fare = c.getOwner().getTs().getFareManager().getCapFare();
+                c.deductValue(fare);
+                c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).addFare(fare);
                 return false;
             }
         }
@@ -91,7 +97,7 @@ public class TapManager implements Serializable {
             c.addTrip(newTrip);
         }else{ // is exist so we end trip and calc fare
             double fare = c.getOwner().getTs().getFareManager().calcDynamicFare(c, cm);// Calculate fare
-            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm);
+            c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm, fare);
             c.deductValue(fare);// Deduct fare from this card
         }
     }
@@ -107,7 +113,7 @@ public class TapManager implements Serializable {
             }
             double fare = c.getOwner().getTs().getFareManager().calcFlatFare(c, cm);// Calculate fare
             Trip newTrip = new Trip();
-            newTrip.setStart(cm);
+            newTrip.setStart(cm, fare);
             c.addTrip(newTrip);
             c.deductValue(fare);// Deduct fare from this card
         }else{ // is exit so we end trip
