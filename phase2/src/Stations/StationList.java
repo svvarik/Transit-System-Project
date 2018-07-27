@@ -47,7 +47,7 @@ public class StationList implements Serializable {
      * This method attempts to add a station to the existing list.
      *
      * If the Station name exists already, it will return false.
-     * Otherwise, it will add a new Station
+     * Otherwise, it will add a new Stationdd
      *
      * @param name the name of the new Station being added.
      * @return boolean to determine success of method

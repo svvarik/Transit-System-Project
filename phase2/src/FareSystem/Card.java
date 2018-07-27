@@ -117,69 +117,6 @@ public class Card implements Serializable {
     public boolean tapCard(CardMachine cm){
         return tm.tapCard(this, cm);
     }
-//    /**
-//     * Initializes or ends a trip depending on user location, and deducts fare if required.
-//     *
-//     * <p>This method will handle exceptions such as incomplete previous trips or current trips as
-//     * specified by incomplete trip handlers.
-//     *
-//     * @param cm the cardmachine this card is tapped on
-//     */
-//    public boolean tapCard(CardMachine cm){
-//        Boolean contd = tm.toContinue(cm);
-//        if(contd){
-//            if(cm.getStation() instanceof SubwayStation){
-//                tapSubwayStation(cm);
-//            }
-//            if(cm.getStation() instanceof  BusStation){
-//                tapBusStation(cm);
-//            }
-//        }else{
-//            return true;
-//        }
-//        return true;
-//    }
-//
-//    /**
-//     * Deducts fare when tapped at a SubwayStation
-//     * @param cm CardMachine that was tapped at
-//     */
-//    private void tapSubwayStation(CardMachine cm){
-//        if (cm.isEntrance()) {
-//            if(this.owner.getTs().getFareManager().isDisjoint(this, cm)){
-//                this.tm.resetLastEffective();
-//            }
-//            Trip newTrip = new Trip();
-//            newTrip.setStart(cm);
-//            this.addTrip(newTrip);
-//        }else{ // is exist so we end trip and calc fare
-//            double fare = this.owner.getTs().getFareManager().calcSubwayFare(this, cm);// Calculate fare
-//            this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
-//            System.out.println(fare);
-//            deductValue(fare);// Deduct fare from this card
-//            this.owner.addTrip(this.allTrips.get(Math.max(this.allTrips.size()-1, 0)));
-//        }
-//    }
-//
-//    /**
-//     * Deducts fare when tapped at a SubwayStation
-//     * @param cm CardMachine that was tapped at
-//     */
-//    private void tapBusStation(CardMachine cm){
-//        if (cm.isEntrance()) { // if entrance:
-//            if(this.owner.getTs().getFareManager().isDisjoint(this, cm)){
-//                this.tm.resetLastEffective();
-//            }
-//            double fare = this.owner.getTs().getFareManager().calcBusFare(this, cm);// Calculate fare
-//            Trip newTrip = new Trip();
-//            newTrip.setStart(cm);
-//            this.addTrip(newTrip);
-//            deductValue(fare);// Deduct fare from this card
-//        }else{ // is exit so we end trip
-//            this.allTrips.get(Math.max(this.allTrips.size()-1, 0)).setEnd(cm);
-//            this.owner.addTrip(this.allTrips.get(Math.max(this.allTrips.size()-1, 0)));
-//        }
-//    }
 
     /**
      * returns a String representation of this Card

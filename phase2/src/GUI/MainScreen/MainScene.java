@@ -1,13 +1,12 @@
 package GUI.MainScreen;
 
-import GUI.ControlledScreen;
-import GUI.ScreenController;
+import GUI.ControllerHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class MainScene implements ControlledScreen {
+public class MainScene {
     @FXML
     Button viewUserButton;
 
@@ -16,8 +15,6 @@ public class MainScene implements ControlledScreen {
 
     @FXML
     Button viewAdminUser;
-
-    ScreenController sc;
 
     public MainScene(){
     }
@@ -30,16 +27,14 @@ public class MainScene implements ControlledScreen {
     }
 
     private void handleButtonAction(ActionEvent event){
-        System.out.println(sc);
         Object eve=event.getSource();
         if (eve.equals(viewAdminUser)){
             System.out.println("Admin User");
-            sc.stageScreen("Admin Login Screen", (Stage) tapButton.getScene().getWindow());
         }
         if (eve.equals(tapButton)){
-            System.out.println("Tap Button");
-            //switch to tap menu
-            sc.stageScreen("Tap Screen",(Stage) tapButton.getScene().getWindow());
+            ControllerHelper newControllerHelper = new ControllerHelper();
+            String tapScreen = "/GUI/TapScreen/TapScene.fxml";
+            newControllerHelper.switchScreens(event, tapScreen);
         }
         if (eve.equals(viewUserButton)){
             System.out.println("User");
@@ -47,8 +42,5 @@ public class MainScene implements ControlledScreen {
         }
     }
 
-    @Override
-    public void setScreenController(ScreenController screenController) {
-        sc = screenController;
-    }
+
 }

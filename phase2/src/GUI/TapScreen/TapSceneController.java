@@ -1,16 +1,13 @@
 package GUI.TapScreen;
 
-import GUI.ControlledScreen;
-import GUI.ScreenController;
+import GUI.ControllerHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class TapSceneController implements ControlledScreen {
+public class TapSceneController {
 
     @FXML
     Button backButton;
@@ -30,12 +27,11 @@ public class TapSceneController implements ControlledScreen {
     @FXML
     Button tapButton;
 
-    ScreenController sc;
 
     @FXML
     private void intialize(){
         tapButton.setOnAction(this::handleButtonAction);
-        backButton.setOnAction(this::handleButtonAction);
+        backButton.setOnAction(this::handleBackButton);
     }
 
     private void handleButtonAction(ActionEvent event) {
@@ -45,13 +41,14 @@ public class TapSceneController implements ControlledScreen {
                     "CardMachineID: " + cardMachineIDInputTextField.getText());
             //Process tap
         }
-        if (eve.equals(backButton)){
-            sc.stageScreen("Main Screen", (Stage) tapButton.getScene().getWindow());
-        }
+//        if (eve.equals(backButton)){
+//            sc.stageScreen("Main Screen", (Stage) tapButton.getScene().getWindow());
+//        }
     }
 
-    @Override
-    public void setScreenController(ScreenController screenController) {
-        sc = screenController;
+    private void handleBackButton(ActionEvent event) {
+        ControllerHelper newControllerHelper = new ControllerHelper();
+        String goingTo = "/GUI/MainScreen/MainScene.fxml";
+        newControllerHelper.switchScreens(event, goingTo);
     }
 }
