@@ -2,6 +2,8 @@ package TransitUsers;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import FareSystem.Card;
 import FareSystem.CardMachine;
 
 public class Trip implements Serializable {
@@ -30,14 +32,14 @@ public class Trip implements Serializable {
     public String toString() {
         if(this.end == null){//checks if start is null
             return "Start: " + this.start.toString() + " on " + this.starDate +
-                    "\n" + "End: trip did not end ";
+                    "\n" + "End: trip did not end " + "\n" + "Fare: " + this.fare;
         }
         if(this.start == null) {//checks if end is null
            return "Start: Trip did not start " +
-                    "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n";
+                    "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n" + "Fare: " + this.fare;
         }
         return "Start: " + this.start.toString() + " on " + this.starDate +
-                "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n";
+                "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n" + "Fare: " + this.fare;
     }
 
     /**
@@ -49,6 +51,13 @@ public class Trip implements Serializable {
         Date d = new Date();
         this.starDate = d;
     }
+
+    public void setStart(CardMachine cardMachine, Double fare){
+        this.start = cardMachine;
+        Date d = new Date();
+        this.starDate = d;
+        addFare(fare);
+    }
     /**
      * sets the ending point of a trip
      * @param cardMachine the CardMachine ending of the a trip
@@ -58,6 +67,13 @@ public class Trip implements Serializable {
         this.end = cardMachine;
         Date d = new Date();
         this.endDate = d;
+    }
+
+    public void setEnd(CardMachine cardMachine, Double fare){
+        this.end = cardMachine;
+        Date d = new Date();
+        this.endDate = d;
+        addFare(fare);
     }
 
     /**
