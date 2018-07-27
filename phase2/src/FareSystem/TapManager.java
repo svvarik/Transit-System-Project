@@ -33,10 +33,7 @@ public class TapManager implements Serializable {
             }
             return false;
         }
-        if(c.isSuspended()){//checks if the card is suspended
-            return false;
-        }
-        if(c.getBalance() < 0){//checks if the card's balance is less than 0
+        if(c.isSuspended() || c.getBalance() < 0){//checks if the card is suspended
             return false;
         }
         if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){//checks if the card has a double entrance
