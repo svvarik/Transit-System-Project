@@ -2,6 +2,8 @@ package TransitUsers;
 
 import Main.TransitSystem;
 import FareSystem.Card;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -167,5 +169,9 @@ public class CardHolder implements Serializable {
 
   public ArrayList<Trip> getTrips() {
     return trips;
+  }
+
+  public ObservableList<Trip> getObservableTrip(){
+    return FXCollections.observableArrayList(this.trips);
   }
 }
