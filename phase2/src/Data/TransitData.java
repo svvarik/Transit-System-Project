@@ -53,8 +53,8 @@ public class TransitData implements Serializable {
      */
     public double totalFareAmount(){
         double totalFare = 0;
-        for (Double d : this.allFaresCollected) {
-            totalFare += d;
+        for(Trip t: this.allTrips){
+            totalFare += t.getFare();
         }
         return totalFare;
     }
