@@ -14,7 +14,6 @@ public class CardHolder implements Serializable {
   private String email;
   private ArrayList<Card> cards;
   private TransitSystem ts;
-  private Double[] monthlyFareData = new Double[11];
   private ArrayList<Trip> trips;
   private static final long serialVersionUID = 291745;
 
@@ -29,9 +28,6 @@ public class CardHolder implements Serializable {
     this.cards = new ArrayList<Card>();
     this.trips = new ArrayList <>();
     this.ts = ts;
-    for(int i=0; i<11; i++){
-      monthlyFareData[i] = 0.0;
-    }
   }
 
   /**
@@ -42,39 +38,26 @@ public class CardHolder implements Serializable {
     return this.cards;
   }
 
-  /**
-   * return this CardHolder's monthlyFareData
-   * @return the CardHolder's monthlyFareData
-   */
-  public Double[] getMonthlyFareData() {
-    return monthlyFareData;
-  }
-
-  /**
-   * adds a Fare to this CardHolder's Monthly Fare Data
-   * @param fare the fare to be added
-   */
-  public void addMonthlyFareData(double fare) {
-    Date currentDate = new Date();
-    int currentmonth = currentDate.getMonth();
-    this.monthlyFareData[currentmonth] += fare;
-  }
-
   public double getAverageMonthlyFare() {
     Date currentDate = new Date();
     int currentmonth = currentDate.getMonth();
     int counter = 0;
-    for (int i = 0; i < this.trips.size(); i++) {
-      int tripMonth = this.trips.get(i).getEndDate().getMonth();
-      int tripYear = this.trips.get(i).getEndDate().getYear();
-      if (tripMonth == currentDate.getMonth() & tripYear == currentDate.getYear()) {
-        counter += 1;
+    double fareTotal = 0;
+    for(Trip t: this.trips){
+      if(t.getStarDate().getMonth() == currentmonth){
+        fareTotal = fareTotal + t.getFare();
+        if(t.getEnd() != null){
+          counter+=1;
+        }
+        if(t.getStart() != null){
+          counter+=1;
+        }
       }
     }
-    if (counter == 0) {
-      return (this.monthlyFareData[currentmonth]);}
-    else {
-      return (this.monthlyFareData[currentmonth]) / (counter);
+    if(counter == 0){
+      return fareTotal;
+    }else{
+      return fareTotal/counter;
     }
   }
 
