@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Main2 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/TripHistoryScreen/viewTripHistoryScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/AdminStatistics/AdminStatisticsScene.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
