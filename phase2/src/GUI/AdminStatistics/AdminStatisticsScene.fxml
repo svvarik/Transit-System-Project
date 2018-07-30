@@ -51,7 +51,7 @@
         </Menu>
       </menus>
     </MenuBar>
-      <BarChart fx:id="OverallRevenue">
+      <BarChart fx:id="OverallRevenue" animated="false" barGap="5.0" disable="true" horizontalGridLinesVisible="false">
         <xAxis>
           <CategoryAxis autoRanging="false" label="Time" side="BOTTOM" fx:id="x" />
         </xAxis>

@@ -34,30 +34,30 @@ public class AdminStatisticsController {
 
     // Assign the month names as categories for the horizontal axis.
         x.setCategories(monthNames);
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
         setOverallRevenueData();
         OverallRevenue.setMaxWidth(1000);
 }
     public void setOverallRevenueData(TransitData td) {
 
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
+        series.setName("REVENUE FOR THE YEAR");
         // Create a XYChart.Data object for each month. Add it to the series.
         for (int i = 0; i < monthNames.size(); i++) {
             series.getData().add(new XYChart.Data(monthNames.get(i), td.totalFareAmount()));
         }
+        OverallRevenue.setLegendVisible(false);
         OverallRevenue.getData().add(series);
     }
 
     public void setOverallRevenueData() {
 
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
+        series.setName("REVENUE FOR THE YEAR");
         // Create a XYChart.Data object for each month. Add it to the series.
         for (int i = 0; i < monthNames.size(); i++) {
             series.getData().add(new XYChart.Data(monthNames.get(i), i*10));
         }
-
+        OverallRevenue.setLegendVisible(false);
         OverallRevenue.getData().add(series);
     }
 }
