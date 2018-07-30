@@ -53,8 +53,8 @@ public class TransitData implements Serializable {
      */
     public double totalFareAmount(){
         double totalFare = 0;
-        for (Double d : this.allFaresCollected) {
-            totalFare += d;
+        for(Trip t: this.allTrips){
+            totalFare += t.getFare();
         }
         return totalFare;
     }
@@ -64,7 +64,16 @@ public class TransitData implements Serializable {
      *
      */
     public int stationsReached(){
-        return this.allTrips.size() * 2;
+        int numStationsReached = 0;
+        for (Trip t: allTrips){
+            if(t.getStart() != null){
+                numStationsReached++;
+            }
+            if(t.getEnd() != null){
+                numStationsReached++;
+            }
+        }
+        return numStationsReached;
     }
 
     public void dailyReport(){
