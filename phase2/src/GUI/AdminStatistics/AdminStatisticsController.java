@@ -30,7 +30,7 @@ public class AdminStatisticsController {
     // Get an array with the English month names.
     String[] months = DateFormatSymbols.getInstance(Locale.ENGLISH).getMonths();
     // Convert it to a list and add it to our ObservableList of months.
-        monthNames.addAll(Arrays.asList("Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"));
+        monthNames.addAll(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"));
 
     // Assign the month names as categories for the horizontal axis.
         x.setCategories(monthNames);
@@ -52,10 +52,9 @@ public class AdminStatisticsController {
     public void setOverallRevenueData() {
 
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        series.setName("REVENUE FOR THE YEAR");
         // Create a XYChart.Data object for each month. Add it to the series.
         for (int i = 0; i < monthNames.size(); i++) {
-            series.getData().add(new XYChart.Data(monthNames.get(i), i*10));
+            series.getData().add(new XYChart.Data(monthNames.get(i), (i+1)*10));
         }
         OverallRevenue.setLegendVisible(false);
         OverallRevenue.getData().add(series);

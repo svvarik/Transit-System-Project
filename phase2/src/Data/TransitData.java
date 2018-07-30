@@ -18,7 +18,6 @@ public class TransitData implements Serializable {
     private CardIDCounter cardIDCounter;
 
     private ArrayList<Double> allFaresCollected;
-    private TransitSystem ts;
 
     /**
      * Constructs a new TransitData Object
@@ -27,7 +26,6 @@ public class TransitData implements Serializable {
         this.allFaresCollected = new ArrayList<>();
         this.allTrips = new ArrayList<>();
         this.cardIDCounter = new CardIDCounter();
-        this.ts = ts;
     }
 
     public CardIDCounter getCardIDCounter(){

@@ -30,7 +30,7 @@ public class Main {
     }
 
     //Instantiates everything
-    private static TransitSystem start() throws IOException, ClassNotFoundException {
+    public static TransitSystem start() throws IOException, ClassNotFoundException {
         // INSTANTIATE EVERYTHING ELSE, CARDHOLDERS, CARDMACHINES, ETC ETC ETC
 
         File serFile = new File(filepath);
