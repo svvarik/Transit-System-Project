@@ -1,18 +1,24 @@
 package GUI.AdminStatistics;
 import Data.TransitData;
+import GUI.ControllerHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.chart.BarChart;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Locale;
 
 public class AdminStatisticsController {
+
+        @FXML
+        Button backButton;
 
         @FXML
         private BarChart OverallRevenue;
@@ -36,16 +42,16 @@ public class AdminStatisticsController {
         x.setCategories(monthNames);
         setOverallRevenueData();
         OverallRevenue.setMaxWidth(1000);
+        backButton.setOnAction(this::handleBackButton);
 }
     public void setOverallRevenueData(TransitData td) {
 
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
-        series.setName("REVENUE FOR THE YEAR");
+        series.setName("Total Revenue YTD: " + td.totalFareAmount());
         // Create a XYChart.Data object for each month. Add it to the series.
         for (int i = 0; i < monthNames.size(); i++) {
             series.getData().add(new XYChart.Data(monthNames.get(i), td.totalFareAmount()));
         }
-        OverallRevenue.setLegendVisible(false);
         OverallRevenue.getData().add(series);
     }
 
@@ -58,5 +64,11 @@ public class AdminStatisticsController {
         }
         OverallRevenue.setLegendVisible(false);
         OverallRevenue.getData().add(series);
+    }
+
+    private void handleBackButton(ActionEvent event) {
+        ControllerHelper newControllerHelper = new ControllerHelper();
+        String goingTo = "/GUI/AdminStatistics/AdminMainScene.fxml";
+        newControllerHelper.switchScreens(event, goingTo);
     }
 }

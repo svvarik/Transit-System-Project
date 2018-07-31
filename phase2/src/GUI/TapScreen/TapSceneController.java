@@ -29,7 +29,7 @@ public class TapSceneController {
 
 
     @FXML
-    private void intialize(){
+    private void initialize(){
         tapButton.setOnAction(this::handleButtonAction);
         backButton.setOnAction(this::handleBackButton);
     }
