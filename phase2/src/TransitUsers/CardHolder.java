@@ -157,4 +157,15 @@ public class CardHolder implements Serializable {
   public ObservableList<Trip> getObservableTrip(){
     return FXCollections.observableArrayList(this.trips);
   }
+
+  public double getDailyFare(int day, int month, int year){
+      double fare = 0;
+      for(Trip t: this.trips){
+          if((t.getStarDate().getDate() == day) && (t.getStarDate()
+          .getMonth() == month) && (t.getStarDate().getYear() == year)){
+              fare+= t.getFare();
+          }
+      }
+      return fare;
+  }
 }
