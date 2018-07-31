@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class CardHolder implements Serializable {
   private String name;
@@ -39,12 +39,12 @@ public class CardHolder implements Serializable {
   }
 
   public double getAverageMonthlyFare() {
-    Date currentDate = new Date();
-    int currentmonth = currentDate.getMonth();
+    Calendar currentDate = Calendar.getInstance();
+    int currentMonth = currentDate.get(Calendar.MONTH);
     int counter = 0;
     double fareTotal = 0;
     for(Trip t: this.trips){
-      if(t.getStarDate().getMonth() == currentmonth){
+      if(t.getStarDate().get(Calendar.DATE) == currentMonth){
         fareTotal = fareTotal + t.getFare();
         if(t.getEnd() != null){
           counter+=1;
@@ -161,8 +161,8 @@ public class CardHolder implements Serializable {
   public double getDailyFare(int day, int month, int year){
       double fare = 0;
       for(Trip t: this.trips){
-          if((t.getStarDate().getDate() == day) && (t.getStarDate()
-          .getMonth() == month) && (t.getStarDate().getYear() == year)){
+          if((t.getStarDate().get(Calendar.DATE) == day) && (t.getStarDate()
+          .get(Calendar.MONTH) == month) && (t.getStarDate().get(Calendar.YEAR) == year)){
               fare+= t.getFare();
           }
       }

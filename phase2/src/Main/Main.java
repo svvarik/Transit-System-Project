@@ -21,7 +21,7 @@ public class Main {
 
         // Handling Events (To be Replaced by GUI)
         TransitSystemIO tsIO = new TransitSystemIO(ts);
-        tsIO.readFile("../events.txt");
+        tsIO.readFile("events.txt");
 
         // Save the log to file
         saveFileHelper.saveToFile(filepath, ts);

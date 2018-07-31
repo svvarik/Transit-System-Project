@@ -5,6 +5,7 @@ import TransitUsers.Trip;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * TransitData class keeps track of the trips taken within a TransitSystem. It also saves the total fare collected
@@ -60,7 +61,7 @@ public class TransitData implements Serializable {
     public double getMonthlyFareAmount(int month, int year){
         double totalFare = 0;
         for (Trip t: this.allTrips){
-            if((t.getStarDate().getMonth() == month) && (t.getStarDate().getYear() == year)){
+            if((t.getStarDate().get(Calendar.MONTH) == month) && (t.getStarDate().get(Calendar.YEAR) == year)){
                 totalFare = totalFare + t.getFare();
             }
         }

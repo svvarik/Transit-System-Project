@@ -1,8 +1,7 @@
 package TransitUsers;
 
 import java.io.Serializable;
-import java.util.Date;
-
+import java.util.Calendar;
 import FareSystem.Card;
 import FareSystem.CardMachine;
 
@@ -12,8 +11,8 @@ public class Trip implements Serializable {
     private CardMachine start = null;
     private CardMachine end = null;
 
-    private Date starDate = null;
-    private Date endDate = null;
+    private Calendar starDate = null;
+    private Calendar endDate = null;
 
     private double fare;
 
@@ -31,15 +30,15 @@ public class Trip implements Serializable {
      */
     public String toString() {
         if(this.end == null){//checks if start is null
-            return "Start: " + this.start.toString() + " on " + this.starDate +
+            return "Start: " + this.start.toString() + " on " + this.starDate.getTime() +
                     "\n" + "End: trip did not end " + "\n" + "Fare: " + this.fare;
         }
         if(this.start == null) {//checks if end is null
            return "Start: Trip did not start " +
-                    "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n" + "Fare: " + this.fare;
+                    "\n" + "End: " + this.end.toString() + " on " + this.endDate.getTime() + "\n" + "Fare: " + this.fare;
         }
-        return "Start: " + this.start.toString() + " on " + this.starDate +
-                "\n" + "End: " + this.end.toString() + " on " + this.endDate + "\n" + "Fare: " + this.fare;
+        return "Start: " + this.start.toString() + " on " + this.starDate.getTime() +
+                "\n" + "End: " + this.end.toString() + " on " + this.endDate.getTime() + "\n" + "Fare: " + this.fare;
     }
 
     /**
@@ -48,13 +47,13 @@ public class Trip implements Serializable {
      */
     public void setStart(CardMachine cardMachine){
         this.start = cardMachine;
-        Date d = new Date();
+        Calendar d = Calendar.getInstance();
         this.starDate = d;
     }
 
     public void setStart(CardMachine cardMachine, Double fare){
         this.start = cardMachine;
-        Date d = new Date();
+        Calendar d = Calendar.getInstance();
         this.starDate = d;
         addFare(fare);
     }
@@ -65,13 +64,13 @@ public class Trip implements Serializable {
 
     public void setEnd(CardMachine cardMachine){
         this.end = cardMachine;
-        Date d = new Date();
+        Calendar d = Calendar.getInstance();
         this.endDate = d;
     }
 
     public void setEnd(CardMachine cardMachine, Double fare){
         this.end = cardMachine;
-        Date d = new Date();
+        Calendar d = Calendar.getInstance();
         this.endDate = d;
         addFare(fare);
     }
@@ -92,13 +91,13 @@ public class Trip implements Serializable {
      * returns this trip end Date
      * @return this trip end Date
      */
-    public Date getEndDate() { return endDate; }
+    public Calendar getEndDate() { return endDate; }
 
     /**
      * returns this trip Start Date
      * @return this trip Start Date
      */
-    public Date getStarDate() { return starDate; }
+    public Calendar getStarDate() { return starDate; }
 
     public void addFare(Double fare){
         this.fare += fare;

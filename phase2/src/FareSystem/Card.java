@@ -2,8 +2,7 @@ package FareSystem;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
-
+import java.util.Calendar;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
 
@@ -17,7 +16,7 @@ public class Card implements Serializable {
     private ArrayList<Trip> allTrips = new ArrayList<>();
     private CardHolder owner;
     private boolean suspended;
-    private Date lastEffectiveTap;
+    private Calendar lastEffectiveTap;
     private double amountSinceLastEffectiveTap;
     private boolean firstTap;
     private TapManager tm;
@@ -153,7 +152,7 @@ public class Card implements Serializable {
      * returns the lasttime the Card was effectively tapped
      * @return the lasttime the Card was effectively tapped
      */
-    public Date getLastEffectiveTap() {
+    public Calendar getLastEffectiveTap() {
         return lastEffectiveTap;
     }
 
@@ -161,7 +160,7 @@ public class Card implements Serializable {
      * sets a new lastEffectiveTap
      * @param lastEffectiveTap the Date of the lastEffectiveTap
      */
-    public void setLastEffectiveTap(Date lastEffectiveTap) {
+    public void setLastEffectiveTap(Calendar lastEffectiveTap) {
         this.lastEffectiveTap = lastEffectiveTap;
     }
 
@@ -199,9 +198,9 @@ public class Card implements Serializable {
      * @return true if the tap is within the two hours time period since the lastEffectiveTape
      */
     public boolean isWithinTimeLimit(){
-        Date d = new Date();
+        Calendar d = Calendar.getInstance();
         if (this.lastEffectiveTap != null)
-            return (Math.abs(this.lastEffectiveTap.getTime() - d.getTime()) < 7200000);
+            return (Math.abs(this.lastEffectiveTap.getTimeInMillis() - d.getTimeInMillis()) < 7200000);
         return false;
     }
 
@@ -209,7 +208,7 @@ public class Card implements Serializable {
      * resets the lastEffectiveTap
      */
     public void resetLastEffective(){
-        setLastEffectiveTap(new Date());
+        setLastEffectiveTap(Calendar.getInstance());
         setAmountSinceLastEffectiveTap(0);
     }
 
