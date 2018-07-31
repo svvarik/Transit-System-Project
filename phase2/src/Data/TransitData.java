@@ -57,6 +57,16 @@ public class TransitData implements Serializable {
         return totalFare;
     }
 
+    public double getMonthlyFareAmount(int month, int year){
+        double totalFare = 0;
+        for (Trip t: this.allTrips){
+            if((t.getStarDate().getMonth() == month) && (t.getStarDate().getYear() == year)){
+                totalFare = totalFare + t.getFare();
+            }
+        }
+        return totalFare;
+    }
+
     /**
      * Return the number of stations reached.
      *
