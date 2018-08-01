@@ -44,7 +44,7 @@ public class CardHolder implements Serializable {
     int counter = 0;
     double fareTotal = 0;
     for(Trip t: this.trips){
-      if(t.getStarDate().get(Calendar.DATE) == currentMonth){
+      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
         fareTotal = fareTotal + t.getFare();
         if(t.getEnd() != null){
           counter+=1;
