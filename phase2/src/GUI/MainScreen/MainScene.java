@@ -21,26 +21,24 @@ public class MainScene {
 
     @FXML
     private void intialize(){
-        viewAdminUser.setOnAction(this::handleButtonAction);
-        tapButton.setOnAction(this::handleButtonAction);
-        viewUserButton.setOnAction(this::handleButtonAction);
+        //do something?
     }
 
-    private void handleButtonAction(ActionEvent event){
-        Object eve=event.getSource();
-        if (eve.equals(viewAdminUser)){
-            System.out.println("Admin User");
-        }
-        if (eve.equals(tapButton)){
-            ControllerHelper newControllerHelper = new ControllerHelper();
-            String tapScreen = "/GUI/TapScreen/TapScene.fxml";
-            newControllerHelper.switchScreens(event, tapScreen);
-        }
-        if (eve.equals(viewUserButton)){
-            System.out.println("User");
-            //switch to user login
-        }
+    @FXML
+    private void handleTapButton(ActionEvent event){
+        ControllerHelper newControllerHelper = new ControllerHelper();
+        String tapScreen = "/GUI/TapScreen/TapScene.fxml";
+        newControllerHelper.switchScreens(event, tapScreen);
     }
 
+    @FXML
+    private void handleUserButton(ActionEvent event){
+        System.out.println("User");
+    }
+
+    @FXML
+    private void handleAdminButton(ActionEvent event){
+        System.out.println("Admin User");
+    }
 
 }
