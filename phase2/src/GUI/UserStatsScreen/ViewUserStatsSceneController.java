@@ -24,16 +24,16 @@ import java.util.ResourceBundle;
 public class ViewUserStatsSceneController {
 
     @FXML
-    private Button backButton;
+    Button backButton;
 
     @FXML
-    private LineChart<Number, Number> userFareGraph;
+    LineChart<Number, Number> userFareGraph;
 
     @FXML
-    private NumberAxis xAxis;
+    NumberAxis xAxis;
 
     @FXML
-    private NumberAxis yAxis;
+    NumberAxis yAxis;
 
     private CardHolder cardHolder;
 
@@ -54,7 +54,10 @@ public class ViewUserStatsSceneController {
                         Calendar.getInstance().get(Calendar.YEAR))));
             }
         }
-        System.out.println("Hello");
         userFareGraph.getData().add(series);
+    }
+
+    public void setCardHolder(CardHolder c){
+        cardHolder = c;
     }
 }
