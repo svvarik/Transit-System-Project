@@ -1,7 +1,9 @@
 package GUI.TripHistoryScreen;
 
+import FareSystem.Card;
 import FareSystem.CardMachine;
 import Stations.Station;
+import TransitUsers.CardHolder;
 import TransitUsers.Trip;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 
 import java.net.URL;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class ViewTripHistorySceneController implements Initializable {
@@ -38,7 +41,7 @@ public class ViewTripHistorySceneController implements Initializable {
     @FXML
     TableColumn<Trip, Double> fareColumn;
 
-    ObservableList<Trip> tripData ;
+    private CardHolder cardHolder;
 
     public void handleBackButton(ActionEvent event){
         //go back to previous screen
@@ -46,6 +49,12 @@ public class ViewTripHistorySceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        table.setItems(tripData);
+        if(cardHolder != null) {
+            table.setItems(cardHolder.getObservableTrip());
+        }
+    }
+
+    public void setCardHolder(CardHolder c){
+        cardHolder = c;
     }
 }
