@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TapScreen.TapSceneController">
    <children>
-      <Button fx:id="tapButton" layoutX="271.0" layoutY="257.0" mnemonicParsing="false" onAction="#initialize" text="Tap" />
+      <Button fx:id="tapButton" layoutX="271.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleTapButton" text="Tap" />
       <Label fx:id="titleLabel" layoutX="227.0" layoutY="29.0" text="Tap Menu">
          <font>
             <Font size="31.0" />
@@ -17,6 +17,6 @@
       <Label fx:id="tapOutcomeLabel" alignment="CENTER" layoutX="257.0" layoutY="107.0" prefHeight="27.0" prefWidth="87.0" />
       <TextField fx:id="cardMachineIDInputTextField" layoutX="217.0" layoutY="200.0" promptText="CardMachineID" />
       <TextField fx:id="cardIDInputTextField" layoutX="217.0" layoutY="157.0" promptText="CardID" />
-      <Button fx:id="backButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#initialize" text="Back" />
+      <Button fx:id="backButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
    </children>
 </Pane>

@@ -30,25 +30,18 @@ public class TapSceneController {
 
     @FXML
     private void initialize(){
-        tapButton.setOnAction(this::handleButtonAction);
-        backButton.setOnAction(this::handleBackButton);
+        //do something
     }
 
-    private void handleButtonAction(ActionEvent event) {
-        Object eve=event.getSource();
-        if(eve.equals(tapButton)){
-            System.out.println("CardID: "+ cardIDInputTextField.getText() + " " +
-                    "CardMachineID: " + cardMachineIDInputTextField.getText());
-            //Process tap
-        }
-//        if (eve.equals(backButton)){
-//            sc.stageScreen("Main Screen", (Stage) tapButton.getScene().getWindow());
-//        }
-    }
-
+    @FXML
     private void handleBackButton(ActionEvent event) {
         ControllerHelper newControllerHelper = new ControllerHelper();
         String goingTo = "/GUI/MainScreen/MainScene.fxml";
         newControllerHelper.switchScreens(event, goingTo);
+    }
+
+    @FXML
+    private void handleTapButton(ActionEvent event){
+        //get the things in textfield;s and process the tap
     }
 }
