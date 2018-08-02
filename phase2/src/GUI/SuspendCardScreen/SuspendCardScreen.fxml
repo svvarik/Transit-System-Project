@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SuspendCardScreen.SuspendCardScreenController">
+   <children>
+      <Button fx:id="backButton" layoutX="35.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="suspendCardButton" layoutX="233.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleSuspendCardButton" text="Suspend Card" />
+      <TextField fx:id="cardIDField" layoutX="188.0" layoutY="224.0" />
+      <Label fx:id="suspendMessage" alignment="CENTER" layoutX="65.0" layoutY="141.0" prefHeight="48.0" prefWidth="450.0" text="Enter the CardID you want to suspend" />
+   </children>
+</AnchorPane>
