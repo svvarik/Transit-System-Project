@@ -3,6 +3,7 @@ package GUI.DeleteCardScreen;
 import GUI.ControllerHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class DeleteCardScreenController {
@@ -15,6 +16,9 @@ public class DeleteCardScreenController {
 
     @FXML
     TextField cardIDEntry;
+
+    @FXML
+    Label messageLabel;
 
     ControllerHelper ch = new ControllerHelper();
 
