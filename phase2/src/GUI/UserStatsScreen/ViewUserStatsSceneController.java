@@ -39,8 +39,10 @@ public class ViewUserStatsSceneController {
 
     private XYChart.Series series;
 
+    ControllerHelper ch = new ControllerHelper();
+
     public void handleBackButton(ActionEvent e){
-        //go back to previous screen
+        ch.switchScreens(e, "/GUI/UserScreen/ViewUserScene.fxml");
     }
 
     public void initialize() {
