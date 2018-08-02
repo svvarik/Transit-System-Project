@@ -1,17 +1,23 @@
 package GUI.ManageCardsScreen;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class ManageCardsScreenController {
 
+    @FXML
     Button backButton;
 
+    @FXML
     Button addCardButton;
 
+    @FXML
     Button deleteCardButton;
 
+    @FXML
     Button suspendCardButton;
 
+    @FXML
     Button addValueButton;
 
 
