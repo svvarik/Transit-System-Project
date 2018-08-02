@@ -6,9 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GUI.AddCardScreen.AddCardScreenController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddCardScreen.AddCardScreenController">
+   <children>
+      <Button fx:id="backButton" layoutX="270.0" layoutY="281.0" mnemonicParsing="false" text="Back" />
+      <Label fx:id="completionLabel" layoutX="174.0" layoutY="90.0" prefHeight="27.0" prefWidth="227.0" text="Sucess" />
+   </children>
 </AnchorPane>
