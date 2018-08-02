@@ -24,7 +24,7 @@ public class TransitSystemStarter {
         TransitSystem ts = starteverything();
 
         // Handling Events (To be Replaced by GUI)
-        TransitSystemIO tsIO = new TransitSystemIO(ts);
+        tsIO = new TransitSystemIO(ts);
         tsIO.readFile("events.txt");
 
         // Save the log to file
