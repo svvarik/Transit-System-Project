@@ -1,5 +1,6 @@
 package GUI.UserScreen;
 
+import GUI.ControllerHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
@@ -21,6 +22,8 @@ public class ViewUserScreenController {
     @FXML
     Button changeUserInfoButton;
 
+    ControllerHelper ch = new ControllerHelper();
+
     @FXML
     public void handleBackButton(ActionEvent e){
     }
@@ -37,7 +40,7 @@ public class ViewUserScreenController {
 
     @FXML
     public void handleViewStatsButton(ActionEvent e){
-
+        ch.switchScreens(e, "/GUI/UserStatsScreen/ViewUserStatsScene.fxml");
     }
 
     @FXML
