@@ -311,13 +311,22 @@ public class TransitSystemIO {
         }
     }
 
-    public void adminView(String email){
-        AdminUser au = ts.getAdminUsers().findAdminUser(email);
-        if (au!= null){
-            ts.getTransitData().dailyReport();
-        } else {
-            System.out.println("This admin user does not exist in the system. Who are you hacker???");
+  public void adminView(String email) {
+    AdminUser au = ts.getAdminUsers().findAdminUser(email);
+    if (au != null) {
+      ts.getTransitData().dailyReport();
+    } else {
+      System.out.println("This admin user does not exist in the system. Who are you hacker???");
+    }
         }
+
+    public boolean findadmin(String email){
+    AdminUser au = ts.getAdminUsers().findAdminUser(email);
+    if (au!= null){
+        return true;
+    } else {
+        return false;
+    }
 
     }
 
