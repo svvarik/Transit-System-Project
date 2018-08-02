@@ -203,4 +203,25 @@ public class CardHolder implements Serializable {
     return false;
   }
 
+  public boolean allocateGiftMoney(int cardID, double money){
+    if(this.getCard(cardID) != null){
+      Card card = this.getCard(cardID);
+      if(this.giftMoney < money){
+        System.out.println("You do not have enough money in your gift basket to allocate to your card");
+        return false;
+      }
+      else{
+        this.giftMoney -= money;
+        card.addValue(money);
+        System.out.println(this.name + " successfully allocated money to " + card.toString());
+        return true;
+      }
+
+    }
+    return false;
+  }
+
+  public boolean allocateGiftMoney(int cardID){
+    return allocateGiftMoney(cardID, this.giftMoney);
+  }
 }

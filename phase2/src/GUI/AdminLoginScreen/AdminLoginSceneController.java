@@ -30,7 +30,13 @@ public class AdminLoginSceneController {
     }
 
     private void handleButtonAction(ActionEvent event){
-        //Check email and password combo and move to user screen
-    }
+        if (emailTextField.getText().equals("hello")){
+            System.out.println("Email is valid!");
+        }
+        else {
+            System.out.println("Not working.");
+            }
+        }
+
 
 }
