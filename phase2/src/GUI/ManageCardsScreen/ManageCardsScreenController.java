@@ -1,5 +1,6 @@
 package GUI.ManageCardsScreen;
 
+import GUI.ControllerHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -19,6 +20,8 @@ public class ManageCardsScreenController {
 
     @FXML
     Button addValueButton;
+
+    ControllerHelper ch = new ControllerHelper();
 
 
     public void handleBackButton(){}
