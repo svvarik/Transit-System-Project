@@ -15,6 +15,7 @@ public class CardHolder implements Serializable {
   private ArrayList<Card> cards;
   private TransitSystem ts;
   private ArrayList<Trip> trips;
+  private Double giftMoney;
   private static final long serialVersionUID = 291745;
 
   /**
@@ -167,5 +168,18 @@ public class CardHolder implements Serializable {
           }
       }
       return fare;
+  }
+  public void setGiftMoney(Double money){
+    this.giftMoney += money;
+  }
+
+  public Card getCard(int cardID){
+    Card cd = null;
+    for(Card card: this.cards){
+      if(card.getCardID() == cardID){
+        cd = card;
+      }
+    }
+    return cd;
   }
 }
