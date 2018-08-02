@@ -26,11 +26,12 @@ public class ViewUserScreenController {
 
     @FXML
     public void handleBackButton(ActionEvent e){
+        ch.switchScreens(e, "/GUI/MainScreen/MainScene.fxml");
     }
 
     @FXML
     public void handleManageCardsButton(ActionEvent e){
-
+        ch.switchScreens(e, "/GUI/ManageCardsScreen/ManageCardsScreen.fxml");
     }
 
     @FXML
@@ -45,7 +46,7 @@ public class ViewUserScreenController {
 
     @FXML
     public void handleChangeUserInfoButton(ActionEvent e){
-
+        ch.switchScreens(e, "/GUI/ManageUserInfoScreen/ManageUserInfoScene.fxml");
     }
 
 }
