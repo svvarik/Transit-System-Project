@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GUI.ManageCardsScreen.ManageCardsScreenController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageCardsScreen.ManageCardsScreenController">
+   <children>
+      <Button fx:id="backButton" layoutX="44.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="addCard" layoutX="204.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleAddCardButton" text="Add Card" />
+      <Button fx:id="addValue" layoutX="204.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleAddValueButton" text="Add Value" />
+      <Button fx:id="deleteCard" layoutX="343.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleDeleteCardButton" text="Delete Card" />
+      <Button fx:id="suspendCard" layoutX="343.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleSuspendCardButton" text="Suspend Card" />
+   </children>
 </AnchorPane>
