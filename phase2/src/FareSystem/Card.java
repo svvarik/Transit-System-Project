@@ -109,7 +109,6 @@ public class Card implements Serializable {
      */
     public void deductValue(double fare){
         this.balance -= fare;
-        this.owner.getTs().getTransitData().addFareCollected(fare);
     }
 
     public boolean tapCard(CardMachine cm){
