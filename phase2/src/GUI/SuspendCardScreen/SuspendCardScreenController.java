@@ -1,5 +1,7 @@
 package GUI.SuspendCardScreen;
 
+import GUI.ControllerHelper;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,7 +21,11 @@ public class SuspendCardScreenController {
     @FXML
     TextField cardIDField;
 
-    public void handleBackButton(){}
+    ControllerHelper ch = new ControllerHelper();
+
+    public void handleBackButton(ActionEvent e){
+        ch.switchScreens(e, "/GUI/ManageCardsScreen/ManageCardsScreen.fxml");
+    }
 
     public void handleSuspendCardButton(){}
 

@@ -36,7 +36,7 @@ public class ViewUserScreenController {
 
     @FXML
     public void handleGiftMoneyButton(ActionEvent e){
-
+        ch.switchScreens(e, "/GUI/UserGiftScreen/UserGiftScene.fxml");
     }
 
     @FXML

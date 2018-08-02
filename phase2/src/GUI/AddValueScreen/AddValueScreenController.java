@@ -1,5 +1,7 @@
 package GUI.AddValueScreen;
 
+import GUI.ControllerHelper;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +27,11 @@ public class AddValueScreenController {
     @FXML
     TextField valueAmountTextField;
 
-    public void handleBackButton(){}
+    ControllerHelper ch = new ControllerHelper();
+
+    public void handleBackButton(ActionEvent e){
+        ch.switchScreens(e, "/GUI/ManageCardsScreen/ManageCardsScreen.fxml");
+    }
 
     public void handleAddValueButton(){}
 

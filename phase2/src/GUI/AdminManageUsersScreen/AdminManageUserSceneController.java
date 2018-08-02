@@ -1,5 +1,6 @@
 package GUI.AdminManageUsersScreen;
 
+import GUI.ControllerHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -24,9 +25,11 @@ public class AdminManageUserSceneController {
     @FXML
     TextField cardIDTextField;
 
+    ControllerHelper ch = new ControllerHelper();
+
     @FXML
     public void handleBackButton(ActionEvent e){
-
+        ch.switchScreens(e, "/GUI/AdminStatistics/AdminMainScene.fxml");
     }
 
     @FXML
