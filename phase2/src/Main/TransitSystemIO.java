@@ -320,7 +320,7 @@ public class TransitSystemIO {
     }
         }
 
-    public boolean findadmin(String email){
+    public boolean loginAdmin(String email, String password){
     AdminUser au = ts.getAdminUsers().findAdminUser(email);
     if (au!= null){
         return true;
