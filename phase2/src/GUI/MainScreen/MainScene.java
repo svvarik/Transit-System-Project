@@ -38,7 +38,9 @@ public class MainScene {
 
     @FXML
     private void handleAdminButton(ActionEvent event){
-        System.out.println("Admin User");
+        ControllerHelper newControllerHelper = new ControllerHelper();
+        String goingTo = "/GUI/AdminLoginScreen/AdminLoginScene.fxml";
+        newControllerHelper.switchScreens(event, goingTo);
     }
 
 }

@@ -28,7 +28,9 @@ public class AdminMainController {
     private void handleButtonAction(javafx.event.ActionEvent event){
         Object eve=event.getSource();
         if (eve.equals(changeAccountInfo)){
-            System.out.println("changeAccountInfo");
+            ControllerHelper newControllerHelper = new ControllerHelper();
+            String tapScreen = "/GUI/AdminChangeInfoScreen/AdminChangeInfoScene.fxml";
+            newControllerHelper.switchScreens(event, tapScreen);
         }
         if (eve.equals(manageUsers)){
             System.out.println("manageUsers");
