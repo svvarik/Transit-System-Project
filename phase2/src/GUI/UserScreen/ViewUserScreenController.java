@@ -2,9 +2,7 @@ package GUI.UserScreen;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import java.awt.event.ActionEvent;
-
+import javafx.event.ActionEvent;
 
 public class ViewUserScreenController {
 
@@ -25,7 +23,6 @@ public class ViewUserScreenController {
 
     @FXML
     public void handleBackButton(ActionEvent e){
-
     }
 
     @FXML
