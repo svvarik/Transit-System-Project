@@ -30,7 +30,9 @@ public class TransitSystemSerializer {
             ObjectInput input = new ObjectInputStream(buffer);
 
             //deserialize the Map
-            TransitSystem ts = (TransitSystem) input.readObject();
+            System.out.println("Hey");
+          TransitSystem ts = (TransitSystem) input.readObject();
+            System.out.println("Hey2");
             input.close();
             return ts;
         } catch (IOException ex) {
