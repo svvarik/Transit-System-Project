@@ -30,6 +30,7 @@ public class Main2 extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        launch(args);
         TransitSystemSerializer saveFileHelper = new TransitSystemSerializer();
 
         TransitSystem ts = start();
@@ -42,7 +43,6 @@ public class Main2 extends Application {
         saveFileHelper.saveToFile(filepath, ts);
         System.exit(0);
 
-        launch(args);
 
     }
 
