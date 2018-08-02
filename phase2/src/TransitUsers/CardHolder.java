@@ -169,7 +169,7 @@ public class CardHolder implements Serializable {
       }
       return fare;
   }
-  public void setGiftMoney(Double money){
+  public void addGiftMoney(Double money){
     this.giftMoney += money;
   }
 
@@ -182,4 +182,25 @@ public class CardHolder implements Serializable {
     }
     return cd;
   }
+
+  public boolean sendGiftMoney(String email, int cardID, double money){
+    if(this.ts.getCardHolders().findCardHolder(email) != null){
+      CardHolder recepient = this.ts.getCardHolders().findCardHolder(email);
+      if(this.getCard(cardID) != null){
+        Card giftingCard = this.getCard(cardID);
+        if(giftingCard.getBalance() < money){
+          System.out.println("Not enough money!");
+          return false;
+        }
+        else{
+          giftingCard.deductValue(money);
+          recepient.addGiftMoney(money);
+          System.out.println(this.getName() +" Successfully sent money to "+ recepient.getName());
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
 }
