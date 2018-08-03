@@ -18,7 +18,7 @@ public class CardHolder implements Serializable {
   private Double giftMoney;
   private static final long serialVersionUID = 291745;
 
-  protected CardHolder(){}
+  public CardHolder(){}
 
   /**
    * constructs a new CardHolder
