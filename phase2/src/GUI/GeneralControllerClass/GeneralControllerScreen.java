@@ -3,7 +3,7 @@ package GUI.GeneralControllerClass;
 import Main.TransitSystem;
 import Main.TransitSystemIO;
 
-public class GeneralControllerScreen {
+public abstract class GeneralControllerScreen {
     private TransitSystem ts;
     private TransitSystemIO tsIO;
 
@@ -27,4 +27,6 @@ public class GeneralControllerScreen {
     public TransitSystemIO getTsIO() {
         return tsIO;
     }
+
+    public abstract void setUpController(Object object);
 }
