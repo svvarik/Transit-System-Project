@@ -12,11 +12,21 @@ import java.util.Calendar;
 public class CardHolder implements Serializable {
   private String name;
   private String email;
+  private String password;
   private ArrayList<Card> cards;
   private TransitSystem ts;
   private ArrayList<Trip> trips;
   private Double giftMoney;
   private static final long serialVersionUID = 291745;
+
+  public CardHolder(String name, String email, String password, TransitSystem ts) {
+    this.password = password;
+    this.name = name;
+    this.email = email;
+    this.cards = new ArrayList<Card>();
+    this.trips = new ArrayList <>();
+    this.ts = ts;
+  }
 
   /**
    * constructs a new CardHolder
@@ -224,5 +234,13 @@ public class CardHolder implements Serializable {
 
   public boolean allocateGiftMoney(int cardID){
     return allocateGiftMoney(cardID, this.giftMoney);
+  }
+
+  public void setPassword(String password){
+    this.password = password;
+  }
+
+  public boolean isPassCorrect(String pass){
+    return(this.password == pass);
   }
 }
