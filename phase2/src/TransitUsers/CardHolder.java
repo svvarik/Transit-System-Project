@@ -18,11 +18,14 @@ public class CardHolder implements Serializable {
   private Double giftMoney;
   private static final long serialVersionUID = 291745;
 
+  protected CardHolder(){}
+
   /**
    * constructs a new CardHolder
    * @param name this CardHolder's name
    * @param email this CardHolder's email
    */
+
   public CardHolder(String name, String email, TransitSystem ts) {
     this.name = name;
     this.email = email;
