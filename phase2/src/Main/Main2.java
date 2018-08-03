@@ -24,11 +24,13 @@ public class Main2 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/MainScreen/MainScene.fxml"));
+    Parent root =
+        FXMLLoader.load(
+            getClass().getResource("/GUI/HomeScreenPackage/MainScreen/MainScene.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        TransitSystemStarter tsStart = new TransitSystemStarter();
-        tsIO = tsStart.getTsIO();
+//        TransitSystemStarter tsStart = new TransitSystemStarter();
+//        tsIO = tsStart.getTsIO();
 
     }
 
