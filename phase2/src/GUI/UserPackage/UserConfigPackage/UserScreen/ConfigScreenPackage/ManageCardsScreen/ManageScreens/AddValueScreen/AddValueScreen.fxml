@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddValueScreen.AddValueScreenController">
+   <children>
+      <Button fx:id="backButton" layoutX="35.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="addValueButton" layoutX="247.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAddValueButton" text="Add Value" />
+      <TextField fx:id="cardIDTextField" layoutX="188.0" layoutY="142.0" />
+      <Label fx:id="cardIDMessageLabel" alignment="CENTER" layoutX="55.0" layoutY="94.0" prefHeight="39.0" prefWidth="467.0" text="Please Input the Card ID" />
+      <Label fx:id="amountMessageLabel" alignment="CENTER" layoutX="23.0" layoutY="200.0" prefHeight="39.0" prefWidth="544.0" text="Please Input the Value You Want to Add to Your Card" />
+      <TextField fx:id="valueAmountTextField" layoutX="189.0" layoutY="250.0" />
+   </children>
+</AnchorPane>

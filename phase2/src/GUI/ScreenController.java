@@ -3,9 +3,7 @@ package GUI;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.HashMap;
 
@@ -16,9 +14,9 @@ public class ScreenController{
         super();
         this.screens = new HashMap<>();
         try {
-            addScreen("/GUI/MainScreen/MainScene.fxml", "Main Screen");
-            addScreen("/GUI/TapScreen/TapScene.fxml", "Tap Screen");
-            addScreen("/GUI/AdminLoginScreen/AdminLoginScene.fxml", "Admin Login Screen");
+            addScreen("/GUI/HomeScreenPackage/MainScreen/MainScene.fxml", "Main Screen");
+            addScreen("/GUI/TapPackage/TapScreen/TapScene.fxml", "Tap Screen");
+            addScreen("/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminHomePage/AdminLoginScene.fxml", "Admin Login Screen");
         }catch (Exception e){
             System.out.println(e);
         }
