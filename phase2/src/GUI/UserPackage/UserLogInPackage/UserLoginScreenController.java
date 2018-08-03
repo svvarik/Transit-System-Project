@@ -32,5 +32,7 @@ public class UserLoginScreenController extends GeneralControllerScreen {
     public void handleLoginButton(ActionEvent e){
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
+
+        ts.
     }
 }
