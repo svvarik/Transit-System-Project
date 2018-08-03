@@ -1,12 +1,13 @@
 package GUI.MainScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class MainScene {
+public class MainScene extends GeneralControllerScreen {
     @FXML
     Button viewUserButton;
 

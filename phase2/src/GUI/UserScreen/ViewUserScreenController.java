@@ -1,11 +1,12 @@
 package GUI.UserScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 
-public class ViewUserScreenController {
+public class ViewUserScreenController extends GeneralControllerScreen {
 
     @FXML
     Button backButton;

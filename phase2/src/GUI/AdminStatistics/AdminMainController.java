@@ -1,12 +1,13 @@
 package GUI.AdminStatistics;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.awt.event.ActionEvent;
 
-public class AdminMainController {
+public class AdminMainController extends GeneralControllerScreen {
 
     @FXML
     private Button changeAccountInfo;

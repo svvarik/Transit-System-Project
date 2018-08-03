@@ -2,6 +2,7 @@ package GUI.TripHistoryScreen;
 
 import FareSystem.Card;
 import FareSystem.CardMachine;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Stations.Station;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
@@ -19,7 +20,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-public class ViewTripHistorySceneController implements Initializable {
+public class ViewTripHistorySceneController extends GeneralControllerScreen implements Initializable {
     @FXML
     Button backButton;
 

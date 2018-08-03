@@ -1,12 +1,13 @@
 package GUI.ManageUserInfoScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class ManageUserInfoSceneController {
+public class ManageUserInfoSceneController extends GeneralControllerScreen {
 
     @FXML
     Button backButton;

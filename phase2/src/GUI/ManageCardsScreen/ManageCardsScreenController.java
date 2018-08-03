@@ -1,11 +1,12 @@
 package GUI.ManageCardsScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class ManageCardsScreenController {
+public class ManageCardsScreenController extends GeneralControllerScreen {
 
     @FXML
     Button backButton;

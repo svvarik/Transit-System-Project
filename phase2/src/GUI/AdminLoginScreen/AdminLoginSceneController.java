@@ -1,6 +1,7 @@
 package GUI.AdminLoginScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.Main2;
 import Main.TransitSystemIO;
 import Main.TransitSystemStarter;
@@ -13,7 +14,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class AdminLoginSceneController {
+public class AdminLoginSceneController extends GeneralControllerScreen{
 
     TransitSystemIO tsIO;
 

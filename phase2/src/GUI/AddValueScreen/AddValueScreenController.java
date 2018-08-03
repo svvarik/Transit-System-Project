@@ -1,13 +1,14 @@
 package GUI.AddValueScreen;
 
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class AddValueScreenController {
+public class AddValueScreenController extends GeneralControllerScreen{
 
     @FXML
     Button backButton;

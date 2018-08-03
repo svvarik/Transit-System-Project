@@ -1,6 +1,7 @@
 package GUI.AdminStatistics;
 import Data.TransitData;
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +16,7 @@ import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Locale;
 
-public class AdminStatisticsController {
+public class AdminStatisticsController extends GeneralControllerScreen {
 
         @FXML
         Button backButton;

@@ -2,6 +2,7 @@ package GUI.UserStatsScreen;
 
 import Data.TransitData;
 import GUI.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.TransitSystem;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
@@ -21,7 +22,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-public class ViewUserStatsSceneController {
+public class ViewUserStatsSceneController extends GeneralControllerScreen{
+
+
 
     @FXML
     Button backButton;
@@ -62,4 +65,6 @@ public class ViewUserStatsSceneController {
     public void setCardHolder(CardHolder c){
         cardHolder = c;
     }
+
+
 }
