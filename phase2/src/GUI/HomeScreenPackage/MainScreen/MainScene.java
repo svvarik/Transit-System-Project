@@ -33,7 +33,9 @@ public class MainScene extends GeneralControllerScreen {
 
     @FXML
     private void handleUserButton(ActionEvent event){
-        System.out.println("User");
+        String userScreen = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
+        ControllerHelper newControllerHelper = new ControllerHelper();
+        newControllerHelper.switchScreens(event, userScreen);
     }
 
     @FXML
