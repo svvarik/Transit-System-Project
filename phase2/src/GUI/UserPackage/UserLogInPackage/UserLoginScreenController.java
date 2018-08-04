@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -34,7 +35,9 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     @FXML
     TextField passwordTextField;
 
-    ControllerHelper ch = new ControllerHelper();
+    @FXML
+    Label messageLabel;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,7 +48,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     public void setUpController(Object obj){}
 
     public void handleBackButton(ActionEvent e){
-    ch.switchScreens(e, "/GUI/HomeScreenPackage/MainScreen/MainScene.fxml");
+    this.getControllerHelper().openSameWindow("/GUI/HomeScreen/MainScene.fxml", this.getTs(), e);
     }
 
     public void handleLoginButton(ActionEvent e) throws IOException{
@@ -54,10 +57,10 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
         CardHolder cardHolder = this.getTs().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
-            System.out.println("Create User");
+            this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTs(), e);
         }
         else if (!cardHolder.isPassCorrect(password)){
-                System.out.println("InvalidPass");
+                this.messageLabel.setText("Invalid Password!");
         }
         else{
         //    changeSceneCardCardHolderView(cardholder, e);
