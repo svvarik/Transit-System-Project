@@ -47,7 +47,9 @@ public class NewUserScreenController extends GeneralControllerScreen implements 
     }
 
     public void handleBackButton(ActionEvent e){
-        this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml", this.getTs(), e);
+        String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e);
     }
 
     public void handleMakeUserButton(ActionEvent e){

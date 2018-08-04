@@ -35,7 +35,6 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
     Button changeUserInfoButton;
 
     private CardHolder cardHolder;
-    ControllerHelper ch = new ControllerHelper();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,35 +43,44 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
 
     @FXML
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/HomeScreen/MainScene.fxml");
+        String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     @FXML
     public void handleManageCardsButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     @FXML
     public void handleGiftMoneyButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserGiftScreen/UserGiftScene.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserGiftScreen/UserGiftScene.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     @FXML
     public void handleViewStatsButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserStatsScreen/ViewUserStatsScene.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserStatsScreen/ViewUserStatsScene.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     @FXML
     public void handleChangeUserInfoButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml");
+        String dest = "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
-public void setUpController(){}
+    public void setUpController(){}
 
-public void setUpController(Object obj) throws ClassCastException{
-    CardHolder ch = (CardHolder) obj;
-    this.cardHolder = ch;
-    this.userName.setText(this.cardHolder.toString());
-
-}
+    public void setUpController(Object obj) throws ClassCastException{
+        CardHolder ch = (CardHolder) obj;
+        this.cardHolder = ch;
+        this.userName.setText(this.cardHolder.toString());
+    }
 }

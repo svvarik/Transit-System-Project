@@ -2,14 +2,23 @@ package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageC
 
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
+import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
-public class ManageCardsScreenController extends GeneralControllerScreen {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ManageCardsScreenController extends GeneralControllerScreen implements Initializable{
 
     @FXML
     Button backButton;
+
+    @FXML
+    Label userLabel;
 
     @FXML
     Button addCardButton;
@@ -23,27 +32,48 @@ public class ManageCardsScreenController extends GeneralControllerScreen {
     @FXML
     Button addValueButton;
 
-    ControllerHelper ch = new ControllerHelper();
+    private CardHolder cardHolder;
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     public void handleAddCardButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddCardScreen/AddCardScreen.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddCardScreen/AddCardScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     public void handleDeleteCardButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/DeleteCardScreen/DeleteCardScreen.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/DeleteCardScreen/DeleteCardScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     public void handleSuspendCardButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/SuspendCardScreen/SuspendCardScreen.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/SuspendCardScreen/SuspendCardScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
 
     public void handleAddValueButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddValueScreen/AddValueScreen.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddValueScreen/AddValueScreen.fxml";
+        this.getControllerHelper().openSameWindow(dest,
+                this.getTs(), e, this.cardHolder);
     }
+    public void setUpController(){}
 
+    public void setUpController(Object obj) throws ClassCastException{
+        CardHolder ch = (CardHolder) obj;
+        this.cardHolder = ch;
+        this.userLabel.setText(this.cardHolder.toString());
+    }
 }
