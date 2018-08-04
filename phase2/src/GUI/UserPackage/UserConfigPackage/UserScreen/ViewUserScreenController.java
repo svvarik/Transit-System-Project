@@ -1,16 +1,27 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen;
 
+import FareSystem.Card;
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
+import TransitUsers.CardHolder;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 
-public class ViewUserScreenController extends GeneralControllerScreen {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ViewUserScreenController extends GeneralControllerScreen implements Initializable {
 
     @FXML
     Button backButton;
 
+    @FXML
+    Label userName;
     @FXML
     Button manageCardsButton;
 
@@ -23,7 +34,13 @@ public class ViewUserScreenController extends GeneralControllerScreen {
     @FXML
     Button changeUserInfoButton;
 
+    private CardHolder cardHolder;
     ControllerHelper ch = new ControllerHelper();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
     @FXML
     public void handleBackButton(ActionEvent e){
@@ -50,4 +67,12 @@ public class ViewUserScreenController extends GeneralControllerScreen {
         ch.switchScreens(e, "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml");
     }
 
+public void setUpController(){}
+
+public void setUpController(Object obj) throws ClassCastException{
+    CardHolder ch = (CardHolder) obj;
+    this.cardHolder = ch;
+    this.userName.setText(this.cardHolder.toString());
+
+}
 }

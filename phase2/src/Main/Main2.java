@@ -18,8 +18,10 @@ public class Main2 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
-
+        this.transitSystem = new TransitSystem();
+   //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
+ //      String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
+//String userpath = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml"
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation((getClass().getResource(mainScreen)));
         Parent root = loader.load();

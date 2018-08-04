@@ -4,12 +4,14 @@ import GUI.HelperClasses.ControllerHelper;
 import Main.TransitSystem;
 import Main.TransitSystemInteractions;
 
-public abstract class GeneralControllerScreen {
+public class GeneralControllerScreen {
     private TransitSystem ts;
     private TransitSystemInteractions tsIO;
     private ControllerHelper controllerHelper;
 
-    public GeneralControllerScreen(){}
+    public GeneralControllerScreen(){
+        this.controllerHelper = new ControllerHelper();
+    }
     public GeneralControllerScreen(TransitSystem ts, TransitSystemInteractions tsIO){
         this.ts = ts;
         this.tsIO = tsIO;
@@ -36,7 +38,7 @@ public abstract class GeneralControllerScreen {
         return tsIO;
     }
 
-    public abstract void setUpController(Object object);
+    public void setUpController(Object object){}
 
-    public abstract void setUpController();
+    public void setUpController(){}
 }
