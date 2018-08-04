@@ -1,6 +1,6 @@
-package GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminHomePage;
+package GUI.AdminScreens.AdminLoginScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.TransitSystemInteractions;
 import Main.TransitSystemStarter;
@@ -44,7 +44,7 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
         boolean adminExists = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
         if (adminExists){
             ControllerHelper newControllerHelper = new ControllerHelper();
-            String tapScreen = "/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminConfigPagePackage/AdminMainControllerPackage/AdminMainScene.fxml";
+            String tapScreen = "/GUI/AdminScreens/AdminMainScene.fxml";
             newControllerHelper.switchScreens(event, tapScreen);
         }
         else {

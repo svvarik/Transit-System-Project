@@ -67,7 +67,7 @@ public class MainSceneController extends GeneralControllerScreen {
      */
     @FXML
     private void handleAdminButton(ActionEvent event){
-        String goingTo = "/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminHomePage/AdminLoginScene.fxml";
+        String goingTo = "/GUI/AdminScreens/AdminLoginScreen/AdminLoginScene.fxml";
         this.getControllerHelper().openSameWindow(goingTo, this.getTs(), event);
     }
 

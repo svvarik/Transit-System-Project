@@ -1,6 +1,6 @@
-package GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminConfigPagePackage.AdminMainControllerPackage.AdminManageUsersScreen;
+package GUI.AdminScreens.AdminManageUsersScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +30,7 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
 
     @FXML
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminConfigPagePackage/AdminMainControllerPackage/AdminMainScene.fxml");
+        ch.switchScreens(e, "/GUI/AdminScreens/AdminMainScene.fxml");
     }
 
     @FXML

@@ -1,6 +1,6 @@
 package GUI.GeneralControllerClass;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import Main.TransitSystem;
 import Main.TransitSystemInteractions;
 

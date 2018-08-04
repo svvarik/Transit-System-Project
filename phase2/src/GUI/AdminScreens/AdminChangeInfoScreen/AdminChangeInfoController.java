@@ -1,6 +1,6 @@
-package GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminConfigPagePackage.AdminMainControllerPackage.AdminChangeInfoScreen;
+package GUI.AdminScreens.AdminChangeInfoScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +32,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminConfigPagePackage/AdminMainControllerPackage/AdminMainScene.fxml");
+        ch.switchScreens(e, "/GUI/AdminScreens/AdminMainScene.fxml");
     }
 
     public void handlePasswordButton(ActionEvent e){

@@ -1,6 +1,6 @@
 package GUI.UserPackage.UserLogInPackage;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

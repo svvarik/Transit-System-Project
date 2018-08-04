@@ -1,6 +1,6 @@
-package GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminConfigPagePackage.AdminMainControllerPackage.AdminStatistics;
+package GUI.AdminScreens.AdminStatistics;
 import Data.TransitData;
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -69,7 +69,7 @@ public class AdminStatisticsController extends GeneralControllerScreen {
 
     private void handleBackButton(ActionEvent event) {
         ControllerHelper newControllerHelper = new ControllerHelper();
-        String goingTo = "/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminConfigPagePackage/AdminMainControllerPackage/AdminMainScene.fxml";
+        String goingTo = "/GUI/AdminScreens/AdminMainScene.fxml";
         newControllerHelper.switchScreens(event, goingTo);
     }
 }

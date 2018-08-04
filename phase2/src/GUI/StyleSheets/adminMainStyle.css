@@ -1,13 +1,3 @@
-.button:hover {
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
-}
-
-.button:pressed {
-    -fx-scale-y: 0.9;
-    -fx-scale-x: 0.9;
-}
-
 #mainPane {
     -fx-background-image: url('../StaticResources/background_screen.png');
     -fx-background-repeat: no-repeat;
@@ -15,9 +5,24 @@
     -fx-background-position: center center;
 }
 
-#usersButton {
-    -fx-background-image: url('../StaticResources/HomeScreenStaticResources/users_icon.png');
-    -fx-background-size: 100px;
+#changeAccountInfo {
+    -fx-background-image: url('../StaticResources/AdminResources/settings_icon.png');
+    -fx-background-size: 10x;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center left;
+    -fx-background-radius: 20;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
+    -fx-border-radius: 20;
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 16px;
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+}
+
+#manageUsers {
+    -fx-background-image: url('../StaticResources/AdminResources/users_icon.png');
+    -fx-background-size: 30px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-radius: 20;
@@ -25,39 +30,22 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
     -fx-border-radius: 20;
     -fx-font-family: "sans-serif";
-    -fx-font-size: 28px;
+    -fx-font-size: 16px;
     -fx-font-style: normal;
     -fx-font-weight: bold;
 }
 
-#tapButton {
-    -fx-background-image: url('../StaticResources/HomeScreenStaticResources/train_icon.png');
-    -fx-background-size: 100px;
+#viewStatistics {
+    -fx-background-image: url('../StaticResources/AdminResources/stats_icon.png');
+    -fx-background-size: 30px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-radius: 20;
     -fx-background-color: rgb(255, 255, 255);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
     -fx-border-radius: 20;
-    -fx-background-position: center center;
     -fx-font-family: "sans-serif";
-    -fx-font-size: 28px;
-    -fx-font-style: normal;
-    -fx-font-weight: bold;
-}
-
-#adminButton {
-   -fx-background-image: url('../StaticResources/HomeScreenStaticResources/admin_icon.png');
-   -fx-background-size: 100px;
-   -fx-background-repeat: no-repeat;
-   -fx-background-position: center center;
-   -fx-background-radius: 20;
-    -fx-background-color: rgb(255, 255, 255);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
-    -fx-border-radius: 20;
-    -fx-background-position: center center;
-    -fx-font-family: "sans-serif";
-    -fx-font-size: 28px;
+    -fx-font-size: 16px;
     -fx-font-style: normal;
     -fx-font-weight: bold;
 }

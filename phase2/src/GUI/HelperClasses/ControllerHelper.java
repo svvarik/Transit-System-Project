@@ -1,4 +1,4 @@
-package GUI;
+package GUI.HelperClasses;
 
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.TransitSystem;

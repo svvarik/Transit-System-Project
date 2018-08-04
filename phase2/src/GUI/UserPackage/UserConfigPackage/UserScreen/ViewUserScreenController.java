@@ -1,6 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

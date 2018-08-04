@@ -1,6 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.UserStatsScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminConfigPagePackage.AdminMainControllerPackage.AdminManageUsersScreen.AdminManageUserSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminScreens.AdminManageUsersScreen.AdminManageUserSceneController">
    <children>
       <Button fx:id="backButton" layoutX="41.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <Button fx:id="suspendButton" layoutX="217.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleSuspendButton" text="Suspend" />
