@@ -1,6 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,7 +27,7 @@ public class ViewUserScreenController extends GeneralControllerScreen {
 
     @FXML
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/HomeScreenPackage/MainScreen/MainScene.fxml");
+        ch.switchScreens(e, "/GUI/HomeScreen/MainScene.fxml");
     }
 
     @FXML

@@ -1,13 +1,11 @@
 package GUI.UserPackage.UserLogInPackage;
 
-import GUI.ControllerHelper;
+import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
-import javax.xml.soap.Text;
 
 public class UserLoginScreenController extends GeneralControllerScreen {
 
@@ -26,13 +24,11 @@ public class UserLoginScreenController extends GeneralControllerScreen {
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){
-    ch.switchScreens(e, "/GUI/HomeScreenPackage/MainScreen/MainScene.fxml");
+    ch.switchScreens(e, "/GUI/HomeScreen/MainScene.fxml");
     }
 
     public void handleLoginButton(ActionEvent e){
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
-
-        ts.
     }
 }
