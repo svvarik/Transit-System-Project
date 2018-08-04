@@ -14,8 +14,8 @@ public class ScreenController{
         super();
         this.screens = new HashMap<>();
         try {
-            addScreen("/GUI/HomeScreenPackage/MainScreen/MainScene.fxml", "Main Screen");
-            addScreen("/GUI/TapPackage/TapScreen/TapScene.fxml", "Tap Screen");
+            addScreen("/GUI/HomeScreen/MainScene.fxml", "Main Screen");
+            addScreen("/GUI/TapScreen/TapScene.fxml", "Tap Screen");
             addScreen("/GUI/AdminPackage/AdminHomePackage/AdminLoginScreen/AdminHomePage/AdminLoginScene.fxml", "Admin Login Screen");
         }catch (Exception e){
             System.out.println(e);

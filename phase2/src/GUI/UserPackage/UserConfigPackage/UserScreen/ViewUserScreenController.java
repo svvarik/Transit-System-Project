@@ -27,7 +27,7 @@ public class ViewUserScreenController extends GeneralControllerScreen {
 
     @FXML
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/HomeScreenPackage/MainScreen/MainScene.fxml");
+        ch.switchScreens(e, "/GUI/HomeScreen/MainScene.fxml");
     }
 
     @FXML

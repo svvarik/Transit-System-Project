@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class TransitSystemStarter {
 
-    private TransitSystemIO tsIO;
+    private TransitSystemInteractions tsIO;
 
     private TransitSystem ts;
 
@@ -24,7 +24,7 @@ public class TransitSystemStarter {
         TransitSystem ts = starteverything();
 
         // Handling Events (To be Replaced by GUI)
-        tsIO = new TransitSystemIO(ts);
+        tsIO = new TransitSystemInteractions(ts);
         tsIO.readFile("events.txt");
 
         // Save the log to file
@@ -32,7 +32,7 @@ public class TransitSystemStarter {
 
     }
 
-    public TransitSystemIO getTsIO() {
+    public TransitSystemInteractions getTsIO() {
         return tsIO;
     }
 

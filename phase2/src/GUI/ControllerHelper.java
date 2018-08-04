@@ -30,13 +30,14 @@ public class ControllerHelper {
     }
 
     // METHOD TO CHANGE SCREEN PASSING NO OBJECTS OVER EXCEPT MODEL
-    private Parent changeScreen(GeneralControllerScreen controller, String fxmlResource, TransitSystem model){
+    private Parent changeScreen(String fxmlResource, TransitSystem model){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation((getClass().getResource(fxmlResource)));
             Parent root = loader.load();
-            controller = loader.getController();
+            GeneralControllerScreen controller = loader.getController();
             controller.setTs(model);
+            controller.setUpController();
             return root;
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,12 +46,12 @@ public class ControllerHelper {
     }
 
     // METHOD TO CHANGE SCREEN PASSING OVER ONE OBJECT (STRING, ETC.)
-    private Parent changeScreen(GeneralControllerScreen controller, String fxmlResource, TransitSystem model, Object object) {
+    private Parent changeScreen(String fxmlResource, TransitSystem model, Object object) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation((getClass().getResource(fxmlResource)));
             Parent root = loader.load();
-            controller = loader.getController();
+            GeneralControllerScreen controller = loader.getController();
             controller.setTs(model);
             controller.setUpController(object);
             return root;
@@ -61,25 +62,25 @@ public class ControllerHelper {
     }
 
     // METHOD TO OPEN NEW SCREEN WITH JUST TransitSystem
-    void openSameWindow(GeneralControllerScreen controller, String fxmlResource, TransitSystem model, ActionEvent event) {
-        Parent root = changeScreen(controller, fxmlResource, model);
+    public void openSameWindow(String fxmlResource, TransitSystem model, ActionEvent event) {
+        Parent root = changeScreen(fxmlResource, model);
         setSameWindow(root, event);
     }
 
     // METHOD TO OPEN NEW SCREEN WITH TransitSystem AND ONE OTHER OBJECT
-    void openSameWindow(GeneralControllerScreen controller, String fxmlResource, TransitSystem model, ActionEvent event, Object object) {
-        Parent root = changeScreen(controller, fxmlResource, model, object);
+    public void openSameWindow(String fxmlResource, TransitSystem model, ActionEvent event, Object object) {
+        Parent root = changeScreen(fxmlResource, model, object);
         setSameWindow(root, event);
     }
 
-    void openNewWindow(GeneralControllerScreen controller, String fxmlResource, TransitSystem model, String title) {
-        Parent root = changeScreen(controller, fxmlResource, model);
+    public void openNewWindow(String fxmlResource, TransitSystem model, String title) {
+        Parent root = changeScreen(fxmlResource, model);
         setNewWindow(root, title, 600, 400);
     }
 
     // Custom Size New Window
-    void openNewWindow(GeneralControllerScreen controller, String fxmlResource, TransitSystem model, String title, int width, int height) {
-        Parent root = changeScreen(controller, fxmlResource, model);
+    public void openNewWindow(String fxmlResource, TransitSystem model, String title, int width, int height) {
+        Parent root = changeScreen(fxmlResource, model);
         setNewWindow(root, title, width, height);
     }
 

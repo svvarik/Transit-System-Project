@@ -2,7 +2,7 @@ package GUI.AdminPackage.AdminHomePackage.AdminLoginScreen.AdminHomePage;
 
 import GUI.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
-import Main.TransitSystemIO;
+import Main.TransitSystemInteractions;
 import Main.TransitSystemStarter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class AdminLoginSceneController extends GeneralControllerScreen{
 
-    TransitSystemIO tsIO;
+    TransitSystemInteractions tsIO;
 
     @FXML
     Label titleLabel;
