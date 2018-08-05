@@ -67,19 +67,21 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
         int fromCard;
         double amount;
         try{
-            String recepient = this.recipientEmailTextField.getText();
+            String recipient = this.recipientEmailTextField.getText();
             fromCard = Integer.parseInt(this.cardIDTextField.getText());
             try{
                 amount = Double.parseDouble(this.moneyTextField.getText());
+                System.out.println(amount);
                 Card tempCard = this.cardHolder.getCard(fromCard);
                 if(tempCard == null){
                     this.cardIDMessage.setText("Card Does Not Exist");
                 }
-                else if(this.getTs().getCardHolders().findCardHolder(recepient)==null){
-                    this.emailMessage.setText("Recepient Does Not Exist");
+                else if(this.getTs().getCardHolders().findCardHolder(recipient)== null){
+                    this.emailMessage.setText("Recipient Does Not Exist");
                 }
                 else{
-                    if(this.cardHolder.sendGiftMoney(recepient, fromCard, amount)){
+                    boolean success = this.cardHolder.sendGiftMoney(recipient, fromCard, amount);
+                    if(success){
                         this.successLabel.setText("Money Was Successfully Gifted");
                     }
                 }
