@@ -84,9 +84,4 @@ public class AddValueScreenController extends GeneralControllerScreen implements
 
 
     }
-
-
-
-
-
 }
