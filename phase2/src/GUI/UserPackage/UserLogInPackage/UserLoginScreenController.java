@@ -54,8 +54,8 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     public void handleLoginButton(ActionEvent e) throws IOException{
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
-        CardHolder cardHolder = null;
-        cardHolder =  this.getTs().getCardHolders().findCardHolder(email);
+     //   CardHolder cardHolder = new CardHolder();
+        CardHolder cardHolder =  this.getTs().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTs(), e);

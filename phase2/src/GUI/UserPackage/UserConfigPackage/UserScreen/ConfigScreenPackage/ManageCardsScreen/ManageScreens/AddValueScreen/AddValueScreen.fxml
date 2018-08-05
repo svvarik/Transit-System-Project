@@ -13,6 +13,6 @@
       <Label fx:id="cardIDMessageLabel" alignment="CENTER" layoutX="55.0" layoutY="94.0" prefHeight="39.0" prefWidth="467.0" text="Please Input the Card ID" />
       <Label fx:id="amountMessageLabel" alignment="CENTER" layoutX="23.0" layoutY="200.0" prefHeight="39.0" prefWidth="544.0" text="Please Input the Value You Want to Add to Your Card" />
       <TextField fx:id="valueAmountTextField" layoutX="189.0" layoutY="250.0" />
-      <Label fx:id="userLabel" alignment="CENTER" layoutX="177.0" layoutY="36.0" prefHeight="27.0" prefWidth="224.0" />
+      <Label fx:id="userLabel" alignment="CENTER" layoutX="177.0" layoutY="36.0" prefHeight="27.0" prefWidth="409.0" />
    </children>
 </AnchorPane>

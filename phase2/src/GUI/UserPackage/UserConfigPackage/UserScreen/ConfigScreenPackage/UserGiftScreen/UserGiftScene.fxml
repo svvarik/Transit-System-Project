@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.UserGiftScreen.UserGiftSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.UserGiftScreen.UserGiftSceneController">
    <children>
       <Button fx:id="backButton" layoutX="42.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <TextField fx:id="recipientEmailTextField" layoutX="217.0" layoutY="139.0" promptText="Recipient Email" />
@@ -18,5 +18,9 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Label fx:id="cardIDMessage" layoutX="103.0" layoutY="187.0" prefHeight="27.0" prefWidth="93.0" />
+      <Label fx:id="emailMessage" layoutX="103.0" layoutY="145.0" prefHeight="27.0" prefWidth="93.0" />
+      <Label fx:id="amountMessage" layoutX="103.0" layoutY="229.0" prefHeight="27.0" prefWidth="93.0" />
+      <Label fx:id="userLabel" layoutX="230.0" layoutY="49.0" prefHeight="27.0" prefWidth="134.0" />
    </children>
 </Pane>

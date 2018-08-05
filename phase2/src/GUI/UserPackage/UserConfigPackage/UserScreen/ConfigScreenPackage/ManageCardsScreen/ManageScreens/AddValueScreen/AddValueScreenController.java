@@ -58,10 +58,14 @@ public class AddValueScreenController extends GeneralControllerScreen implements
             try{
                 amount = Double.parseDouble((this.valueAmountTextField.getText()));
                 if(this.cardHolder.getCard(destCard) != null){
-                    this.cardHolder.getCard(destCard).addValue(amount);
+                    if(this.cardHolder.getCard(destCard).addValue(amount)){
                     this.amountMessageLabel.setText("Your Amount");
                     this.cardIDMessageLabel.setText("Your Card Id");
-                    this.userLabel.setText(amount + " Was Added to "+ destCard);
+                    this.userLabel.setText(amount + " Was Added to "+ destCard +  ", Now You Have " +this.cardHolder.getCard(destCard).getBalance() );
+                    }
+                    else{
+                        this.userLabel.setText("You Can Only Add 10, 20, 50");
+                    }
                 }
                 else{
                     this.cardIDMessageLabel.setText("Card Does Not Exist");
