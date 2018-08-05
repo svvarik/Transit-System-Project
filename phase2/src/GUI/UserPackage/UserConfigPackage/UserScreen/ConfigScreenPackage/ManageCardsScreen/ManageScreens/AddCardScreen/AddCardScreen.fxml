@@ -4,9 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddCardScreen.AddCardScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddCardScreen.AddCardScreenController">
    <children>
       <Button fx:id="backButton" layoutX="270.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
-      <Label fx:id="completionLabel" layoutX="174.0" layoutY="90.0" prefHeight="27.0" prefWidth="227.0" text="Sucess" />
+      <Label fx:id="completionLabel" alignment="CENTER" layoutX="187.0" layoutY="173.0" prefHeight="27.0" prefWidth="227.0" />
+      <Label fx:id="userLabel" alignment="CENTER" layoutX="192.0" layoutY="51.0" prefHeight="27.0" prefWidth="217.0" />
    </children>
 </AnchorPane>
