@@ -46,6 +46,18 @@ public class CardHolderList implements Serializable {
         this.allCardHolders.add(tempCardholder);
         return true;
     }
+
+    public boolean addCardHolder(CardHolder cardHolder, TransitSystem ts){
+        for (CardHolder ch: this.allCardHolders){
+            if (ch.getEmail().equals(cardHolder.getEmail())){
+                System.out.println("User email is already in system!");
+                return false;
+            }
+        }
+        this.allCardHolders.add(cardHolder);
+        return true;
+    }
+
     /**
      * Returns the CardHolder with the given email
      * @param chEmail email of the CardHolder
