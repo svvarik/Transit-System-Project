@@ -1,6 +1,5 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen;
 
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
@@ -43,31 +42,31 @@ public class ManageCardsScreenController extends GeneralControllerScreen impleme
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void handleAddCardButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddCardScreen/AddCardScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void handleDeleteCardButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/DeleteCardScreen/DeleteCardScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void handleSuspendCardButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/SuspendCardScreen/SuspendCardScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void handleAddValueButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddValueScreen/AddValueScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
     public void setUpController(){}
 

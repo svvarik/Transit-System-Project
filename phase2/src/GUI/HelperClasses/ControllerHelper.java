@@ -36,7 +36,7 @@ public class ControllerHelper {
             loader.setLocation((getClass().getResource(fxmlResource)));
             Parent root = loader.load();
             GeneralControllerScreen controller = loader.getController();
-            controller.setTs(model);
+            controller.setTransitSystem(model);
             controller.setUpController();
             return root;
         } catch (IOException e) {
@@ -52,7 +52,7 @@ public class ControllerHelper {
             loader.setLocation((getClass().getResource(fxmlResource)));
             Parent root = loader.load();
             GeneralControllerScreen controller = loader.getController();
-            controller.setTs(model);
+            controller.setTransitSystem(model);
             controller.setUpController(object);
             return root;
         } catch (IOException e) {

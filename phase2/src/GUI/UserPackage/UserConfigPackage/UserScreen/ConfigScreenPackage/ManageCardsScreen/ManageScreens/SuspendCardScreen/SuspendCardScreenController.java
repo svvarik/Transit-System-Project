@@ -1,7 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.SuspendCardScreen;
 
 import FareSystem.Card;
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
@@ -43,7 +42,7 @@ public class SuspendCardScreenController extends GeneralControllerScreen impleme
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void handleSuspendCardButton(){

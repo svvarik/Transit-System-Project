@@ -44,7 +44,7 @@ public class MainSceneController extends GeneralControllerScreen {
     @FXML
     private void handleTapButton(ActionEvent event){
         String tapScreen = "/GUI/TapScreen/TapScene.fxml";
-        this.getControllerHelper().openSameWindow(tapScreen, this.getTs(), event);
+        this.getControllerHelper().openSameWindow(tapScreen, this.getTransitSystem(), event);
     }
 
     /**
@@ -56,7 +56,7 @@ public class MainSceneController extends GeneralControllerScreen {
     @FXML
     private void handleUserButton(ActionEvent event){
         String userScreen = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
-        this.getControllerHelper().openSameWindow(userScreen, this.getTs(), event);
+        this.getControllerHelper().openSameWindow(userScreen, this.getTransitSystem(), event);
     }
 
     /**
@@ -68,7 +68,7 @@ public class MainSceneController extends GeneralControllerScreen {
     @FXML
     private void handleAdminButton(ActionEvent event){
         String goingTo = "/GUI/AdminScreens/AdminLoginScreen/AdminLoginScene.fxml";
-        this.getControllerHelper().openSameWindow(goingTo, this.getTs(), event);
+        this.getControllerHelper().openSameWindow(goingTo, this.getTransitSystem(), event);
     }
 
 }

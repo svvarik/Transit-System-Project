@@ -6,36 +6,31 @@ import Main.TransitSystemInteractions;
 
 public class GeneralControllerScreen {
     private TransitSystem ts;
-    private TransitSystemInteractions tsIO;
+    private TransitSystemInteractions transitSystemInteractions;
     private ControllerHelper controllerHelper;
 
     public GeneralControllerScreen(){
         this.controllerHelper = new ControllerHelper();
     }
-    public GeneralControllerScreen(TransitSystem ts, TransitSystemInteractions tsIO){
+
+    public void setTransitSystem(TransitSystem ts) {
         this.ts = ts;
-        this.tsIO = tsIO;
-        this.controllerHelper = new ControllerHelper();
+    }
+
+    public void setTransitSystemInteractions(TransitSystem ts) {
+        this.transitSystemInteractions = new TransitSystemInteractions(ts);
+    }
+
+    public TransitSystem getTransitSystem() {
+        return this.ts;
+    }
+
+    public TransitSystemInteractions getTransitSystemInteractions() {
+        return transitSystemInteractions;
     }
 
     public ControllerHelper getControllerHelper(){
         return this.controllerHelper;
-    }
-
-    public void setTs(TransitSystem ts) {
-        this.ts = ts;
-    }
-
-    public TransitSystem getTs() {
-        return this.ts;
-    }
-
-    public void setTsIO(TransitSystemInteractions tsIO) {
-        this.tsIO = tsIO;
-    }
-
-    public TransitSystemInteractions getTsIO() {
-        return tsIO;
     }
 
     public void setUpController(Object object){}

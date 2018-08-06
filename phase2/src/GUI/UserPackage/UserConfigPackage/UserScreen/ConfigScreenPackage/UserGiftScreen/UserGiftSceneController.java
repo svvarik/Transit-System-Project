@@ -1,7 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.UserGiftScreen;
 
 import FareSystem.Card;
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
@@ -56,7 +55,7 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     @FXML
@@ -76,7 +75,7 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
                 if(tempCard == null){
                     this.cardIDMessage.setText("Card Does Not Exist");
                 }
-                else if(this.getTs().getCardHolders().findCardHolder(recipient)== null){
+                else if(this.getTransitSystem().getCardHolders().findCardHolder(recipient)== null){
                     this.emailMessage.setText("Recipient Does Not Exist");
                 }
                 else{

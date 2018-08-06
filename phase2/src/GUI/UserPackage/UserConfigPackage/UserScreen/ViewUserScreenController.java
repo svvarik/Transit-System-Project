@@ -1,13 +1,9 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen;
 
-import FareSystem.Card;
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -45,35 +41,35 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     @FXML
     public void handleManageCardsButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     @FXML
     public void handleGiftMoneyButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserGiftScreen/UserGiftScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     @FXML
     public void handleViewStatsButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/UserStatsScreen/ViewUserStatsScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     @FXML
     public void handleChangeUserInfoButton(ActionEvent e){
         String dest = "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void setUpController(){}

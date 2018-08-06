@@ -39,14 +39,14 @@ public class TapSceneController extends GeneralControllerScreen {
     @FXML
     private void handleBackButton(ActionEvent event) {
         String goingTo = "/GUI/HomeScreen/MainScene.fxml";
-        this.getControllerHelper().openSameWindow(goingTo, this.getTs(), event);
+        this.getControllerHelper().openSameWindow(goingTo, this.getTransitSystem(), event);
     }
 
     @FXML
     private void handleTapButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
         String cmID = this.cardMachineIDInputTextField.getText();
-        if (this.getTsIO().enterStation(cardID, cmID)){
+        if (this.getTransitSystemInteractions().enterStation(cardID, cmID)){
             this.outcomeRectangle.setFill(Color.GREEN);
             this.tapOutcomeLabel.setText("Success");
         } else {

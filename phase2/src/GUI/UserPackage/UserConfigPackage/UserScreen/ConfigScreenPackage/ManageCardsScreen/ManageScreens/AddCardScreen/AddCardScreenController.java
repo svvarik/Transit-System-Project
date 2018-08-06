@@ -1,7 +1,6 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddCardScreen;
 
 import FareSystem.Card;
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
@@ -34,7 +33,7 @@ public class AddCardScreenController extends GeneralControllerScreen implements 
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTs(), e, this.cardHolder);
+                this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void setUpController(){}
@@ -43,7 +42,7 @@ public class AddCardScreenController extends GeneralControllerScreen implements 
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
         this.userLabel.setText(this.cardHolder.toString());
-        Card tempCard = new Card(this.cardHolder, this.getTs().getTapManager());
+        Card tempCard = new Card(this.cardHolder, this.getTransitSystem().getTapManager());
         this.cardHolder.addCard(tempCard);
         this.completionLabel.setText("Your New CardID is " + tempCard.getCardID());
     }

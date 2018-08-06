@@ -1,22 +1,14 @@
 package GUI.UserPackage.UserLogInPackage;
 
-import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
-import GUI.UserPackage.UserConfigPackage.UserScreen.ViewUserScreenController;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import javax.xml.soap.Node;
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,24 +40,24 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     public void setUpController(Object obj){}
 
     public void handleBackButton(ActionEvent e){
-    this.getControllerHelper().openSameWindow("/GUI/HomeScreen/MainScene.fxml", this.getTs(), e);
+    this.getControllerHelper().openSameWindow("/GUI/HomeScreen/MainScene.fxml", this.getTransitSystem(), e);
     }
 
     public void handleLoginButton(ActionEvent e) throws IOException{
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
      //   CardHolder cardHolder = new CardHolder();
-        CardHolder cardHolder =  this.getTs().getCardHolders().findCardHolder(email);
+        CardHolder cardHolder =  this.getTransitSystem().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
-            this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTs(), e);
+            this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTransitSystem(), e);
         }
         else if (!cardHolder.isPassCorrect(password)){
                 this.messageLabel.setText("Invalid Password!");
         }
         else{
         //    changeSceneCardCardHolderView(cardholder, e);
-            this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTs(), e, cardHolder);
+            this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTransitSystem(), e, cardHolder);
 //
         }
     }
