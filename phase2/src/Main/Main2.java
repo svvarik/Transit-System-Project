@@ -18,7 +18,11 @@ public class Main2 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.transitSystem = new TransitSystem();
+
+        //this.transitSystem = new TransitSystem();
+        TransitSystemStarter tsStart = new TransitSystemStarter();
+        this.transitSystem = tsStart.getTs();
+        
    //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
 //String userpath = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml"
