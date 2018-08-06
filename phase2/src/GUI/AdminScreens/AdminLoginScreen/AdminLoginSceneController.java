@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -46,8 +47,9 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
         }
         else {
             System.out.println("Not working.");
-            }
+            loginOutComeLabel.setTextFill(Color.web("#FF0000"));
+            loginOutComeLabel.setText("Admin User Not Found");
         }
-
+    }
 
 }
