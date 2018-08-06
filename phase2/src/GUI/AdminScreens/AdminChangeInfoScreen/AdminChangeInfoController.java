@@ -46,8 +46,8 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
     public void handlePasswordButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTs());
-        CardHolder cardHolder =  this.getTs().getCardHolders().findCardHolder(email);
+        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
+        CardHolder cardHolder =  this.getTransitSystem().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
