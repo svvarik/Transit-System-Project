@@ -3,7 +3,6 @@ package GUI.AdminScreens.AdminLoginScreen;
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.TransitSystemInteractions;
-import Main.TransitSystemStarter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,13 +31,9 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
     Button logInButton;
 
     @FXML
-    private void intialize() throws IOException, ClassNotFoundException {
-        logInButton.setOnAction(this::handleButtonAction);
-    }
-
     private void handleButtonAction(ActionEvent event){
         //Find and check if the Transit System contains this AdminUser
-        TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTs());
+        TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTransitSystem());
         boolean adminExists = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
         if (adminExists){
             ControllerHelper newControllerHelper = new ControllerHelper();
