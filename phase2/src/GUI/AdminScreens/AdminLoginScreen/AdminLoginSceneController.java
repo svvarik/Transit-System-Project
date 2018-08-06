@@ -15,8 +15,6 @@ import java.io.IOException;
 
 public class AdminLoginSceneController extends GeneralControllerScreen{
 
-    TransitSystemInteractions tsIO;
-
     @FXML
     Label titleLabel;
 
@@ -39,6 +37,7 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
 
     private void handleButtonAction(ActionEvent event){
         //Find and check if the Transit System contains this AdminUser
+        TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTs());
         boolean adminExists = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
         if (adminExists){
             ControllerHelper newControllerHelper = new ControllerHelper();
