@@ -32,13 +32,14 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
 
     @FXML
     private void handleButtonAction(ActionEvent event){
+        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         //Find and check if the Transit System contains this AdminUser
         TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTransitSystem());
         boolean adminExists = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
         if (adminExists){
             ControllerHelper newControllerHelper = new ControllerHelper();
             String tapScreen = "/GUI/AdminScreens/AdminMainScene.fxml";
-            newControllerHelper.switchScreens(event, tapScreen);
+            newControllerHelper.openSameWindow(tapScreen, this.getTransitSystem(), event);
         }
         else {
             System.out.println("Not working.");

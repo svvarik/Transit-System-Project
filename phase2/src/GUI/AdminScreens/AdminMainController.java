@@ -28,6 +28,7 @@ public class AdminMainController extends GeneralControllerScreen {
 
     @FXML
     private void handleButtonAction(ActionEvent event){
+        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         Object eve = event.getSource();
         if (eve.equals(changeAccountInfo)){
             String tapScreen = "/GUI/AdminScreens/AdminChangeInfoScreen/AdminChangeInfoScene.fxml";

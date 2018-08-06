@@ -60,6 +60,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
         else{
             if (newNameTextField != null) {
                 cardHolder.setName(newNameTextField.getText());
+                outcomeLabel.setText(("Password change successful!"));
             }
             if (newPasswordField != null)
                 cardHolder.setPassword(newPasswordField.getText());
