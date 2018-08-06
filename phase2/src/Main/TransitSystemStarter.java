@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class TransitSystemStarter {
 
-    private TransitSystemInteractions tsIO;
-
     private TransitSystem ts;
 
     private static String filepath = "./serializedTransitSystem.ser";
@@ -21,19 +19,15 @@ public class TransitSystemStarter {
 
         TransitSystemSerializer saveFileHelper = new TransitSystemSerializer();
 
-        TransitSystem ts = starteverything();
-
-        // Handling Events (To be Replaced by GUI)
-        tsIO = new TransitSystemInteractions(ts);
-        tsIO.readFile("events.txt");
+        ts = starteverything();
 
         // Save the log to file
         saveFileHelper.saveToFile(filepath, ts);
 
     }
 
-    public TransitSystemInteractions getTsIO() {
-        return tsIO;
+    public TransitSystem getTs() {
+        return ts;
     }
 
     //Instantiates everything

@@ -34,8 +34,6 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
 
     @FXML
     private void intialize() throws IOException, ClassNotFoundException {
-        TransitSystemStarter tsStart = new TransitSystemStarter();
-        tsIO = tsStart.getTsIO();
         logInButton.setOnAction(this::handleButtonAction);
     }
 
