@@ -1,5 +1,7 @@
 package GUI.AdminScreens.AdminChangeInfoScreen;
 
+import AdminUsers.AdminUser;
+import AdminUsers.AdminUserList;
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
@@ -40,35 +42,50 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/AdminScreens/AdminMainScene.fxml");
+        ch.openSameWindow("/GUI/AdminScreens/AdminMainScene.fxml", this.getTransitSystem(), e);
     }
 
     public void handlePasswordButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
-        CardHolder cardHolder =  this.getTransitSystem().getCardHolders().findCardHolder(email);
+        AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(email);
 
-        if(cardHolder == null){
+        if(adminUser == null){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
             outcomeLabel.setText(("Cardholder doesn't exist!"));
         }
-        else if (!cardHolder.isPassCorrect(password)){
+        else if (!adminUser.isPassCorrect(password)){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
             outcomeLabel.setText(("Invalid Password!"));
         }
         else{
-            if (newNameTextField != null) {
-                cardHolder.setName(newNameTextField.getText());
-                outcomeLabel.setText(("Password change successful!"));
-            }
             if (newPasswordField != null)
-                cardHolder.setPassword(newPasswordField.getText());
+                adminUser.setPassword(newPasswordField.getText());
+            outcomeLabel.setText(("Password change successful!"));
         }
 
     }
 
     public void handleEmailButton(ActionEvent e){
+        String email = currentEmailTextField.getText();
+        String password = currentPasswordTextField.getText();
+        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
+        AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(email);
 
+        if(adminUser == null){
+            outcomeLabel.setTextFill(Color.web("#FF0000"));
+            outcomeLabel.setText(("Cardholder doesn't exist!"));
+        }
+        else if (!adminUser.isPassCorrect(password)){
+            outcomeLabel.setTextFill(Color.web("#FF0000"));
+            outcomeLabel.setText(("Invalid Password!"));
+        }
+        else {
+            if (newNameTextField != null) {
+                adminUser.setName(newNameTextField.getText());
+                outcomeLabel.setText(("Name change successful!"));
+            }
+        }
     }
 }

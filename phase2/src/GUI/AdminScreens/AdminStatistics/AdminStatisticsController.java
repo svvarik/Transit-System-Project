@@ -67,9 +67,9 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenue.getData().add(series);
     }
 
-    private void handleBackButton(ActionEvent event) {
-        ControllerHelper newControllerHelper = new ControllerHelper();
+    private void handleBackButton(ActionEvent e) {
+        ControllerHelper ch = new ControllerHelper();
         String goingTo = "/GUI/AdminScreens/AdminMainScene.fxml";
-        newControllerHelper.switchScreens(event, goingTo);
+        ch.openSameWindow("/GUI/AdminScreens/AdminMainScene.fxml", this.getTransitSystem(), e);
     }
 }

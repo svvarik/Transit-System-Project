@@ -2,6 +2,7 @@ package GUI.AdminScreens;
 
 import AdminUsers.AdminUser;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
+import GUI.HelperClasses.ControllerHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,13 +36,19 @@ public class AdminMainController extends GeneralControllerScreen {
             this.getControllerHelper().openSameWindow(tapScreen, this.getTransitSystem(), event, this.adminUser);
         }
         if (eve.equals(manageUsers)){
-            String manageUsers = "GUI/AdminScreens/AdminManageUsersScreen/AdminManageUserScene.fxml";
+            String manageUsers = "/GUI/AdminScreens/AdminManageUsersScreen/AdminManageUserScene.fxml";
             this.getControllerHelper().openSameWindow(manageUsers, this.getTransitSystem(), event, this.adminUser);
         }
         if (eve.equals(viewStatistics)){
             String statsScreen = "/GUI/AdminScreens/AdminStatistics/AdminStatisticsScene.fxml";
             this.getControllerHelper().openSameWindow(statsScreen, this.getTransitSystem(), event, this.adminUser);
         }
+    }
+
+    public void handleBackButton(ActionEvent e) {
+        ControllerHelper ch = new ControllerHelper();
+        String goingTo = "/GUI/AdminScreens/AdminLoginScreen/AdminLoginScene.fxml";
+        ch.openSameWindow(goingTo, this.getTransitSystem(), e);
     }
 }
 

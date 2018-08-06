@@ -241,6 +241,8 @@ public class CardHolder implements Serializable {
   }
 
   public boolean isPassCorrect(String pass){
-    return(this.password.equals(pass));
+    if (this.password != null) {
+      return (this.password.equals(pass)); }
+    return false;
   }
 }
