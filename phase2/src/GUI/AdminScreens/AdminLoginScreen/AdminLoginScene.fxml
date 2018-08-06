@@ -16,7 +16,7 @@
       </Label>
       <PasswordField fx:id="passwordField" layoutX="216.0" layoutY="213.0" promptText="Password" />
       <TextField fx:id="emailTextField" layoutX="216.0" layoutY="166.0" promptText="Email" />
-      <Button fx:id="logInButton" layoutX="269.0" layoutY="267.0" mnemonicParsing="false" onAction="#intialize" text="Log In" />
+      <Button fx:id="logInButton" layoutX="269.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Log In" />
       <Label fx:id="loginOutComeLabel" layoutX="270.0" layoutY="129.0" prefHeight="17.0" prefWidth="66.0" textAlignment="CENTER" />
    </children>
 </Pane>
