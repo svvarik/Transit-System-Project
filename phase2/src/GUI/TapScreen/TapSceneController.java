@@ -20,7 +20,9 @@ public class TapSceneController extends GeneralControllerScreen {
     @FXML
     TextField cardIDInputTextField;
     @FXML
-    Button tapButton;
+    Button enterButton;
+    @FXML
+    Button exitButton;
     @FXML
     Rectangle outcomeRectangle;
 
@@ -43,16 +45,28 @@ public class TapSceneController extends GeneralControllerScreen {
     }
 
     @FXML
-    private void handleTapButton(ActionEvent event){
+    private void handleExitButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
         String cmID = this.cardMachineIDInputTextField.getText();
-        if (this.getTransitSystemInteractions().enterStation(cardID, cmID)){
+        if (this.getTransitSystemInteractions().exitStation(this.getTransitSystem(), cardID, cmID)){
             this.outcomeRectangle.setFill(Color.GREEN);
             this.tapOutcomeLabel.setText("Success");
         } else {
             this.outcomeRectangle.setFill(Color.RED);
             this.tapOutcomeLabel.setText("Failure");
         }
-        //get the things in textfield;s and process the tap
+    }
+
+    @FXML
+    private void handleEnterButton(ActionEvent event){
+        String cardID = this.cardIDInputTextField.getText();
+        String cmID = this.cardMachineIDInputTextField.getText();
+        if (this.getTransitSystemInteractions().enterStation(this.getTransitSystem(), cardID, cmID)){
+            this.outcomeRectangle.setFill(Color.GREEN);
+            this.tapOutcomeLabel.setText("Success");
+        } else {
+            this.outcomeRectangle.setFill(Color.RED);
+            this.tapOutcomeLabel.setText("Failure");
+        }
     }
 }

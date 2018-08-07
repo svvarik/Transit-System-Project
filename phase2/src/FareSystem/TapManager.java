@@ -1,6 +1,7 @@
 package FareSystem;
 
 import TransitUsers.Trip;
+import sun.font.TrueTypeFont;
 
 import java.io.Serializable;
 
@@ -34,7 +35,7 @@ public class TapManager implements Serializable {
             }
             return false;
         }
-        if(c.isSuspended() || c.getBalance() < 0){//checks if the card is suspended
+        if(c.getBalance() < 0){//checks if the card is suspended
             return false;
         }
         if(c.getLastCardMachineTapped().isEntrance() && cm.isEntrance()){//checks if the card has a double entrance
@@ -70,6 +71,9 @@ public class TapManager implements Serializable {
      */
     public boolean tapCard(Card c, CardMachine cm){
         Boolean contd = toContinue(c, cm);
+        if(c.isSuspended()){
+            return false;
+        }
         if(contd){
             if(!cm.getStation().isFlatRate()){
                 tapDaynamicStation(c, cm);

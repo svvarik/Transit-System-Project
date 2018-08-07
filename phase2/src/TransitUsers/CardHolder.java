@@ -10,14 +10,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CardHolder implements Serializable {
+
+  private boolean isBanned = false;
+  private String banPass;
   private String name;
   private String email;
   private String password;
   private ArrayList<Card> cards;
   private TransitSystem ts;
   private ArrayList<Trip> trips;
-  private Double giftMoney;
+  private int balance;
   private static final long serialVersionUID = 291745;
+
 
   public CardHolder(String name, String email, String password, TransitSystem ts) {
     this.password = password;
@@ -26,6 +30,7 @@ public class CardHolder implements Serializable {
     this.cards = new ArrayList<Card>();
     this.trips = new ArrayList <>();
     this.ts = ts;
+    this.balance = 0;
   }
 
   /**
@@ -33,6 +38,7 @@ public class CardHolder implements Serializable {
    * @param name this CardHolder's name
    * @param email this CardHolder's email
    */
+
 
   public CardHolder(String name, String email, TransitSystem ts) {
     this.name = name;
@@ -50,28 +56,46 @@ public class CardHolder implements Serializable {
     return this.cards;
   }
 
-  public double getAverageMonthlyFare() {
-    Calendar currentDate = Calendar.getInstance();
-    int currentMonth = currentDate.get(Calendar.MONTH);
-    int counter = 0;
-    double fareTotal = 0;
-    for(Trip t: this.trips){
-      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
-        fareTotal = fareTotal + t.getFare();
-        if(t.getEnd() != null){
-          counter+=1;
-        }
-        if(t.getStart() != null){
-          counter+=1;
-        }
-      }
-    }
-    if(counter == 0){
-      return fareTotal;
-    }else{
-      return fareTotal/counter;
+  public void banCardHolder(String bannedPassword){
+    this.isBanned = true;
+    this.banPass = this.password;
+    this.setPassword(bannedPassword);
+    for(Card c: this.getCards()){
+      c.suspendCard();
     }
   }
+
+  public void unBanCardHolder(){
+    this.isBanned = false;
+    this.setPassword(this.banPass);
+  }
+
+  public boolean isBanned(){
+    return this.isBanned;
+  }
+
+//  public double getAverageMonthlyFare() {
+//    Calendar currentDate = Calendar.getInstance();
+//    int currentMonth = currentDate.get(Calendar.MONTH);
+//    int counter = 0;
+//    double fareTotal = 0;
+//    for(Trip t: this.trips){
+//      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
+//        fareTotal = fareTotal + t.getFare();
+//        if(t.getEnd() != null){
+//          counter+=1;
+//        }
+//        if(t.getStart() != null){
+//          counter+=1;
+//        }
+//      }
+//    }
+//    if(counter == 0){
+//      return fareTotal;
+//    }else{
+//      return fareTotal/counter;
+//    }
+//  }
 
   /**
      * Returns TransitSystem
@@ -112,6 +136,10 @@ public class CardHolder implements Serializable {
    */
   public String getEmail() {
     return email;
+  }
+
+  public int getBalance(){
+      return this.balance;
   }
 
   /**
@@ -162,12 +190,21 @@ public class CardHolder implements Serializable {
     this.ts.addTrip(t);
   }
 
+
   public ArrayList<Trip> getTrips() {
     return trips;
   }
 
   public ObservableList<Trip> getObservableTrip(){
-    return FXCollections.observableArrayList(this.trips);
+    if(this.trips.size()<30){
+        return FXCollections.observableArrayList(this.trips);
+    }else {
+        return FXCollections.observableArrayList(this.trips.subList(this.trips.size() - 30, this.trips.size() - 1));
+    }
+  }
+
+  public ObservableList<Card> getObservableCards(){
+    return FXCollections.observableArrayList(this.cards);
   }
 
   public double getDailyFare(int day, int month, int year){
@@ -180,9 +217,6 @@ public class CardHolder implements Serializable {
       }
       return fare;
   }
-  public void addGiftMoney(Double money){
-    this.giftMoney += money;
-  }
 
   public Card getCard(int cardID){
     Card cd = null;
@@ -194,47 +228,51 @@ public class CardHolder implements Serializable {
     return cd;
   }
 
-  public boolean sendGiftMoney(String email, int cardID, double money){
-    if(this.ts.getCardHolders().findCardHolder(email) != null){
-      CardHolder recepient = this.ts.getCardHolders().findCardHolder(email);
-      if(this.getCard(cardID) != null){
-        Card giftingCard = this.getCard(cardID);
-        if(giftingCard.getBalance() < money){
-          System.out.println("Not enough money!");
-          return false;
-        }
-        else{
-          giftingCard.deductValue(money);
-          recepient.addGiftMoney(money);
-          System.out.println(this.getName() +" Successfully sent money to "+ recepient.getName());
-          return true;
-        }
-      }
-    }
-    return false;
+//  public boolean sendGiftMoney(String email, int cardID, double money){
+//    if(this.ts.getCardHolders().findCardHolder(email) != null){
+//      CardHolder recepient = this.ts.getCardHolders().findCardHolder(email);
+//      if(this.getCard(cardID) != null){
+//        Card giftingCard = this.getCard(cardID);
+//        if(giftingCard.getBalance() < money){
+//          System.out.println("Not enough money!");
+//          return false;
+//        }
+//        else{
+//          giftingCard.deductValue(money);
+//          recepient.addGiftMoney(money);
+//          System.out.println(this.getName() +" Successfully sent money to "+ recepient.getName());
+//          return true;
+//        }
+//      }
+//    }
+//    return false;
+//  }
+
+  public void receiveMoney(int amount){
+    this.balance += amount;
   }
 
-  public boolean allocateGiftMoney(int cardID, double money){
-    if(this.getCard(cardID) != null){
-      Card card = this.getCard(cardID);
-      if(this.giftMoney < money){
-        System.out.println("You do not have enough money in your gift basket to allocate to your card");
-        return false;
-      }
-      else{
-        this.giftMoney -= money;
-        card.addValue(money);
-        System.out.println(this.name + " successfully allocated money to " + card.toString());
-        return true;
-      }
-
-    }
-    return false;
+  public void setBalance(int amount){
+      this.balance = amount;
   }
 
-  public boolean allocateGiftMoney(int cardID){
-    return allocateGiftMoney(cardID, this.giftMoney);
-  }
+//  public boolean allocateGiftMoney(int cardID, double money){
+//    if(this.getCard(cardID) != null){
+//      Card card = this.getCard(cardID);
+//      if(this.giftMoney < money){
+//        System.out.println("You do not have enough money in your gift basket to allocate to your card");
+//        return false;
+//      }
+//      else{
+//        this.giftMoney -= money;
+//        card.addValue(money);
+//        System.out.println(this.name + " successfully allocated money to " + card.toString());
+//        return true;
+//      }
+//
+//    }
+//    return false;
+//  }
 
   public void setPassword(String password){
     this.password = password;

@@ -1,0 +1,79 @@
+package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageUserInfoScreen;
+
+import GUI.HelperClasses.ControllerHelper;
+import GUI.GeneralControllerClass.GeneralControllerScreen;
+import TransitUsers.CardHolder;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+
+public class ManageUserInfoSceneController extends GeneralControllerScreen {
+
+    @FXML
+    Button backButton;
+
+    @FXML
+    Button changeNameButton;
+
+    @FXML
+    TextField nameTextField;
+
+    @FXML
+    Button changePasswordButton;
+
+    @FXML
+    TextField oldPasswordTextField;
+
+    @FXML
+    TextField newPasswordTextField;
+
+    @FXML
+    Label outComeLabel;
+
+    private CardHolder cardHolder;
+
+    //TODO IMPLEMENT METHOD TO CHANGE PASSWORD
+
+    ControllerHelper ch = new ControllerHelper();
+
+    public void handleBackButton(ActionEvent e){
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
+        this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, this.cardHolder);
+    }
+
+    public void handleChangeNameButton(ActionEvent e){
+        if(!nameTextField.getText().isEmpty()){
+            this.cardHolder.setName(nameTextField.getText());
+            outComeLabel.setTextFill(Color.GREEN);
+            outComeLabel.setText("Name Changed!");
+        }else{
+            outComeLabel.setTextFill(Color.RED);
+            outComeLabel.setText("Invalid Name");
+        }
+
+    }
+
+    public void handleChangePasswordButton(ActionEvent e){
+        if(cardHolder.isPassCorrect(oldPasswordTextField.getText())){
+            if(!newPasswordTextField.getText().isEmpty()){
+                cardHolder.setPassword(newPasswordTextField.getText());
+                outComeLabel.setTextFill(Color.GREEN);
+                outComeLabel.setText("Password Changed!");
+            }else{
+                outComeLabel.setTextFill(Color.RED);
+                outComeLabel.setText("Invalid Password");
+            }
+        }else{
+            outComeLabel.setTextFill(Color.RED);
+            outComeLabel.setText("Old password doesn't match current password");
+        }
+    }
+
+    public void setUpController(Object obj) throws ClassCastException{
+        CardHolder ch = (CardHolder) obj;
+        this.cardHolder = ch;
+    }
+}

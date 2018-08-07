@@ -2,15 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageCardsScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../StyleSheets/manageCardsScreen.css"  xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageCardsScreenController">
    <children>
-      <Button fx:id="backButton" layoutX="44.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
-      <Button fx:id="addCardButton" layoutX="204.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleAddCardButton" text="Add Card" />
-      <Button fx:id="addValueButton" layoutX="204.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleAddValueButton" text="Add Value" />
-      <Button fx:id="deleteCardButton" layoutX="343.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleDeleteCardButton" text="Delete Card" />
-      <Button fx:id="suspendCardButton" layoutX="343.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleSuspendCardButton" text="Suspend Card" />
-      <Label fx:id="userLabel" layoutX="269.0" layoutY="71.0" />
+      <Button id="backButton" fx:id="backButton" layoutX="44.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button id="regButton" fx:id="addCardButton" layoutX="77.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddCardButton" text="Add Card" textFill="WHITE" />
+      <Button id="regButton" fx:id="addValueButton" layoutX="188.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddValueButton" text="Add Value" textFill="WHITE" />
+      <Button id="regButton" fx:id="deleteCardButton" layoutX="300.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleDeleteCardButton" text="Delete Card" textFill="WHITE" />
+      <Button id="regButton" fx:id="suspendCardButton" layoutX="412.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleSuspendCardButton" text="Suspend Card" textFill="WHITE" />
+      <ListView fx:id="listOfCards" layoutX="142.0" layoutY="85.0" prefHeight="231.0" prefWidth="317.0" />
+      <Label id="title" layoutX="270.0" layoutY="51.0" text="All Cards" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label fx:id="userLabel" layoutX="465.0" layoutY="24.0" prefHeight="17.0" prefWidth="105.0" />
    </children>
 </AnchorPane>

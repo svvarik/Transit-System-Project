@@ -16,16 +16,7 @@ import java.util.ResourceBundle;
 public class UserGiftSceneController extends GeneralControllerScreen implements Initializable {
 
     @FXML
-    Label cardIDMessage;
-
-    @FXML
-    Label emailMessage;
-
-    @FXML
-    Label amountMessage;
-
-    @FXML
-    Label userLabel;
+    Label userGiftBalance;
 
     @FXML
     Button backButton;
@@ -37,13 +28,19 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     TextField recipientEmailTextField;
 
     @FXML
-    TextField cardIDTextField;
-
-    @FXML
     TextField moneyTextField;
 
     @FXML
-    Label successLabel;
+    TextField cardID;
+
+    @FXML
+    TextField amount;
+
+    @FXML
+    Label giftSuccessLabel;
+
+    @FXML
+    Label addValueSuccessLabel;
 
     private CardHolder cardHolder;
 
@@ -60,41 +57,45 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
 
     @FXML
     public void handleGiftButton(ActionEvent e){
-        this.emailMessage.setText("");
-        this.cardIDMessage.setText("");
-        this.amountMessage.setText("");
-        int fromCard;
-        double amount;
-        try{
-            String recipient = this.recipientEmailTextField.getText();
-            fromCard = Integer.parseInt(this.cardIDTextField.getText());
-            try{
-                amount = Double.parseDouble(this.moneyTextField.getText());
-                System.out.println(amount);
-                Card tempCard = this.cardHolder.getCard(fromCard);
-                if(tempCard == null){
-                    this.cardIDMessage.setText("Card Does Not Exist");
-                }
-                else if(this.getTransitSystem().getCardHolders().findCardHolder(recipient)== null){
-                    this.emailMessage.setText("Recipient Does Not Exist");
-                }
-                else{
-                    boolean success = this.cardHolder.sendGiftMoney(recipient, fromCard, amount);
-                    if(success){
-                        this.successLabel.setText("Money Was Successfully Gifted");
-                    }
-                }
-            }catch(Exception ee){
-                this.amountMessage.setText("Invalid Input");
+        String recipient = this.recipientEmailTextField.getText();
+        CardHolder cardHolderRecipient = this.getTransitSystem().getCardHolders().findCardHolder(recipient);
+        if (cardHolderRecipient != null){
+            // CardHolder exists
+            try {
+                int amount = Integer.parseInt(this.moneyTextField.getText());
+                cardHolderRecipient.receiveMoney(amount);
+                this.userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
+                this.moneyTextField.clear();
+                this.recipientEmailTextField.clear();
+            } catch (NumberFormatException exception){
+                this.giftSuccessLabel.setText("Whole numbers only please.");
             }
-        }catch(Exception ep){
-            this.cardIDMessage.setText("Invalid Input");
+        } else {
+            this.giftSuccessLabel.setText("This email is not valid.");
         }
-
     }
 
-    public void changeSuccessLabel(String text){
-        successLabel.setText(text);
+    @FXML
+    public void handleAddValueButton(ActionEvent e){
+        try {
+            int valueBeingAdded = Integer.parseInt(this.amount.getText());
+            if (valueBeingAdded <= this.cardHolder.getBalance()) {
+                Card cardBeingModified = this.getTransitSystem().getCardHolders().findCard(Integer.parseInt(this.cardID.getText()));
+                if (cardBeingModified != null) {
+                    cardBeingModified.addValue(valueBeingAdded);
+                    this.cardHolder.setBalance(this.cardHolder.getBalance() - valueBeingAdded);
+                    this.userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
+                    this.amount.clear();
+                    this.cardID.clear();
+                }
+            } else {
+                this.addValueSuccessLabel.setText("Insufficient funds");
+                this.amount.clear();
+                this.cardID.clear();
+            }
+        } catch (NumberFormatException nfe){
+            this.addValueSuccessLabel.setText("Whole numbers only please.");
+        }
     }
 
     public void setUpController(){}
@@ -102,6 +103,5 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
-        this.userLabel.setText(this.cardHolder.toString());
     }
 }

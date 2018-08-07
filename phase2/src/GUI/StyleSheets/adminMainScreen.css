@@ -6,10 +6,10 @@
 }
 
 #changeAccountInfo {
-    -fx-background-image: url('../StaticResources/AdminResources/settings_icon.png');
-    -fx-background-size: 10x;
+    -fx-background-image: url('../StaticResources/AdminStaticResources/settings_icon.png');
+    -fx-background-size: 150px;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center left;
+    -fx-background-position: center center;
     -fx-background-radius: 20;
     -fx-background-color: rgb(255, 255, 255);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
@@ -21,8 +21,8 @@
 }
 
 #manageUsers {
-    -fx-background-image: url('../StaticResources/AdminResources/users_icon.png');
-    -fx-background-size: 30px;
+    -fx-background-image: url('../StaticResources/AdminStaticResources/users_icon.png');
+    -fx-background-size: 150px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-radius: 20;
@@ -36,8 +36,8 @@
 }
 
 #viewStatistics {
-    -fx-background-image: url('../StaticResources/AdminResources/stats_icon.png');
-    -fx-background-size: 30px;
+    -fx-background-image: url('../StaticResources/AdminStaticResources/stats_icon.png');
+    -fx-background-size: 150px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-radius: 20;

@@ -1,6 +1,7 @@
 package AdminUsers;
 
 import Data.TransitData;
+import TransitUsers.CardHolder;
 
 import java.io.Serializable;
 
@@ -13,6 +14,7 @@ public class AdminUser implements Serializable {
     private String name;
     private String email;
     private String password;
+    private String bannedPassword = "101x000";
 
     /**
      * constructs a new instance of AdminUser
@@ -62,6 +64,14 @@ public class AdminUser implements Serializable {
         if (this.password != null) {
             return (this.password.equals(pass)); }
         return false;
+    }
+
+    public void banUser(CardHolder ch){
+        ch.banCardHolder(this.bannedPassword);
+    }
+
+    public void unBanUser(CardHolder ch){
+        ch.unBanCardHolder();
     }
 }
 

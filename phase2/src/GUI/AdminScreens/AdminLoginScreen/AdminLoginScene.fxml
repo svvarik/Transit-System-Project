@@ -5,18 +5,14 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminScreens.AdminLoginScreen.AdminLoginSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../StyleSheets/genericBackground.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminScreens.AdminLoginScreen.AdminLoginSceneController">
    <children>
-      <Label fx:id="titleLabel" layoutX="243.0" layoutY="46.0" text="Login">
-         <font>
-            <Font size="43.0" />
-         </font>
-      </Label>
+      <Rectangle id="rectangle" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="276.0" layoutX="200.0" layoutY="59.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
       <PasswordField fx:id="passwordField" layoutX="216.0" layoutY="213.0" promptText="Password" />
       <TextField fx:id="emailTextField" layoutX="216.0" layoutY="166.0" promptText="Email" />
-      <Button fx:id="logInButton" layoutX="269.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Log In" />
-      <Label fx:id="loginOutComeLabel" layoutX="216.0" layoutY="129.0" prefHeight="17.0" prefWidth="170.0" textAlignment="CENTER" />
+      <Button id="regButton" fx:id="logInButton" layoutX="269.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Log In" />
+      <Label fx:id="loginOutComeLabel" layoutX="216.0" layoutY="83.0" prefHeight="63.0" prefWidth="170.0" textAlignment="CENTER" />
    </children>
 </Pane>

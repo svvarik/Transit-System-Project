@@ -1,5 +1,8 @@
 .root {
-    -fx-background-color: rgb(91, 87, 213);
+    -fx-background-image: url('../StaticResources/background_screen.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 .button:hover {

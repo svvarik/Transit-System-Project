@@ -1,12 +1,14 @@
 package Main;
 
 
+import Data.TransitSystemSerializer;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -22,7 +24,6 @@ public class Main2 extends Application {
         //this.transitSystem = new TransitSystem();
         TransitSystemStarter tsStart = new TransitSystemStarter();
         this.transitSystem = tsStart.getTs();
-        
    //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
 
         //String mainScreen = "/GUI/AdminScreens/AdminStatistics/AdminStatisticsScene.fxml";
@@ -35,8 +36,16 @@ public class Main2 extends Application {
         controller.setTransitSystem(this.transitSystem);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+            try{
+                TransitSystemSerializer transitSerializer = new TransitSystemSerializer();
+                transitSerializer.saveToFile("./serializedTransitSystem.ser", this.transitSystem);
+            }catch(Exception e){
+                System.out.println(e);
+            }
+        });
 //        TransitSystemStarter tsStart = new TransitSystemStarter();
-//        tsIO = tsStart.getTsIO();
+//        tsIO = tsStart.getTransitSystemInteractions();
 
     }
 

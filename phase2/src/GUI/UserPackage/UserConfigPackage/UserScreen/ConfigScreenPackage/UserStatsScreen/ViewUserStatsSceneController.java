@@ -35,15 +35,14 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
+        this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void initialize() {
         series = new XYChart.Series();
-        for(int i=0; i<=31; i++){
-            series.getData().add(new XYChart.Data(i, Math.random()*10));
-        }
         if (cardHolder != null) {
+            System.out.println(cardHolder);
             for(int i=1; i<=31; i++){
                 series.getData().add(new XYChart.Data<>(i, cardHolder.getDailyFare(i, Calendar.getInstance().get(Calendar.MONTH),
                         Calendar.getInstance().get(Calendar.YEAR))));
@@ -56,5 +55,9 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
         cardHolder = c;
     }
 
-
+    public void setUpController(Object object){
+        CardHolder c = (CardHolder) object;
+        setCardHolder(c);
+        initialize();
+    }
 }

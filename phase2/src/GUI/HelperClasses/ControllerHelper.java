@@ -73,21 +73,21 @@ public class ControllerHelper {
         setSameWindow(root, event);
     }
 
-    public void openNewWindow(String fxmlResource, TransitSystem model, String title) {
-        Parent root = changeScreen(fxmlResource, model);
-        setNewWindow(root, title, 600, 400);
+    public void openNewWindow(String fxmlResource, TransitSystem model, String title, Object object) {
+        Parent root = changeScreen(fxmlResource, model, object);
+        setNewWindow(root, title);
     }
 
     // Custom Size New Window
-    public void openNewWindow(String fxmlResource, TransitSystem model, String title, int width, int height) {
+    public void openNewWindow(String fxmlResource, TransitSystem model, String title) {
         Parent root = changeScreen(fxmlResource, model);
-        setNewWindow(root, title, width, height);
+        setNewWindow(root, title);
     }
 
-    private void setNewWindow(Parent root, String title, int width, int height) {
+    private void setNewWindow(Parent root, String title) {
         Stage stage = new Stage();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, width, height));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
