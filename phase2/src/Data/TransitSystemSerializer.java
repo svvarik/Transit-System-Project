@@ -4,10 +4,7 @@ package Data;
 import Main.TransitSystem;
 
 import java.io.*;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class TransitSystemSerializer {
 
@@ -30,9 +27,7 @@ public class TransitSystemSerializer {
             ObjectInput input = new ObjectInputStream(buffer);
 
             //deserialize the Map
-            System.out.println("Hey");
           TransitSystem ts = (TransitSystem) input.readObject();
-            System.out.println("Hey2");
             input.close();
             return ts;
         } catch (IOException ex) {

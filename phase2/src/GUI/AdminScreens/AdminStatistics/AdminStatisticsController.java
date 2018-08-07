@@ -68,7 +68,7 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         TransitData td = new TransitData(this.getTransitSystem());
         for (int i = 0; i < monthNames.size(); i++) {
             double fare = td.getMonthlyFareAmount(i, Calendar.YEAR);
-            series.getData().add(new XYChart.Data(monthNames.get(i), i*10));
+            series.getData().add(new XYChart.Data(monthNames.get(i), fare));
         }
 
         OverallRevenueBarChart.setLegendVisible(false);
@@ -86,7 +86,7 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         // Create a XYChart.Data object for each year. Add it to the series.
         for (int i = 0; i < yearNames.size(); i++) {
             double fare = td.getYearlyFareAmount(Integer.parseInt(yearNames.get(i)));
-            series.getData().add(new XYChart.Data(yearNames.get(i), i*10));
+            series.getData().add(new XYChart.Data(yearNames.get(i), fare));
         }
 
         OverallRevenueBarChart.setLegendVisible(false);
