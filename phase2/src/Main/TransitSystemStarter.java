@@ -5,6 +5,7 @@ import FareSystem.Card;
 import Stations.BusStation;
 import Stations.SubwayStation;
 import TransitUsers.CardHolder;
+import TransitUsers.Trip;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +48,8 @@ public class TransitSystemStarter {
             CardHolder hal = newTS.getCardHolders().findCardHolder("HAL@mail.com");
             Card newCard = new Card(hal, newTS.getTapManager());
             hal.addCard(newCard);
+
+
 
             CardHolder dave = newTS.getCardHolders().findCardHolder("Dave@mail.com");
             Card newCard1 = new Card(dave, newTS.getTapManager());
