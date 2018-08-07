@@ -17,6 +17,6 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label id="failedLoginMessage" fx:id="failedLoginMessage" layoutX="224.0" layoutY="78.0" prefHeight="48.0" prefWidth="152.0" textFill="RED" />
+      <Label id="failedLoginMessage" fx:id="failedLoginMessage" layoutX="224.0" layoutY="69.0" prefHeight="65.0" prefWidth="152.0" textFill="RED" wrapText="true" />
    </children>
 </AnchorPane>
