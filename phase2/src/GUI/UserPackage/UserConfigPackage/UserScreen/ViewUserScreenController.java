@@ -88,6 +88,6 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
-        this.userName.setText(this.cardHolder.toString());
+        userName.setText(this.cardHolder.toString());
     }
 }
