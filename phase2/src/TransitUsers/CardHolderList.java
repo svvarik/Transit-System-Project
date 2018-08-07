@@ -37,8 +37,7 @@ public class CardHolderList implements Serializable {
 
     public boolean addCardHolder(String name, String email, String passWord, TransitSystem ts){
         for (CardHolder ch: this.allCardHolders){
-            if (ch.getEmail().equals(email)){
-                System.out.println("User email is already in system!");
+            if (ch.getEmail().equals(email)){ ;
                 return false;
             }
         }

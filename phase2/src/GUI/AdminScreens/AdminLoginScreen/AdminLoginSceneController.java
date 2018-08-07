@@ -17,9 +17,6 @@ import java.io.IOException;
 public class AdminLoginSceneController extends GeneralControllerScreen{
 
     @FXML
-    Label titleLabel;
-
-    @FXML
     Label loginOutComeLabel;
 
     @FXML
@@ -54,6 +51,11 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
             this.loginOutComeLabel.setText("Invalid Username");
             this.loginOutComeLabel.setTextFill(Color.web("#FF0000"));
         }
+    }
+
+    public void handleBackButton(ActionEvent e){
+        String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
+        this.getControllerHelper().openSameWindow(mainScreen, this.getTransitSystem(), e);
     }
 
 

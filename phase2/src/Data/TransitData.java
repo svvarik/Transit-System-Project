@@ -58,10 +58,32 @@ public class TransitData implements Serializable {
         return totalFare;
     }
 
+    public double getDailyFare(int day, int month, int year){
+        double fare = 0;
+        for(Trip t: this.allTrips){
+            if((t.getStarDate().get(Calendar.DATE) == day) && (t.getStarDate()
+                    .get(Calendar.MONTH) == month) && (t.getStarDate().get(Calendar.YEAR) == year)){
+                fare+= t.getFare();
+            }
+        }
+        return fare;
+    }
     public double getMonthlyFareAmount(int month, int year){
         double totalFare = 0;
         for (Trip t: this.allTrips){
             if((t.getStarDate().get(Calendar.MONTH) == month) && (t.getStarDate().get(Calendar.YEAR) == year)){
+                totalFare = totalFare + t.getFare();
+            }
+        }
+        return totalFare;
+    }
+
+
+    public double getYearlyFareAmount(int year){
+        double totalFare = 0;
+        for (Trip t: this.allTrips){
+            boolean correctyear = (year == t.getStarDate().get(Calendar.YEAR));
+            if(correctyear){
                 totalFare = totalFare + t.getFare();
             }
         }

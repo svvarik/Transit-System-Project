@@ -12,7 +12,7 @@
       <Button id="tap" fx:id="enterButton" layoutX="217.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleEnterButton" prefHeight="50.0" prefWidth="80.0" text="Enter" />
       <TextField fx:id="cardMachineIDInputTextField" layoutX="218.0" layoutY="160.0" promptText="CardMachineID" />
       <TextField fx:id="cardIDInputTextField" layoutX="218.0" layoutY="99.0" promptText="CardID" />
-      <Button id="back" fx:id="backButton" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button id="backButton" fx:id="backButton" layoutX="36.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <Label fx:id="tapOutcomeLabel" layoutX="217.0" layoutY="317.0" prefHeight="32.0" prefWidth="167.0" />
       <Rectangle fx:id="outcomeRectangle" arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="50.0" layoutX="200.0" layoutY="308.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
       <Button id="tap" fx:id="exitButton" layoutX="305.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="50.0" prefWidth="80.0" text="Exit" />
