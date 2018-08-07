@@ -44,39 +44,18 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     }
 
     public void handleLoginButton(ActionEvent e) throws IOException{
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
-     //   CardHolder cardHolder = new CardHolder();
         CardHolder cardHolder =  this.getTransitSystem().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTransitSystem(), e);
         }
         else if (!cardHolder.isPassCorrect(password)){
-                System.out.println("FAIL");
+            failedLoginMessage.setText("Wrong Password or Email");
         }
         else{
-        //    changeSceneCardCardHolderView(cardholder, e);
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTransitSystem(), e, cardHolder);
-//
         }
     }
-
-//    public void changeSceneCardCardHolderView(CardHolder cardHolder, ActionEvent event)throws IOException{
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation(getClass().getResource("GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScreenController.java"));
-//        Parent tableViewParent = loader.load();
-//
-//        Scene UserScene = new Scene(tableViewParent);
-//
-//        ViewUserScreenController controller = new ViewUserScreenController();
-//        controller.initData(cardHolder);
-//
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-//
-//        window.setScene(UserScene);
-//        window.show();
-//    }
-  //  }
 }
