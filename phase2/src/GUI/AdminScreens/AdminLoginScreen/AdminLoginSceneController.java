@@ -1,5 +1,6 @@
 package GUI.AdminScreens.AdminLoginScreen;
 
+import AdminUsers.AdminUser;
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import Main.TransitSystemInteractions;
@@ -35,17 +36,32 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         //Find and check if the Transit System contains this AdminUser
         TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTransitSystem());
-        boolean adminExists = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
-        if (adminExists){
+        AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(emailTextField.getText());
+        boolean adminLoginCorrect = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
+        if (adminLoginCorrect){
             ControllerHelper newControllerHelper = new ControllerHelper();
             String tapScreen = "/GUI/AdminScreens/AdminMainScene.fxml";
             newControllerHelper.openSameWindow(tapScreen, this.getTransitSystem(), event);
         }
         else {
-            System.out.println("Not working.");
+            if (adminUser == null) {
             loginOutComeLabel.setTextFill(Color.web("#FF0000"));
-            loginOutComeLabel.setText("Admin User Not Found");
+            loginOutComeLabel.setText("Admin User Not Found"); }
+            else if (adminUser.getPassword() == null){
+                loginOutComeLabel.setTextFill(Color.web("#FF0000"));
+                loginOutComeLabel.setText("Error: This Admin has no password"); }
+
+            else if (passwordField.getText().equals("")){
+                loginOutComeLabel.setTextFill(Color.web("#FF0000"));
+                loginOutComeLabel.setText("Please enter a password!"); }
+
+
+            else if (adminUser.getPassword() != passwordField.getText()){
+                loginOutComeLabel.setTextFill(Color.web("#FF0000"));
+                loginOutComeLabel.setText("Invalid Password!"); }
+            }
         }
-    }
+
+
 
 }

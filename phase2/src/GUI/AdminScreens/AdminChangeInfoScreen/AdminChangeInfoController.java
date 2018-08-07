@@ -56,12 +56,13 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
             outcomeLabel.setText(("Cardholder doesn't exist!"));
         }
         else if (!adminUser.isPassCorrect(password)){
-            outcomeLabel.setTextFill(Color.web("#FF0000"));
+            outcomeLabel.setTextFill(Color.web("#339900"));
             outcomeLabel.setText(("Invalid Password!"));
         }
         else{
             if (newPasswordField != null)
                 adminUser.setPassword(newPasswordField.getText());
+            outcomeLabel.setTextFill(Color.web("#339900"));
             outcomeLabel.setText(("Password change successful!"));
         }
 
@@ -84,6 +85,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
         else {
             if (newNameTextField != null) {
                 adminUser.setName(newNameTextField.getText());
+                outcomeLabel.setTextFill(Color.web("#339900"));
                 outcomeLabel.setText(("Name change successful!"));
             }
         }

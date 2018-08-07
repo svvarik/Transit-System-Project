@@ -327,7 +327,10 @@ public class TransitSystemInteractions {
 
     public boolean loginAdmin(String email, String password){
     AdminUser au = ts.getAdminUsers().findAdminUser(email);
-    if (au!= null){
+    //System.out.println(au!= null);
+    //System.out.println("au:getpassword  " +  au.getPassword() + " string password  " + password);
+    //System.out.println(au.getPassword() == password);
+    if (au!= null && au.getPassword().equals(password)){
         return true;
     } else {
         return false;
