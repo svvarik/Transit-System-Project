@@ -56,45 +56,46 @@ public class CardHolder implements Serializable {
     return this.cards;
   }
 
-  public void BanCardHolder(){
+  public void banCardHolder(String bannedPassword){
     this.isBanned = true;
     this.banPass = this.password;
-    this.setPassword("YouSuck");
+    this.setPassword(bannedPassword);
     for(Card c: this.getCards()){
       c.suspendCard();
     }
   }
 
-  public void UnBanCardHolder(){
+  public void unBanCardHolder(){
     this.isBanned = false;
     this.setPassword(this.banPass);
   }
 
-  public boolean IsBanned(){
+  public boolean isBanned(){
     return this.isBanned;
   }
-  public double getAverageMonthlyFare() {
-    Calendar currentDate = Calendar.getInstance();
-    int currentMonth = currentDate.get(Calendar.MONTH);
-    int counter = 0;
-    double fareTotal = 0;
-    for(Trip t: this.trips){
-      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
-        fareTotal = fareTotal + t.getFare();
-        if(t.getEnd() != null){
-          counter+=1;
-        }
-        if(t.getStart() != null){
-          counter+=1;
-        }
-      }
-    }
-    if(counter == 0){
-      return fareTotal;
-    }else{
-      return fareTotal/counter;
-    }
-  }
+
+//  public double getAverageMonthlyFare() {
+//    Calendar currentDate = Calendar.getInstance();
+//    int currentMonth = currentDate.get(Calendar.MONTH);
+//    int counter = 0;
+//    double fareTotal = 0;
+//    for(Trip t: this.trips){
+//      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
+//        fareTotal = fareTotal + t.getFare();
+//        if(t.getEnd() != null){
+//          counter+=1;
+//        }
+//        if(t.getStart() != null){
+//          counter+=1;
+//        }
+//      }
+//    }
+//    if(counter == 0){
+//      return fareTotal;
+//    }else{
+//      return fareTotal/counter;
+//    }
+//  }
 
   /**
      * Returns TransitSystem
@@ -188,6 +189,7 @@ public class CardHolder implements Serializable {
     this.trips.add(t);
     this.ts.addTrip(t);
   }
+
 
   public ArrayList<Trip> getTrips() {
     return trips;

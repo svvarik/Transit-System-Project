@@ -202,6 +202,10 @@ public class TransitSystemInteractions {
         card.suspendCard();
     }
 
+    public void unSuspendCard(Card card) {
+        card.unSuspendCard();
+    }
+
 
     /**
      * Adds a specified amount to a specified Card, based on the CardID.

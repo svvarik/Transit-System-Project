@@ -30,3 +30,13 @@
     -fx-font-style: normal;
     -fx-font-weight: bold;
 }
+
+#backButton {
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 14px;
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}

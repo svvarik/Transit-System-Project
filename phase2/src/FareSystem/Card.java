@@ -143,6 +143,10 @@ public class Card implements Serializable {
         this.suspended = true;
     }
 
+    public void unSuspendCard(){
+        this.suspended = false;
+    }
+
     /**
      * Checks if the card is suspended
      * @return if the card is suspended
