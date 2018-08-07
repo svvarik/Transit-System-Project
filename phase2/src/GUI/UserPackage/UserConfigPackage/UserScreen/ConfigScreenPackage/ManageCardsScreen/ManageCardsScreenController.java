@@ -120,6 +120,5 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
         this.cardHolder = (CardHolder) obj;
         this.userLabel.setText(this.cardHolder.toString());
         this.listOfCards.setItems(this.cardHolder.getObservableCards());
-        this.setTransitSystemInteractions(this.getTransitSystem());
     }
 }

@@ -114,6 +114,5 @@ public class AddValueScreenController extends GeneralControllerScreen implements
 
     public void setUpController(Object obj) throws ClassCastException{
         this.selectedCard = (Card) obj;
-        this.setTransitSystemInteractions(this.getTransitSystem());
     }
 }
