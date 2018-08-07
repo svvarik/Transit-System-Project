@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CardHolder implements Serializable {
+
+  private boolean isBanned = false;
+  private String banPass;
   private String name;
   private String email;
   private String password;
@@ -18,6 +21,7 @@ public class CardHolder implements Serializable {
   private ArrayList<Trip> trips;
   private int balance;
   private static final long serialVersionUID = 291745;
+
 
   public CardHolder(String name, String email, String password, TransitSystem ts) {
     this.password = password;
@@ -35,6 +39,7 @@ public class CardHolder implements Serializable {
    * @param email this CardHolder's email
    */
 
+
   public CardHolder(String name, String email, TransitSystem ts) {
     this.name = name;
     this.email = email;
@@ -51,6 +56,23 @@ public class CardHolder implements Serializable {
     return this.cards;
   }
 
+  public void BanCardHolder(){
+    this.isBanned = true;
+    this.banPass = this.password;
+    this.setPassword("YouSuck");
+    for(Card c: this.getCards()){
+      c.suspendCard();
+    }
+  }
+
+  public void UnBanCardHolder(){
+    this.isBanned = false;
+    this.setPassword(this.banPass);
+  }
+
+  public boolean IsBanned(){
+    return this.isBanned;
+  }
   public double getAverageMonthlyFare() {
     Calendar currentDate = Calendar.getInstance();
     int currentMonth = currentDate.get(Calendar.MONTH);
