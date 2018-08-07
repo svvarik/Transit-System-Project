@@ -31,6 +31,10 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
     @FXML
     Button logInButton;
 
+    /**
+     * Logs the admin user in if the password and email match
+     * @param event The event when the button is pushed
+     */
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
@@ -56,6 +60,10 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
         }
     }
 
+    /**
+     * Goes back to the Main Screen
+     * @param e The event when the button is clicked
+     */
     public void handleBackButton(ActionEvent e){
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
         this.getControllerHelper().openSameWindow(mainScreen, this.getTransitSystem(), e);

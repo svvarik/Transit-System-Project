@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * the class for user gift screen
+ */
 public class UserGiftSceneController extends GeneralControllerScreen implements Initializable {
 
     @FXML
@@ -44,11 +47,19 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
 
     private CardHolder cardHolder;
 
+    @Override
+    /**
+     * initializes this screen
+     */
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     @FXML
+    /**
+     * handles the back button
+     * @param e the event that has occurred
+     */
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
@@ -56,6 +67,10 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     }
 
     @FXML
+    /**
+     * handles gift button
+     * @param e the event that has occurred
+     */
     public void handleGiftButton(ActionEvent e){
         this.giftSuccessLabel.setText("");
         String recipient = this.recipientEmailTextField.getText();
@@ -76,6 +91,10 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     }
 
     @FXML
+    /**
+     * handles add value button
+     * @param e the event that has occurred
+     */
     public void handleAddValueButton(ActionEvent e){
         this.addValueSuccessLabel.setText("");
         try {
@@ -100,8 +119,16 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
         }
     }
 
+    /**
+     * sets up the controller
+     */
     public void setUpController(){}
 
+    /**
+     * sets up the controller
+     * @param obj a cardholder
+     * @throws ClassCastException is thrown if you send a not cardholder
+     */
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;

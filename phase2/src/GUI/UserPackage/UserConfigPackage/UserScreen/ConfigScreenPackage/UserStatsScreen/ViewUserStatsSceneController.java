@@ -13,6 +13,9 @@ import javafx.scene.control.Label;
 
 import java.util.Calendar;
 
+/**
+ * the class for the view user stats scene screen
+ */
 public class ViewUserStatsSceneController extends GeneralControllerScreen{
 
 
@@ -36,13 +39,20 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
 
     private XYChart.Series series;
 
-    ControllerHelper ch = new ControllerHelper();
+
+    /**
+     * handles the back button
+      * @param e the event
+     */
 
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, this.cardHolder);
     }
 
+    /**
+     * initializes the screen
+     */
     public void initialize() {
         series = new XYChart.Series();
         if (cardHolder != null) {
@@ -55,10 +65,18 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
         userFareGraph.getData().add(series);
     }
 
+    /**
+     * sets this screen's cardholder
+     * @param c
+     */
     public void setCardHolder(CardHolder c){
         cardHolder = c;
     }
 
+    /**
+     * sets up the cardholder for this controller
+     * @param object it assigns an object to this GeneralControllerHelper
+     */
     public void setUpController(Object object){
         CardHolder c = (CardHolder) object;
         setCardHolder(c);
@@ -66,6 +84,9 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
         setTotalMonthlyFareLabel();
     }
 
+    /**
+     * sets the total monthly fare label
+     */
     public void setTotalMonthlyFareLabel() {
         double fare = 0;
         for(int i=0; i<=31; i++){

@@ -30,6 +30,10 @@ public class AdminMainController extends GeneralControllerScreen {
         this.adminUser = (AdminUser) admin;
     }
 
+    /**
+     * Changes the screen
+     * @param event The event when the button is clicked
+     */
     @FXML
     private void handleButtonAction(ActionEvent event){
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
@@ -48,6 +52,10 @@ public class AdminMainController extends GeneralControllerScreen {
         }
     }
 
+    /**
+     * Goes back to the login screen
+     * @param e The event when the button is clicked
+     */
     public void handleBackButton(ActionEvent e) {
         ControllerHelper ch = new ControllerHelper();
         String goingTo = "/GUI/AdminScreens/AdminLoginScreen/AdminLoginScene.fxml";
