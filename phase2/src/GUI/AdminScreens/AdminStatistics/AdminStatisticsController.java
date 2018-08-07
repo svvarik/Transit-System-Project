@@ -18,34 +18,37 @@ import static java.lang.Integer.parseInt;
 
 public class AdminStatisticsController extends GeneralControllerScreen {
 
-        @FXML
-        Button backButton;
+    @FXML
+    Button backButton;
 
-        @FXML
-        private AreaChart OverallRevenueAreaChart;
+    @FXML
+    private AreaChart OverallRevenueAreaChart;
 
-        @FXML
-        private BarChart OverallRevenueBarChart;
+    @FXML
+    private BarChart OverallRevenueBarChart;
 
-        @FXML
-        private CategoryAxis x;
+    @FXML
+    private CategoryAxis x;
 
-        @FXML
-        private Button monthly;
+    @FXML
+    private Button monthly;
 
-        @FXML
-        private Button Yearly;
+    @FXML
+    private Button Yearly;
 
-        @FXML
-        private Button thisMonth;
+    @FXML
+    private Button thisMonth;
 
-        @FXML
-        private NumberAxis y;
+    @FXML
+    private NumberAxis y;
 
-        private ObservableList<String> monthNames = FXCollections.observableArrayList();
+    private ObservableList<String> monthNames = FXCollections.observableArrayList();
 
-        private ObservableList<String> yearNames = FXCollections.observableArrayList();
+    private ObservableList<String> yearNames = FXCollections.observableArrayList();
 
+    /**
+     * Initializes Category names
+      */
     @FXML
     private void initialize() {
 
@@ -55,8 +58,11 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenueBarChart.setVisible(true);
         OverallRevenueAreaChart.setVisible(false);
 
-}
+    }
 
+    /**
+     * Graphs Monthly Revenue
+     */
     public void graphMonthlyRevenue() {
         OverallRevenueBarChart.getData().clear();
         OverallRevenueBarChart.setVisible(true);
@@ -75,6 +81,9 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenueBarChart.getData().add(series);
     }
 
+    /**
+     * Graphs yearly revenue
+     */
     public void graphYearlyRevenue() {
         OverallRevenueBarChart.getData().clear();
         OverallRevenueBarChart.setVisible(true);
@@ -93,6 +102,9 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenueBarChart.getData().add(series);
     }
 
+    /**
+     * Graphs Revenue for the current month
+     */
     public void graphCurrentMonthRevenue() {
         OverallRevenueBarChart.getData().clear();
         OverallRevenueAreaChart.getData().clear();
@@ -114,6 +126,10 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenueAreaChart.getData().add(series);
     }
 
+    /**
+     * Goes back to the Admin Main Screen
+     * @param e The event when the button is clicked
+     */
     public void handleBackButton(ActionEvent e) {
         ControllerHelper ch = new ControllerHelper();
         String goingTo = "/GUI/AdminScreens/AdminMainScene.fxml";

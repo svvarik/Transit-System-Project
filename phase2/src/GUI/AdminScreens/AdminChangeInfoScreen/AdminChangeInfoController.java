@@ -41,10 +41,18 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
 
     ControllerHelper ch = new ControllerHelper();
 
+    /**
+     * Goes back to the Admin Main Screen
+     * @param e The event when the button is clicked
+     */
     public void handleBackButton(ActionEvent e){
         ch.openSameWindow("/GUI/AdminScreens/AdminMainScene.fxml", this.getTransitSystem(), e);
     }
 
+    /**
+     * Handles changing the password
+     * @param e The Event when the button is pushed
+     */
     public void handlePasswordButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
@@ -68,6 +76,10 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
 
     }
 
+    /**
+     * Handles changing the email
+     * @param e The event when the button is clicked
+     */
     public void handleEmailButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
