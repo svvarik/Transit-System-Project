@@ -13,6 +13,9 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * the screen class for the new user screen
+ */
 public class NewUserScreenController extends GeneralControllerScreen implements Initializable {
 
     @FXML
@@ -36,14 +39,26 @@ public class NewUserScreenController extends GeneralControllerScreen implements 
 
 
     @Override
+    /**
+     * initializes the screen
+     */
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    /**
+     * handles the back button
+     * @param e the event that has occurred
+     */
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
                 this.getTransitSystem(), e);
     }
+
+    /**
+     * handles the make user button
+     * @param e the event that has occurred
+     */
 
     public void handleMakeUserButton(ActionEvent e) {
         String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";

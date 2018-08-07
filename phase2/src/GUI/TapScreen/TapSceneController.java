@@ -40,13 +40,14 @@ public class TapSceneController extends GeneralControllerScreen {
 
     /**
      * This Controller should never receive an object to set up.
+     * @param object the object that should not be passed
      */
     public void setUpController(Object object){}
 
     @FXML
     /**
      * handles the backbutton
-     *
+     *@param e the event that has occurred
      */
     private void handleBackButton(ActionEvent event) {
         String goingTo = "/GUI/HomeScreen/MainScene.fxml";
@@ -56,6 +57,7 @@ public class TapSceneController extends GeneralControllerScreen {
     @FXML
     /**
      * handles Exit button
+     * @param e the event that has occurred
      */
     private void handleExitButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
@@ -72,6 +74,7 @@ public class TapSceneController extends GeneralControllerScreen {
     @FXML
     /**
      * handles enter button
+     * @param e the event that has occurred
      */
     private void handleEnterButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
