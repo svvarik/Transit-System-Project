@@ -78,7 +78,9 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
 
     @FXML
     public void handleViewHistoryButton(ActionEvent e){
-        // VIEW HISTORY UPON CLICK
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage" +
+                "/TripHistoryScreen/ViewTripHistoryScene.fxml";
+        this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void setUpController(){}
