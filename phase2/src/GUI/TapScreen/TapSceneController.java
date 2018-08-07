@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * the screen for tapping the cards with a cardID and a cardMachineID
+ */
 public class TapSceneController extends GeneralControllerScreen {
 
     @FXML
@@ -26,7 +29,9 @@ public class TapSceneController extends GeneralControllerScreen {
     @FXML
     Rectangle outcomeRectangle;
 
-
+    /**
+     * sets up the controller
+     */
 
     public void setUpController(){
         Color purple = Color.rgb(91, 87, 213);
@@ -39,12 +44,19 @@ public class TapSceneController extends GeneralControllerScreen {
     public void setUpController(Object object){}
 
     @FXML
+    /**
+     * handles the backbutton
+     *
+     */
     private void handleBackButton(ActionEvent event) {
         String goingTo = "/GUI/HomeScreen/MainScene.fxml";
         this.getControllerHelper().openSameWindow(goingTo, this.getTransitSystem(), event);
     }
 
     @FXML
+    /**
+     * handles Exit button
+     */
     private void handleExitButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
         String cmID = this.cardMachineIDInputTextField.getText();
@@ -58,6 +70,9 @@ public class TapSceneController extends GeneralControllerScreen {
     }
 
     @FXML
+    /**
+     * handles enter button
+     */
     private void handleEnterButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
         String cmID = this.cardMachineIDInputTextField.getText();
