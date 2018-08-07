@@ -22,7 +22,6 @@ public class Main2 extends Application {
         //this.transitSystem = new TransitSystem();
         TransitSystemStarter tsStart = new TransitSystemStarter();
         this.transitSystem = tsStart.getTs();
-        
    //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
 //String userpath = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml"
@@ -30,11 +29,11 @@ public class Main2 extends Application {
         loader.setLocation((getClass().getResource(mainScreen)));
         Parent root = loader.load();
         GeneralControllerScreen controller = loader.getController();
-        controller.setTs(this.transitSystem);
+        controller.setTransitSystem(this.transitSystem);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 //        TransitSystemStarter tsStart = new TransitSystemStarter();
-//        tsIO = tsStart.getTsIO();
+//        tsIO = tsStart.getTransitSystemInteractions();
 
     }
 
