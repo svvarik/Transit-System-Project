@@ -5,20 +5,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../../../../../StyleSheets/genericBackground.css" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.TripHistoryScreen.ViewTripHistorySceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../StyleSheets/genericBackground.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.TripHistoryScreen.ViewTripHistorySceneController">
    <children>
       <Button fx:id="backButton" layoutX="29.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <TableView fx:id="table" layoutX="48.0" layoutY="53.0" prefHeight="322.0" prefWidth="505.0">
         <columns>
-          <TableColumn fx:id="startDateColumn" editable="false" prefWidth="180.0" sortable="false" text="Start Date">
-              <cellValueFactory><PropertyValueFactory property="starDate" /></cellValueFactory>
+          <TableColumn fx:id="sDateColumn" editable="false" prefWidth="180.0" sortable="false" text="Start Date">
+              <cellValueFactory><PropertyValueFactory property="sDate" /></cellValueFactory>
           </TableColumn>
           <TableColumn fx:id="startLocationColumn" editable="false" prefWidth="180.0" sortable="false" text="Start Location">
               <cellValueFactory><PropertyValueFactory property="start" /></cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="endDateColumn" editable="false" prefWidth="180.0" sortable="false" text="End Date">
-              <cellValueFactory><PropertyValueFactory property="endDate" /></cellValueFactory>
+          <TableColumn fx:id="eDateColumn" editable="false" prefWidth="180.0" sortable="false" text="End Date">
+              <cellValueFactory><PropertyValueFactory property="eDate" /></cellValueFactory>
           </TableColumn>
           <TableColumn fx:id="endLocationColumn" editable="false" minWidth="-Infinity" prefWidth="180.0" sortable="false" text="End Location">
               <cellValueFactory><PropertyValueFactory property="end" /></cellValueFactory>
