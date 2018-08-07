@@ -44,11 +44,19 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
 
     private CardHolder currentlyViewingCH;
 
+    /**
+     * Goes back to the Admin Main Screen
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleBackButton(ActionEvent e){
         this.getControllerHelper().openSameWindow("/GUI/AdminScreens/AdminMainScene.fxml", this.getTransitSystem(), e);
     }
 
+    /**
+     * Updates the ListView to show all the User's Cards and their status
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleViewCardsButton(ActionEvent e){
         CardHolder chViewed = this.getTransitSystem().getCardHolders().findCardHolder(this.userEmail.getText());
@@ -68,6 +76,10 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
         }
     }
 
+    /**
+     * Ban the User whose email is written in the TextField
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleBanUserButton(ActionEvent e){
         CardHolder chViewed = this.getTransitSystem().getCardHolders().findCardHolder(this.userEmail.getText());
@@ -80,6 +92,10 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
         }
     }
 
+    /**
+     * Removes the Ban on user whose emailed is in the TextField
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleRemoveBanButton(ActionEvent e){
         CardHolder chViewed = this.getTransitSystem().getCardHolders().findCardHolder(this.userEmail.getText());
@@ -92,6 +108,10 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
         }
     }
 
+    /**
+     * Deletes the selected Card
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleDeleteCardButton(ActionEvent e){
         if(this.currentlyViewingCH != null) {
@@ -101,6 +121,10 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
         }
     }
 
+    /**
+     * Suspends selected card
+     * @param e The event when the button is clicked
+     */
     @FXML
     public void handleSuspendCardButton(ActionEvent e){
         this.getTransitSystemInteractions().suspendCard((Card)
@@ -108,6 +132,10 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
         this.cardListView.setItems(this.currentlyViewingCH.getObservableCards());
     }
 
+    /**
+     * Unsuspends selected card
+     * @param e The event when the button is clicked
+     */
     public void handleUnsuspendCardButton(ActionEvent e){
         this.getTransitSystemInteractions().unSuspendCard((Card)
                 this.cardListView.getSelectionModel().getSelectedItem());
