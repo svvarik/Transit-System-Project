@@ -148,8 +148,8 @@ public class TransitSystemInteractions {
      *
      * @param cardHolder the passed in CardHolder.
      */
-    public void addNewCard(TransitSystem ts, CardHolder cardHolder){
-        Card newCard = new Card(cardHolder, ts.getTapManager());
+    public void addNewCard(CardHolder cardHolder){
+        Card newCard = new Card(cardHolder, cardHolder.getTs().getTapManager());
         cardHolder.addCard(newCard);
     }
 
