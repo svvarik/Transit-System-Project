@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +31,9 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     @FXML
     Label failedLoginMessage;
 
+    @FXML
+    Button newAccountButton;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,7 +41,12 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
 
     public void setUpController(){}
 
-    public void setUpController(Object obj){}
+    public void setUpController(Object obj){
+        CardHolder cardHolder = (CardHolder) obj;
+        String name = cardHolder.getName();
+        this.failedLoginMessage.setText("Welcome " + name + "! Account created successfully. Log in.");
+        this.failedLoginMessage.setTextFill(Color.BLACK);
+    }
 
     public void handleBackButton(ActionEvent e){
     this.getControllerHelper().openSameWindow("/GUI/HomeScreen/MainScene.fxml", this.getTransitSystem(), e);
@@ -49,13 +58,17 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
         CardHolder cardHolder =  this.getTransitSystem().getCardHolders().findCardHolder(email);
 
         if(cardHolder == null){
-            this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTransitSystem(), e);
+            this.failedLoginMessage.setText("Incorrect Username");
         }
         else if (!cardHolder.isPassCorrect(password)){
-            failedLoginMessage.setText("Wrong Password or Email");
+            failedLoginMessage.setText("Incorrect Password");
         }
         else{
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTransitSystem(), e, cardHolder);
         }
+    }
+
+    public void handleMakeAccountButton(ActionEvent e) {
+        this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTransitSystem(), e);
     }
 }

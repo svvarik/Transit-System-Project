@@ -9,6 +9,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.util.Calendar;
 
@@ -27,6 +28,9 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
 
     @FXML
     NumberAxis yAxis;
+
+    @FXML
+    Label totalMonthlyFareLabel;
 
     private CardHolder cardHolder;
 
@@ -59,5 +63,14 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
         CardHolder c = (CardHolder) object;
         setCardHolder(c);
         initialize();
+        setTotalMonthlyFareLabel();
+    }
+
+    public void setTotalMonthlyFareLabel() {
+        double fare = 0;
+        for(int i=0; i<=31; i++){
+            fare+= cardHolder.getDailyFare(i, Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.YEAR));
+        }
+        totalMonthlyFareLabel.setText("Total fare spare spent this month: " + Double.toString(fare));
     }
 }

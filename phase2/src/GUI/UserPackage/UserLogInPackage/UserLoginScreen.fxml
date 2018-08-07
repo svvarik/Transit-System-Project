@@ -12,11 +12,16 @@
       <Rectangle id="rectangle" arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="300.0" layoutX="200.0" layoutY="50.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
       <Button id="backButton" fx:id="backButton" layoutX="47.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <TextField fx:id="emailTextField" layoutX="217.0" layoutY="148.0" promptText="Email" />
-      <TextField fx:id="passwordTextField" layoutX="217.0" layoutY="200.0" promptText="Passowrd" />
+      <TextField fx:id="passwordTextField" layoutX="217.0" layoutY="200.0" promptText="Password" />
       <Button id="loginButton" fx:id="loginButton" layoutX="217.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="167.0" text="Log In" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>
       <Label id="failedLoginMessage" fx:id="failedLoginMessage" layoutX="224.0" layoutY="69.0" prefHeight="65.0" prefWidth="152.0" textFill="RED" wrapText="true" />
+      <Button id="loginButton" fx:id="newAccountButton" layoutX="217.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleMakeAccountButton" prefHeight="27.0" prefWidth="167.0" text="Make New Account!" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

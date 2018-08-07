@@ -1,8 +1,6 @@
 package FareSystem;
 
 import TransitUsers.Trip;
-import sun.font.TrueTypeFont;
-
 import java.io.Serializable;
 
 public class TapManager implements Serializable {
