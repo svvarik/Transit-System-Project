@@ -82,20 +82,24 @@ public class TransitSystemInteractions {
      * @param cID the Card ID being tapped
      * @param cmID the CardMachine ID that the Card is tapping on
      */
-    private void exitStation(TransitSystem ts, String cID, String cmID) {
+    public boolean exitStation(TransitSystem ts, String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int exit = Integer.parseInt(cmID);
         Card thisCard = ts.getCardHolders().findCard(cardID);
         CardMachine thisCM = ts.getStations().findExit(exit);
         if (thisCard == null){
             System.out.println("This card is invalid.");
+            return false;
         } else if (thisCM == null){
             System.out.println("This card machine is invalid.");
+            return false;
         } else {
             if(thisCard.tapCard(thisCM)){
                 System.out.println(thisCard.toString() + " exits " + thisCM.toString());
+                return true;
             } else {
                 System.out.println("Tap was not successful.");
+                return false;
             }
         }
     }
