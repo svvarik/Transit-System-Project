@@ -50,8 +50,14 @@ public class TransitSystemInteractions {
      * @return true if the user can enter, false otherwise
      */
     public boolean enterStation(TransitSystem ts, String cID, String cmID) {
-        int cardID = Integer.parseInt(cID);
-        int entrance = Integer.parseInt(cmID);
+        int cardID=0;
+        int entrance=0;
+        try{
+            cardID= Integer.parseInt(cID);
+            entrance = Integer.parseInt(cmID);
+        }catch (Exception e){
+
+        }
         Card thisCard = ts.getCardHolders().findCard(cardID);
         CardMachine thisCM = ts.getStations().findEntrance(entrance);
         if (thisCard == null){
@@ -83,8 +89,14 @@ public class TransitSystemInteractions {
      * @param cmID the CardMachine ID that the Card is tapping on
      */
     public boolean exitStation(TransitSystem ts, String cID, String cmID) {
-        int cardID = Integer.parseInt(cID);
-        int exit = Integer.parseInt(cmID);
+        int cardID=0;
+        int exit=0;
+        try{
+             cardID= Integer.parseInt(cID);
+             exit = Integer.parseInt(cmID);
+        }catch (Exception e){
+
+        }
         Card thisCard = ts.getCardHolders().findCard(cardID);
         CardMachine thisCM = ts.getStations().findExit(exit);
         if (thisCard == null){
