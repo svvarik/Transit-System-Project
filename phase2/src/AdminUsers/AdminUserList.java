@@ -23,13 +23,13 @@ public class AdminUserList implements Serializable {
      * @param email the email of the new Admin User being added
      * @return true if successful, false if fails
      */
-    public boolean addAdminUser(String name, String email){
+    public boolean addAdminUser(String name, String email, String password){
         for (AdminUser au: this.allAdminUsers){
             if (au.getEmail().equals(email)){
                 return false;
             }
         }
-        this.allAdminUsers.add(new AdminUser(name, email));
+        this.allAdminUsers.add(new AdminUser(name, email, password));
         return true;
     }
 

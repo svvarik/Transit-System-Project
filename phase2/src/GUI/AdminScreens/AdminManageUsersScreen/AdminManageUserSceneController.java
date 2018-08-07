@@ -30,7 +30,7 @@ public class AdminManageUserSceneController extends GeneralControllerScreen {
 
     @FXML
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/AdminScreens/AdminMainScene.fxml");
+        ch.openSameWindow("/GUI/AdminScreens/AdminMainScene.fxml", this.getTransitSystem(), e);
     }
 
     @FXML

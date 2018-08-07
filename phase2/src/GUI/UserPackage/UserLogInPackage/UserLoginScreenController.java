@@ -44,6 +44,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     }
 
     public void handleLoginButton(ActionEvent e) throws IOException{
+        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
      //   CardHolder cardHolder = new CardHolder();

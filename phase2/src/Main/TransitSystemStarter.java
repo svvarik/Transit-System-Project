@@ -42,7 +42,7 @@ public class TransitSystemStarter {
 
             newTS.getCardHolders().addCardHolder("HAL", "HAL@mail.com", "hi", newTS);
             newTS.getCardHolders().addCardHolder("Dave", "Dave@mail.com", newTS);
-            newTS.getAdminUsers().addAdminUser("Sai", "Sai@gmail.com");
+            newTS.getAdminUsers().addAdminUser("Sai", "Sai@gmail.com", "gg");
 
             CardHolder hal = newTS.getCardHolders().findCardHolder("HAL@mail.com");
             Card newCard = new Card(hal, newTS.getTapManager());
