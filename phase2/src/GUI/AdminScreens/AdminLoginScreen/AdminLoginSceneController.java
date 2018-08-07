@@ -35,9 +35,9 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
     private void handleButtonAction(ActionEvent event){
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         //Find and check if the Transit System contains this AdminUser
-        TransitSystemInteractions tsIO = new TransitSystemInteractions(this.getTransitSystem());
         AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(emailTextField.getText());
-        boolean adminLoginCorrect = tsIO.loginAdmin(emailTextField.getText(), passwordField.getText());
+        boolean adminLoginCorrect = this.getTransitSystemInteractions().loginAdmin(this.getTransitSystem(),
+                emailTextField.getText(), passwordField.getText());
         if (adminLoginCorrect){
             ControllerHelper newControllerHelper = new ControllerHelper();
             String tapScreen = "/GUI/AdminScreens/AdminMainScene.fxml";
