@@ -35,92 +35,7 @@ Admin User's daily report - adminView; email;
 
 public class TransitSystemInteractions {
 
-    private TransitSystem ts;
-
-    public TransitSystemInteractions(TransitSystem ts){
-        this.ts = ts;
-    }
-
-    /**
-     * Reads events to be processed by the Transit System, from a specified text file.
-     *
-     * Events must be formatted as specified in program ReadMe in order for
-     * function to properly parse events.
-     *
-     * @param filename the file name to be read from
-     */
-    public void readFile(String filename) {
-        try {
-            File file = new File(filename);
-            FileReader fileReader1 = new FileReader(file);
-            BufferedReader fileReader = new BufferedReader(fileReader1);
-            String newLine;
-
-            while ((newLine = fileReader.readLine()) != null) {
-                // Read input and split it into required arguments
-                String[] arguments = newLine.split(";");
-                String event = arguments[0].replaceAll("\\s", "");
-
-            // Get a separate array of the required arguments for each event
-            if (arguments.length > 1) {
-                String[] parameters = Arrays.copyOfRange(arguments, 1, arguments.length);
-                for (int i = 0; i < parameters.length; i += 1) {
-                parameters[i] = parameters[i].replaceAll("\\s", "");
-                }
-                this.processEvent(event, parameters);
-            } else { // No parameters arg needed
-                this.processEvent(event, new String[1]);
-                }
-            }
-            fileReader.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Processes a string event and its arguments, formatted as specified in
-     * the Readme.
-     *
-     * @param event the event that is occurring
-     * @param args the required arguments of the event
-     */
-    public void processEvent(String event, String[] args){
-        switch(event){
-            case "enter":
-                enterStation(args[0], args[1]);
-                break;
-            case "exit":
-                exitStation(args[0], args[1]);
-                break;
-            case "addUser":
-                addUser(args[0], args[1]);
-                break;
-            case "addNewCard":
-                addNewCard(args[0]);
-                break;
-            case "removeCard":
-                removeCard(args[0], args[1]);
-                break;
-            case "addToBalance":
-                addToBalance(args[0], args[1]);
-                break;
-            case "changeName":
-                changeName(args[0], args[1]);
-                break;
-            case "viewRecentTrips":
-                viewRecentTrips(args[0]);
-                break;
-            case "adminView":
-                adminView(args[0]);
-                break;
-            case "exitProgram":
-                this.ts.getTransitData().dailyReport();
-                System.exit(0);
-            default:
-                System.out.println("Incorrect argument");
-        }
-
+    public TransitSystemInteractions(){
     }
 
     /**
@@ -134,7 +49,7 @@ public class TransitSystemInteractions {
      * @param cmID the CardMachine ID that the Card is tapping on
      * @return true if the user can enter, false otherwise
      */
-    public boolean enterStation(String cID, String cmID) {
+    public boolean enterStation(TransitSystem ts, String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int entrance = Integer.parseInt(cmID);
         Card thisCard = ts.getCardHolders().findCard(cardID);
@@ -167,7 +82,7 @@ public class TransitSystemInteractions {
      * @param cID the Card ID being tapped
      * @param cmID the CardMachine ID that the Card is tapping on
      */
-    private void exitStation(String cID, String cmID) {
+    private void exitStation(TransitSystem ts, String cID, String cmID) {
         int cardID = Integer.parseInt(cID);
         int exit = Integer.parseInt(cmID);
         Card thisCard = ts.getCardHolders().findCard(cardID);
@@ -195,7 +110,7 @@ public class TransitSystemInteractions {
      * @param name the CardHolder's name
      * @param email the CardHolder's email
      */
-    public void addUser(String name, String email){
+    public void addUser(TransitSystem ts, String name, String email){
         if(ts.getCardHolders().addCardHolder(name, email, ts)){
             System.out.println("User added successfully");
         } else {
@@ -213,7 +128,7 @@ public class TransitSystemInteractions {
      *
      * @param ch the CardHolder
      */
-    public void addNewCard(String ch){
+    public void addNewCard(TransitSystem ts, String ch){
         CardHolder thisCH = ts.getCardHolders().findCardHolder(ch);
         if(thisCH != null){
             Card newCard = new Card(thisCH, ts.getTapManager());
@@ -233,7 +148,7 @@ public class TransitSystemInteractions {
      *
      * @param cardHolder the passed in CardHolder.
      */
-    public void addNewCard(CardHolder cardHolder){
+    public void addNewCard(TransitSystem ts, CardHolder cardHolder){
         Card newCard = new Card(cardHolder, ts.getTapManager());
         cardHolder.addCard(newCard);
     }
@@ -248,7 +163,7 @@ public class TransitSystemInteractions {
      * @param ch the CardHolder
      * @param cID the CardID being removed
      */
-    public void removeCard(String ch, String cID){
+    public void removeCard(TransitSystem ts, String ch, String cID){
         int cardID = Integer.parseInt(cID);
         CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         Card card = ts.getCardHolders().findCard(cardID);
@@ -294,7 +209,7 @@ public class TransitSystemInteractions {
      * @param cID the CardID
      * @param amount the amount being added
      */
-    private void addToBalance(String cID, String amount){
+    private void addToBalance(TransitSystem ts, String cID, String amount){
         int cardID = Integer.parseInt(cID);
         int addedAmount = Integer.parseInt(amount);
         Card card = ts.getCardHolders().findCard(cardID);
@@ -330,7 +245,7 @@ public class TransitSystemInteractions {
      * @param ch the CardHolder
      * @param newName the name requested for change
      */
-    public void changeName(String ch, String newName){
+    public void changeName(TransitSystem ts, String ch, String newName){
         CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         if(cardHolder != null){
             cardHolder.setName(newName);
@@ -350,7 +265,7 @@ public class TransitSystemInteractions {
      *
      * @param ch the CardHolder
      */
-    public void viewRecentTrips(String ch){
+    public void viewRecentTrips(TransitSystem ts, String ch){
         CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         if(cardHolder != null){
             ArrayList<Trip> trips = cardHolder.viewRecentTrips();
@@ -362,7 +277,7 @@ public class TransitSystemInteractions {
         }
     }
 
-  public void adminView(String email) {
+  public void adminView(TransitSystem ts, String email) {
     AdminUser au = ts.getAdminUsers().findAdminUser(email);
     if (au != null) {
       ts.getTransitData().dailyReport();
@@ -371,7 +286,7 @@ public class TransitSystemInteractions {
     }
         }
 
-    public boolean loginAdmin(String email, String password){
+    public boolean loginAdmin(TransitSystem ts, String email, String password){
     AdminUser au = ts.getAdminUsers().findAdminUser(email);
     //System.out.println(au!= null);
     //System.out.println("au:getpassword  " +  au.getPassword() + " string password  " + password);

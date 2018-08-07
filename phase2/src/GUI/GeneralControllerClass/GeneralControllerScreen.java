@@ -11,14 +11,11 @@ public class GeneralControllerScreen {
 
     public GeneralControllerScreen(){
         this.controllerHelper = new ControllerHelper();
+        this.transitSystemInteractions = new TransitSystemInteractions();
     }
 
     public void setTransitSystem(TransitSystem ts) {
         this.ts = ts;
-    }
-
-    public void setTransitSystemInteractions(TransitSystem ts) {
-        this.transitSystemInteractions = new TransitSystemInteractions(ts);
     }
 
     public TransitSystem getTransitSystem() {
