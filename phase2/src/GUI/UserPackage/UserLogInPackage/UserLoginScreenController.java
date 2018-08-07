@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
@@ -29,7 +30,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     TextField emailTextField;
 
     @FXML
-    TextField passwordTextField;
+    PasswordField passwordTextField;
 
     @FXML
     Label failedLoginMessage;
