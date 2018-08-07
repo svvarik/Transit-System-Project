@@ -1,0 +1,9 @@
+1.wrote the javadocs for the userSide and the GeneralControllerScreen and Controller helper
+2.created the gifting system on the backend.
+3.set up the pass word capability for the cardHolder
+4.Made the GUI controllers for the userPackage.
+5. added the suspension for cards
+6. added the banning a cardholder possiblity
+7. the serialization for the GUI (the software saves the transitSystem before closing and opens it upon oppening)
+8. refactored the gui folders
+9. created the general controller class and made all other screens extending it
