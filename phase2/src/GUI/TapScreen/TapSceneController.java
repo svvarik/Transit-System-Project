@@ -46,7 +46,7 @@ public class TapSceneController extends GeneralControllerScreen {
     private void handleTapButton(ActionEvent event){
         String cardID = this.cardIDInputTextField.getText();
         String cmID = this.cardMachineIDInputTextField.getText();
-        if (this.getTransitSystemInteractions().enterStation(cardID, cmID)){
+        if (this.getTransitSystemInteractions().enterStation(this.getTransitSystem(), cardID, cmID)){
             this.outcomeRectangle.setFill(Color.GREEN);
             this.tapOutcomeLabel.setText("Success");
         } else {
