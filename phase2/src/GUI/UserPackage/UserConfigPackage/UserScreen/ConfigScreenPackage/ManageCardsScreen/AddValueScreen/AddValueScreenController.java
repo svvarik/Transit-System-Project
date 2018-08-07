@@ -11,6 +11,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * the class for add value screen
+ */
 public class AddValueScreenController extends GeneralControllerScreen implements Initializable{
 
     @FXML
@@ -34,10 +37,17 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     private Card selectedCard;
 
     @Override
+    /**
+     * initializes the screen
+     */
     public void initialize(URL location, ResourceBundle resources) {
     }
 
     @FXML
+    /**
+     * handles add five button
+     *
+     */
     public void handleAddFive(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 5);
         Stage stage = (Stage) addFive.getScene().getWindow();
@@ -45,6 +55,9 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     }
 
     @FXML
+    /**
+     * handles add ten button
+     */
     public void handleAddTen(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 10);
         Stage stage = (Stage) addTen.getScene().getWindow();
@@ -52,6 +65,9 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     }
 
     @FXML
+    /**
+     * handles add fifteen button
+     */
     public void handleAddFifteen(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 15);
         Stage stage = (Stage) addFifteen.getScene().getWindow();
@@ -59,6 +75,9 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     }
 
     @FXML
+    /**
+     * handles add twenty button
+     */
     public void handleAddTwenty(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 20);
         Stage stage = (Stage) addTwenty.getScene().getWindow();
@@ -66,6 +85,9 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     }
 
     @FXML
+    /**
+     * handles add value button
+     */
     public void handleAddValueButton() {
 
         if (valueAmountTextField.getText() != null) {
@@ -106,10 +128,18 @@ public class AddValueScreenController extends GeneralControllerScreen implements
         }
     }
 
+    /**
+     * sets up the controller
+     */
     public void setUpController(){
 
     }
 
+    /**
+     * set up the controller with a card object
+     * @param obj a card
+     * @throws ClassCastException is thrown if you send a not card
+     */
     public void setUpController(Object obj) throws ClassCastException{
         this.selectedCard = (Card) obj;
     }

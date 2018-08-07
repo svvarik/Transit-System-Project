@@ -9,6 +9,9 @@ import javafx.scene.control.*;
 
 import java.util.Optional;
 
+/**
+ * the class for the manage cards screen
+ */
 public class ManageCardsScreenController extends GeneralControllerScreen{
 
     @FXML
@@ -36,6 +39,10 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
 
 
     @FXML
+    /**
+     * handles the back button
+     * @param e the event that has occurred
+     */
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
@@ -43,12 +50,20 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
     }
 
     @FXML
+    /**
+     * handles add card button
+     * @param e the event that has occurred
+     */
     public void handleAddCardButton(ActionEvent e){
         this.getTransitSystemInteractions().addNewCard(cardHolder);
         this.listOfCards.setItems(this.cardHolder.getObservableCards());
     }
 
     @FXML
+    /**
+     * handles delete card button
+     * @param e the event that has occurred
+     */
     public void handleDeleteCardButton(ActionEvent e) {
 
         String cardID = Integer.toString(((Card)
@@ -78,6 +93,10 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
     }
 
     @FXML
+    /**
+     * handles suspend card button
+     * @param e the event that has occurred
+     */
     public void handleSuspendCardButton(ActionEvent e){
 
         String cardID = Integer.toString(((Card)
@@ -105,13 +124,26 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
     }
 
     @FXML
+    /**
+     * handles add value button
+     * @param e the event that has occurred
+     */
     public void handleAddValueButton(ActionEvent e){
         Card selectedCard = (Card) this.listOfCards.getSelectionModel().getSelectedItem();
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/AddValueScreen/AddValueScreen.fxml";
         this.getControllerHelper().openNewWindow(dest, this.getTransitSystem(), "Add Balance", selectedCard);
     }
+
+    /**
+     * sets up the controller
+     */
     public void setUpController(){}
 
+    /**
+     * sets up the controller with a cardholder
+     * @param obj a cardholder
+     * @throws ClassCastException is thrown if you do not send a cardHolder
+     */
     public void setUpController(Object obj) throws ClassCastException{
         this.cardHolder = (CardHolder) obj;
         this.userLabel.setText(this.cardHolder.toString());
