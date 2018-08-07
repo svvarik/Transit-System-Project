@@ -22,13 +22,13 @@ public class ViewTripHistorySceneController extends GeneralControllerScreen{
     TableView<Trip> table;
 
     @FXML
-    TableColumn<Trip, String> sDateColumn;
+    TableColumn<Trip, String> customStart;
 
     @FXML
     TableColumn<Trip, String> startLocationColumn;
 
     @FXML
-    TableColumn<Trip, String > eDateColumn;
+    TableColumn<Trip, String> customEnd;
 
     @FXML
     TableColumn<Trip, String> endLocationColumn;
@@ -46,8 +46,8 @@ public class ViewTripHistorySceneController extends GeneralControllerScreen{
 
     public void initialize() {
         if(cardHolder != null) {
-            sDateColumn.setCellValueFactory(new PropertyValueFactory<Trip, String>("sDate"));
-            eDateColumn.setCellValueFactory(new PropertyValueFactory<Trip, String>("eDate"));
+            customStart.setCellValueFactory(new PropertyValueFactory<Trip, String>("customStart"));
+            customEnd.setCellValueFactory(new PropertyValueFactory<Trip, String>("customEnd"));
             table.setItems(cardHolder.getObservableTrip());
         }
     }
