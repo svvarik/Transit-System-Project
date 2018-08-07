@@ -1,21 +1,28 @@
 package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddValueScreen;
 
+import FareSystem.Card;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AddValueScreenController extends GeneralControllerScreen implements Initializable{
 
     @FXML
-    Button backButton;
+    Button addFive;
+    @FXML
+    Button addTen;
+    @FXML
+    Button addFifteen;
+    @FXML
+    Button addTwenty;
 
     @FXML
     Button addValueButton;
@@ -24,66 +31,89 @@ public class AddValueScreenController extends GeneralControllerScreen implements
     Label cardIDMessageLabel;
 
     @FXML
-    Label userLabel;
-
-    @FXML
-    Label amountMessageLabel;
-
-    @FXML
-    TextField cardIDTextField;
-
-    @FXML
     TextField valueAmountTextField;
 
-
-    private CardHolder cardHolder;
+    private Card selectedCard;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void handleBackButton(ActionEvent e){
-        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageCardsScreen.fxml";
-        this.getControllerHelper().openSameWindow(dest,
-                this.getTransitSystem(), e, this.cardHolder);
+    @FXML
+    public void handleAddFive(){
+        this.getTransitSystemInteractions().addToBalance(this.selectedCard, 5);
+        Stage stage = (Stage) addFive.getScene().getWindow();
+        stage.close();
     }
 
-    public void handleAddValueButton(){
-        double amount;
-        int destCard;
-        try{
-            destCard = Integer.parseInt(this.cardIDTextField.getText());
-            try{
-                amount = Double.parseDouble((this.valueAmountTextField.getText()));
-                if(this.cardHolder.getCard(destCard) != null){
-                    if(this.cardHolder.getCard(destCard).addValue(amount)){
-                    this.amountMessageLabel.setText("Your Amount");
-                    this.cardIDMessageLabel.setText("Your Card Id");
-                    this.userLabel.setText(amount + " Was Added to "+ destCard +  ", Now You Have " +this.cardHolder.getCard(destCard).getBalance() );
-                    }
-                    else{
-                        this.userLabel.setText("You Can Only Add 10, 20, 50");
-                    }
+    @FXML
+    public void handleAddTen(){
+        this.getTransitSystemInteractions().addToBalance(this.selectedCard, 10);
+        Stage stage = (Stage) addTen.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void handleAddFifteen(){
+        this.getTransitSystemInteractions().addToBalance(this.selectedCard, 15);
+        Stage stage = (Stage) addFifteen.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void handleAddTwenty(){
+        this.getTransitSystemInteractions().addToBalance(this.selectedCard, 20);
+        Stage stage = (Stage) addTwenty.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void handleAddValueButton() {
+
+        if (valueAmountTextField.getText() != null) {
+
+
+            try {
+                int amount = Integer.parseInt(this.valueAmountTextField.getText());
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+                alert.setTitle("Confirm Value");
+                alert.setHeaderText("Are you sure you want to add money to this card?");
+                alert.setContentText("You are adding: " + this.valueAmountTextField.getText() + "to this Card");
+
+                ButtonType buttonTypeOne = new ButtonType("Add away!");
+                ButtonType buttonTypeTwo = new ButtonType("Yikes, no thanks!");
+
+                alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.isPresent() && result.get() == buttonTypeOne) {
+                    this.getTransitSystemInteractions().addToBalance(this.selectedCard, amount);
+                } else {
+                    alert.close();
                 }
-                else{
-                    this.cardIDMessageLabel.setText("Card Does Not Exist");
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Incorrect Value");
+                alert.setHeaderText("Not able to add this value.");
+                alert.setContentText("Currently, we are only able to add whole values to your card. No decimals please!");
+                ButtonType buttonOne = new ButtonType("Okay");
+                alert.getButtonTypes().setAll(buttonOne);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonOne) {
+                    alert.close();
                 }
-            }catch(Exception e){
-                this.amountMessageLabel.setText("Invalid Input");
             }
-        }catch(Exception e){
-            this.cardIDMessageLabel.setText("Invalid Input!");
         }
     }
+
     public void setUpController(){
 
     }
 
     public void setUpController(Object obj) throws ClassCastException{
-        CardHolder ch = (CardHolder) obj;
-        this.cardHolder = ch;
-        this.userLabel.setText(this.cardHolder.toString());
-
-
+        this.selectedCard = (Card) obj;
+        this.setTransitSystemInteractions(this.getTransitSystem());
     }
 }

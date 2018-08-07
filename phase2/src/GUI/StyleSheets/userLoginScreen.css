@@ -1,5 +1,8 @@
 .root {
-    -fx-background-color: rgb(91, 87, 213);
+    -fx-background-image: url('../StaticResources/background_screen.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 .button:hover {
@@ -16,15 +19,16 @@
    -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
 }
 
-#tap {
+#loginButton {
     -fx-font-family: "sans-serif";
-    -fx-font-color: rgb(255, 255, 255);
-    -fx-font-size: 20px;
+    -fx-font-size: 14px;
     -fx-font-style: normal;
     -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: rgb(91, 87, 213);
 }
 
-#back {
+#backButton {
     -fx-font-family: "sans-serif";
     -fx-font-color: rgb(0, 0, 0);
     -fx-font-size: 16px;

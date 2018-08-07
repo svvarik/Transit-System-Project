@@ -6,15 +6,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.ManageUserInfoScreen.ManageUserInfoSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../../StyleSheets/manageUserInfo.css" fx:controller="GUI.UserPackage.ManageUserInfoScreen.ManageUserInfoSceneController">
    <children>
       <Button fx:id="backButton" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
-      <Button fx:id="changeNameButton" layoutX="271.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleChangeButton" text="Change" />
-      <TextField fx:id="nameTextField" layoutX="217.0" layoutY="173.0" promptText="New Name" />
-      <Label layoutX="218.0" layoutY="60.0" prefHeight="17.0" prefWidth="167.0" text="Change Name">
+      <Button id="regButton" fx:id="changeNameButton" layoutX="217.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleChangeButton" prefHeight="27.0" prefWidth="167.0" text="Change Name" />
+      <TextField fx:id="nameTextField" layoutX="217.0" layoutY="128.0" promptText="New Name" />
+      <Label layoutX="218.0" layoutY="60.0" prefHeight="17.0" prefWidth="167.0" text="Account Info">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TextField fx:id="oldPasswordTextField" layoutX="217.0" layoutY="264.0" promptText="Old Password" />
+      <TextField fx:id="newPasswordTextField" layoutX="217.0" layoutY="214.0" promptText="New Password" />
+      <Button id="regButton" fx:id="changePasswordButton" layoutX="218.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleChangeButton" prefHeight="27.0" prefWidth="167.0" text="Change Password" />
    </children>
 </Pane>

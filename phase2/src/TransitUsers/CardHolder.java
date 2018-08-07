@@ -170,6 +170,10 @@ public class CardHolder implements Serializable {
     return FXCollections.observableArrayList(this.trips);
   }
 
+  public ObservableList<Card> getObservableCards(){
+    return FXCollections.observableArrayList(this.cards);
+  }
+
   public double getDailyFare(int day, int month, int year){
       double fare = 0;
       for(Trip t: this.trips){
@@ -241,6 +245,7 @@ public class CardHolder implements Serializable {
   }
 
   public boolean isPassCorrect(String pass){
+    System.out.println(this.password);
     return(this.password.equals(pass));
   }
 }

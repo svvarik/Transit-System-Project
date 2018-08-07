@@ -28,7 +28,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
     TextField passwordTextField;
 
     @FXML
-    Label messageLabel;
+    Label failedLoginMessage;
 
 
     @Override
@@ -53,7 +53,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/NewUserScreen/NewUserScreen.fxml", this.getTransitSystem(), e);
         }
         else if (!cardHolder.isPassCorrect(password)){
-                this.messageLabel.setText("Invalid Password!");
+                System.out.println("FAIL");
         }
         else{
         //    changeSceneCardCardHolderView(cardholder, e);

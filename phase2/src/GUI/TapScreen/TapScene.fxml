@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../StyleSheets/tapStyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TapScreen.TapSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../StyleSheets/tapScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TapScreen.TapSceneController">
    <children>
       <Rectangle id="rectangle" arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="250.0" layoutX="201.0" layoutY="37.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
       <Button id="tap" fx:id="tapButton" layoutX="260.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleTapButton" prefHeight="50.0" prefWidth="80.0" text="Tap" />

@@ -195,7 +195,7 @@ public class TransitSystemInteractions {
      * @param name the CardHolder's name
      * @param email the CardHolder's email
      */
-    private void addUser(String name, String email){
+    public void addUser(String name, String email){
         if(ts.getCardHolders().addCardHolder(name, email, ts)){
             System.out.println("User added successfully");
         } else {
@@ -213,7 +213,7 @@ public class TransitSystemInteractions {
      *
      * @param ch the CardHolder
      */
-    private void addNewCard(String ch){
+    public void addNewCard(String ch){
         CardHolder thisCH = ts.getCardHolders().findCardHolder(ch);
         if(thisCH != null){
             Card newCard = new Card(thisCH, ts.getTapManager());
@@ -223,6 +223,19 @@ public class TransitSystemInteractions {
         } else {
             System.out.println("Could not find Card Holder.");
         }
+    }
+
+    /***
+     * This function adds a new Card to the passed in CardHolder.
+     *
+     * There does not need to be a check for the CardHolder, this is assumed
+     * to have been done in a prior check.
+     *
+     * @param cardHolder the passed in CardHolder.
+     */
+    public void addNewCard(CardHolder cardHolder){
+        Card newCard = new Card(cardHolder, ts.getTapManager());
+        cardHolder.addCard(newCard);
     }
 
     /**
@@ -235,7 +248,7 @@ public class TransitSystemInteractions {
      * @param ch the CardHolder
      * @param cID the CardID being removed
      */
-    private void removeCard(String ch, String cID){
+    public void removeCard(String ch, String cID){
         int cardID = Integer.parseInt(cID);
         CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
         Card card = ts.getCardHolders().findCard(cardID);
@@ -248,6 +261,28 @@ public class TransitSystemInteractions {
             System.out.println(card.toString() + " was removed succesfully from " +  cardHolder.toString());
         }
     }
+
+    /**
+     * This method removes a Card from a CardHolder given the two objects.
+     *
+     * It does not do checks for existence, operating on the assumption they have been done prior.
+     *
+     * @param cardHolder the CardHolder who is having the Card removed
+     * @param card the Card object being removed from the CardHolder
+     */
+    public void removeCard(CardHolder cardHolder, Card card){
+        cardHolder.removeCard(card.getCardID());
+    }
+
+    /**
+     * Suspend a given Card object.
+     *
+     * @param card the Card being suspended.
+     */
+    public void suspendCard(Card card) {
+        card.suspendCard();
+    }
+
 
     /**
      * Adds a specified amount to a specified Card, based on the CardID.
@@ -272,6 +307,17 @@ public class TransitSystemInteractions {
         } else {
             System.out.println("Could not find card");
         }
+    }
+
+    /**
+     * This method adds a specific value to a given Card.
+     *
+     * This method is more flexible, and can add any amount.
+     *
+     * @param amount the amount being added
+     */
+    public void addToBalance(Card card, int amount){
+        card.addValue(amount);
     }
 
     /**

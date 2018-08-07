@@ -18,6 +18,17 @@ public class ManageUserInfoSceneController extends GeneralControllerScreen {
     @FXML
     TextField nameTextField;
 
+    @FXML
+    Button changePasswordButton;
+
+    @FXML
+    TextField oldPasswordTextField;
+
+    @FXML
+    TextField newPasswordTextField;
+
+    //TODO IMPLEMENT METHOD TO CHANGE PASSWORD
+
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){

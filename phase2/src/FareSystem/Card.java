@@ -120,7 +120,11 @@ public class Card implements Serializable {
      * @return String representation of this Card
      */
     public String toString(){
-        return "Card ID: " + this.cardId + ", Owner: " + owner.getName() + ", Balance: " + this.balance;
+        if (this.suspended) {
+            return "SUSPENDED: Card ID: " + this.cardId + ", Balance: " + this.balance;
+        } else {
+            return "Card ID: " + this.cardId + ", Balance: " + this.balance;
+        }
     }
 
     /**
