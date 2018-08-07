@@ -74,3 +74,18 @@
     -fx-font-style: normal;
     -fx-font-weight: bold;
 }
+
+#viewHistoryButton {
+    -fx-background-image: url('../StaticResources/UserResources/train_icon.png');
+    -fx-background-size: 60px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-radius: 20;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 20,0,0,1 );
+    -fx-border-radius: 20;
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 22px;
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+}
