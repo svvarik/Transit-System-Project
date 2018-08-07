@@ -1,4 +1,4 @@
-package GUI.UserPackage.ManageUserInfoScreen;
+package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageUserInfoScreen;
 
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;

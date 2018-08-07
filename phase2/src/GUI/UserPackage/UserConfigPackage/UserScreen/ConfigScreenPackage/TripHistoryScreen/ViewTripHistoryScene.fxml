@@ -6,7 +6,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../../StyleSheets/genericBackground.css" fx:controller="GUI.UserPackage.TripHistoryScreen.ViewTripHistorySceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../../../../../StyleSheets/genericBackground.css" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.TripHistoryScreen.ViewTripHistorySceneController">
    <children>
       <Button fx:id="backButton" layoutX="29.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <TableView fx:id="table" layoutX="48.0" layoutY="53.0" prefHeight="322.0" prefWidth="505.0">

@@ -70,7 +70,7 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
 
     @FXML
     public void handleChangeUserInfoButton(ActionEvent e){
-        String dest = "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml";
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
                 this.getTransitSystem(), e, this.cardHolder);
     }

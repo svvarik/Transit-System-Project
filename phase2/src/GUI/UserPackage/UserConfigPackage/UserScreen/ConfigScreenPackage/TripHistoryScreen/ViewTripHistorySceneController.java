@@ -1,4 +1,4 @@
-package GUI.UserPackage.TripHistoryScreen;
+package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.TripHistoryScreen;
 
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import TransitUsers.CardHolder;
