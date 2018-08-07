@@ -94,12 +94,8 @@ public class Card implements Serializable {
             System.out.println("This card is suspended");
             return false;
         } else {
-            if (value == 10 | value == 20 | value == 50) {
-                this.balance += value;
-                return true;
-            } else {
-                return false;
-            }
+            this.balance += value;
+            return true;
         }
     }
 
