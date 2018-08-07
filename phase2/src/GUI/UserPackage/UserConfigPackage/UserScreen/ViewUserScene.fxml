@@ -16,7 +16,7 @@
          <padding>
             <Insets top="20.0" />
          </padding></Button>
-      <Button id="viewHistoryButton" fx:id="viewStatsButton" alignment="TOP_CENTER" layoutX="139.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleViewStatsButton" prefHeight="150.0" prefWidth="150.0" text="View Stats" wrapText="true">
+      <Button id="viewStatsButton" fx:id="viewStatsButton" alignment="TOP_CENTER" layoutX="139.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleViewStatsButton" prefHeight="150.0" prefWidth="150.0" text="View Stats" wrapText="true">
          <padding>
             <Insets top="20.0" />
          </padding></Button>

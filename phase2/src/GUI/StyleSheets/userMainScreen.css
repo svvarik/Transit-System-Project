@@ -45,7 +45,7 @@
     -fx-font-weight: bold;
     }
 
-#viewHistoryButton{
+#viewStatsButton{
     -fx-background-image: url('../StaticResources/UserResources/graph_icon.png');
     -fx-background-size: 60px;
     -fx-background-repeat: no-repeat;
