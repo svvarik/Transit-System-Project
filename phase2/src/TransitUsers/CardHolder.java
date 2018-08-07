@@ -167,7 +167,11 @@ public class CardHolder implements Serializable {
   }
 
   public ObservableList<Trip> getObservableTrip(){
-    return FXCollections.observableArrayList(this.trips);
+    if(this.trips.size()<30){
+        return FXCollections.observableArrayList(this.trips);
+    }else {
+        return FXCollections.observableArrayList(this.trips.subList(this.trips.size() - 30, this.trips.size() - 1));
+    }
   }
 
   public ObservableList<Card> getObservableCards(){
