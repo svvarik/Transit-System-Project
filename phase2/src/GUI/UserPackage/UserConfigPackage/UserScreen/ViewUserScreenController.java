@@ -30,6 +30,9 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
     @FXML
     Button changeUserInfoButton;
 
+    @FXML
+    Button viewHistoryButton;
+
     private CardHolder cardHolder;
 
     @Override
@@ -70,6 +73,12 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
         String dest = "/GUI/UserPackage/ManageUserInfoScreen/ManageUserInfoScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
                 this.getTransitSystem(), e, this.cardHolder);
+    }
+
+
+    @FXML
+    public void handleViewHistoryButton(ActionEvent e){
+        // VIEW HISTORY UPON CLICK
     }
 
     public void setUpController(){}

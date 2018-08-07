@@ -2,16 +2,12 @@ package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageC
 
 import FareSystem.Card;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
-import Main.TransitSystemInteractions;
 import TransitUsers.CardHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class ManageCardsScreenController extends GeneralControllerScreen{
 
@@ -111,7 +107,7 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
     @FXML
     public void handleAddValueButton(ActionEvent e){
         Card selectedCard = (Card) this.listOfCards.getSelectionModel().getSelectedItem();
-        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/ManageScreens/AddValueScreen/AddValueScreen.fxml";
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/AddValueScreen/AddValueScreen.fxml";
         this.getControllerHelper().openNewWindow(dest, this.getTransitSystem(), "Add Balance", selectedCard);
     }
     public void setUpController(){}

@@ -1,9 +1,7 @@
-package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddValueScreen;
+package GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.AddValueScreen;
 
 import FareSystem.Card;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
-import TransitUsers.CardHolder;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

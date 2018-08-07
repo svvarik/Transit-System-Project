@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="580.0" stylesheets="@../../../../../../../StyleSheets/addValueScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageScreens.AddValueScreen.AddValueScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="580.0" stylesheets="@../../../../../../StyleSheets/addValueScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.AddValueScreen.AddValueScreenController">
    <children>
       <Button id="regButton" fx:id="addValueButton" layoutX="428.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleAddValueButton" text="Add Value" textFill="WHITE" />
       <Label fx:id="cardIDMessageLabel" layoutX="36.0" layoutY="50.0" prefHeight="39.0" prefWidth="280.0" text="Select an amount to add to card:">
