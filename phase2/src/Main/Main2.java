@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -32,6 +33,9 @@ public class Main2 extends Application {
         controller.setTransitSystem(this.transitSystem);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+            System.out.println("FILE IS CLOSING");
+        });
 //        TransitSystemStarter tsStart = new TransitSystemStarter();
 //        tsIO = tsStart.getTransitSystemInteractions();
 
