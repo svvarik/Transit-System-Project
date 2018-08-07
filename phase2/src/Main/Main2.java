@@ -1,6 +1,7 @@
 package Main;
 
 
+import Data.TransitSystemSerializer;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +35,12 @@ public class Main2 extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         primaryStage.setOnCloseRequest((WindowEvent event1) -> {
-            System.out.println("FILE IS CLOSING");
+            try{
+                TransitSystemSerializer transitSerializer = new TransitSystemSerializer();
+                transitSerializer.saveToFile("./serializedTransitSystem.ser", this.transitSystem);
+            }catch(Exception e){
+                System.out.println(e);
+            }
         });
 //        TransitSystemStarter tsStart = new TransitSystemStarter();
 //        tsIO = tsStart.getTransitSystemInteractions();

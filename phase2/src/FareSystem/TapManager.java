@@ -78,7 +78,7 @@ public class TapManager implements Serializable {
                 tapFlatStation(c, cm);
             }
         }else{
-            return true;
+            return false;
         }
         return true;
     }
