@@ -14,6 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * the class for view trip history controller
+ */
 public class ViewTripHistorySceneController extends GeneralControllerScreen{
     @FXML
     Button backButton;
@@ -38,12 +41,19 @@ public class ViewTripHistorySceneController extends GeneralControllerScreen{
 
     private CardHolder cardHolder;
 
+    /**
+     * handles back button
+     * @param event the event that has occurred
+     */
     public void handleBackButton(ActionEvent event){
         String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
         this.getControllerHelper().openSameWindow(dest,
                 this.getTransitSystem(), event, this.cardHolder);
     }
 
+    /**
+     * initializes the screen
+     */
     public void initialize() {
         if(cardHolder != null) {
             customStart.setCellValueFactory(new PropertyValueFactory<Trip, String>("customStart"));
@@ -52,10 +62,19 @@ public class ViewTripHistorySceneController extends GeneralControllerScreen{
         }
     }
 
+    /**
+     * sets up the controller
+     * @param c a cardholder
+     */
     public void setCardHolder(CardHolder c){
         cardHolder = c;
     }
 
+    /**
+     * sets up the controller
+     * @param obj a cardholder
+     * @throws ClassCastException is thrown if you send a not cardholder
+     */
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         cardHolder = ch;
