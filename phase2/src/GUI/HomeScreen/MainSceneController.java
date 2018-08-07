@@ -21,11 +21,17 @@ public class MainSceneController extends GeneralControllerScreen {
 
     // May not be necessary
     @FXML
+    /**
+     * initializes the screen
+     */
     private void initialize(){
         //do something?
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
     }
 
+    /**
+     * sets up the controller. Inherited from GeneralControllerScreen
+     */
     public void setUpController(){}
 
     /**

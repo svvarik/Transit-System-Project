@@ -25,6 +25,8 @@ public class Main2 extends Application {
         TransitSystemStarter tsStart = new TransitSystemStarter();
         this.transitSystem = tsStart.getTs();
    //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
+
+        //String mainScreen = "/GUI/AdminScreens/AdminStatistics/AdminStatisticsScene.fxml";
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
 //String userpath = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml"
         FXMLLoader loader = new FXMLLoader();
