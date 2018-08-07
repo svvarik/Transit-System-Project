@@ -35,7 +35,8 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
     ControllerHelper ch = new ControllerHelper();
 
     public void handleBackButton(ActionEvent e){
-        ch.switchScreens(e, "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml");
+        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml";
+        this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, this.cardHolder);
     }
 
     public void initialize() {
