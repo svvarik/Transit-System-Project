@@ -125,8 +125,13 @@ public class TransitSystemInteractions {
      */
     public void suspendCard(Card card) {
         card.suspendCard();
-    }
+        }
 
+
+    /**
+     * UnSuspends a given Card object.
+     * @param card the Card being unsuspended.
+     */
     public void unSuspendCard(Card card) {
         card.unSuspendCard();
     }
@@ -191,6 +196,13 @@ public class TransitSystemInteractions {
         }
     }
 
+    /**
+     * Checks the login information of an Admin User
+     * @param ts the Transit System being used
+     * @param email the login email to check
+     * @param password the login password to check
+     * 
+     */
     public boolean loginAdmin(TransitSystem ts, String email, String password){
         AdminUser au = ts.getAdminUsers().findAdminUser(email);
         return (au!= null && au.getPassword().equals(password));
