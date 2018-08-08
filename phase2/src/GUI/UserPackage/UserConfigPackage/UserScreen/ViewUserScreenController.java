@@ -54,7 +54,7 @@ public class ViewUserScreenController extends GeneralControllerScreen implements
     public void handleBackButton(ActionEvent e){
         String dest = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml";
         this.getControllerHelper().openSameWindow(dest,
-                this.getTransitSystem(), e, this.cardHolder);
+                this.getTransitSystem(), e);
     }
 
     @FXML

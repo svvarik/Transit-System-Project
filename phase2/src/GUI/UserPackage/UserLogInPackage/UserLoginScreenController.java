@@ -86,6 +86,7 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
             failedLoginMessage.setText("Incorrect Password");
         }
         else{
+            this.failedLoginMessage.setText("");
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTransitSystem(), e, cardHolder);
         }
     }
