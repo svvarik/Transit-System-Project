@@ -74,6 +74,7 @@ public class NewUserScreenController extends GeneralControllerScreen implements 
                     pass, this.getTransitSystem());
             if (success) {
                 CardHolder thisCardHolder = this.getTransitSystem().getCardHolders().findCardHolder(email);
+                this.getTransitSystem().getProgramLog().addToLog("New User " + email + " Created" );
                 this.getControllerHelper().openSameWindow(dest, this.getTransitSystem(), e, thisCardHolder);
             } else {
                 this.messageLabel.setText("User name already exists!");

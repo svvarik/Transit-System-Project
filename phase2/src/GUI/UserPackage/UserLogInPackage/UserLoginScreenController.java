@@ -82,13 +82,16 @@ public class UserLoginScreenController extends GeneralControllerScreen implement
 
         if(cardHolder == null){
             this.failedLoginMessage.setText("Incorrect Username");
+            this.getTransitSystem().getProgramLog().addToLog("Incorrect User Name was inputted");
         }
         else if (!cardHolder.isPassCorrect(password)){
             failedLoginMessage.setText("Incorrect Password");
+            this.getTransitSystem().getProgramLog().addToLog("Incorrect Password was inputted");
         }
         else{
             this.failedLoginMessage.setText("");
             this.getControllerHelper().openSameWindow("/GUI/UserPackage/UserConfigPackage/UserScreen/ViewUserScene.fxml", this.getTransitSystem(), e, cardHolder);
+            this.getTransitSystem().getProgramLog().addToLog(email + " successfully logs in");
         }
     }
 
