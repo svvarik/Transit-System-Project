@@ -8,6 +8,7 @@ import FareSystem.TapManager;
 import TransitUsers.*;
 import TransitUsers.CardHolderList;
 import Stations.StationList;
+import sun.rmi.runtime.Log;
 
 import java.io.*;
 
@@ -25,6 +26,7 @@ public class TransitSystem implements Serializable{
     private CardHolderList cardHolders;
     private StationList stations;
     private TransitData transitData;
+    private Logger programlog;
 
 
     /**
@@ -35,6 +37,11 @@ public class TransitSystem implements Serializable{
         this.cardHolders = new CardHolderList();
         this.stations = new StationList();
         this.transitData = new TransitData(this);
+        this.programlog = new Logger();
+    }
+
+    public Logger getProgramLog() {
+        return programlog;
     }
 
     public AdminUserList getAdminUsers() {

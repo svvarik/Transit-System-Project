@@ -7,12 +7,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../StyleSheets/userLoginScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserLogInPackage.UserLoginScreenController">
    <children>
       <Rectangle id="rectangle" arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="300.0" layoutX="200.0" layoutY="50.0" stroke="WHITE" strokeType="INSIDE" width="200.0" />
       <Button id="backButton" fx:id="backButton" layoutX="47.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <TextField fx:id="emailTextField" layoutX="217.0" layoutY="148.0" promptText="Email" />
-      <TextField fx:id="passwordTextField" layoutX="217.0" layoutY="200.0" promptText="Password" />
+      <PasswordField fx:id="passwordTextField" accessibleRole="PASSWORD_FIELD" layoutX="217.0" layoutY="200.0" promptText="Password" />
       <Button id="loginButton" fx:id="loginButton" layoutX="217.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="167.0" text="Log In" textFill="WHITE">
          <font>
             <Font size="14.0" />

@@ -26,7 +26,6 @@ public class MainSceneController extends GeneralControllerScreen {
      */
     private void initialize(){
         //do something?
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
     }
 
     /**
@@ -74,7 +73,6 @@ public class MainSceneController extends GeneralControllerScreen {
      */
     @FXML
     private void handleAdminButton(ActionEvent event){
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         String goingTo = "/GUI/AdminScreens/AdminLoginScreen/AdminLoginScene.fxml";
         this.getControllerHelper().openSameWindow(goingTo, this.getTransitSystem(), event);
     }

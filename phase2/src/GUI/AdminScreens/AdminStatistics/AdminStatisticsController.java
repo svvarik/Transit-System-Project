@@ -2,19 +2,21 @@ package GUI.AdminScreens.AdminStatistics;
 import Data.TransitData;
 import GUI.HelperClasses.ControllerHelper;
 import GUI.GeneralControllerClass.GeneralControllerScreen;
+import Main.TransitSystem;
+import TransitUsers.CardHolder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.chart.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static java.lang.Integer.parseInt;
 
 public class AdminStatisticsController extends GeneralControllerScreen {
 
@@ -42,6 +44,9 @@ public class AdminStatisticsController extends GeneralControllerScreen {
     @FXML
     private NumberAxis y;
 
+    @FXML
+    private Label monthlyRevenueLabel;
+
     private ObservableList<String> monthNames = FXCollections.observableArrayList();
 
     private ObservableList<String> yearNames = FXCollections.observableArrayList();
@@ -51,13 +56,10 @@ public class AdminStatisticsController extends GeneralControllerScreen {
       */
     @FXML
     private void initialize() {
-
-    // Convert it to a list and add it to our ObservableList of months.
         monthNames.addAll(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"));
         yearNames.addAll(Arrays.asList("2016", "2017", "2018"));
         OverallRevenueBarChart.setVisible(true);
         OverallRevenueAreaChart.setVisible(false);
-
     }
 
     /**
@@ -71,14 +73,21 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         XYChart.Series series = new XYChart.Series<>();
         x.setCategories(monthNames);
         // Create a XYChart.Data object for each month. Add it to the series.
-        TransitData td = new TransitData(this.getTransitSystem());
+        TransitData td = this.getTransitSystem().getTransitData();
         for (int i = 0; i < monthNames.size(); i++) {
-            double fare = td.getMonthlyFareAmount(i, Calendar.YEAR);
-            series.getData().add(new XYChart.Data(monthNames.get(i), i*10));
+            double fare = td.getMonthlyFareAmount(i, Calendar.getInstance().get(Calendar.YEAR));
+            series.getData().add(new XYChart.Data<>(monthNames.get(i), fare));
         }
 
         OverallRevenueBarChart.setLegendVisible(false);
         OverallRevenueBarChart.getData().add(series);
+        double fare = 0;
+        for (int i = 0; i < monthNames.size(); i++) {
+            fare += td.getMonthlyFareAmount(i, Calendar.getInstance().get(Calendar.YEAR));
+
+        }
+        monthlyRevenueLabel.setText("Total Revenue for the current Year: " + Double.toString(fare));
+
     }
 
     /**
@@ -91,11 +100,11 @@ public class AdminStatisticsController extends GeneralControllerScreen {
 
         XYChart.Series series = new XYChart.Series<>();
         x.setCategories(yearNames);
-        TransitData td = new TransitData(this.getTransitSystem());
+        TransitData td = this.getTransitSystem().getTransitData();
         // Create a XYChart.Data object for each year. Add it to the series.
         for (int i = 0; i < yearNames.size(); i++) {
             double fare = td.getYearlyFareAmount(Integer.parseInt(yearNames.get(i)));
-            series.getData().add(new XYChart.Data(yearNames.get(i), i*10));
+            series.getData().add(new XYChart.Data<>(yearNames.get(i), fare));
         }
 
         OverallRevenueBarChart.setLegendVisible(false);
@@ -112,18 +121,25 @@ public class AdminStatisticsController extends GeneralControllerScreen {
         OverallRevenueAreaChart.setVisible(true);
 
 
-        TransitData td = new TransitData(this.getTransitSystem());
+        TransitData td = this.getTransitSystem().getTransitData();
         XYChart.Series series = new XYChart.Series<>();
         // Create a XYChart.Data object for each day of the month. Add it to the series.
         for (int i = 1; i <= 31; i++) {
-            double fare = td.getDailyFare(i, Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.YEAR));
-            String tempI = Integer.toString(i);
-            series.getData().add(new XYChart.Data(tempI, fare));
+            double fare = td.getDailyFare(i, Calendar.getInstance().get(Calendar.MONTH),
+                    Calendar.getInstance().get(Calendar.YEAR));
+            series.getData().add(new XYChart.Data<>(Integer.toString(i), fare));
         }
 
         OverallRevenueAreaChart.setLegendVisible(false);
         OverallRevenueBarChart.setLegendVisible(false);
         OverallRevenueAreaChart.getData().add(series);
+        double fare = 0;
+        for (int i = 1; i <= 31; i++) {
+             fare += td.getDailyFare(i, Calendar.getInstance().get(Calendar.MONTH),
+                    Calendar.getInstance().get(Calendar.YEAR));
+
+        }
+        monthlyRevenueLabel.setText("Total Revenue for the current Month: " + Double.toString(fare));
     }
 
     /**

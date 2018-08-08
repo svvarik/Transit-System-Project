@@ -126,8 +126,4 @@ public class ControllerHelper {
         window.setScene(new Scene(root));
         window.show();
     }
-
-    // New Window
-
-
 }
