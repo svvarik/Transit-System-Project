@@ -55,7 +55,6 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
      * initializes this screen
      */
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @FXML
@@ -85,6 +84,8 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
                 this.userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
                 this.moneyTextField.clear();
                 this.recipientEmailTextField.clear();
+                this.getTransitSystem().getProgramLog().addToLog(this.cardHolder.getEmail() + " gifted $" +
+                        Integer.toString(amount) + " to " + cardHolderRecipient.getEmail());
             } catch (NumberFormatException exception){
                 this.giftSuccessLabel.setText("Whole numbers only please.");
             }
@@ -110,6 +111,9 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
                     this.userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
                     this.amount.clear();
                     this.cardID.clear();
+                    this.getTransitSystem().getProgramLog().addToLog(this.cardHolder.getEmail() + " added $" +
+                            Integer.toString(valueBeingAdded) + " to card" + this.cardID.getText());
+
                 } else {
                     this.addValueSuccessLabel.setText("Card doesn't exist.");
                 }
