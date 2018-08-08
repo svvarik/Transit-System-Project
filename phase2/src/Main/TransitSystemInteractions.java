@@ -36,17 +36,17 @@ public class TransitSystemInteractions {
         Card thisCard = ts.getCardHolders().findCard(cardID);
         CardMachine thisCM = ts.getStations().findEntrance(entrance);
         if (thisCard == null){
-            System.out.println("This card is invalid.");
+            ts.getProgramLog().addToLog("This card is invalid.");
             return false;
         } else if (thisCM == null){
-            System.out.println("This card machine is invalid.");
+            ts.getProgramLog().addToLog("This card machine is invalid.");
             return false;
         } else {
             if(thisCard.tapCard(thisCM)){
-                System.out.println(thisCard.toString() + " enters " + thisCM.toString());
+                ts.getProgramLog().addToLog(thisCard.toString() + " enters " + thisCM.toString());
                 return true;
             } else {
-                System.out.println("Tap was not successful.");
+                ts.getProgramLog().addToLog("Tap was not successful.");
                 return false;
             }
         }
@@ -75,17 +75,17 @@ public class TransitSystemInteractions {
         Card thisCard = ts.getCardHolders().findCard(cardID);
         CardMachine thisCM = ts.getStations().findExit(exit);
         if (thisCard == null){
-            System.out.println("This card is invalid.");
+            ts.getProgramLog().addToLog("This card is invalid.");
             return false;
         } else if (thisCM == null){
-            System.out.println("This card machine is invalid.");
+            ts.getProgramLog().addToLog("This card machine is invalid.");
             return false;
         } else {
             if(thisCard.tapCard(thisCM)){
-                System.out.println(thisCard.toString() + " exits " + thisCM.toString());
+                ts.getProgramLog().addToLog(thisCard.toString() + " exits " + thisCM.toString());
                 return true;
             } else {
-                System.out.println("Tap was not successful.");
+                ts.getProgramLog().addToLog("Tap was not successful.");
                 return false;
             }
         }
@@ -155,18 +155,18 @@ public class TransitSystemInteractions {
     public void changeName(TransitSystem ts, CardHolder ch, String newName){
         if(ch != null){
             ch.setName(newName);
-            System.out.println("Name for user " + ch.toString() + " changed successfully");
+            ts.getProgramLog().addToLog("Name for user " + ch.toString() + " changed successfully");
         } else {
-            System.out.println("Card holder could not be found in system.");
+            ts.getProgramLog().addToLog("Card holder could not be found in system.");
         }
     }
 
     public void changePassword(TransitSystem ts, CardHolder ch, String newPassword){
         if(ch != null){
             ch.setPassword(newPassword);
-            System.out.println("Name for user " + ch.toString() + " changed successfully");
+            ts.getProgramLog().addToLog("Name for user " + ch.toString() + " changed successfully");
         } else {
-            System.out.println("Card holder could not be found in system.");
+            ts.getProgramLog().addToLog("Card holder could not be found in system.");
         }
     }
 
@@ -184,10 +184,10 @@ public class TransitSystemInteractions {
         if(cardHolder != null){
             ArrayList<Trip> trips = cardHolder.viewRecentTrips();
             for (Trip t: trips ) {
-                System.out.println(t.toString());
+                ts.getProgramLog().addToLog(t.toString());
             }
         } else {
-            System.out.println("Card holder could not be found in system.");
+            ts.getProgramLog().addToLog("Card holder could not be found in system.");
         }
     }
 
