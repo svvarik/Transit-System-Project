@@ -12,3 +12,16 @@
 
 ==Yatharth==
 Created and implements User Stats screen and graphs
+
+
+==Aleashea==
+Implemented a logger.
+Made the Transit System Serializible. 
+Implemented a class called TransitSystemStart that reads in the serialized transit system or builds our Transit System.
+Set up the methods and buttons for Admin User Change Info Screen and Controller.
+Set up the login methods and buttons for Admin User Login and Admin User Login Controller.
+Extended the Admin User class for added password functionality.
+Extended the TransitSystem Interactions for Admin Side Methods
+Created and implemented AdminStatistics Screen and Admin Statistics Controller
+Created the methods and graphs associated with AdminStatistics Scene.
+
