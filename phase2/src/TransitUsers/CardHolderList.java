@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class CardHolderList implements Serializable {
 
+    private static final long serialVersionUID = 291781;
+
     private ArrayList<CardHolder> allCardHolders;
 
     public CardHolderList(){
@@ -23,17 +25,7 @@ public class CardHolderList implements Serializable {
      * @param email email of the new cardholder
      * @return returns true if everything goes right
      */
-    public boolean addCardHolder(String name, String email, TransitSystem ts){
-        for (CardHolder ch: this.allCardHolders){
-            if (ch.getEmail().equals(email)){
-                System.out.println("User email is already in system!");
-                return false;
-            }
-        }
-        CardHolder tempCardholder = new CardHolder(name, email, ts);
-        this.allCardHolders.add(tempCardholder);
-        return true;
-    }
+
 
     public boolean addCardHolder(String name, String email, String passWord, TransitSystem ts){
         for (CardHolder ch: this.allCardHolders){
@@ -43,17 +35,6 @@ public class CardHolderList implements Serializable {
         }
         CardHolder tempCardholder = new CardHolder(name, email, passWord, ts);
         this.allCardHolders.add(tempCardholder);
-        return true;
-    }
-
-    public boolean addCardHolder(CardHolder cardHolder, TransitSystem ts){
-        for (CardHolder ch: this.allCardHolders){
-            if (ch.getEmail().equals(cardHolder.getEmail())){
-                System.out.println("User email is already in system!");
-                return false;
-            }
-        }
-        this.allCardHolders.add(cardHolder);
         return true;
     }
 

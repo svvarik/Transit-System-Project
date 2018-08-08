@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class StationList implements Serializable {
 
+    private static final long serialVersionUID = 2912745;
+
     private ArrayList<Station> allStations;
 
     public StationList(){

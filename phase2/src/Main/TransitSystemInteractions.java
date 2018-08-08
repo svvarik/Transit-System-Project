@@ -5,35 +5,12 @@ import FareSystem.Card;
 import FareSystem.CardMachine;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
-
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-/*
-Enter station - enter; card id; cardmachine id
-
-Exit station - exit; card id; cardmachine id
-
-Add User - addUser; userName; userEmail
-
-User add card - addNewCard; userEmail
-
-User remove card - removeCard; cardID; userEmail
-
-User add balance to card - addBalance; cardID; amount
-
-User change name - changeName; userEmail; newName
-
-User view recent trips - viewRecentTrips; userEmail
-
-Admin User's daily report - adminView; email;
-
-*/
 
 public class TransitSystemInteractions {
 
-    public TransitSystemInteractions() {
+    public TransitSystemInteractions(){
     }
 
     /**
@@ -114,45 +91,7 @@ public class TransitSystemInteractions {
         }
     }
 
-    /**
-     * Creates and adds a new Card to a specified User, based on their email.
-     *
-     * This function attempts to search for the User in the TransitSystem
-     * using a find method. If the User does not exist, a statement is outputted
-     * to screen.
-     *
-     * @param name the CardHolder's name
-     * @param email the CardHolder's email
-     */
-    public void addUser(TransitSystem ts, String name, String email){
-        if(ts.getCardHolders().addCardHolder(name, email, ts)){
-            System.out.println("User added successfully");
-        } else {
-            System.out.println("User could not be added.");
-        }
-    }
 
-
-    /**
-     * Creates and adds a new Card to a specified User, based on their email.
-     *
-     * This function attempts to search for the User in the TransitSystem
-     * using a find method. If the User does not exist, a statement is outputted
-     * to screen.
-     *
-     * @param ch the CardHolder
-     */
-    public void addNewCard(TransitSystem ts, String ch){
-        CardHolder thisCH = ts.getCardHolders().findCardHolder(ch);
-        if(thisCH != null){
-            Card newCard = new Card(thisCH, ts.getTapManager());
-            thisCH.addCard(newCard);
-            System.out.println("New card added to " + thisCH.toString());
-            System.out.println("Card " + newCard.toString());
-        } else {
-            System.out.println("Could not find Card Holder.");
-        }
-    }
 
     /***
      * This function adds a new Card to the passed in CardHolder.
@@ -165,30 +104,6 @@ public class TransitSystemInteractions {
     public void addNewCard(CardHolder cardHolder){
         Card newCard = new Card(cardHolder, cardHolder.getTs().getTapManager());
         cardHolder.addCard(newCard);
-    }
-
-    /**
-     * Removes a Card from a specified User, based on their email.
-     *
-     * This function attempts to search for the User in the TransitSystem
-     * using a find method. If the User does not exist, a statement is outputted
-     * to screen.
-     *
-     * @param ch the CardHolder
-     * @param cID the CardID being removed
-     */
-    public void removeCard(TransitSystem ts, String ch, String cID){
-        int cardID = Integer.parseInt(cID);
-        CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
-        Card card = ts.getCardHolders().findCard(cardID);
-        if (cardHolder == null) {
-            System.out.println("Could not find this Card Holder.");
-        } else if (card == null){
-            System.out.println("This card is invalid");
-        } else {
-            cardHolder.removeCard(cardID);
-            System.out.println(card.toString() + " was removed succesfully from " +  cardHolder.toString());
-        }
     }
 
     /**
@@ -216,32 +131,6 @@ public class TransitSystemInteractions {
         card.unSuspendCard();
     }
 
-
-    /**
-     * Adds a specified amount to a specified Card, based on the CardID.
-     *
-     * This function attempts to search for the Card in the TransitSystem
-     * using a find method. If the Card does not exist, a statement is outputted
-     * to screen.
-     *
-     * @param cID the CardID
-     * @param amount the amount being added
-     */
-    private void addToBalance(TransitSystem ts, String cID, String amount){
-        int cardID = Integer.parseInt(cID);
-        int addedAmount = Integer.parseInt(amount);
-        Card card = ts.getCardHolders().findCard(cardID);
-        if (card != null){
-            if (card.addValue(addedAmount)) {
-                System.out.println("Amount added successfully.");
-            } else {
-                System.out.println("Please add $10, $20, or $50 at a time.");
-            }
-        } else {
-            System.out.println("Could not find card");
-        }
-    }
-
     /**
      * This method adds a specific value to a given Card.
      *
@@ -263,15 +152,22 @@ public class TransitSystemInteractions {
      * @param ch the CardHolder
      * @param newName the name requested for change
      */
-    public void changeName(TransitSystem ts, String ch, String newName){
-        CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
-        if(cardHolder != null){
-            cardHolder.setName(newName);
-            System.out.println("Name for user " + cardHolder.toString() + " changed successfully");
+    public void changeName(TransitSystem ts, CardHolder ch, String newName){
+        if(ch != null){
+            ch.setName(newName);
+            System.out.println("Name for user " + ch.toString() + " changed successfully");
         } else {
             System.out.println("Card holder could not be found in system.");
         }
+    }
 
+    public void changePassword(TransitSystem ts, CardHolder ch, String newPassword){
+        if(ch != null){
+            ch.setPassword(newPassword);
+            System.out.println("Name for user " + ch.toString() + " changed successfully");
+        } else {
+            System.out.println("Card holder could not be found in system.");
+        }
     }
 
     /**
@@ -295,25 +191,8 @@ public class TransitSystemInteractions {
         }
     }
 
-  public void adminView(TransitSystem ts, String email) {
-    AdminUser au = ts.getAdminUsers().findAdminUser(email);
-    if (au != null) {
-      ts.getTransitData().dailyReport();
-    } else {
-      System.out.println("This admin user does not exist in the system. Who are you hacker???");
-    }
-        }
-
     public boolean loginAdmin(TransitSystem ts, String email, String password){
-    AdminUser au = ts.getAdminUsers().findAdminUser(email);
-    //System.out.println(au!= null);
-    //System.out.println("au:getpassword  " +  au.getPassword() + " string password  " + password);
-    //System.out.println(au.getPassword() == password);
-    if (au!= null && au.getPassword().equals(password)){
-        return true;
-    } else {
-        return false;
-    }
-
+        AdminUser au = ts.getAdminUsers().findAdminUser(email);
+        return (au!= null && au.getPassword().equals(password));
     }
 }
