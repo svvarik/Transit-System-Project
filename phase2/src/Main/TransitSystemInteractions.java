@@ -6,9 +6,7 @@ import FareSystem.CardMachine;
 import TransitUsers.CardHolder;
 import TransitUsers.Trip;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -35,7 +33,7 @@ Admin User's daily report - adminView; email;
 
 public class TransitSystemInteractions {
 
-    public TransitSystemInteractions(){
+    public TransitSystemInteractions() {
     }
 
     /**
