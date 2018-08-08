@@ -22,6 +22,7 @@ public class TransitSystemInteractions {
      *
      * @param cID the Card ID being tapped
      * @param cmID the CardMachine ID that the Card is tapping on
+     * @param ts the TransitSystem
      * @return true if the user can enter, false otherwise
      */
     public boolean enterStation(TransitSystem ts, String cID, String cmID) {
@@ -62,6 +63,7 @@ public class TransitSystemInteractions {
      *
      * @param cID the Card ID being tapped
      * @param cmID the CardMachine ID that the Card is tapping on
+     * @param ts the TransitSystem
      */
     public boolean exitStation(TransitSystem ts, String cID, String cmID) {
         int cardID=0;
@@ -155,6 +157,7 @@ public class TransitSystemInteractions {
      * to screen.
      *
      * @param ch the CardHolder
+     * @param ts the TransitSystem
      * @param newName the name requested for change
      */
     public void changeName(TransitSystem ts, CardHolder ch, String newName){
@@ -183,6 +186,7 @@ public class TransitSystemInteractions {
      * to screen.
      *
      * @param ch the CardHolder
+     * @param ts the TransitSystem
      */
     public void viewRecentTrips(TransitSystem ts, String ch){
         CardHolder cardHolder = ts.getCardHolders().findCardHolder(ch);
@@ -201,7 +205,8 @@ public class TransitSystemInteractions {
      * @param ts the Transit System being used
      * @param email the login email to check
      * @param password the login password to check
-     * 
+     * @return a boolean indicateing whether the Admin login info is correct.
+     *
      */
     public boolean loginAdmin(TransitSystem ts, String email, String password){
         AdminUser au = ts.getAdminUsers().findAdminUser(email);
