@@ -19,6 +19,9 @@ import java.util.ResourceBundle;
 public class UserGiftSceneController extends GeneralControllerScreen implements Initializable {
 
     @FXML
+    Label userName;
+
+    @FXML
     Label userGiftBalance;
 
     @FXML
@@ -133,5 +136,6 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
         userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
+        userName.setText(this.cardHolder.getEmail());
     }
 }

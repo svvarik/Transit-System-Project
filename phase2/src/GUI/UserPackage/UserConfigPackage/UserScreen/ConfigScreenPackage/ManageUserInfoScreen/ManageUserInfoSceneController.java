@@ -16,6 +16,9 @@ import javafx.scene.paint.Color;
 public class ManageUserInfoSceneController extends GeneralControllerScreen {
 
     @FXML
+    Label userName;
+
+    @FXML
     Button backButton;
 
     @FXML
@@ -88,5 +91,6 @@ public class ManageUserInfoSceneController extends GeneralControllerScreen {
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
+        this.userName.setText(this.cardHolder.getEmail());
     }
 }

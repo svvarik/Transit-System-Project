@@ -152,7 +152,7 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
      */
     public void setUpController(Object obj) throws ClassCastException{
         this.cardHolder = (CardHolder) obj;
-        this.userLabel.setText(this.cardHolder.toString());
+        userLabel.setText(this.cardHolder.getEmail());
         this.listOfCards.setItems(this.cardHolder.getObservableCards());
     }
 }

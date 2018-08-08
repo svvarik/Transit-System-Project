@@ -18,7 +18,8 @@ import java.util.Calendar;
  */
 public class ViewUserStatsSceneController extends GeneralControllerScreen{
 
-
+    @FXML
+    Label userName;
 
     @FXML
     Button backButton;
@@ -82,6 +83,7 @@ public class ViewUserStatsSceneController extends GeneralControllerScreen{
         setCardHolder(c);
         initialize();
         setTotalMonthlyFareLabel();
+        userName.setText(this.cardHolder.getEmail());
     }
 
     /**

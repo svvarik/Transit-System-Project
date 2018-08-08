@@ -18,5 +18,6 @@
         </yAxis>
       </LineChart>
       <Label fx:id="totalMonthlyFareLabel" layoutX="21.0" layoutY="345.0" prefHeight="36.0" prefWidth="235.0" wrapText="true" />
+      <Label fx:id="userName" layoutX="417.0" layoutY="19.0" prefHeight="27.0" prefWidth="118.0" textFill="WHITE" />
    </children>
 </Pane>
