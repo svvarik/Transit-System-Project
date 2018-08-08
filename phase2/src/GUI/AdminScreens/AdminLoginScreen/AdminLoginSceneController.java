@@ -17,6 +17,9 @@ import java.io.IOException;
 public class AdminLoginSceneController extends GeneralControllerScreen{
 
     @FXML
+    Button backButton;
+
+    @FXML
     Label loginOutComeLabel;
 
     @FXML
@@ -65,7 +68,4 @@ public class AdminLoginSceneController extends GeneralControllerScreen{
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
         this.getControllerHelper().openSameWindow(mainScreen, this.getTransitSystem(), e);
     }
-
-
-
 }

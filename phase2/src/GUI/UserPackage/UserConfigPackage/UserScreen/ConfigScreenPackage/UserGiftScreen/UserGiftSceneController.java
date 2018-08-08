@@ -72,10 +72,10 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
      * @param e the event that has occurred
      */
     public void handleGiftButton(ActionEvent e){
+        this.giftSuccessLabel.setText("");
         String recipient = this.recipientEmailTextField.getText();
         CardHolder cardHolderRecipient = this.getTransitSystem().getCardHolders().findCardHolder(recipient);
         if (cardHolderRecipient != null){
-            // CardHolder exists
             try {
                 int amount = Integer.parseInt(this.moneyTextField.getText());
                 cardHolderRecipient.receiveMoney(amount);
@@ -96,6 +96,7 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
      * @param e the event that has occurred
      */
     public void handleAddValueButton(ActionEvent e){
+        this.addValueSuccessLabel.setText("");
         try {
             int valueBeingAdded = Integer.parseInt(this.amount.getText());
             if (valueBeingAdded <= this.cardHolder.getBalance()) {
@@ -106,11 +107,12 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
                     this.userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
                     this.amount.clear();
                     this.cardID.clear();
+                } else {
+                    this.addValueSuccessLabel.setText("Card doesn't exist.");
                 }
             } else {
                 this.addValueSuccessLabel.setText("Insufficient funds");
                 this.amount.clear();
-                this.cardID.clear();
             }
         } catch (NumberFormatException nfe){
             this.addValueSuccessLabel.setText("Whole numbers only please.");
@@ -130,5 +132,6 @@ public class UserGiftSceneController extends GeneralControllerScreen implements 
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         this.cardHolder = ch;
+        userGiftBalance.setText(Integer.toString(this.cardHolder.getBalance()));
     }
 }

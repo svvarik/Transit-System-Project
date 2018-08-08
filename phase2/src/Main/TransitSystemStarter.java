@@ -5,10 +5,10 @@ import FareSystem.Card;
 import Stations.BusStation;
 import Stations.SubwayStation;
 import TransitUsers.CardHolder;
-import TransitUsers.Trip;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TransitSystemStarter {
 
@@ -20,7 +20,7 @@ public class TransitSystemStarter {
 
         TransitSystemSerializer saveFileHelper = new TransitSystemSerializer();
 
-        ts = starteverything();
+        ts = initializeTransitSystem();
 
         // Save the log to file
         saveFileHelper.saveToFile(filepath, ts);
@@ -31,10 +31,8 @@ public class TransitSystemStarter {
         return ts;
     }
 
-    //Instantiates everything
-    public static TransitSystem starteverything() throws IOException, ClassNotFoundException {
-        // INSTANTIATE EVERYTHING ELSE, CARDHOLDERS, CARDMACHINES, ETC ETC ETC
 
+    private static TransitSystem initializeTransitSystem() throws IOException, ClassNotFoundException {
         File serFile = new File(filepath);
 
         if (!(serFile.exists())) {
@@ -48,8 +46,6 @@ public class TransitSystemStarter {
             CardHolder hal = newTS.getCardHolders().findCardHolder("HAL@mail.com");
             Card newCard = new Card(hal, newTS.getTapManager());
             hal.addCard(newCard);
-
-
 
             CardHolder dave = newTS.getCardHolders().findCardHolder("Dave@mail.com");
             Card newCard1 = new Card(dave, newTS.getTapManager());
