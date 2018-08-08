@@ -2,6 +2,7 @@ package Main;
 
 import AdminUsers.AdminUserList;
 import Data.CardIDCounter;
+import Data.Logger;
 import Data.TransitData;
 import FareSystem.FareManager;
 import FareSystem.TapManager;

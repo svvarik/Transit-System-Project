@@ -57,7 +57,7 @@ public class TapManager implements Serializable {
                 c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).addFare(fare);
                 return false;
             }
-            c.getOwner().getTs().getProgramLog().addToLog("Double Exit for: " + c.getCardID());
+           c.getOwner().getTs().getProgramLog().addToLog("Double Exit for: " + c.getCardID());
         }
         return true;
     }

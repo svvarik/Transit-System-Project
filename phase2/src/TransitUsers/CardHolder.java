@@ -27,7 +27,7 @@ public class CardHolder implements Serializable {
     this.password = password;
     this.name = name;
     this.email = email;
-    this.cards = new ArrayList<Card>();
+    this.cards = new ArrayList<>();
     this.trips = new ArrayList <>();
     this.ts = ts;
     this.balance = 0;
@@ -43,7 +43,7 @@ public class CardHolder implements Serializable {
   public CardHolder(String name, String email, TransitSystem ts) {
     this.name = name;
     this.email = email;
-    this.cards = new ArrayList<Card>();
+    this.cards = new ArrayList<>();
     this.trips = new ArrayList <>();
     this.ts = ts;
   }
@@ -73,29 +73,6 @@ public class CardHolder implements Serializable {
   public boolean isBanned(){
     return this.isBanned;
   }
-
-//  public double getAverageMonthlyFare() {
-//    Calendar currentDate = Calendar.getInstance();
-//    int currentMonth = currentDate.get(Calendar.MONTH);
-//    int counter = 0;
-//    double fareTotal = 0;
-//    for(Trip t: this.trips){
-//      if(t.getStarDate().get(Calendar.MONTH) == currentMonth){
-//        fareTotal = fareTotal + t.getFare();
-//        if(t.getEnd() != null){
-//          counter+=1;
-//        }
-//        if(t.getStart() != null){
-//          counter+=1;
-//        }
-//      }
-//    }
-//    if(counter == 0){
-//      return fareTotal;
-//    }else{
-//      return fareTotal/counter;
-//    }
-//  }
 
   /**
      * Returns TransitSystem
@@ -218,36 +195,6 @@ public class CardHolder implements Serializable {
       return fare;
   }
 
-  public Card getCard(int cardID){
-    Card cd = null;
-    for(Card card: this.cards){
-      if(card.getCardID() == cardID){
-        cd = card;
-      }
-    }
-    return cd;
-  }
-
-//  public boolean sendGiftMoney(String email, int cardID, double money){
-//    if(this.ts.getCardHolders().findCardHolder(email) != null){
-//      CardHolder recepient = this.ts.getCardHolders().findCardHolder(email);
-//      if(this.getCard(cardID) != null){
-//        Card giftingCard = this.getCard(cardID);
-//        if(giftingCard.getBalance() < money){
-//          System.out.println("Not enough money!");
-//          return false;
-//        }
-//        else{
-//          giftingCard.deductValue(money);
-//          recepient.addGiftMoney(money);
-//          System.out.println(this.getName() +" Successfully sent money to "+ recepient.getName());
-//          return true;
-//        }
-//      }
-//    }
-//    return false;
-//  }
-
   public void receiveMoney(int amount){
     this.balance += amount;
   }
@@ -255,24 +202,6 @@ public class CardHolder implements Serializable {
   public void setBalance(int amount){
       this.balance = amount;
   }
-
-//  public boolean allocateGiftMoney(int cardID, double money){
-//    if(this.getCard(cardID) != null){
-//      Card card = this.getCard(cardID);
-//      if(this.giftMoney < money){
-//        System.out.println("You do not have enough money in your gift basket to allocate to your card");
-//        return false;
-//      }
-//      else{
-//        this.giftMoney -= money;
-//        card.addValue(money);
-//        System.out.println(this.name + " successfully allocated money to " + card.toString());
-//        return true;
-//      }
-//
-//    }
-//    return false;
-//  }
 
   public void setPassword(String password){
     this.password = password;

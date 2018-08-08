@@ -14,11 +14,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-public class Main2 extends Application {
+public class ButterflyTransity extends Application {
 
     private TransitSystem transitSystem;
 
-    public Main2() throws FileNotFoundException {
+    public ButterflyTransity() throws FileNotFoundException {
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Main2 extends Application {
                 transitSerializer.saveToFile("./serializedTransitSystem.ser", this.transitSystem);
                 recordEvents(this.transitSystem.getProgramLog().getEvents());
             }catch(Exception e){
-                System.out.println(e);
+                e.printStackTrace();
             }
         });
     }

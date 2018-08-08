@@ -3,10 +3,8 @@ package TransitUsers;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-
-import FareSystem.Card;
 import FareSystem.CardMachine;
-import javafx.beans.property.SimpleStringProperty;
+
 
 public class Trip implements Serializable {
 
@@ -64,7 +62,6 @@ public class Trip implements Serializable {
         Calendar d = Calendar.getInstance();
         this.starDate = d;
         addFare(fare);
-//        this.sDate.set(this.starDate.getTime().toString());
         this.customEnd = this.endDate.getTime();
     }
     /**
