@@ -139,6 +139,7 @@ public class AdminStatisticsController extends GeneralControllerScreen {
                     Calendar.getInstance().get(Calendar.YEAR));
 
         }
+        this.getTransitSystem().getProgramLog().addToLog("Total Revenue for the current Month: " + Double.toString(fare));
         monthlyRevenueLabel.setText("Total Revenue for the current Month: " + Double.toString(fare));
     }
 

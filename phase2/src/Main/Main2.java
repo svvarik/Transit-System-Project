@@ -23,15 +23,9 @@ public class Main2 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //this.transitSystem = new TransitSystem();
         TransitSystemStarter tsStart = new TransitSystemStarter();
         this.transitSystem = tsStart.getTs();
-        this.transitSystem.getProgramLog().addToLog("HI HI !!");
-   //     this.transitSystem.getCardHolders().addCardHolder("faraz","faraz", "pass", this.transitSystem);
-
-        //String mainScreen = "/GUI/AdminScreens/AdminStatistics/AdminStatisticsScene.fxml";
         String mainScreen = "/GUI/HomeScreen/MainScene.fxml";
-//String userpath = "/GUI/UserPackage/UserLogInPackage/UserLoginScreen.fxml"
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation((getClass().getResource(mainScreen)));
         Parent root = loader.load();
@@ -48,9 +42,6 @@ public class Main2 extends Application {
                 System.out.println(e);
             }
         });
-//        TransitSystemStarter tsStart = new TransitSystemStarter();
-//        tsIO = tsStart.getTransitSystemInteractions();
-
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
