@@ -56,12 +56,12 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
     public void handlePasswordButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(email);
 
         if(adminUser == null){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
-            outcomeLabel.setText(("Cardholder doesn't exist!"));
+            this.getTransitSystem().getProgramLog().addToLog("Admin User doesn't exist");
+            outcomeLabel.setText(("Admin User doesn't exist!"));
         }
         else if (!adminUser.isPassCorrect(password)){
             outcomeLabel.setTextFill(Color.web("#339900"));
@@ -72,6 +72,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
                 adminUser.setPassword(newPasswordField.getText());
             outcomeLabel.setTextFill(Color.web("#339900"));
             outcomeLabel.setText(("Password change successful!"));
+            this.getTransitSystem().getProgramLog().addToLog(adminUser.getEmail() + " Password Change Successful");
             this.currentPasswordTextField.clear();
             this.currentEmailTextField.clear();
             this.newPasswordField.clear();
@@ -86,7 +87,6 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
     public void handleNameButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
-        System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
         AdminUser adminUser = this.getTransitSystem().getAdminUsers().findAdminUser(email);
 
         if(adminUser == null){
