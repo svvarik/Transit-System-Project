@@ -31,6 +31,7 @@ public class TapManager implements Serializable {
                 c.addTrip(newTrip);
                 c.setFirstTap(false);
             }
+            c.getOwner().getTs().getProgramLog().addToLog("First Tap for: " + c.getCardID());
             return false;
         }
         if(c.getBalance() < 0){//checks if the card is suspended
@@ -40,6 +41,7 @@ public class TapManager implements Serializable {
             Double fare = c.getOwner().getTs().getFareManager().getCapFare();
             c.deductValue(fare);
             c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).setEnd(cm, fare);
+            c.getOwner().getTs().getProgramLog().addToLog("Double Entrance for: " + c.getCardID());
             return true;
         }
         if(!c.getLastCardMachineTapped().isEntrance() && !cm.isEntrance()){//checks if the card has a double exit
@@ -55,6 +57,7 @@ public class TapManager implements Serializable {
                 c.getAllTrips().get(Math.max(c.getAllTrips().size()-1, 0)).addFare(fare);
                 return false;
             }
+            c.getOwner().getTs().getProgramLog().addToLog("Double Exit for: " + c.getCardID());
         }
         return true;
     }
