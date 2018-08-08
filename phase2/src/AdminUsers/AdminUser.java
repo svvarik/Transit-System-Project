@@ -24,52 +24,89 @@ public class AdminUser implements Serializable {
         this.email = email;
     }
 
+    /**
+     * Creates Admin User
+     * @param name name of Admin User
+     * @param email email of Admin User
+     * @param password password of Admin User
+     */
     public AdminUser (String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
+    /**
+     * Returns Admin User email
+     * @return Admin User email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Returns Admin User Name
+     * @return Admin User Name
+     */
     public String getName() {
         return name;
     }
 
-
+    /**
+     * Returns Admin User Password
+     * @return Admin User Password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Sets Admin User Email
+     * @param newemail new Admin User Email
+     */
     public void setEmail(String newemail) {
         email = newemail;
     }
 
+    /**
+     * Set Admin User Name
+     * @param newname
+     */
     public void setName(String newname) {
         email = newname;
     }
 
+    /**
+     * Set Password for Admin User
+     * @param newpassword new password for Admin User
+     */
     public void setPassword(String newpassword) {
         password = newpassword;
     }
 
-
-    public double getTotalRevenue(TransitData td) {
-        return td.totalFareAmount();
-    }
-
+    /**
+     * Checks if given password is correct
+     * @param pass the password to be checked
+     * @return returns whether or not the given password is correct
+     */
     public boolean isPassCorrect(String pass){
         if (this.password != null) {
             return (this.password.equals(pass)); }
         return false;
     }
 
+    /**
+     * Bans given user
+     * @param ch user to be banned
+     */
     public void banUser(CardHolder ch){
         ch.banCardHolder(this.bannedPassword);
     }
 
+    /**
+     * unbans given user
+     * @param ch user to be unbanned
+     */
     public void unBanUser(CardHolder ch){
         ch.unBanCardHolder();
     }
