@@ -8,12 +8,10 @@ import FareSystem.TapManager;
 import TransitUsers.*;
 import TransitUsers.CardHolderList;
 import Stations.StationList;
-import sun.rmi.runtime.Log;
 
 import java.io.*;
 
 public class TransitSystem implements Serializable{
-
 
     private static final long serialVersionUID = 646745;
     /**
