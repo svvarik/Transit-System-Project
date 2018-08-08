@@ -65,30 +65,32 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
      * @param e the event that has occurred
      */
     public void handleDeleteCardButton(ActionEvent e) {
+        if (this.listOfCards.getSelectionModel().getSelectedItem() != null) {
 
-        String cardID = Integer.toString(((Card)
-                this.listOfCards.getSelectionModel().getSelectedItem()).getCardID());
+            String cardID = Integer.toString(((Card)
+                    this.listOfCards.getSelectionModel().getSelectedItem()).getCardID());
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Deleting Card");
-        alert.setHeaderText("Are you sure you want to remove this card?");
-        alert.setContentText("You are deleting card: " + cardID + ".");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Deleting Card");
+            alert.setHeaderText("Are you sure you want to remove this card?");
+            alert.setContentText("You are deleting card: " + cardID + ".");
 
-        ButtonType buttonTypeOne = new ButtonType("Remove anyways");
-        ButtonType buttonTypeTwo = new ButtonType("Yikes, no thanks!");
+            ButtonType buttonTypeOne = new ButtonType("Remove anyways");
+            ButtonType buttonTypeTwo = new ButtonType("Yikes, no thanks!");
 
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
 
-        Optional<ButtonType> result = alert.showAndWait();
+            Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.isPresent() && result.get() == buttonTypeOne) {
-            if (this.listOfCards.getSelectionModel().getSelectedItem() != null) {
-                this.getTransitSystemInteractions().removeCard(this.cardHolder, (Card)
-                        this.listOfCards.getSelectionModel().getSelectedItem());
-                this.listOfCards.setItems(this.cardHolder.getObservableCards());
+            if (result.isPresent() && result.get() == buttonTypeOne) {
+                if (this.listOfCards.getSelectionModel().getSelectedItem() != null) {
+                    this.getTransitSystemInteractions().removeCard(this.cardHolder, (Card)
+                            this.listOfCards.getSelectionModel().getSelectedItem());
+                    this.listOfCards.setItems(this.cardHolder.getObservableCards());
+                }
+            } else if (result.isPresent() && result.get() == buttonTypeTwo) {
+                alert.close();
             }
-        } else if (result.isPresent() && result.get() == buttonTypeTwo) {
-            alert.close();
         }
     }
 
@@ -98,28 +100,30 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
      * @param e the event that has occurred
      */
     public void handleSuspendCardButton(ActionEvent e){
+        if (this.listOfCards.getSelectionModel().getSelectedItem() != null) {
 
-        String cardID = Integer.toString(((Card)
-                this.listOfCards.getSelectionModel().getSelectedItem()).getCardID());
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            String cardID = Integer.toString(((Card)
+                    this.listOfCards.getSelectionModel().getSelectedItem()).getCardID());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-        alert.setTitle("Confirm Suspending Card");
-        alert.setHeaderText("Are you sure you want to suspend this card?");
-        alert.setContentText("You are suspending card: " + cardID + ".");
+            alert.setTitle("Confirm Suspending Card");
+            alert.setHeaderText("Are you sure you want to suspend this card?");
+            alert.setContentText("You are suspending card: " + cardID + ".");
 
-        ButtonType buttonTypeOne = new ButtonType("Suspend anyways");
-        ButtonType buttonTypeTwo = new ButtonType("Yikes, no thanks!");
+            ButtonType buttonTypeOne = new ButtonType("Suspend anyways");
+            ButtonType buttonTypeTwo = new ButtonType("Yikes, no thanks!");
 
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
 
-        Optional<ButtonType> result = alert.showAndWait();
+            Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.isPresent() && result.get() == buttonTypeOne) {
-            this.getTransitSystemInteractions().suspendCard((Card)
-                    this.listOfCards.getSelectionModel().getSelectedItem());
-            this.listOfCards.setItems(this.cardHolder.getObservableCards());
-        } else if (result.isPresent() && result.get() == buttonTypeTwo) {
-            alert.close();
+            if (result.isPresent() && result.get() == buttonTypeOne) {
+                this.getTransitSystemInteractions().suspendCard((Card)
+                        this.listOfCards.getSelectionModel().getSelectedItem());
+                this.listOfCards.setItems(this.cardHolder.getObservableCards());
+            } else if (result.isPresent() && result.get() == buttonTypeTwo) {
+                alert.close();
+            }
         }
     }
 
