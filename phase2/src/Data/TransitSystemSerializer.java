@@ -7,16 +7,11 @@ import java.io.*;
 import java.util.logging.*;
 
 public class TransitSystemSerializer {
-
-    private final static Logger logger  = Logger.getLogger(TransitSystem.class.getName());
-
     private static final Handler consoleHandler = new ConsoleHandler();
 
     public TransitSystemSerializer() throws ClassNotFoundException, IOException {
         // Associate the handler with the logger.
-        logger.setLevel(Level.ALL);
         consoleHandler.setLevel(Level.ALL);
-        logger.addHandler(consoleHandler);
         }
 
     public TransitSystem readFromFile(String path) throws ClassNotFoundException {
@@ -31,7 +26,6 @@ public class TransitSystemSerializer {
             input.close();
             return ts;
         } catch (IOException ex) {
-            logger.log(Level.SEVERE, "Cannot read from input.", ex);
             return null;
         }
     }
