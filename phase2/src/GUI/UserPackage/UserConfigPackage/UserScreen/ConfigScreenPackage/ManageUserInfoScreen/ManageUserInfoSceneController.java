@@ -54,14 +54,10 @@ public class ManageUserInfoSceneController extends GeneralControllerScreen {
      */
     public void handleChangeNameButton(ActionEvent e){
         if(!nameTextField.getText().isEmpty()){
-            this.cardHolder.setName(nameTextField.getText());
+            this.getTransitSystemInteractions().changeName(this.getTransitSystem(), this.cardHolder, this.nameTextField.getText());
             outComeLabel.setTextFill(Color.GREEN);
             outComeLabel.setText("Name Changed!");
-        }else{
-            outComeLabel.setTextFill(Color.RED);
-            outComeLabel.setText("Invalid Name");
         }
-
     }
 
     /**
@@ -71,7 +67,7 @@ public class ManageUserInfoSceneController extends GeneralControllerScreen {
     public void handleChangePasswordButton(ActionEvent e){
         if(cardHolder.isPassCorrect(oldPasswordTextField.getText())){
             if(!newPasswordTextField.getText().isEmpty()){
-                cardHolder.setPassword(newPasswordTextField.getText());
+                this.getTransitSystemInteractions().changePassword(this.getTransitSystem(), this.cardHolder, this.oldPasswordTextField.getText());
                 outComeLabel.setTextFill(Color.GREEN);
                 outComeLabel.setText("Password Changed!");
             }else{
