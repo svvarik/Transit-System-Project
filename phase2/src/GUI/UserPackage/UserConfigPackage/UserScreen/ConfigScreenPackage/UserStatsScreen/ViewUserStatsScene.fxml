@@ -17,6 +17,6 @@
           <NumberAxis label="Fare" side="LEFT" fx:id="xAxis" />
         </yAxis>
       </LineChart>
-      <Label fx:id="totalMonthlyFareLabel" layoutX="21.0" layoutY="345.0" prefHeight="36.0" prefWidth="235.0" />
+      <Label fx:id="totalMonthlyFareLabel" layoutX="21.0" layoutY="345.0" prefHeight="36.0" prefWidth="235.0" wrapText="true" />
    </children>
 </Pane>
