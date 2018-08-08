@@ -50,6 +50,7 @@ public class AddValueScreenController extends GeneralControllerScreen implements
      */
     public void handleAddFive(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 5);
+        this.getTransitSystem().getProgramLog().addToLog("$5 added to cardID: " + selectedCard.getCardID());
         Stage stage = (Stage) addFive.getScene().getWindow();
         stage.close();
     }
@@ -60,6 +61,8 @@ public class AddValueScreenController extends GeneralControllerScreen implements
      */
     public void handleAddTen(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 10);
+        this.getTransitSystem().getProgramLog().addToLog("$10 added to cardID: " + selectedCard.getCardID());
+
         Stage stage = (Stage) addTen.getScene().getWindow();
         stage.close();
     }
@@ -70,6 +73,7 @@ public class AddValueScreenController extends GeneralControllerScreen implements
      */
     public void handleAddFifteen(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 15);
+        this.getTransitSystem().getProgramLog().addToLog("$15 added to cardID: " + selectedCard.getCardID());
         Stage stage = (Stage) addFifteen.getScene().getWindow();
         stage.close();
     }
@@ -80,6 +84,7 @@ public class AddValueScreenController extends GeneralControllerScreen implements
      */
     public void handleAddTwenty(){
         this.getTransitSystemInteractions().addToBalance(this.selectedCard, 20);
+        this.getTransitSystem().getProgramLog().addToLog("$20 added to cardID: " + selectedCard.getCardID());
         Stage stage = (Stage) addTwenty.getScene().getWindow();
         stage.close();
     }
@@ -109,6 +114,7 @@ public class AddValueScreenController extends GeneralControllerScreen implements
                 Optional<ButtonType> result = alert.showAndWait();
 
                 if (result.isPresent() && result.get() == buttonTypeOne) {
+                    this.getTransitSystem().getProgramLog().addToLog("$" + amount + " added to cardID: " + selectedCard.getCardID());
                     this.getTransitSystemInteractions().addToBalance(this.selectedCard, amount);
                 } else {
                     alert.close();
