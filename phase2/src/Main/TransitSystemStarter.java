@@ -40,7 +40,7 @@ public class TransitSystemStarter {
             TransitSystem newTS = new TransitSystem();
 
             newTS.getCardHolders().addCardHolder("HAL", "HAL@mail.com", "hi", newTS);
-            newTS.getCardHolders().addCardHolder("Dave", "Dave@mail.com", newTS);
+            newTS.getCardHolders().addCardHolder("Dave", "Dave@mail.com", "hi", newTS);
             newTS.getAdminUsers().addAdminUser("Sai", "Sai@gmail.com", "gg");
 
             CardHolder hal = newTS.getCardHolders().findCardHolder("HAL@mail.com");
