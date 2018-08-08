@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +19,10 @@ import java.util.ResourceBundle;
  * the class for view trip history controller
  */
 public class ViewTripHistorySceneController extends GeneralControllerScreen{
+
+    @FXML
+    Label userName;
+
     @FXML
     Button backButton;
 
@@ -78,6 +83,7 @@ public class ViewTripHistorySceneController extends GeneralControllerScreen{
     public void setUpController(Object obj) throws ClassCastException{
         CardHolder ch = (CardHolder) obj;
         cardHolder = ch;
+        userName.setText(this.cardHolder.getEmail());
         initialize();
     }
 }

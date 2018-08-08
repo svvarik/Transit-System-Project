@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../StyleSheets/manageCardsScreen.css"  xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageCardsScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../StyleSheets/manageCardsScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserPackage.UserConfigPackage.UserScreen.ConfigScreenPackage.ManageCardsScreen.ManageCardsScreenController">
    <children>
       <Button id="backButton" fx:id="backButton" layoutX="44.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <Button id="regButton" fx:id="addCardButton" layoutX="77.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddCardButton" text="Add Card" textFill="WHITE" />
@@ -18,6 +18,9 @@
          <font>
             <Font name="Arial" size="16.0" />
          </font></Label>
-      <Label fx:id="userLabel" layoutX="465.0" layoutY="24.0" prefHeight="17.0" prefWidth="105.0" />
+      <Label fx:id="userLabel" layoutX="418.0" layoutY="19.0" prefHeight="26.0" prefWidth="125.0" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>
