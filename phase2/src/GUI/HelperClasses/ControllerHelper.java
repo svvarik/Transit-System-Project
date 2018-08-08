@@ -12,12 +12,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Controllerhelper helps the controllers to chnage among themselves and bring up other controllers/screens
+ * This class is a helper class that makes switching screens more efficient and easily done in the
+ * controller files.
  */
 public class ControllerHelper {
 
     /**
-     * This method changes the screen without any objects beside the transitSystem to it
+     * This method returns a new root, given an FXML file, and loads the root's controllers
+     * with the required setup methods.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to.
      * @param model the transitSystem we want to assign to the destination controller
      * @return returns the parent screen
@@ -38,7 +41,9 @@ public class ControllerHelper {
     }
 
     /**
-     * This method changes the screen with possiblity of passing an object to the new screen
+     * This method returns a new root, given an FXML file, and loads the root's controllers
+     * with the required setup methods, including an object.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to
      * @param model the transitSystem we want to assign to the destination controller
      * @param object the object we want to assign to the new controller
@@ -60,7 +65,8 @@ public class ControllerHelper {
     }
 
     /**
-     * Opens a new window only with a TransitSystem
+     * This method opens a new window, passing over a TransitSystem model.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to
      * @param model the transitSystem we want to assign to the destination controller
      * @param event the event which has occurred
@@ -71,7 +77,8 @@ public class ControllerHelper {
     }
 
     /**
-     * Opens a new window  with a TransitSystem and an extra object
+     * This method switches scenes, passing over a TransitSystem model and an Object.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to
      * @param model the transitSystem we want to assign to the destination controller
      * @param event the event which has occurred
@@ -83,7 +90,8 @@ public class ControllerHelper {
     }
 
     /**
-     * Opens a new window with a TransitSystem and an extra Object
+     * This method opens a new window, passing over a TransitSystem model and an Object.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to
      * @param model the transitSystem we want to assign to the destination controller
      * @param title the screen's title
@@ -95,7 +103,8 @@ public class ControllerHelper {
     }
 
     /**
-     * Opens a new with a TransitSystem only
+     * This method opens a new window, only passing over a TransitSystem model.
+     *
      * @param fxmlResource the path of the fxml file we need to switch to
      * @param model the transitSystem we want to assign to the destination controller
      * @param title the screen's title
@@ -106,7 +115,8 @@ public class ControllerHelper {
     }
 
     /**
-     * it sets the destination  when we want to open a new window
+     * This method creates a new Stage and sets the given root to the stage.
+     *
      * @param root the scene to be sat
      * @param title the title of the new screen
      */
@@ -117,7 +127,8 @@ public class ControllerHelper {
         stage.show();
     }
     /**
-     * it sets the destination  when we want to open in the same window
+     * This method sets the stage of the given event to the given root.
+     *
      * @param root the scene to be sat
      * @param event the event that has occured
      */
