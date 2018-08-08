@@ -17,25 +17,6 @@ import java.io.IOException;
 public class ControllerHelper {
 
     /**
-     * changes the same window into a new screen.
-     * @param event the event that has occured
-     * @param fxmlResource the path of the fxml file we need to switch to.
-     */
-    public void switchScreens(ActionEvent event, String fxmlResource){
-        try {
-            Parent newParent = FXMLLoader.load((getClass().getResource(fxmlResource)));
-            Scene newScene = new Scene(newParent);
-
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(newScene);
-            window.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * This method changes the screen without any objects beside the transitSystem to it
      * @param fxmlResource the path of the fxml file we need to switch to.
      * @param model the transitSystem we want to assign to the destination controller

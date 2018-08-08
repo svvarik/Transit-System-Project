@@ -72,6 +72,9 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
                 adminUser.setPassword(newPasswordField.getText());
             outcomeLabel.setTextFill(Color.web("#339900"));
             outcomeLabel.setText(("Password change successful!"));
+            this.currentPasswordTextField.clear();
+            this.currentEmailTextField.clear();
+            this.newPasswordField.clear();
         }
 
     }
@@ -80,7 +83,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
      * Handles changing the email
      * @param e The event when the button is clicked
      */
-    public void handleEmailButton(ActionEvent e){
+    public void handleNameButton(ActionEvent e){
         String email = currentEmailTextField.getText();
         String password = currentPasswordTextField.getText();
         System.out.println("The current transit system in " + this.getClass() + " is " + this.getTransitSystem());
@@ -88,7 +91,7 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
 
         if(adminUser == null){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
-            outcomeLabel.setText(("Cardholder doesn't exist!"));
+            outcomeLabel.setText(("Admin User doesn't exist!"));
         }
         else if (!adminUser.isPassCorrect(password)){
             outcomeLabel.setTextFill(Color.web("#FF0000"));
@@ -99,6 +102,10 @@ public class AdminChangeInfoController extends GeneralControllerScreen {
                 adminUser.setName(newNameTextField.getText());
                 outcomeLabel.setTextFill(Color.web("#339900"));
                 outcomeLabel.setText(("Name change successful!"));
+                this.currentEmailTextField.clear();
+                this.currentPasswordTextField.clear();
+                this.newNameTextField.clear();
+
             }
         }
     }

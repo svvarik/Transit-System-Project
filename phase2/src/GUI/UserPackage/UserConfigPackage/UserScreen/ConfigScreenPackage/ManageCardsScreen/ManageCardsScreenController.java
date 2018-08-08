@@ -128,10 +128,12 @@ public class ManageCardsScreenController extends GeneralControllerScreen{
      * handles add value button
      * @param e the event that has occurred
      */
-    public void handleAddValueButton(ActionEvent e){
+    public void handleAddValueButton(ActionEvent e) {
         Card selectedCard = (Card) this.listOfCards.getSelectionModel().getSelectedItem();
-        String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/AddValueScreen/AddValueScreen.fxml";
-        this.getControllerHelper().openNewWindow(dest, this.getTransitSystem(), "Add Balance", selectedCard);
+        if (selectedCard != null) {
+            String dest = "/GUI/UserPackage/UserConfigPackage/UserScreen/ConfigScreenPackage/ManageCardsScreen/AddValueScreen/AddValueScreen.fxml";
+            this.getControllerHelper().openNewWindow(dest, this.getTransitSystem(), "Add Balance", selectedCard);
+        }
     }
 
     /**

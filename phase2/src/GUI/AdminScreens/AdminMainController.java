@@ -12,6 +12,9 @@ public class AdminMainController extends GeneralControllerScreen {
     private AdminUser adminUser;
 
     @FXML
+    Button backButton;
+
+    @FXML
     private Button changeAccountInfo;
 
     @FXML
