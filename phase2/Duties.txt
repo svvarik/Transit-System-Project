@@ -12,6 +12,19 @@
 
 ==Yatharth==
 Created and implements User Stats screen and graphs
+Created and implemented User Screens like ViewTripHistory
+Worked on Tap Screen
+Help with Admin Stats and Login
+Debugging
+
+==Sai Vinay=
+Worked with css and fxml files.
+Helped implement gift features.
+Created classes to switch screens etc.
+Helped with logging slightly.
+Helped with multiple controllers.
+DID OTHER STUFF BUT NO TIME TO WRITE>
+SAME WITH GUY ABOVE,.
 
 
 ==Aleashea==
